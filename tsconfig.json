@@ -18,6 +18,7 @@
       "dom"
     ],
     "paths": {
+      "@libs/*": ["projects/*"],
       "midgard": [
         "dist/midgard"
       ],
