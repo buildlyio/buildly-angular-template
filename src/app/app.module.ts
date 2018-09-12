@@ -7,7 +7,7 @@ import { MidgardModule } from '@libs/midgard/src/lib/midgard.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent // just a wrapper that will intiate the app
   ],
   imports: [
     BrowserModule,
