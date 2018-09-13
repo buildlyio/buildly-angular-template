@@ -1,6 +1,6 @@
 {
   "name": "midgard-schematics",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -9,7 +9,7 @@
   "keywords": [
     "schematics"
   ],
-  "author": "",
+  "author": "Aziz Haddad",
   "license": "MIT",
   "schematics": "./src/collection.json",
   "dependencies": {
