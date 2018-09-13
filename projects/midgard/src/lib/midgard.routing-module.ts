@@ -6,7 +6,7 @@ import { WorkflowLevel1Component } from '@libs/midgard/src/lib/pages/workflow-le
 import { WorkflowLevel2Component } from '@libs/midgard/src/lib/pages/workflow-level2/workflow-level2.component';
 import { UserComponent } from '@libs/midgard/src/lib/pages/user/user.component';
 
-const appRoutes: Routes = [
+const midgardRoutes: Routes = [
   {
     path: '', component: MidgardComponent, children: [
       {path: 'login', component: LoginComponent},
@@ -17,4 +17,4 @@ const appRoutes: Routes = [
   }
 ];
 
-export const MidgardRoutingModule = RouterModule.forRoot(appRoutes);
+export const MidgardRoutingModule = RouterModule.forRoot(midgardRoutes);

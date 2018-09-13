@@ -6,10 +6,11 @@ import { WorkflowLevel2Component } from './pages/workflow-level2/workflow-level2
 import { UserComponent } from './pages/user/user.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
 
 @NgModule({
   imports: [
-    MidgardRoutingModule
+    MidgardRoutingModule,
   ],
   declarations: [
       MidgardComponent,
@@ -17,7 +18,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
       WorkflowLevel2Component,
       UserComponent,
       LoginComponent,
-      NavBarComponent
+      NavBarComponent,
+      TopBarComponent
   ],
   exports: [MidgardComponent]
 })
