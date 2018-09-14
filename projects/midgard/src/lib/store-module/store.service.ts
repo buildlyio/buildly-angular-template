@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import core from 'midgard-core';
-import { midgardReducer } from 'projects/midgard/src/lib/state/midgard.reducer';
 import { Store } from '@libs/midgard/src/lib/store-module/types/store';
-import { MidgardState } from '@libs/midgard/src/lib/state/midgard-state.model';
+import { MidgardState } from '@libs/midgard/src/lib/state/midgard.model';
 
 @Injectable()
 export class StoreService {
 
-  store: Store<MidgardState>;
+  private store: Store<any>;
 
   /**
-   * @description configures redux in the core and return the store instance
+   * @description configures redux in the core with our app reducers and return the store instance
+   * @param reducers - our app reducers in an object
    * @returns {Store}
    */
-  configureStore(): Store<MidgardState> {
-    this.store = core.configureStore(midgardReducer);
+  configureStore(reducers): Store<any> {
+    const combinedReducers = core.combineReducers(reducers); // combine the reducers to one reducer that can be used when creating the store
+    this.store = core.configureStore(combinedReducers);
     return this.store;
   }
 

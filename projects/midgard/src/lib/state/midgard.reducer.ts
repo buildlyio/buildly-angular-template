@@ -1,11 +1,11 @@
-import { MidgardState } from '@libs/midgard/src/lib/state/midgard-state.model';
+import { MidgardState } from '@libs/midgard/src/lib/state/midgard.model';
 import { LOAD_DATA_WORKFLOWLEVEL1, LOAD_DATA_WORKFLOWLEVEL2 } from '@libs/midgard/src/lib/state/midgard.actions';
 
 const initialState: MidgardState = {
   workflowLevel1: [],
   workflowLevel2: [],
   dataLoaded: false
-}
+};
 
 export function midgardReducer(state = initialState, action) {
   switch (action.type) {
