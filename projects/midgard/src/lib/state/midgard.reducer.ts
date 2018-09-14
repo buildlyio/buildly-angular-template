@@ -1,4 +1,4 @@
-import { MidgardState } from '@libs/midgard/src/lib/state/midgard.model';
+import { MidgardState } from '@libs/midgard/src/lib/state/midgard-state.model';
 import { LOAD_DATA_WORKFLOWLEVEL1, LOAD_DATA_WORKFLOWLEVEL2 } from '@libs/midgard/src/lib/state/midgard.actions';
 
 const initialState: MidgardState = {
