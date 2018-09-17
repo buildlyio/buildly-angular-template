@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import core from 'midgard-core';
+import { redux } from 'midgard-core';
 import { Store } from '@libs/midgard/src/lib/store-module/types/store';
 import { MidgardState } from '@libs/midgard/src/lib/state/midgard.model';
 
@@ -14,16 +14,9 @@ export class StoreService {
    * @returns {Store}
    */
   configureStore(reducers): Store<any> {
-    const combinedReducers = core.combineReducers(reducers); // combine the reducers to one reducer that can be used when creating the store
-    this.store = core.configureStore(combinedReducers);
+    const combinedReducers = redux.combineReducers(reducers); // combine the reducers to one reducer that can be used when creating the store
+    this.store = redux.createStore(combinedReducers);
     return this.store;
-  }
-
-  /**
-   * @description gets the current app redux state
-   */
-  getState() {
-    return this.store.getState();
   }
 
   /**
