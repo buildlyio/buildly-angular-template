@@ -1,10 +1,10 @@
 import {
-  LOAD_DATA_WORKFLOWLEVEL1, LOAD_DATA_WORKFLOWLEVEL1_COMMIT, loadWorkflowLevel1DataCommit, loadWorkflowLevel1DataFail
+  LOAD_DATA_WORKFLOWLEVEL1, loadWorkflowLevel1DataCommit, loadWorkflowLevel1DataFail
 } from '@libs/midgard/src/lib/state/midgard.actions';
 import { HttpService } from '@libs/midgard/src/lib/modules/http-module/http.service';
 import { ofType } from 'redux-observable';
 import { switchMap } from 'rxjs/operators';
-import { catchError, delay, map, mapTo } from 'rxjs/internal/operators';
+import { catchError, map } from 'rxjs/internal/operators';
 import { of } from 'rxjs';
 
 export const loadWorkflowLevel1DataEpic = action$ => {
