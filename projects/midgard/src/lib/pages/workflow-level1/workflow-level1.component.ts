@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { StoreService } from '@libs/midgard/src/lib/store-module/store.service';
+import { StoreService } from '@libs/midgard/src/lib/modules/store-module/store.service';
 import { loadWorkflowLevel1Data } from '@libs/midgard/src/lib/state/midgard.actions';
-import { Store } from '@libs/midgard/src/lib/store-module/types/store';
-import { HttpService } from '@libs/midgard/src/lib/http-module/http.service';
+import { Store } from '@libs/midgard/src/lib/modules/store-module/types/store';
+import { HttpService } from '@libs/midgard/src/lib/modules/http-module/http.service';
 
 @Component({
   selector: 'mg-workflow-level1',
@@ -18,7 +18,7 @@ export class WorkflowLevel1Component implements OnInit {
   ngOnInit() {
     this.store = this.storeService.getInstance(); // get the store instance
     console.log(this.store);
-    this.store.dispatch(loadWorkflowLevel1Data([{id: 1 , name: 'best program', }]));
+    this.store.dispatch(loadWorkflowLevel1Data());
     console.log(this.store.getState()); // yay state is changed
 
     this.httpService.makeRequest('get', 'https://dev.toladata.io/api/workflowlevel1/').subscribe( data => {

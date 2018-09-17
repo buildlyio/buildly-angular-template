@@ -7,8 +7,8 @@ import { UserComponent } from './pages/user/user.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
-import { MigardStoreModule } from '@libs/midgard/src/lib/store-module/store.module';
-import { MidgardHttpModule } from '@libs/midgard/src/lib/http-module/http.module';
+import { MigardStoreModule } from '@libs/midgard/src/lib/modules/store-module/store.module';
+import { MidgardHttpModule } from '@libs/midgard/src/lib/modules/http-module/http.module';
 
 @NgModule({
   imports: [
