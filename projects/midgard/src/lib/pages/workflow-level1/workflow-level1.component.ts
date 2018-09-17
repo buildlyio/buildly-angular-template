@@ -13,17 +13,12 @@ export class WorkflowLevel1Component implements OnInit {
 
   private store: Store<any>;
 
-  constructor(private storeService: StoreService, private httpService: HttpService) { }
+  constructor(
+    private storeService: StoreService,
+  ) { }
 
   ngOnInit() {
     this.store = this.storeService.getInstance(); // get the store instance
-    console.log(this.store);
     this.store.dispatch(loadWorkflowLevel1Data());
-    console.log(this.store.getState()); // yay state is changed
-
-    this.httpService.makeRequest('get', 'https://dev.toladata.io/api/workflowlevel1/').subscribe( data => {
-      console.log(data);
-    }); // test http client from core
-
   }
 }

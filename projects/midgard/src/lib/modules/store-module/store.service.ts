@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { redux } from 'midgard-core';
 import { MidgardState } from 'projects/midgard/src/lib/state/midgard.model';
 import { Store } from '@libs/midgard/src/lib/modules/store-module/types/store';
-import { combineEpics, createEpicMiddleware } from 'redux-observable';
+import { createEpicMiddleware } from 'redux-observable';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 
 @Injectable()
 export class StoreService {
@@ -16,10 +18,12 @@ export class StoreService {
    */
   configureStore(combinedReducers, combinedEpics): Store<any> {
     const epicMiddleware = createEpicMiddleware(); // create an instance of redux-observable middleware
-
     this.store = redux.createStore(
-      combinedReducers,
-      redux.applyMiddleware(epicMiddleware)
+    combinedReducers,
+      composeWithDevTools(
+        redux.applyMiddleware(epicMiddleware),
+        // other store enhancers if any
+      )
     );
 
     epicMiddleware.run(combinedEpics); // activate redux observable-epics
