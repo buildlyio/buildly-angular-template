@@ -58,14 +58,13 @@ export const getObservableStore = (store: Store<any>): Observable<any> => {
  * @description a function that returns a stream of a portion of the state
  * @param {string} reducer - the reducer of the state to be selected
  * @param {string} key - key of which value will be returned
+ * @param {string} oldState - the state before changes happen
  * @returns {<T>(source: Observable<T>) => Observable<T>}
  */
-export const select = (reducer: string, key: string) => <T>(source: Observable<T>) =>
+export const select = (reducer: string, key: string, oldState) => <T>(source: Observable<T>) =>
   new Observable<T>(observer => {
     return source.subscribe({
       next(state: any) {
-        const store = new Store();
-        const oldState = store.getState();
         // just emit value when the state of the selected property is changed
         if (state[reducer][key] !== oldState[reducer][key]) {
           observer.next(state[reducer][key]);
