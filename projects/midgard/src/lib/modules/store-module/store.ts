@@ -63,7 +63,6 @@ export const getObservableStore = (store: Store<any>): Observable<any> => {
  */
 export const select = (reducer: string, key: string, oldState) => <T>(source: Observable<T>) =>
   new Observable<T>(observer => {
-    console.log(source);
     return source.subscribe({
       next(state: any) {
         // emit value only when the state of the selected property is changed
