@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { http } from 'midgard-core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { retry } from 'rxjs/internal/operators';
 
 @Injectable()
 export class HttpService {
@@ -20,6 +21,7 @@ export class HttpService {
       headers: headers,
     };
     return http.request(url, options).pipe(
+      retry(3),
       catchError((error) => this.handleError(error))
     );
   }

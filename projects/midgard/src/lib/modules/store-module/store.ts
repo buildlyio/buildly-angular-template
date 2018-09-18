@@ -36,3 +36,44 @@ export class Store<T> extends Observable<T> {
   dispatch: (action: any) => {};
   getState: () => any;
 }
+
+/**
+ * @description get an observable version of the redux store
+ * @param {Store<any>} store - the redux store to be converted to observable
+ * @returns {Observable<any>}
+ */
+export const getObservableStore = (store: Store<any>): Observable<any> => {
+  return Observable.create(observer => {
+    observer.next(store.getState()); // emits the inital value
+
+    const dispose = store.subscribe(() => {
+      observer.next(store.getState());
+    });
+    return dispose; // teardown function to unsubscribe to the observable
+  });
+};
+
+
+/**
+ * @description a function that returns a stream of a portion of the state
+ * @param {string} reducer - the reducer of the state to be selected
+ * @param {string} key - key of which value will be returned
+ * @returns {<T>(source: Observable<T>) => Observable<T>}
+ */
+export const select = (reducer: string, key: string) => <T>(source: Observable<T>) =>
+  new Observable<T>(observer => {
+    return source.subscribe({
+      next(state: any) {
+        const store = new Store();
+        const oldState = store.getState();
+        // just emit value when the state of the selected property is changed
+        if (state[reducer][key] !== oldState[reducer][key]) {
+          observer.next(state[reducer][key]);
+        }
+      },
+      error(err) { observer.error(err); },
+      complete() { observer.complete(); }
+    });
+  });
+
+

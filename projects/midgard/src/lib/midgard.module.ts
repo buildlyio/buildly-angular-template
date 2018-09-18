@@ -9,9 +9,11 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { MigardStoreModule } from '@libs/midgard/src/lib/modules/store-module/store.module';
 import { MidgardHttpModule } from '@libs/midgard/src/lib/modules/http-module/http.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
+    CommonModule,
     MidgardRoutingModule,
     MigardStoreModule.forRoot(),
     MidgardHttpModule.forRoot()
