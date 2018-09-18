@@ -26,7 +26,7 @@ export class StoreService {
       )
     );
 
-    epicMiddleware.run(combinedEpics); // activate redux observable-epics
+    epicMiddleware.run(combinedEpics); // activate redux-observable epics
 
     return this.store;
   }

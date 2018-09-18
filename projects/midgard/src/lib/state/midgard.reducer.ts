@@ -1,7 +1,7 @@
 import { MidgardState } from '@libs/midgard/src/lib/state/midgard.model';
 import {
-  LOAD_DATA_WORKFLOWLEVEL1, LOAD_DATA_WORKFLOWLEVEL1_COMMIT,
-  LOAD_DATA_WORKFLOWLEVEL2
+  LOAD_DATA_WORKFLOWLEVEL1_COMMIT,
+  LOAD_DATA_WORKFLOWLEVEL2_COMMIT
 } from '@libs/midgard/src/lib/state/midgard.actions';
 
 const initialState: MidgardState = {
@@ -13,15 +13,13 @@ const initialState: MidgardState = {
 export function midgardReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_DATA_WORKFLOWLEVEL1_COMMIT:
-      console.log('I am in the reducer')
       return Object.assign({}, state, {
         workflowLevel1: action.data,
-        workflowLevel2: [],
         dataLoaded: true
       });
-    case LOAD_DATA_WORKFLOWLEVEL2:
+
+    case LOAD_DATA_WORKFLOWLEVEL2_COMMIT:
       return Object.assign({}, state, {
-        workflowLevel1: [],
         workflowLevel2: action.data,
         dataLoaded: true
       });
