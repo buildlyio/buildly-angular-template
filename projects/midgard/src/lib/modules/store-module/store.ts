@@ -38,7 +38,7 @@ export class Store<T> extends Observable<T> {
 }
 
 /**
- * @description get an observable version of the redux store
+ * @description coverts redux store to an Observable
  * @param {Store<any>} store - the redux store to be converted to observable
  * @returns {Observable<any>}
  */
@@ -58,14 +58,15 @@ export const getObservableStore = (store: Store<any>): Observable<any> => {
  * @description a function that returns a stream of a portion of the state
  * @param {string} reducer - the reducer of the state to be selected
  * @param {string} key - key of which value will be returned
- * @param {string} oldState - the state before changes happen
+ * @param {object} oldState - the state before changes happen
  * @returns {<T>(source: Observable<T>) => Observable<T>}
  */
 export const select = (reducer: string, key: string, oldState) => <T>(source: Observable<T>) =>
   new Observable<T>(observer => {
+    console.log(source);
     return source.subscribe({
       next(state: any) {
-        // just emit value when the state of the selected property is changed
+        // emit value only when the state of the selected property is changed
         if (state[reducer][key] !== oldState[reducer][key]) {
           observer.next(state[reducer][key]);
         }

@@ -16,7 +16,9 @@ export class WorkflowLevel2Component implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadWorkflowLevel2Data());
-    getObservableStore(this.store).pipe(select('midgardReducer', 'workflowLevel2', this.store.getState())).subscribe( (data: any) => {
+    getObservableStore(this.store).pipe(
+      select('midgardReducer', 'workflowLevel2', this.store.getState())
+    ).subscribe( (data: WorkflowLevel2[]) => {
       this.workflowLevel2s = data;
     });
   }
