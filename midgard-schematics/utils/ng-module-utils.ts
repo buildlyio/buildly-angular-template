@@ -33,7 +33,7 @@ function createAddToModuleContext(host: Tree, options: ModuleOptions): AddToModu
   const sourceText = text.toString('utf-8');
   result.source = ts.createSourceFile(options.module, sourceText, ts.ScriptTarget.Latest, true);
 
-  result.relativePath = `@libs/${options.name}/src/lib/${options.name}.module.ts`
+  result.relativePath = `@libs/${options.name}/src/lib/${options.name}.module.ts`;
 
   result.classifiedName = stringUtils.classify(`${options.name}Module`);
 

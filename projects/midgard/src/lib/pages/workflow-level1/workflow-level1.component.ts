@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getObservableStore, select, Store } from '@libs/midgard/src/lib/modules/store-module/store';
+import { select, Store } from '@libs/midgard/src/lib/modules/store-module/store';
 import { loadWorkflowLevel1Data } from '@libs/midgard/src/lib/state/midgard.actions';
 import { WorkflowLevel1 } from '@libs/midgard/src/lib/pages/workflow-level1/state/workflow-level1.model';
 
@@ -17,8 +17,8 @@ export class WorkflowLevel1Component implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadWorkflowLevel1Data());
-    getObservableStore(this.store).pipe(
-      select('midgardReducer', 'workflowLevel1', this.store.getState())
+    this.store.observable.pipe(
+      select('midgardReducer', 'workflowLevel1')
     ).subscribe( (data: WorkflowLevel1[]) => {
       this.workflowLevel1s = data;
     });
