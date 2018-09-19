@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { getObservableStore, select, Store } from '@libs/midgard/src/lib/modules/store-module/store';
-import { loadWorkflowLevel2Data } from '@libs/midgard/src/lib/state/midgard.actions';
+import { select, Store } from '@libs/midgard/src/lib/modules/store-module/store';
 import { WorkflowLevel2 } from '@libs/midgard/src/lib/pages/workflow-level2/state/workflow-level2.model';
+import { WorkflowLevel1 } from '@libs/midgard/src/lib/pages/workflow-level1/state/workflow-level1.model';
+import { loadWorkflowLevel2Data } from '@libs/midgard/src/lib/state/midgard.actions';
 
 @Component({
   selector: 'mg-workflow-level2',
@@ -16,9 +17,9 @@ export class WorkflowLevel2Component implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadWorkflowLevel2Data());
-    getObservableStore(this.store).pipe(
-      select('midgardReducer', 'workflowLevel2', this.store.getState())
-    ).subscribe( (data: WorkflowLevel2[]) => {
+    this.store.observable.pipe(
+      select('midgardReducer', 'workflowLevel2')
+    ).subscribe( (data: WorkflowLevel1[]) => {
       this.workflowLevel2s = data;
     });
   }
