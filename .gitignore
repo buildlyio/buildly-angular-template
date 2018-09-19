@@ -7,8 +7,7 @@
 
 # dependencies
 /node_modules
-/projects/midgard/node_modules
-/projects/contacts/node_modules
+/projects/
 
 
 # IDEs and editors
