@@ -42,7 +42,6 @@ describe( 'Store', () => {
 
   it('select operator should return portion of the state on subscribing to it', (done) => {
     store.observable.pipe(select('midgardReducer', 'workflowLevel1')).subscribe( data => {
-      console.log(data);
       expect(data).toBeDefined();
       expect(data).toEqual({name: 'test name'});
       done();
