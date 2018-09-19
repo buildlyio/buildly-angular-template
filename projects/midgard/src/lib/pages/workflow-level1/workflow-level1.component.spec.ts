@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WorkflowLevel1Component } from './workflow-level1.component';
+import { MigardStoreModule } from '@libs/midgard/src/lib/modules/store-module/store.module';
 
 describe('WorkflowLevel1Component', () => {
   let component: WorkflowLevel1Component;
@@ -8,7 +9,8 @@ describe('WorkflowLevel1Component', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WorkflowLevel1Component ]
+      imports: [MigardStoreModule.forRoot()],
+      declarations: [ WorkflowLevel1Component ],
     })
     .compileComponents();
   }));
