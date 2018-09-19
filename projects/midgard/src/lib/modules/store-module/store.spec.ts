@@ -1,6 +1,7 @@
-import { Store } from '@libs/midgard/src/lib/modules/store-module/store';
+import { select, Store } from '@libs/midgard/src/lib/modules/store-module/store';
 import { Observable } from 'rxjs';
 import { redux } from 'midgard-core';
+import { loadWorkflowLevel1DataCommit } from '@libs/midgard/src/lib/state/midgard.actions';
 
 let store;
 
@@ -33,5 +34,19 @@ describe( 'Store', () => {
 
   it('should call createStore', () => {
     expect(redux.createStore).toHaveBeenCalled();
+  });
+
+  it('select operator should return an observable', () => {
+    expect(store.observable.pipe(select('midgardReducer', 'workflowLevel1'))).toEqual(jasmine.any(Observable));
+  });
+
+  it('select operator should return portion of the state on subscribing to it', (done) => {
+    store.observable.pipe(select('midgardReducer', 'workflowLevel1')).subscribe( data => {
+      console.log(data);
+      expect(data).toBeDefined();
+      expect(data).toEqual({name: 'test name'});
+      done();
+    });
+    store.dispatch(loadWorkflowLevel1DataCommit({name: 'test name'}));
   });
 });
