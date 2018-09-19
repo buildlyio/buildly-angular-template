@@ -21,7 +21,7 @@ export class Store<T> extends Observable<T> {
       midgardEpics
       // add other modules epics here
     ];
-    const combinedReducers = redux.combineReducers(reducers); // combine the reducers to one reducer that can be used when creating the store
+    const combinedReducers = redux.combineReducers(reducers); // combine the reducers to a reducer that can be used when creating the store
     const combinedEpics = combineEpics(...epics); // combine redux-observable epics
     const epicMiddleware = createEpicMiddleware(); // create an instance of redux-observable middleware
     const store = redux.createStore(

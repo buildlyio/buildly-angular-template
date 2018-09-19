@@ -9,8 +9,6 @@ export class MidgardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
 }
