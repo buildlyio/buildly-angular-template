@@ -122,78 +122,38 @@
         }
       }
     },
-    "midgard": {
-      "root": "projects/midgard",
-      "sourceRoot": "projects/midgard/src",
+    "midgard-angular": {
+      "root": "projects/midgard-angular",
+      "sourceRoot": "projects/midgard-angular/src",
       "projectType": "library",
       "prefix": "mg",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/midgard/tsconfig.lib.json",
-            "project": "projects/midgard/ng-package.json"
+            "tsConfig": "projects/midgard-angular/tsconfig.lib.json",
+            "project": "projects/midgard-angular/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/midgard/ng-package.prod.json"
+              "project": "projects/midgard-angular/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/midgard/src/test.ts",
-            "tsConfig": "projects/midgard/tsconfig.spec.json",
-            "karmaConfig": "projects/midgard/karma.conf.js"
+            "main": "projects/midgard-angular/src/test.ts",
+            "tsConfig": "projects/midgard-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/midgard-angular/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/midgard/tsconfig.lib.json",
-              "projects/midgard/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "contacts": {
-      "root": "projects/contacts",
-      "sourceRoot": "projects/contacts/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/contacts/tsconfig.lib.json",
-            "project": "projects/contacts/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/contacts/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/contacts/src/test.ts",
-            "tsConfig": "projects/contacts/tsconfig.spec.json",
-            "karmaConfig": "projects/contacts/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/contacts/tsconfig.lib.json",
-              "projects/contacts/tsconfig.spec.json"
+              "projects/midgard-angular/tsconfig.lib.json",
+              "projects/midgard-angular/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
