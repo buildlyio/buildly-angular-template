@@ -1,0 +1,9 @@
+{
+  "modules": [
+    {
+      "name": "contacts",
+      "url": "git@github.com:Humanitec/midgard-contacts.git",
+      "commitId": "123sad12"
+    }
+  ]
+}
