@@ -11,8 +11,8 @@ import { MidgardModule } from '@libs/midgard-angular/src/lib/midgard.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     MidgardModule, // imports midgard module which is our entry point
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

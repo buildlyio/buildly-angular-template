@@ -28,11 +28,9 @@
         "dist/midgard/*"
       ],
       "contacts": [
-        "dist/contacts",
         "dist/contacts"
       ],
       "contacts/*": [
-        "dist/contacts/*",
         "dist/contacts/*"
       ]
     }
