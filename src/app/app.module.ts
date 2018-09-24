@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app.routing-module';
-import { MidgardModule } from '@libs/midgard-angular/src/lib/midgard.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +10,6 @@ import { MidgardModule } from '@libs/midgard-angular/src/lib/midgard.module';
   ],
   imports: [
     BrowserModule,
-    MidgardModule, // imports midgard module which is our entry point
     AppRoutingModule,
   ],
   providers: [],

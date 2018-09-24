@@ -7,5 +7,10 @@
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
+  ],
+  "include": [
+    "**/*",
+    "../projects/midgard-angular/src/lib/midgard.module.ts",
+    "../projects/contacts/src/lib/contacts.module.ts"
   ]
 }
