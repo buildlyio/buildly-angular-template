@@ -22,16 +22,10 @@
         "projects/*"
       ],
       "midgard": [
-        "dist/midgard"
+        "dist/midgard-angular"
       ],
       "midgard/*": [
-        "dist/midgard/*"
-      ],
-      "contacts": [
-        "dist/contacts"
-      ],
-      "contacts/*": [
-        "dist/contacts/*"
+        "dist/midgard-angular/*"
       ]
     }
   }
