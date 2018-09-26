@@ -21,10 +21,10 @@
       "@libs/*": [
         "projects/*"
       ],
-      "midgard": [
+      "midgard-angular": [
         "dist/midgard-angular"
       ],
-      "midgard/*": [
+      "midgard-angular/*": [
         "dist/midgard-angular/*"
       ]
     }

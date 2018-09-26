@@ -23,8 +23,14 @@
     "@angular/platform-browser": "^6.1.8",
     "@angular/platform-browser-dynamic": "^6.1.8",
     "@angular/router": "^6.1.8",
-    "core-js": "^2.5.4",
-    "rxjs": "^6.0.0",
+    "apollo-angular": "^1.2.0",
+    "apollo-angular-link-http": "^1.2.0",
+    "apollo-cache-inmemory": "^1.2.9",
+    "apollo-client": "^2.4.1",
+    "core-js": "^2.5.7",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
+    "rxjs": "^6.3.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
