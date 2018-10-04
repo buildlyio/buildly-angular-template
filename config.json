@@ -4,6 +4,11 @@
       "name": "contacts",
       "url": "git@github.com:Humanitec/midgard-contacts.git",
       "commitId": "123sad12"
+    },
+    {
+      "name": "projects",
+      "url": "git@github.com:Humanitec/midgard-contacts.git",
+      "commitId": "234ba5f0"
     }
   ]
 }
