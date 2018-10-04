@@ -166,7 +166,7 @@
       "root": "projects/freyja",
       "sourceRoot": "projects/freyja/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "freyja",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
