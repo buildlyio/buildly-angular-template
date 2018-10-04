@@ -8,9 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "init": "gulp modules:init --gulpfile node_modules/midgard-schematics/lib/gulpfile.js --cwd ./",
-    "schematics": "gulp schematics --gulpfile node_modules/midgard-schematics/lib/gulpfile.js",
-    "import-modules": "npm run init && npm run schematics"
+    "init": "gulp init --gulpfile node_modules/midgard-schematics/lib/gulpfile.js --cwd ./"
   },
   "private": true,
   "dependencies": {
