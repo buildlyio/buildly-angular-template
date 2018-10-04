@@ -27,6 +27,12 @@
       ],
       "midgard-angular/*": [
         "dist/midgard-angular/*"
+      ],
+      "freyja": [
+        "dist/freyja"
+      ],
+      "freyja/*": [
+        "dist/freyja/*"
       ]
     }
   }
