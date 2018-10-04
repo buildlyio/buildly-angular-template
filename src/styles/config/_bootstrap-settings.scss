@@ -1,0 +1,112 @@
+// Start with assigning color names to specific hex values.
+$red: $red !default;
+$orange: $red !default;
+$green: $green !default;
+$blue: $blue !default;
+$theme-colors: (
+  primary: $color-primary,
+  secondary: $color-secondary,
+  success: $color-success,
+  info: $color-info,
+  warning: $color-warning,
+  danger: $color-danger,
+  light: $color-light,
+  dark: $color-dark) !default;
+// Body
+$body-bg: $body-bg-color !default;
+$body-color: $gray !default;
+// Navbar
+$navbar-padding-x: 0 !default;
+$navbar-padding-y: 0 !default;
+$navbar-light-color: $dark-blue-darker !default;
+$navbar-light-hover-color: $dark-blue-darker !default;
+$navbar-light-active-color: $dark-blue-darker !default;
+$navbar-light-disabled-color: $dark-blue-lighter !default;
+$navbar-dark-color: $white !default;
+$navbar-dark-hover-color: $white !default;
+$navbar-dark-active-color: $dark-blue-darker !default;
+$navbar-dark-disabled-color: $dark-blue-lighter !default;
+// Navs
+$nav-link-padding-y: rem-calc(13) !default;
+$nav-link-padding-x: rem-calc(25) !default;
+$nav-tabs-border-radius: 0 !default;
+$nav-tabs-border-color: $border-color-default !default;
+$nav-pills-border-radius: 0 !default;
+$nav-tabs-link-hover-border-color: $border-color-default !default;
+$nav-tabs-active-link-hover-color: $dark-blue-darker !default;
+$nav-tabs-link-active-bg: $white !default;
+// Typography
+$link-color: $blue-very-dark  !default;
+$headings-color: $dark-blue-darker !default;
+// Components
+$border-radius: 0 !default;
+$border-radius-lg: 0 !default;
+$border-radius-sm: 0 !default;
+// Buttons
+$btn-padding-x: 1rem !default;
+$btn-padding-y: .5rem !default;
+$btn-line-height: 1.25 !default;
+$btn-border-radius: 0 !default;
+$input-btn-focus-box-shadow:  none !default;
+$btn-box-shadow:              none !default;
+$btn-active-box-shadow:       none !default;
+
+// Cards
+$card-spacer-x: rem-calc(20) !default;
+$card-spacer-y: rem-calc(20) !default;
+$card-cap-bg: $white !default;
+$card-border-width: 0 !default;
+// Dropdowns
+$dropdown-margin-top: rem-calc(4) !default;
+$dropdown-border-color: $border-color-default !default;
+
+// Tooltips
+$tooltip-max-width:                 200px !default;
+$tooltip-color:                     $gray !default;
+$tooltip-bg:                        $white !default;
+$tooltip-opacity:                   .9 !default;
+$tooltip-padding-y:                 3px !default;
+$tooltip-padding-x:                 8px !default;
+$tooltip-margin:                    0 !default;
+
+
+$tooltip-arrow-width:               5px !default;
+$tooltip-arrow-height:              5px !default;
+$tooltip-arrow-color:               $dark-blue !default;
+
+// $zindex-tooltip: 2 !default;
+// Forms
+$form-check-margin-bottom: 0 !default;
+$custom-control-indicator-size: rem-calc(17) !default;
+$custom-control-focus-indicator-box-shadow: none !default;
+$custom-control-indicator-bg: #fff !default;
+
+$custom-select-height-lg:           rem-calc(20);
+$custom-select-height-lg:           rem-calc(20);
+
+// Modals
+//$modal-content-border-color:     rgba($black,.125) !default;
+$modal-content-border-color: rgba($dark-blue, 0.71);
+$modal-content-border-width: 0 !default;
+$modal-backdrop-bg: $black !default;
+$modal-backdrop-opacity: .25 !default;
+$progress-height: rem-calc(10) !default;
+$progress-bg: $gray-200 !default;
+$progress-border-radius: 0 !default;
+$progress-bar-bg: theme-color("primary") !default;
+// List group
+$list-group-border-color: $gray-lighter !default;
+$list-group-border-radius: 0 !default;
+$list-group-item-padding-y: .75rem !default;
+$list-group-item-padding-x: 1.25rem !default;
+// Popover
+$popover-bg: $gray-very-light !default;
+$popover-max-width: 276px !default;
+$popover-border-color: $gray-light;
+$popover-fallback-border-color: #ccc !default;
+$popover-title-bg: darken($popover-bg, 3%) !default;
+$popover-arrow-width: 10px !default;
+$popover-arrow-color: $popover-bg !default;
+$popover-arrow-outer-width: ($popover-arrow-width + 1) !default;
+$popover-arrow-outer-color: fade_in($popover-border-color, 0.05) !default;
+$popover-arrow-outer-fallback-color: darken($popover-fallback-border-color, 20%) !default;

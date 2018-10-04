@@ -1,0 +1,80 @@
+// Color Palette
+$white: #fff;
+$black: #000;
+
+$orange: #FFA21D;
+$green: #34bfa3;
+$dark-blue: #404F5E;
+$blue: #36a3f7;
+$red: #f4516c;
+$yellow: #ffc300;
+
+// Gray Scale
+$gray-dark: #222;
+$gray: #333333;
+$gray-medium-dark: #706e6b;
+$gray-medium: #8B8D9B;
+$gray-light: #9B9B9B;
+$gray-lighter: #dfdfdf;
+$gray-very-light: #F5F5F5;
+$gray-very-lighter: #ececec;
+
+// Color Varations
+$orange-very-dark: #F5A623;
+$orange-darker: #E8A81F;
+$orange-lighter: #FFBE36;
+$orange-very-light: #FFF4E5;
+$dark-blue-darker: #3B4856;
+$dark-blue-medium-darker: #41505F;
+$dark-blue-lighter: #515F6C;
+$green-darker: #30AE95;
+$green-lighter: #46C4AB;
+$blue-very-dark : #285E87;
+$blue-darker: #3295E1;
+$blue-darkest: #123946;
+$blue-lighter: #48ABF7;
+$blue-very-light: #f4fbfe;
+$red-darker: #DE4A63;
+$red-lighter: #F56079;
+$red-very-light: #FFDDD8;
+$yellow-darker: #E8B200;
+$yellow-lighter: #FFCD2E;
+$yellow-very-light: #F1EEE8;
+$black-very-light: #2b2826;
+
+// Bootstrap Defaults Variables
+$color-primary: $orange;
+$color-secondary: $gray-medium;
+$color-success: $green;
+$color-info: $blue;
+$color-warning: $yellow;
+$color-danger: $red ;
+$color-light: $gray-very-light;
+$color-dark: $gray;
+
+// Component Colors
+$body-bg-color: $gray-very-light;
+$navbar-bg: $gray-very-light;
+$navbar-brand-bg: $orange;
+$sidebar-bg: $dark-blue;
+$sidebar-color: #EAECED;
+$hor-menu-bg: $dark-blue;
+$hor-menu-color: $white;
+$top-header-bg: $white;
+$top-header-color: $dark-blue;
+$border-color-default: $gray-very-light;
+$radius-default: 3px;
+$card-headings: $white;
+
+$container-fluid-max-width: rem-calc(1440);
+
+// Margins
+$global-margin: rem-calc(28);
+$global-padding: rem-calc(28);
+$spacing: rem-calc(15);
+
+// Progress bars
+$progress-bg:                   white !default;
+$progress-bar-bg:               $dark-blue-darker !default;
+
+$defaultTransition: all .2s;

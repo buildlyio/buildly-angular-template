@@ -1,0 +1,13 @@
+@function cLighten($color) {
+  $new-color: desaturate($color, 1%);
+  $new-color:    lighten($new-color, 7.5%);
+
+  @return $new-color;
+}
+
+@function cDarken($color) {
+  $new-color: desaturate($color, 24%);
+  $new-color:    darken($new-color, 9.4%);
+
+  @return $new-color;
+}
