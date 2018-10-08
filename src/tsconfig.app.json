@@ -10,6 +10,8 @@
   ],
   "include": [
     "**/*",
-    "../projects/midgard-angular/src/lib/midgard.module.ts"
+    "../projects/midgard-angular/src/lib/midgard.module.ts",
+    "../projects/contacts/src/lib/contacts.module.ts",
+    "../projects/products/src/lib/products.module.ts"
   ]
 }

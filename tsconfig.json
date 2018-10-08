@@ -33,6 +33,12 @@
       ],
       "freyja/*": [
         "dist/freyja/*"
+      ],
+      "contacts": [
+        "dist/contacts"
+      ],
+      "products": [
+        "dist/products"
       ]
     }
   }

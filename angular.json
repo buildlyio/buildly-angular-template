@@ -201,6 +201,80 @@
           }
         }
       }
+    },
+    "contacts": {
+      "root": "projects/contacts",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "projects/contacts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/contacts/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/contacts/src/test.ts",
+            "tsConfig": "projects/contacts/tsconfig.spec.json",
+            "karmaConfig": "projects/contacts/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/contacts/tsconfig.lint.json",
+              "projects/contacts/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "products": {
+      "root": "projects/products",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "projects/products/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/products/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/products/src/test.ts",
+            "tsConfig": "projects/products/tsconfig.spec.json",
+            "karmaConfig": "projects/products/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/products/tsconfig.lint.json",
+              "projects/products/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "midgard-app"
