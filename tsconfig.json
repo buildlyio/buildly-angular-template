@@ -39,6 +39,12 @@
       ],
       "products": [
         "dist/products"
+      ],
+      "styleguide": [
+        "dist/styleguide"
+      ],
+      "styleguide/*": [
+        "dist/styleguide/*"
       ]
     }
   }
