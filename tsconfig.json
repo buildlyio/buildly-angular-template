@@ -19,6 +19,9 @@
       "esnext.asynciterable"
     ],
     "paths": {
+      "@env/*": [
+        "src/environments/*"
+      ],
       "@libs/*": [
         "projects/*"
       ],
