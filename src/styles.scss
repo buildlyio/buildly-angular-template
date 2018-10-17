@@ -1,2 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import "styles/global";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+$main-color: #0c5593;
+$danger-color: red;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+.main-button {
+  background-color: $main-color !important;
+  color: white;
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.cancel-button {
+  background-color: $danger-color !important;
+  color: white;
+  &:disabled {
+    opacity: 0.5;
+  }
+}

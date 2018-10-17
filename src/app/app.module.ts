@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MidgardModule } from '@libs/midgard-angular/src/lib/midgard.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { MidgardModule } from '@libs/midgard-angular/src/lib/midgard.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MidgardModule
+    MidgardModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
