@@ -3,7 +3,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 $main-color: #0c5593;
-$danger-color: red;
+$danger-color: #DD0000;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
@@ -12,7 +12,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   background-color: $main-color !important;
   color: white;
   &:disabled {
-    opacity: 0.5;
+    color: white !important;
   }
 }
 
