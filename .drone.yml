@@ -1,0 +1,37 @@
+---
+pipeline:
+
+  test:
+    image: node:9.9.0
+    commands:
+      - npm install
+    when:
+      event: [push, tag]
+
+  build:
+    image: node:9.9.0
+    commands:
+      - npm install
+      - npm run build --prod
+    when:
+      event: [push, tag]
+
+  build-docker-image:
+    image: plugins/docker
+    insecure: true
+    registry: registry.tola.io
+    repo: registry.tola.io/humanitec/walhall-sample-angular-app
+    file: Dockerfile
+    auto_tag: true
+    secrets: [DOCKER_USERNAME, DOCKER_PASSWORD]
+    when:
+      event: [tag]
+      status: [success]
+
+  notify:
+    image: plugins/slack
+    channel: drone-ci
+    username: Drone-CI
+    secrets: [SLACK_WEBHOOK]
+    when:
+      status: [failure]
