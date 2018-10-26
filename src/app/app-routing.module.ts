@@ -5,6 +5,7 @@ import { LoginComponent } from '@libs/midgard-angular/src/lib/pages/login/login.
 
 const appRoutes: Routes = [
   // The entry point is the midgard library
+  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
 ];
 

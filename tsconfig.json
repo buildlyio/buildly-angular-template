@@ -48,6 +48,12 @@
       ],
       "styleguide/*": [
         "dist/styleguide/*"
+      ],
+      "documents": [
+        "dist/documents"
+      ],
+      "documents/*": [
+        "dist/documents/*"
       ]
     }
   }

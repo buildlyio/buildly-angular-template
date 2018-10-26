@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "coverage-midgard": "ng test midgard-angular --watch=false --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "init": "gulp init --gulpfile node_modules/midgard-schematics/lib/gulpfile.js --cwd ./",
