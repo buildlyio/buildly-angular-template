@@ -5,7 +5,7 @@ pipeline:
     image: plugins/npm
     token: [NPM_TOKEN]
     email: engine@humanitec.com
-    registry:https://npm.fury.io/humanitec/
+    registry: https://npm.fury.io/humanitec/
     when:
       event: [push, tag]
       status: [success]
