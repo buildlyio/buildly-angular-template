@@ -1,17 +1,17 @@
 ---
 pipeline:
 
-  test:
-    image: node:9.9.0
-    commands:
-      - npm install
+  npm:
+    image: plugins/npm
+    token: [NPM_TOKEN]
+    email: engine@humanitec.com
     when:
       event: [push, tag]
+      status: [success]
 
   build:
     image: node:9.9.0
     commands:
-      - npm install
       - npm run build --prod
     when:
       event: [push, tag]
