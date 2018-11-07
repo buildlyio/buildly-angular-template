@@ -11,6 +11,7 @@ pipeline:
     commands:
       - cat .npmrc
       - npm whoami
+      - npm adduser
       - npm install
       - npm run init
     when:
