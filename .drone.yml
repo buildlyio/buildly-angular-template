@@ -1,15 +1,10 @@
 ---
 pipeline:
 
-  npm:
-    image: plugins/npm
-    username: [NPM_USERNAME]
-    password: [NPM_PASSWORD]
-    email: engine@humanitec.com
+  npm_auth:
+    image: robertstettner/drone-npm-auth
+    secret: [NPM_USERNAME, NPM_PASSWORD, NPM_EMAIL]
     registry: https://npm.fury.io/humanitec/
-    when:
-      event: [push, tag]
-      status: [success]
 
   build:
     image: node:9.9.0
