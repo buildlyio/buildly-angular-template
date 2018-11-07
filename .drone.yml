@@ -3,7 +3,7 @@ pipeline:
 
   npm_auth:
     image: robertstettner/drone-npm-auth
-    secret: [NPM_USERNAME, NPM_PASSWORD, NPM_EMAIL]
+    secrets: [NPM_USERNAME, NPM_PASSWORD, NPM_EMAIL]
     registry: https://npm.fury.io/humanitec/
 
   build:
