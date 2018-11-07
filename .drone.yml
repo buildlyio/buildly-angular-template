@@ -3,7 +3,8 @@ pipeline:
 
   npm:
     image: plugins/npm
-    token: [NPM_TOKEN]
+    username: [NPM_USERNAME]
+    password: [NPM_PASSWORD]
     email: engine@humanitec.com
     registry: https://npm.fury.io/humanitec/
     when:
