@@ -10,7 +10,7 @@ pipeline:
     image: node:9.9.0
     commands:
       - cat .npmrc
-      - npm adduser
+      - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
       - npm whoami
       - npm install
       - npm run init
