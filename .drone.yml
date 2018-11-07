@@ -10,8 +10,8 @@ pipeline:
     image: node:9.9.0
     commands:
       - cat .npmrc
-      - npm whoami
       - npm adduser
+      - npm whoami
       - npm install
       - npm run init
     when:
