@@ -7,8 +7,7 @@ pipeline:
       - npm install npm-login-cmd --no-save
     secrets: [NPM_USER, NPM_PASS, NPM_EMAIL]
     environment:
-      NPM_USER:
-        from_secret: NPM_USER
+      NPM_USER: [NPM_USER]
       NPM_PASS:
         from_secret: NPM_PASS
       NPM_EMAIL:
