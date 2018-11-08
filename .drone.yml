@@ -7,8 +7,10 @@ pipeline:
       - npm install npm-login-cmd --no-save
       - npm config set registry https://npm-proxy.fury.io/$${NPM_TOKEN}/$${NPM_USER}/
       - npm config set always-auth
+      - npm config set ca //npm-proxy.fury.io/$${NPM_TOKEN}/$${NPM_USER}/:_authToken=$${NPM_TOKEN}
       - npx npm-login-cmd
       - npm config list
+      - ls /root/.npmrc
       - npm install
       - npm run init
     secrets: [NPM_USER, NPM_PASS, NPM_EMAIL, NPM_TOKEN]
