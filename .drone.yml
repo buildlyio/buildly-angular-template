@@ -7,7 +7,6 @@ pipeline:
       - npm install npm-login-cmd --no-save
       - npm config set registry https://npm-proxy.fury.io/$${NPM_USER}/
       - npx npm-login-cmd
-      - npm whoami
       - npm install
       - npm run init
     secrets: [NPM_USER, NPM_PASS, NPM_EMAIL]
