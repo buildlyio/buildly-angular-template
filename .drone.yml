@@ -6,12 +6,9 @@ pipeline:
     commands:
       - npm install npm-login-cmd --no-save
     environment:
-      NPM_USER:
-        from_secret: npm_user
-      NPM_PASS:
-        from_secret: npm_pass
-      NPM_EMAIL:
-        from_secret: npm_email
+      NPM_USER: [npm_user]
+      NPM_PASS: [npm_pass]
+      NPM_EMAIL: [npm_email]
     when:
       event: [push, tag]
 
