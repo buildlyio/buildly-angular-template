@@ -17,6 +17,7 @@ pipeline:
   install:
     image: node:9.9.0
     commands:
+      - cat .npmrc
       - npm install
       - npm run init
     when:
