@@ -9,7 +9,7 @@ pipeline:
       - npm config set always-auth
       - npx npm-login-cmd
       - npm config list
-      - npm install
+      - npm install --registry https://npm-proxy.fury.io/$${NPM_USER}/
       - npm run init
     secrets: [NPM_USER, NPM_PASS, NPM_EMAIL]
     when:
