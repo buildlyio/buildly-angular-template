@@ -6,6 +6,7 @@ pipeline:
     commands:
       - npm install npm-login-cmd --no-save
       - npm config set registry https://npm-proxy.fury.io/$${NPM_USER}/
+      - npm config set always-auth
       - npx npm-login-cmd
       - cat .npmrc
       - npm install
