@@ -5,10 +5,8 @@ pipeline:
     image: node:9.9.0
     commands:
       - npm install npm-login-cmd --no-save
-      - npm config set registry https://npm-proxy.fury.io/$${NPM_TOKEN}/$${NPM_USER}/
+      - npm config set registry https://npm-proxy.fury.io/$${NPM_TOKEN}/humanitec/
       - npm config set always-auth
-      - echo "ca=" >> /root/.npmrc
-      - echo "//npm-proxy.fury.io/$${NPM_TOKEN}/$${NPM_USER}/:_authToken=$${NPM_TOKEN}" >> /root/.npmrc
       - npx npm-login-cmd
       - npm config list
       - cat /root/.npmrc
