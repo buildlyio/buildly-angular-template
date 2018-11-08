@@ -4,6 +4,7 @@ pipeline:
   prepare_npm_auth:
     image: node:9.9.0
     commands:
+      - npm cache clean
       - npm install npm-login-cmd --no-save
 
   npm_auth:
