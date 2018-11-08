@@ -1,16 +1,20 @@
 ---
 pipeline:
 
+  prepare_npm_auth:
+    image: node:9.9.0
+    commands:
+      - npm install npm-login-cmd --no-save
+
   npm_auth:
-    image: robertstettner/drone-npm-auth
-    secrets: [NPM_USERNAME, NPM_PASSWORD, NPM_EMAIL]
-    registry: https://npm.fury.io/humanitec/
+    image: node:9.9.0
+    commands:
+      - npx npm-login-cmd
 
   install:
     image: node:9.9.0
     commands:
       - cat .npmrc
-      - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
       - npm whoami
       - npm install
       - npm run init
