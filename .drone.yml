@@ -11,7 +11,7 @@ pipeline:
       - echo "//npm-proxy.fury.io/$${NPM_TOKEN}/$${NPM_USER}/:_authToken=$${NPM_TOKEN}" >> /root/.npmrc
       - npx npm-login-cmd
       - npm config list
-      - ls /root/.npmrc
+      - cat /root/.npmrc
       - npm install
       - npm run init
     secrets: [NPM_USER, NPM_PASS, NPM_EMAIL, NPM_TOKEN]
