@@ -1,25 +1,18 @@
 ---
 pipeline:
 
-  prepare_npm_auth:
+  install:
     image: node:9.9.0
     commands:
       - npm install npm-login-cmd --no-save
       - npm config set registry https://npm-proxy.fury.io/$${NPM_USER}/
       - npx npm-login-cmd
-    secrets: [NPM_USER, NPM_PASS, NPM_EMAIL]
-    when:
-      event: [push, tag]
-
-  install:
-    image: node:9.9.0
-    commands:
       - npm whoami
       - npm install
       - npm run init
+    secrets: [NPM_USER, NPM_PASS, NPM_EMAIL]
     when:
       event: [push, tag]
-      status: [success]
 
   build:
     image: node:9.9.0
