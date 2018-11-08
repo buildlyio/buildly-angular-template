@@ -5,14 +5,11 @@ pipeline:
     image: node:9.9.0
     commands:
       - npm install npm-login-cmd --no-save
-    when:
-      event: [push, tag]
-
-  npm_auth:
-    image: node:9.9.0
-    commands:
+      - npm config set registry [NPM_USER]
       - npx npm-login-cmd
     secrets: [NPM_USER, NPM_PASS, NPM_EMAIL]
+    when:
+      event: [push, tag]
 
   install:
     image: node:9.9.0
