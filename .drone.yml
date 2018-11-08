@@ -4,7 +4,6 @@ pipeline:
   prepare_npm_auth:
     image: node:9.9.0
     commands:
-      - npm cache verify
       - npm install npm-login-cmd --no-save
 
   npm_auth:
@@ -15,8 +14,6 @@ pipeline:
   install:
     image: node:9.9.0
     commands:
-      - cat .npmrc
-      - npm whoami
       - npm install
       - npm run init
     when:
