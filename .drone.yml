@@ -5,7 +5,6 @@ pipeline:
     image: node:9.9.0
     commands:
       - npm install npm-login-cmd --no-save
-    secrets: [NPM_USER, NPM_PASS, NPM_EMAIL]
     when:
       event: [push, tag]
 
@@ -13,6 +12,7 @@ pipeline:
     image: node:9.9.0
     commands:
       - npx npm-login-cmd
+    secrets: [NPM_USER, NPM_PASS, NPM_EMAIL]
 
   install:
     image: node:9.9.0
