@@ -4,7 +4,7 @@ pipeline:
   install:
     image: node:9.9.0
     commands:
-      - ssh-add - <<< "${SSH_PRIVATE_KEY}"
+      - bash --version
       - npm install npm-login-cmd -g
       - npm install gulp-cli -g
       - npm config set registry https://npm-proxy.fury.io/$${NPM_TOKEN}/humanitec/
