@@ -10,7 +10,8 @@ pipeline:
       - echo $${SSH_PUBLIC_KEY} > /root/.ssh/id_rsa.pub
       - cat /root/.ssh/id_rsa.pub
       - cat /root/.ssh/id_rsa
-      - chmod 600 /root/.ssh/id_rsa*
+      - ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
+      - chmod 600 /root/.ssh/*
       - npm install npm-login-cmd -g
       - npm install gulp-cli -g
       - npm config set registry https://npm-proxy.fury.io/$${NPM_TOKEN}/humanitec/
