@@ -4,7 +4,6 @@ pipeline:
   install:
     image: node:9.9.0
     commands:
-      - eval "$(ssh-agent -s)"
       - mkdir -p /root/.ssh
       - echo $${SSH_KEY} > /root/.ssh/id_rsa
       - echo $${SSH_PUBLIC_KEY} > /root/.ssh/id_rsa.pub
