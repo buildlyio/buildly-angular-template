@@ -78,3 +78,76 @@ $progress-bg:                   white !default;
 $progress-bar-bg:               $dark-blue-darker !default;
 
 $defaultTransition: all .2s;
+
+
+// Kupfer variables TO BE DELETED ONCE WE HAVE FREJYA
+
+// Color Palette
+$orange: #FFA21D;
+$green: #0C9E5D;
+$dark-blue: #41505F;
+$blue: #36A2F7;
+$red: #DC342D;
+$yellow: #ffc300;
+
+
+// Gray Scale
+$gray-dark: #222;
+$gray: #333333;
+$gray-medium-dark: #706e6b;
+$gray-medium: #8B8D9B;
+$gray-light: #9B9B9B;
+$gray-lighter: #dfdfdf;
+$gray-very-light: #F5F5F5;
+
+// Bootstrap Defaults Variables
+$primary: $orange;
+$color-primary: $orange;
+$color-secondary: $gray-medium;
+$color-success: $green;
+$color-info: $blue;
+$color-warning: $yellow;
+$color-danger: $red ;
+$color-light: $gray-light;
+$color-dark: $gray-dark;
+
+// Component Colors
+$body-bg-color: $gray-very-light;
+$navbar-bg: $gray-very-light;
+$navbar-brand-bg: $orange;
+$sidebar-bg: $dark-blue;
+$sidebar-color: $white;
+$hor-menu-bg: $dark-blue;
+$hor-menu-color: $white;
+$top-header-bg: $dark-blue;
+$top-header-color: rgba($white, .6);
+
+// Progress bars
+$progress-bg: white !default;
+$progress-bar-bg: $dark-blue-darker !default;
+
+
+// Color Varations
+$orange-darker: #D18518;
+$orange-lighter: #FFAB41;
+$orange-very-light: #FFF4E5;
+
+$navy-darker: #0B607D;
+$navy-lighter: #0B607D;
+
+$dark-blue-darker : #074054;
+$dark-blue-lighter : #576471;
+
+$blue-lighter: #3DBEE9;
+$blue-very-light: #f4fbfe;
+
+$green-darker: #0A7F4B;
+$green-lighter: #0EBD6F;
+
+$red-darker: #BD2D27;
+$red-lighter: #FB3B33;
+$red-very-light: #FFDDD8;
+
+$yellow-darker: #E8B200;
+$yellow-lighter: #FFCD2E;
+
