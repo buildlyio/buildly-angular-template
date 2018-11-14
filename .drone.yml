@@ -1,20 +1,35 @@
 ---
 pipeline:
 
-  test:
+  install:
     image: node:9.9.0
     commands:
+      - eval "$(ssh-agent -s)"
+      - mkdir -p /root/.ssh
+      - echo $${SSH_KEY} > /root/.ssh/id_rsa
+      - echo $${SSH_PUBLIC_KEY} > /root/.ssh/id_rsa.pub
+      - ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
+      - chmod 600 /root/.ssh/id_rsa*
+      - ssh-keygen -p -P  -N "" -f ~/.ssh/id_rsa
+      - ssh-add -k /root/.ssh/id_rsa
+      - npm install npm-login-cmd -g
+      - npm install gulp-cli -g
+      - npm config set registry https://npm-proxy.fury.io/$${NPM_TOKEN}/humanitec/
+      - npm config set always-auth
+      - npx npm-login-cmd
       - npm install
+      - npm run init
+    secrets: [NPM_USER, NPM_PASS, NPM_EMAIL, NPM_TOKEN, SSH_KEY, SSH_PUBLIC_KEY]
     when:
       event: [push, tag]
 
   build:
     image: node:9.9.0
     commands:
-      - npm install
       - npm run build --prod
     when:
       event: [push, tag]
+      status: [success]
 
   build-docker-image:
     image: plugins/docker
