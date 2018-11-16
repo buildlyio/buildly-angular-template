@@ -30,6 +30,14 @@ pipeline:
       event: [push, tag]
       status: [success]
 
+  test:
+    image: node:9.9.0
+    commands:
+      - npm run test-headless
+    when:
+      event: [push, tag]
+      status: [success]
+
   build-docker-image:
     image: plugins/docker
     insecure: true
@@ -39,7 +47,7 @@ pipeline:
     auto_tag: true
     secrets: [DOCKER_USERNAME, DOCKER_PASSWORD]
     when:
-      event: [tag]
+      event: [push, tag]
       status: [success]
 
   notify:
