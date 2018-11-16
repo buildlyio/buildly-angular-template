@@ -1,13 +1,12 @@
 {
-  "name": "midgard-app",
+  "name": "walhall-sample-angular-app",
   "version": "0.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
-    "coverage-midgard": "ng test midgard-angular --watch=false --code-coverage",
+    "test": "ng test walhall-sample-angular-app --browsers=Chrome --singleRun=false --autoWatch=true",
+    "test-headless": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "init": "gulp init --gulpfile node_modules/midgard-schematics/lib/gulpfile.js --cwd ./",
