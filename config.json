@@ -1,8 +1,8 @@
 {
   "modules": [
     {
-      "name": "contacts",
-      "url": "git@github.com:Humanitec/midgard-contacts.git",
+      "name": "documents",
+      "url": "git@github.com:Humanitec/midgard-documents.git",
       "commitId": "123sad12",
       "config": {
         "parentComponentPath": "",
