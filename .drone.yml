@@ -4,13 +4,13 @@ pipeline:
   install:
     image: node:9.9.0
     commands:
+      - eval "$(ssh-agent -s)"
       - mkdir -p /root/.ssh
-      - echo $${SSH_KEY} > /root/.ssh/id_rsa
-      - echo $${SSH_PUBLIC_KEY} > /root/.ssh/id_rsa.pub
+      - echo "$${SSH_KEY}\n" > /root/.ssh/id_rsa
+      - echo "$${SSH_PUBLIC_KEY}\n" > /root/.ssh/id_rsa.pub
       - ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
       - chmod 600 /root/.ssh/id_rsa*
-      - echo "Host github.com" >> /root/.ssh/config
-      - echo "  IdentityFile ~/.ssh/id_rsa" >> /root/.ssh/config
+      - ssh-add -k /root/.ssh/id_rsa
       - npm install npm-login-cmd -g
       - npm install gulp-cli -g
       - npm config set registry https://npm-proxy.fury.io/$${NPM_TOKEN}/humanitec/
