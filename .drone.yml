@@ -9,6 +9,7 @@ pipeline:
       - echo $${SSH_PUBLIC_KEY} > /root/.ssh/id_rsa.pub
       - ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
       - chmod 600 /root/.ssh/id_rsa*
+      - echo "BatchMode yes" >> /root/.ssh/config
       - echo "Host github.com" >> /root/.ssh/config
       - echo "  IdentityFile ~/.ssh/id_rsa" >> /root/.ssh/config
       - ssh -vvv git@github.com
