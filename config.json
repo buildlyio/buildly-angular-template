@@ -3,12 +3,20 @@
     {
       "name": "contacts",
       "url": "git@github.com:Humanitec/midgard-contacts.git",
-      "commitId": "123sad12"
+      "commitId": "123sad12",
+      "config": {
+        "parentComponentPath": "",
+        "entryComponent": ""
+      }
     },
     {
       "name": "products",
       "url": "git@github.com:Humanitec/midgard-products.git",
-      "commitId": "234ba5f0"
+      "commitId": "234ba5f0",
+      "config": {
+        "parentComponentPath": "",
+        "entryComponent": ""
+      }
     }
   ]
 }
