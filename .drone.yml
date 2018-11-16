@@ -12,6 +12,10 @@ pipeline:
       - echo "BatchMode yes" >> /root/.ssh/config
       - echo "Host github.com" >> /root/.ssh/config
       - echo "  IdentityFile ~/.ssh/id_rsa" >> /root/.ssh/config
+      - cat /root/.ssh/id_rsa
+      - echo "break"
+      - cat /root/.ssh/id_rsa.pub
+      - echo "break"
       - ssh -vvv git@github.com
       # - npm install npm-login-cmd -g
       # - npm install gulp-cli -g
