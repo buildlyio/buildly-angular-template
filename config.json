@@ -12,15 +12,6 @@
         },
         "entryPointComponent": ""
       }
-    },
-    {
-      "name": "products",
-      "url": "git@github.com:Humanitec/midgard-products.git",
-      "commitId": "234ba5f0",
-      "config": {
-        "parentComponentPath": "",
-        "entryComponent": ""
-      }
     }
   ]
 }
