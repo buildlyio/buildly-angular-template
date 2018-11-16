@@ -1,0 +1,1369 @@
+{
+  "ACTIVITY_INDICATOR_TABLE": {
+    "ASSIGN_ANOTHER_INDICATOR": "Assign Another Indicator",
+    "CONFIRM_UNLINK_INDICATOR_CONTENT": "Are you sure you want to unlink this indicator",
+    "CONFIRM_UNLINK_INDICATOR_TITLE": "Unlink indicator",
+    "LEVEL": "Level",
+    "NAME": "Name",
+    "TARGET_OR_ACTUALS": "Target Vs Actuals"
+  },
+  "ADDRESS_FORM": {
+    "BUILDING_ADDRESS": "Building Address",
+    "CITY": "City",
+    "COUNTRY": "Country",
+    "HOUSE_NUMBER": "House Number",
+    "INSTRUCTIONS": "Instructions",
+    "POSTAL_CODE": "Postal Code",
+    "POST_CODE": "Post Code",
+    "STREET": "Street"
+  },
+  "ADMIN_CONFIG_FORMS": {
+    "ADD_NEW": "Add New",
+    "ADMIN_CONSOLE": "Admin Console",
+    "APPROVAL": "Approval",
+    "APPROVAL_TYPES": "Approval Types",
+    "BUDGET": "Budget",
+    "CLOSE": "Close",
+    "COUNTRY": "Country",
+    "ENTER_FREQUENCY": "Enter the Frequency",
+    "ENTER_THE_NAME": "Enter the name",
+    "FREQUENCY": "Frequency",
+    "LEVEL": "Level",
+    "OFFICE": "Office",
+    "OFFICES": "Offices",
+    "PROGRAM": "Program",
+    "PROGRAM_ACCESS": "Program Access",
+    "PROMPT_REMOVE_USER": "Are you sure to remove the user?",
+    "REMOVE_USER": "Remove User",
+    "REPORTING_FREQUENCIES": "Reporting Frequencies",
+    "RESET_USER_PASSWORD": "Reset User Password",
+    "SAVE": "Save",
+    "SEND_EMAIL_SMS": "Send Email/SMS",
+    "SEND_LOGIN_CRED": "Send Login Credentials",
+    "USER": {
+      "CANCEL": "Cancel",
+      "MEMBER": "Member",
+      "ROLE": "Role",
+      "SUBMIT": "Submit",
+      "TITLE": "Title",
+      "USER_GROUPING": "User Grouping",
+      "USER_STATUS": "User Status"
+    },
+    "USER_GROUPS": "User Groups",
+    "WORKFLOW_LEVELS": "Work Flow Levels"
+  },
+  "ADMIN_CONSOLE_SUBNAV": {
+    "CONFIGURATION": "Configuration",
+    "SET_UP": "Set Up",
+    "USERS": "Users"
+  },
+  "APPROVAL_MODULE_TABLE": {
+    "DATE_APPROVED": "Date assigned/approved",
+    "EDIT_OR_COLLAPSE_ROW": "Edit/Collapse Row",
+    "REQUESTED_OR_ASSIGNED": "Requested/Assigned",
+    "STATUS": "Status",
+    "TYPE": "Type",
+    "UNLINK_APPROVAL": "Unlink Approval"
+  },
+  "AUTH": {
+    "LOGIN": {
+      "LOADING": "Loading"
+    },
+    "LOGOUT": {
+      "BACK_TO_LOGIN": "Go to login",
+      "LOGOUT_MESSAGE": "You have been logged out",
+      "LOG_OUT": "Log out",
+      "WANT_TO_LOGIN": "If you want to login back to the system"
+    },
+    "PROFILE": {
+      "CLOSE": "Close",
+      "COUNTRY": "Country",
+      "DESCRIPTION": "Description",
+      "EMAIL": "Email",
+      "EMPLOYEE_NO": "Employee number",
+      "FIRST_NAME": "First Name",
+      "LAST_NAME": "Last Name",
+      "ORGANIZATION": "Organization",
+      "ORGANIZATION_NAME": "Organization Name",
+      "PROFILE": "Profile",
+      "LANGUAGE": "Language",
+      "TITLE": "Title",
+      "TOLA_USER": "Tola User",
+      "TOLA_USER_NAME": "Tola User Name",
+      "USERNAME": "User name",
+      "USER_DATA": "User data"
+    }
+  },
+  "BUDGET_MODULE_TABLE": {
+    "ACTUAL_AMOUNT": "Actual Amount",
+    "BUDGET_AMOUNT": "Budget Amount",
+    "DELETE_ROW": "Delete Row",
+    "DESCRIPTION": "Description",
+    "DIFFERENCE": "Difference",
+    "EDIT_OR_COLLAPSE_ROW": "Edit/Collapse Row"
+  },
+  "TIME_TRACKING": {
+    "ESTIMATED_TIME" : "Estimated Time",
+    "LOGGED_TIME" : "Logged Time",
+    "NOTIFICATIONS": {
+      "ADD" : "Logged time has been added to the time sheet",
+      "ADD_ERROR": "Error occured when trying to add the logged time",
+      "DELETE" : "Logged time has been removed from the time sheet",
+      "DELETE_ERROR": "Error occured when trying to delete the logged time",
+      "UPDATE" : "Logged time has been updated in the time sheet",
+      "UPDATE_ERROR": "Error occured when trying to update the logged time"
+    },
+    "COLUMNS": {
+      "PROJECT_NAME": "Project name",
+      "INSTALLERS": "Installers",
+      "DATE": "Date",
+      "PROJECT_TYPE": "Project type",
+      "TIME_PLANNED": "Time planned",
+      "TIME_LOGGED": "Time logged",
+      "PERFORMANCE": "Performance"
+    }
+  },
+  "CALENDAR_APPOINTMENTS": {
+    "ADD_APPOINTMENT": "Add an appointment",
+    "ADD_EVENT": "Add an appointment",
+    "ALL_DAY": "All Day",
+    "APPOINTMENT_DETAILS": "Appointment Details",
+    "APPOINTMENT_TITLE": "Project appointment",
+    "ASSIGNED_INSTALLERS": "Assigned Installers",
+    "BOOK_APPOINTMENT": "Book New Appointment",
+    "BY_DATE": "By Date",
+    "BY_INSTALLERS": "By Installers",
+    "CALENDAR": "Calendar",
+    "CANCEL": "Cancel",
+    "CONFIRM_APPOINTMENT": "Confirm Appointment",
+    "CONFIRM_DELETE": "Confirm delete",
+    "DATE": "Date",
+    "DAY": "Day",
+    "DELETE": "Delete",
+    "END_DATE": "End Date",
+    "END_TIME": "End Time",
+    "ERRORS": {
+      "END_START_DATE": "End date cannot be prior to start date",
+      "ERROR_TRYING_TO_UPDATE": "Error occured when trying to update appointment",
+      "INSTALLER_ALREADY_BOOKED": "The installer is already booked during this time",
+      "MAX_LENGTH": "Field cannot contain more than {{length}} characters",
+      "MISSING_DATA": "Field is required",
+      "NO_PERMISSION_TO_UPDATE": "You do not have permission to perform this action."
+    },
+    "EVENT_DETAILS": "Appointment Details",
+    "INSTALLERS": "Installers",
+    "NAME": "Type the name of the event",
+    "NEW_CALENDAR_EVENT": "New Calendar Event",
+    "NEXT_APPOINTMENT": "Next Appointment",
+    "NOTES": "Notes",
+    "OUT_OF_OFFICE_TITLE": "Out of office",
+    "RECURRING": "Recurring",
+    "SELECT_CUSTOMER": "Select Customer",
+    "SELECT_PROJECT": "Select Project",
+    "SEND_CONFIRMATION": "Send confirmation email to the customer",
+    "START_DATE": "Start Date",
+    "START_TIME": "Start Time",
+    "TIME": "Time",
+    "TODAY": "Today",
+    "UNAVAILABLE": "Unavailable",
+    "UPDATE_APPOINTMENT": "Update appointment",
+    "UPDATE_OUT_OF_OFFICE": "Update out of office",
+    "WEEK": "Week",
+    "WEEKDAYS": {
+      "MONDAY": "Mo",
+      "TUESDAY": "Tu",
+      "WEDNESDAY": "We",
+      "THURSDAY": "Th",
+      "FRIDAY": "Fr",
+      "SATURDAY": "Sa",
+      "SUNDAY": "Su"
+    },
+    "MONTHS": {
+      "JANUAR": "Jan",
+      "FEBRUARY": "Feb",
+      "MARCH": "Mar",
+      "APRIL": "Apr",
+      "MAY": "May",
+      "JUNE": "Jun",
+      "JULY": "Jul",
+      "AUGUST": "Aug",
+      "SEPTEMBER": "Sept",
+      "OCTOBER": "Oct",
+      "NOVEMBER": "Nov",
+      "DECEMBER": "Dec"
+    }
+  },
+  "CARD_PROGRAM_BUDGET_TABLE": {
+    "PROGRAM_NAME": "Program Name",
+    "SECTOR": "Sector",
+    "STATUS": "Status"
+  },
+  "CARD_PROGRAM_TABLE": {
+    "BUDGET_VS_ACTUALS": "Budget vs Actual",
+    "PROGRAM_NAME": "Name",
+    "SECTOR": "Sector",
+    "STATUS": "Status"
+  },
+  "CHANGES_UNSAVED": {
+    "DISCARD": "Don't save",
+    "SAVE": "Save",
+    "WARNING_MESSAGE": "Are you sure you want to leave this page? You will lose all the provided information."
+  },
+  "CONTACTS": {
+    "ADD_CONTACT": "Add Contact",
+    "ALL_CUSTOMERS": "All Customers",
+    "BACK_TO_ALL_CUSTOMERS": "Back to all customers",
+    "CONTACTS": "Contacts",
+    "CUSTOMER": "Customer",
+    "DELETE": {
+      "DELETECONTACT": "DELETE CONTACT"
+    },
+    "ERRORS": {
+      "ADD": "Contact has been added",
+      "ADDING_WRONG_INFO": "Error occured when trying to update the contact",
+      "ADD_MISSING_DATA": "Please fill in required fields",
+      "APPOINTMENT_ADDED": "Appointnment has been added",
+      "DELETE": "Contact has been deleted \n\"name\" has been updated",
+      "DELETE_BUTTON": "Delete"
+    },
+    "FORM": {
+      "ADDRESS": "Address",
+      "ADDRESSTYPE": {
+        "BILLING": "Billing",
+        "DELIVERY": "Delivery",
+        "HOME": "Mailing",
+        "MAILING": "Mailing",
+        "SAME_AS_MAILING": "Same as mailing address"
+      },
+      "ADDRESS_TYPE": "Address Type",
+      "ADD_EMAIL": "Add Email",
+      "ADD_PHONE": "Add Phone",
+      "BUILDING_ADDRESS": "Building Address",
+      "CANCEL": "Cancel",
+      "CITY": "City",
+      "COMPANY": "Company",
+      "COMPANY_FOR_AGENCIES": "Company (for agencies)",
+      "CONTACT_ID": "Customer ID",
+      "CONTACT_TYPE": "Contact Type",
+      "COUNTRY": "Country",
+      "CUSTOMER_TYPE": "Customer Type",
+      "EMAILADRESSE": {
+        "Private": "Private",
+        "Work": "Work"
+      },
+      "EMAILS": "Emails",
+      "EMAIL_ADDRESS": "Email Address",
+      "ENTER_TEXT": "Enter Text",
+      "FAX": "Fax",
+      "FIRST_NAME": "First Name",
+      "HOUSE_NUMBER": "House Number",
+      "LAST_NAME": "Last Name",
+      "MIDDLE_NAME": "Middle Name",
+      "NEW_APPOINTMENT": "Add an appointment",
+      "NORMAL": "Normal",
+      "NOTES": "Notes",
+      "PERSONAL_INFO": "Contact",
+      "PHONES": "Phones",
+      "POST CODE": "Post Code",
+      "POSTAL_CODE": "Postal Code",
+      "STREET": "Street",
+      "SUBMIT": "Submit",
+      "TELEPHONENUMBERS": {
+        "Fax": "Fax",
+        "Home": "Home",
+        "Mobile": "Mobile",
+        "Office": "Office"
+      },
+      "TELEPHONE_NUMBERS": "Telephone Numbers",
+      "TITLE": "Title"
+    },
+    "LIST_VIEW": {
+      "ADDRESS": "Address",
+      "CITY": "City",
+      "EMAIL": "Email",
+      "NAME": "Name",
+      "NO_DATA": "No data to display",
+      "POST_CODE": "Post Code",
+      "TELEPHONE": "Telephone"
+    },
+    "NEW_PROJECT": "New Project"
+  },
+  "DASHBOARDS": {
+    "ADD_DASHBOARD": "Add Dashboard",
+    "CLOSE": "Close",
+    "DASHBOARD": "Dashboard",
+    "DASHBOARDS": "Dashboards",
+    "DASHBOARD_MAKE_ORG_PUBLIC_CONFIRM": "Are you sure you want to make this dashboard public to all the members of your organization ?",
+    "ENTER_NAME": "Enter Name",
+    "NAME": "Name",
+    "PROMPT_REMOVE": "Are you sure to remove",
+    "REMOVE_DASHBOARD": "Remove Dashboard",
+    "SUBMIT": "Submit",
+    "USER_DASH": {
+      "DELETE": "Delete",
+      "NO_WIDGETS": "You don't have any widgets on this dashboard, you can add new ones to your dashboard by clicking on 'Add Widget' Button",
+      "REMOVE_WIDGET": "Remove Widget"
+    },
+    "WIDGET_FORM": {
+      "ADD_WIDGET": "Add Widget",
+      "FORM": {
+        "ALL": "All",
+        "DATA_SOURCE": "Data Source",
+        "ENTER_TITLE": "Enter Title",
+        "INDICATORS": "Indicators",
+        "INDICATOR_DATA": "Indicator Data",
+        "PROGRAM": "Program",
+        "PROGRAM_DATA": "{{level_1_label}} Data",
+        "PROJECTS": "Projects",
+        "PROJECT_DATA": "{{level_2_label}} Data",
+        "TITLE": "Title"
+      },
+      "WIDGET_TYPE": "Widget Type"
+    }
+  },
+  "DOCUMENTS": {
+    "DELETE_MODAL": {
+      "CANCEL": "Cancel",
+      "CONFIRM_DELETE": "Confirm Delete",
+      "DELETE": "Delete",
+      "DELETE_PROMPT": "Are you sure you want to delete this document",
+      "DELETE_PROMPT_PIC": "Are you sure you want to delete this picture?"
+    },
+    "DOCUMENTS_LIST": {
+      "DATE": "Date",
+      "DELETE_FILE": {
+        "ARE_YOU_SURE_TO_DELETE": "Are you sure to delete *file name*?",
+        "CANCEL": "Cancel",
+        "CONFIRM_DELETE": "Confirm Delete",
+        "DELETE": "Delete",
+        "DELETE_DOCUMENT": "Delete Document"
+      },
+      "DOCUMENT_NAME": "Document Name",
+      "PROJECT_NAME": "Project Name",
+      "UPLOAD": {
+        "UPLOAD_DOCUMENT": "Upload Document"
+      }
+    },
+    "DOWNLOAD_MESSAGES": {
+      "DOWNLOAD_ERROR": "Download Error",
+      "DOWNLOAD_IN_PROGRESS": "Your file download in progress",
+      "ERROR_OCCURED": "An error occured",
+      "SUCCESSFUL_DOWNLOAD": "Successful Download"
+    },
+    "ERROR": {
+      "EMPTY_MESSAGE": "No data to display",
+      "UPLOAD_DOCUMENT": "Upload Document",
+      "UPLOAD_NOPROJECT": "No result found",
+      "UPLOAD_NO_FILE_SELECTED": "No File Selected\nSelect or Drag a file to upload\n"
+    },
+    "FORM": {
+      "ADDED_BY": "Added By",
+      "CANCEL": "Cancel",
+      "CHOOSE_A_FILE": "Choose a local file",
+      "DATE": "Date",
+      "DOCUMENT_NAME": "Document Name",
+      "DRAG_AND_DROP": "Drag and Drop",
+      "NO_FILE_SELECTED": "No file selected. Select or drag a file to upload",
+      "MAX_FILE_SIZE": "Maximum file size 500 megabites",
+      "OR": "or",
+      "PROJECT_NAME": "Project Name",
+      "SAVE": "Save",
+      "SUBMIT": "Submit"
+    },
+    "MAIN": {
+      "CUSTOMER_DETAILS": "Customer Details",
+      "LOAD_LESS": "Load Less",
+      "LOAD_MORE": "Load More",
+      "NO_IMAGES": "There are no images for the selected customer. Kindly click on 'Upload Document' to upload image(s)",
+      "PICTURES": "Pictures",
+      "UPLOAD_DOCUMENTS": "Upload Document"
+    },
+    "NOTIFICATIONS": {
+      "DELETE_ERROR": "Delete Error",
+      "DELETE_ERROR_MESSAGE": "An error occurred",
+      "DELETE_SUCCESS": "Document Deleted",
+      "DELETE_SUCCESS_MESSAGE": "has been deleted",
+      "EDIT_ERROR": "Edit Error",
+      "EDIT_ERROR_MESSAGE": "An error occurred during update",
+      "EDIT_SUCCESS": "Document Edited",
+      "EDIT_SUCCESS_MESSAGE": "has been updated",
+      "UPLOAD_ERROR": "Upload Error",
+      "UPLOAD_ERROR_MESSAGE": "An error occurred durning upload",
+      "UPLOAD_SUCCESS": "Document Uploaded",
+      "UPLOAD_SUCCESS_MESSAGE": "has been uploaded"
+    }
+  },
+  "DOCUMENTS_MODULE_TABLE": {
+    "CONFIRM_UNLINK_DOCUMENT_CONTENT": "Are you sure you want to unlink this document",
+    "CONFIRM_UNLINK_DOCUMENT_TITLE": "Unlink document",
+    "FILE": "File",
+    "UNLINK_DOCUMENT": "Unlink Document"
+  },
+  "DUPLICATE_SECTOR_WARN_MODAL": {
+    "CLOSE": "Close",
+    "EDIT_NAME": "Edit Name",
+    "EXISTS": "already exists. Kindly use a different name or close.",
+    "MODAL_TITLE": "Warning! Duplicate Sectors Entry",
+    "SECTOR_WITH_NAME": "A sector with the name"
+  },
+  "FORM_INDICATOR_TABLE": {
+    "EXPAND_COLLAPSE_ROW": "Expand/Collapse Row",
+    "PERIOD": "Period",
+    "PERRIOD": "Period",
+    "TARGET_VALUES": "Target Values"
+  },
+  "FORM_LIBRARY": {
+    "CLOSE": "Close",
+    "FORM_LIBRARY": "Form Library",
+    "NO_FIELDS": "No fields"
+  },
+  "FORM_LIBRARY_TABLE": {
+    "DESCRIPTION": "Description",
+    "NAME": "Name",
+    "PUBLIC": "Public"
+  },
+  "FORM_LIB_SKIPLOGIC_OPERATORS": {
+    "ANSWERED": "Answered",
+    "EQUAL_TO": "Equal To",
+    "NOT_ANSWERED": "Not Answered",
+    "NOT_EQUAL_TO": "Not Equal To"
+  },
+  "FORM_LIB_SUPPORTED_VALIDATIONS": {
+    "EQUAL_TO": "Equal To",
+    "GREATER": "Greater",
+    "LESS": "Less",
+    "MAX_LENGTH": "Max Length",
+    "MIN_LENGTH": "Min Length"
+  },
+  "FORM_LIST": {
+    "ADD": "Add",
+    "ADDING_NEW_FIELD": "Adding new field",
+    "ADD_FIELD": "Add Field",
+    "ADD_SKIPLOGIC": "Add skiplogic",
+    "ADD_VALIDATION": "Add validation",
+    "CANCEL": "Cancel",
+    "CASCADING_DROPDOWN": "Cascading Dropdowns",
+    "CHOOSE_FIELD_TYPE": "Choose field type",
+    "CLOSE": "Close",
+    "DATE": "DATE",
+    "DELETE": "Delete",
+    "DELETE_CONFIRM": "Delete Confirmation",
+    "DEP_DROPDOWN_LABEL": "Dependent dropdown Label",
+    "DEP_DROPDOWN_NAME": "Dependent Dropdown Name",
+    "DROPDOWN": "Dropdown",
+    "EDIT": "Edit",
+    "EDITING_FIELD": "Editing field",
+    "EMAIL": "Email",
+    "FIELD_LABEL": "Field Label",
+    "FIELD_NAME": "Field name",
+    "FIELD_REQUIRED": "Field required",
+    "FORM": {
+      "ENTER_DESCRIPTION": "Enter a brief description of the form.",
+      "ENTER_NAME": "Enter the name of the form.",
+      "MAKE_PUBLIC": "Make it public",
+      "SAVE_TO_PUBLISH": "To publish this form select a {{level_1_label}} and then click 'Save'.",
+      "SELECT_PROGRAM": "Select a {{level_1_label}}."
+    },
+    "FORM_LIBRARY": "Form Library",
+    "IMAGE": "Image",
+    "LIST_FIELDS": "List of Fields",
+    "MESSAGES": {
+      "FORM_DELETE_CONFIRM": "Are you sure you want to delete this form?"
+    },
+    "NEW_NESTED_DISP_TEXT": "New nested option's display text",
+    "NEW_NESTED_OPTIONS_VAL": "New nested option's value",
+    "NEW_OPTIONS_VALUE": "New option's value",
+    "NEW_OPTION_DISPLAY": "New option's DisplayText",
+    "NEW_PARENT_DISP_TEXT": "New Parent option's DisplayText",
+    "NEW_PARENT_OPT_VAL": "New Parent option's value",
+    "NEW_VALIDATION_VALUE": "New validation's value",
+    "NUMBER": "NUMBER",
+    "SAVE": "Save",
+    "SAVE_ADD_ANOTHER": "Save and add another",
+    "SAVE_FORM": "Save form",
+    "SELECT": "Select",
+    "SELECT_FIELD": "Select a field",
+    "SKIPLOGIC_DONTS": "Skiplogic rules cannot be added if this is the only field in your form.",
+    "SKIP_LOGIG": "Skiplogic rules",
+    "TEXT": "Text",
+    "UPDATE": "Update",
+    "URL": "URL",
+    "VALIDATION_RULES": "Validation Rules",
+    "VALIDATION_WARNING": "Validations rules are not application for dropdown"
+  },
+  "FORM_LIST_TABLE": {
+    "DESCRIPTION": "Description",
+    "IS_PUBLIC": "is_public",
+    "NAME": "Name",
+    "PUBLIC": "Public"
+  },
+  "GRID_FORM": {
+    "CHOOSE": "Choose",
+    "CREATE": "Create",
+    "GRID_FORM": "Grid Form"
+  },
+  "INDICATORS": {
+    "APPROVAL": {
+      "APPROVAL": "Approval",
+      "APPROVED_BY": "Approved By",
+      "RESPONSIBLE_PERSON": "Responsible Person",
+      "SUBMITTED_BY": "Approval Submitted By"
+    },
+    "COLLECTED_DATA": {
+      "ACHIEVED_VALUE": "Achieved Value",
+      "ADD_SUCCESS": "was successfully added",
+      "CANCEL": "Cancel",
+      "COLLECTED_VALUES": "Collected Values",
+      "DATE_COLLECTED": "Date Collected",
+      "DELETE": "Delete",
+      "DELETE_SUCCESS": "was successfully deleted",
+      "EDIT": "Edit",
+      "EVIDENCE": "Evidence",
+      "NEW_DATA": "New Data",
+      "PERIODIC_TARGET": "Periodic Target",
+      "SITE": "Site",
+      "SUBMIT": "Submit"
+    },
+    "DISAGGREGATION": {
+      "ADD_NEW": "Add New",
+      "ADD_NEW_DISAGGREGATION": "Add New Disaggregation",
+      "DISAGGREGATION": "Disaggregation",
+      "DISAGGREGATION_FIELDS": "Disaggregation Fields",
+      "FORM": {
+        "ENTER_NAME": "Enter Name"
+      },
+      "SAVE": "Save",
+      "TABLE": {
+        "FIELD": "Field"
+      }
+    },
+    "INDICATORS": "Indicators",
+    "INDICATOR_FORM": {
+      "DEFINITION": "Definition",
+      "INDICATOR_NUMBER": "Indicator Number",
+      "INDICATOR_TYPE": "Indicator Type",
+      "KPI": "Key Performance Indicator",
+      "LEVEL": "Level",
+      "NAME": "Name",
+      "OBJECTIVE": "Objective",
+      "SECTOR": "Sector"
+    },
+    "LIST": {
+      "COLLECTED_VALUES": "Collected Values",
+      "COLLECTION_DATE": "Collection Date",
+      "DELETE": "Delete",
+      "EDIT": "Edit",
+      "EVIDENCE": "Evidence",
+      "PERIOD": "Period"
+    },
+    "MAIN": {
+      "AVERAGE": "AVG",
+      "BACK_TO_TABLES": "Back to Tables",
+      "CHOOSE_COLUMN_OP": "Click on the name of one or many columns and choose an operation",
+      "CHOOSE_TABLE": "Choose a table",
+      "CLOSE": "Close",
+      "COUNT": "Count",
+      "FREQUENCY": "Frequency",
+      "NON_CLASSIFIED_INDICATORS": "Non Classified Indicators",
+      "PROMPT_REMOVE_INDICATOR": "Are you sure you want to delete the customer '{{customerName}}'? All associated projects and appointments will be deleted",
+      "REMOVE_INDICATOR": "Remove Indicator",
+      "RESULT": "Result",
+      "SAVE_RESULT": "Save Result As Evidence",
+      "SECTOR": "Sector",
+      "SUM": "Sum",
+      "TARGET_VS_ACTUAL": "Target vs Actual"
+    },
+    "REPORTING": {
+      "INFORMATION_USE": "Information Use",
+      "METHODS_OF_ANALYSIS": "Method of Analysis",
+      "REPORTING": "Reporting",
+      "REPORTING_FREQUENCY": "Reporting Frequency"
+    },
+    "RESULT_FRAMEWORK": {
+      "COLOR": "Color",
+      "DESCRIPTION": "Description",
+      "NAME": "Name",
+      "PROGRAM": "Program",
+      "SUBMIT": "Submit"
+    },
+    "TARGETS": {
+      "ADD_NEW_TARGET": "Add New Periodic Target",
+      "BASELINE": "baseline",
+      "COLLECTION_FREQUENCY": "Collection Frequency",
+      "LOP_TARGET": "Lop target",
+      "MATCH_LOP": "should match the LOP Target",
+      "TARGETS": "Targets",
+      "TARGET_VALUE_SUM": "Target Values Sum",
+      "UNIT_OF_MEASURE": "Unit of Measure"
+    }
+  },
+  "LAYOUT_FILTER": {
+    "GLOBAL_FILTERS": "Global Filters",
+    "PROGRAM": "Program",
+    "PROGRAMS": "Programs",
+    "SELECTED": "Selected"
+  },
+  "LAYOUT_HEADER": {
+    "ACTIVITY": "Activity",
+    "ADMIN_CONSOLE": "Admin Console",
+    "FILTERS": "Filters",
+    "LOG_OUT": "Log Out",
+    "PROFILE": "Profile",
+    "TRACK": "Track"
+  },
+  "LAYOUT_PROGRAM_SETUP": {
+    "EXIT_SET_UP": "Exit Set-up",
+    "NAVIGATION": {
+      "INDICATORS": "Indicators",
+      "PROJECT_FORMS": "Project Forms",
+      "RESULT_FRAMEWORK": "Results Framework",
+      "SECTOR_CLASSIFICATION": "Sector Classification"
+    }
+  },
+  "LIST_PROGRAM_SITE_TABLE": {
+    "ADD_EXISTING_SITE": "Add Existing Site",
+    "DELETE_SITE": "Delete Site",
+    "SITE_NAME": "Site Name",
+    "SITE_OFFICE": "Site Office",
+    "STATUS": "Status"
+  },
+  "LOGIN_PAGE": {
+    "USER": "User",
+    "PASSWORD": "Password",
+    "LOGIN_BTN": "Login",
+    "FORGOT_PASSWORD": "Forgot your password?"
+  },
+  "RESET_PASSWORD_PAGE": {
+    "FORM_TITLE": "Reset password",
+    "ENTER_PASSWORD": "Enter new password",
+    "CONFIRM_PASSWORD": "Confirm new password",
+    "PASSWORD_WARNING": "Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces or special characters.",
+    "RESET_BTN": "Save new password",
+    "RESET_TOKEN_INVALID": "Oops, this link is expired or invalid. Insert your email address below to restart.",
+    "FORM_ERRORS": {
+      "REQUIRED": "Please enter the new password",
+      "REQUIRED_CONFIRM": "Please confirm the new password",
+      "PASSWORD_NOMATCH": "Confirmation password doenst match",
+      "MAXLENGHT": "Please 20 characters maximun",
+      "MINLENGHT": "Please 8 characters minimum"
+    },
+    "PASSWORD_UPDATED": {
+      "TITLE": "Password updated",
+      "MESSAGE": "We successfully changed your password.",
+      "BUTTON": "Go to Log in"
+    }
+  },
+  "FORGOT_PASSWORD_PAGE": {
+    "EMAIL": "Email",
+    "RESET_LINK": "We'll send you an email with a reset link.",
+    "RESET_PASSWORD": "Reset Password",
+    "INCOMING_TXT": "Incoming!",
+    "FOLLOWUP_TXT_BEFORE": "Please follow the link in the email",
+    "FOLLOWUP_TXT_AFTER": "to reset your password",
+    "ANOTHER_EMAIL_BTN": "Another email",
+    "SEND_AGAIN_BTN": "Send again",
+    "EMAIL_VALIDATION": "Enter a valid email address"
+  },
+  "MODAL_HEADINGS": {
+    "ADD_CUSTOM_SECTOR": "Add Custom Sector",
+    "ADD_NEW_DASHBOARD": "Add New Dashboard",
+    "ADD_NEW_LEVEL": "Add New Level",
+    "ADD_NEW_OBJECTIVE": "Add New Objective",
+    "ADD_NEW_PROGRAM": "Add New {{level_1_label}}",
+    "ADD_NEW_WIDGET": "Add New Widget",
+    "CONFIRM_CLOSE_ACTIVITY_FORM": "Confirm Close Activity Form",
+    "CONFIRM_DELETE": "Confirm Delete",
+    "CONFIRM_REMOVE_DASHBOARD": "Confirm Remove Dashboard",
+    "CONFIRM_REMOVE_INDICATOR": "Confirm Remove Indicator",
+    "CONFIRM_REMOVE_OBJECTIVE": "Confirm Remove Objective",
+    "CONFIRM_REMOVE_TAB": "Confirm Remove Tab",
+    "CONFIRM_REMOVE_USER": "Confirm Remove User",
+    "CONFIRM_REMOVE_WIDGET": "Confirm Remove Widget",
+    "DISAGGREGATION": "Disaggregation",
+    "PICK_FROM_TRACK": "Pick from Track",
+    "REMOVE_SECTOR_CONFIRM": "Confirm Sector Removal"
+  },
+  "MODULE_NAV_ITEMS": {
+    "APPROVAL": "Approval",
+    "BUDGET": "Budget",
+    "DETAILS": "Details",
+    "DOCUMENTS": "Documents",
+    "INDICATORS": "Indicators",
+    "SITES": "Sites",
+    "STAKEHOLDERS": "Stakeholders"
+  },
+  "PAGES_ACTIVITIES": {
+    "SUBNAV": {
+      "PROJECTS": "Projects",
+      "TIMESHEET": "Time Sheet"
+    },
+    "ASSIGNEE": "Assignee",
+    "BUDGET": "Budget",
+    "CANCEL": "Cancel",
+    "CLOSE": "Close",
+    "DELETE": "Delete",
+    "NAME": "Name",
+    "NOTES": "Notes",
+    "PROGRESS": "Progress",
+    "PROJECTS": "Projects/Activities",
+    "PROMPT_REMOVE": "Are you sure you want to delete the project '{{projectName}}'?",
+    "REMOVE_ACTIVITY": "Remove Activity",
+    "START_DATE": "Start Date",
+    "STATUS": "Status"
+  },
+  "PAGES_ACTIVITY_ACTIVITIES_ADD": {
+    "ADD_PROJECT_FORM": "Add {{level_2_label}}/{{level_3_label}} Form",
+    "CLOSE": "Close"
+  },
+  "PAGES_ACTIVITY_ACTIVITIES_GRAPH": {
+    "MONTH": "Month",
+    "NO_PROJECTS_IN_PROGRAM": "There no projects and activities in the program",
+    "PROJECT": "Projects/Activities",
+    "WEEK": "Week"
+  },
+  "PAGES_ACTIVITY_ACTIVITIES_LIST_ITEM": {
+    "ADD_MODULE": "Add Module",
+    "INDICATORS": "Indicators"
+  },
+  "PAGES_ACTIVITY_ACTIVITIES_MODULES": {
+    "ADD_APPROVAL": "Add Approval",
+    "ADD_APPROVAL_FORM": {
+      "APPROVAL_NOTE": "Approval Note",
+      "ASSIGNED_TO": "Assigned to",
+      "DATE_APPROVED": "Date Approved",
+      "DATE_ASSIGNED": "Date Assigned",
+      "REQUESTED_FROM": "Requested from",
+      "STATUS": "Status",
+      "TYPE": "Type"
+    },
+    "ADD_BUDGET": "Add Budget",
+    "ADD_BUDGET_FORM": {
+      "ACTUAL_AMOUNT": "Actual Amount",
+      "BUDGET_AMOUNT": "Budget Amount",
+      "DESCRIPTION": "Description",
+      "ENTER_AMOUNT": "Enter Amount"
+    },
+    "ADD_NEW": "Add New",
+    "ADD_SITE": "Add Site",
+    "ADD_STAKEHOLDER": "Add Stakeholder",
+    "APPROVALS": "Approvals",
+    "BUDGETS": "Budgets",
+    "CANCEL": "Cancel",
+    "DOCUMENTS": "Documents",
+    "ISSUE_FORM": {
+      "IMPACT": "Impact",
+      "LIKELIHOOD": "Likelihood",
+      "NAME": "Name",
+      "RATING": "Rating",
+      "STATUS": "Status",
+      "TYPE": "Type"
+    },
+    "ISSUE_REGISTER": "Issue register",
+    "NEW_BUDGET": "Add New Budget",
+    "PROCUREMENT_PLAN_FORM": {
+      "CURRENCY": "Currency",
+      "DATE": "Date",
+      "NAME": "Name",
+      "PROC_ID": "Proc-ID",
+      "UNITS": "Units",
+      "UNIT_COST": "Unit cost"
+    },
+    "RISK_FORM": {
+      "IMPACT": "Impact",
+      "LIKELIHOOD": "Likelihood",
+      "NAME": "Name",
+      "RATING": "Rating",
+      "RISK_REGISTER": "Risk register",
+      "STATUS": "Status",
+      "TYPE": "Type"
+    },
+    "SITES": "Sites",
+    "STAKEHOLDERS": "Stakeholders",
+    "SUBMIT": "Submit",
+    "SUMMARY": "Summary"
+  },
+  "PAGES_ACTIVITY_ACTIVITIES_SHOW": {
+    "CANCEL": "Cancel",
+    "CLOSE": "Close",
+    "CLOSE_FORM": "Close Form",
+    "PROMPT_REMOVE_TAB": "Are you sure to delete?",
+    "REMOVE_PROJECT_FORM_WARN": "Your changes will not be saved. To save your changes, Cancel then click on 'Submit'",
+    "REMOVE_TAB": "Remove Tab"
+  },
+  "PROCUREMENT_PLAN_MODULE_TABLE": {
+    "CURRENCY": "Currency",
+    "DELIVERY_DATE": "Delivery Date",
+    "EDIT_OR_COLLAPSE_ROW": "Edit/Collapse Row",
+    "NAME": "Name",
+    "NO_UNITS": "# Units",
+    "PROC_ID": "Proc-ID",
+    "TOTAL": "Total",
+    "UNIT_COST": "Unit cost"
+  },
+  "PROGRAMS": {
+    "CARDS": {
+      "BUDGET": {
+        "PROGRAM_BUDGET": "Total Budget",
+        "REMAINING": "Remaining",
+        "SPENT": "Spent"
+      },
+      "PROGRAMS": {
+        "CANCEL": "Cancel",
+        "DELETE_PROGRAM": "Delete",
+        "EDIT": "Edit",
+        "PROGRAM_GUIDE": "Guide",
+        "REMOVE": "Remove",
+        "REMOVE_ITEM": "and press submit to remove the item",
+        "TYPE": "Type",
+        "TYPE_WORD_CORRECTLY": "Please type word correctly"
+      }
+    },
+    "DASHBOARD": {
+      "ADD_PROGRAM": "Add {{level_1_label}}",
+      "BUDGET": "Budget",
+      "PROGRAMS": "Programs",
+      "PROGRAM_EDIT": "Program Edit"
+    },
+    "DETAILS": {
+      "BUDGET": "Budget",
+      "CLEAR_FILTERS": "Clear Filters",
+      "CLOSE": "Close",
+      "PROGRAM_EDIT": "Edit"
+    },
+    "MODULES": {
+      "MILESTONES": {
+        "ADD_MILESTONE": "Add a Milestone",
+        "CLOSE": "Close",
+        "DELETE": "Delete",
+        "FORM": {
+          "DESCRIPTION": "Description",
+          "END_DATE": "End Date",
+          "ENTER_NAME": "Enter Name",
+          "NAME": "Name",
+          "START_DATE": "Start date",
+          "SUBMIT": "Submit"
+        },
+        "MILESTONES": "Milestones",
+        "NO_DELETE_PERMISSION": "You have no Permissions to delete this milestone",
+        "NO_MILESTONE_MEMBERS": "There are currently no milestones."
+      },
+      "OBJECTIVES": {
+        "ADD": "Add",
+        "CLOSE": "Close",
+        "FORM": {
+          "DESCRIPTION": "Description",
+          "NAME": "Name",
+          "SUBMIT": "Submit"
+        },
+        "GO_TO_ALL_INDICATORS": "Go to all Indicators",
+        "KEY_INDICATORS": "Key Indicators",
+        "OBJECTIVES": "Objectives",
+        "OBJECTIVE_OR_INDICATOR": "Objectives / Indicators",
+        "PROMPT_REMOVE_OBJECTIVE": "Are you sure to remove this objective:",
+        "REMOVE_OBJECTIVE": "Remove Objective"
+      },
+      "SECTORS": {
+        "ADD_PRIMARY": "Add Primary",
+        "CLOSE": "Close",
+        "LOW_SECTOR": "sector",
+        "NO_SECTORS": "There are no sectors in this Program",
+        "PROMPT_REMOVE_SECTOR": "Are you sure to remove",
+        "REMOVE_SECTOR": "Remove Sector",
+        "SELECT_GLOBAL_FILTER": "Select one Global filter to show Sectors",
+        "SUB_SECTORS": {
+          "ADD_CUSTOM": "Add Custom Sector",
+          "CHOOSE": "Choose",
+          "RELATED": "Related",
+          "SECTOR": "Sector"
+        }
+      },
+      "SITES": {
+        "ADD_SITE": "Add a site",
+        "MAP": "Map"
+      },
+      "STAKEHOLDERS": {
+        "ADD_STAKEHOLDER": "Add Stakeholder",
+        "CLOSE": "Close",
+        "REMOVE": "Remove",
+        "STAKEHOLDERS": "Stakeholders"
+      },
+      "TEAM": {
+        "ARE_YOU_SURE": "Are you sure",
+        "CLOSE": "CLOSE",
+        "DELETE_MEMBER": "Delete Team Member",
+        "NEW_TASK": "New Task",
+        "PROMPT_REMOVE_TEAM_MEMBER": "to remove this team member?",
+        "REMOVE": "Remove",
+        "TASK_ASSIGNED": "Task Assigned",
+        "TEAM_MEMBERS": "Team Members"
+      }
+    }
+  },
+  "PROGRAM_DETAILS_SUBNAV": {
+    "EDIT": "Edit",
+    "MILESTONES": "Milestones",
+    "OBJECTIVES": "Objectives",
+    "SECTORS": "Sectors",
+    "SITES": "Sites",
+    "STAKEHOLDER": "Stakeholder",
+    "TEAM": "Team"
+  },
+  "PROGRAM_OBJECTIVES_TABLE": {
+    "LEVEL": "Level",
+    "NAME": "Name",
+    "TARGET_OR_ACTUALS": "Target / Actuals"
+  },
+  "PROGRAM_STAKEHOLDER_TABLE": {
+    "ADD_EXISTING_STAKEHOLDER": "Add Existing Stakeholder",
+    "CONFIRM_REMOVE": "Do you want to remove?",
+    "COUNTRY": "Country",
+    "DELETE": "Delete",
+    "EDIT_OR_COLLAPSE_ROW": "Edit/Collapse Row",
+    "ROLE": "Role",
+    "STAKEHOLDER_NAME": "Stakeholder Name",
+    "TYPE": "Type"
+  },
+  "PROGRAM_TEAM_TABLE": {
+    "ADD_EXISTING_TEAM_MEMBER": "Add Existing Team Member",
+    "BUDGET_LIMIT": "Budegt Limit",
+    "COUNTRY": "Country",
+    "END_DATE": "End Date",
+    "EXPAND_OR_CALLAPSE_ROW": "Expand/Collapse Row",
+    "MEMBER_NAME": "Member name",
+    "ROLE": "Role",
+    "START_DATE": "Start Date",
+    "STATUS": "Status",
+    "TASK_NAME": "Task Name"
+  },
+  "PROGRESS_OPTIONS": {
+    "AWAITING_APPROVAL": "Awaiting Approval",
+    "CLOSED": "Closed",
+    "OPEN": "Open",
+    "TRACKING": "Tracking"
+  },
+  "PROJECTS": {
+    "ADD_PROJECT": "Add Project",
+    "ALL_PROJECTS": "All Projects",
+    "BACK_TO_ALL_PROJECTS": "Back to all projects",
+    "ERRORS": {
+      "ADD_MISSING_DATA": "Please fill in required field ",
+      "PROJECT_DELETED": "Project has been deleted",
+      "PROJECT_UPDATED": "PROJECT HAS BEEN UPDATED"
+    },
+    "FORM": {
+      "CANCEL": "Cancel",
+      "CITY": "City",
+      "CLOSE": "Close",
+      "COUNTRY": "Country",
+      "CUSTOMER": "Customer",
+      "CUSTOMER_NAME": "Customer name",
+      "DETAILS": "Details",
+      "ENTER_TEXT": "Enter text",
+      "HISTORY_LOG": {
+        "ACTION": "Action",
+        "EDIT DATE": "Edit Date",
+        "EDITOR": "Editor"
+      },
+      "HOUSE_NUMBER": "House Number",
+      "INSTRUCTIONS": "Instructions",
+      "MANUFACTURER_NUMBER": "Manufacturer Number",
+      "NORMAL": "Normal",
+      "NOTES": "Notes",
+      "POSTAL_CODE": "Postal Code",
+      "PRODUCER": "Producer",
+      "PRODUCTTYPE": {
+        "BOILER": "Boiler",
+        "Heater": "Heater"
+      },
+      "PRODUCT_DETAILS": "Product Details",
+      "PRODUCT_NAME": "Manufacturer",
+      "PRODUCT_REF": "Product Reference",
+      "PRODUCT_SEARCHING": "Searching products",
+      "PRODUCT_TYPE": "Product Type",
+      "PRODUCT_NO_RESULTS": "No Results",
+      "PROJECTTYPE": {
+        "INSTALLATION": "Installation",
+        "MAINTENANCE": "Maintenance",
+        "REPAIR": "Repair"
+      },
+      "PROJECT_DESCRIPTION": "Project Description",
+      "PROJECT_HISTORY": "Project Histoy Log",
+      "PROJECT_ID": "Project ID",
+      "PROJECT_NAME": "Name",
+      "PROJECT_SITE_ADDRESS": "Project Site Address",
+      "PROJECT_TYPE": "Type",
+      "STATUS": "Status",
+      "STREET": "Street",
+      "SUBMIT": "Submit",
+      "TYPE_OF_BOILER": "Type of Boiler"
+    },
+    "PROJECTS": "Projects",
+    "PROJECTS_LIST": {
+      "CUSTOMER": "Customer",
+      "DATE_CREATED": "Date",
+      "INSTALLERS_ASSIGNED": "Installers Assigned",
+      "PROJECT_ADDRESS": "Project Address",
+      "PROJECT_NAME": "Project Name",
+      "PROJECT_TYPE": "Project Type",
+      "STATUS": "Status"
+    },
+    "S": "'s",
+    "STATUS": {
+      "CLOSED": "Closed",
+      "INVOICED": "Invoiced",
+      "IN_OFFER_PHASE": "In offer phase",
+      "IN_PROGRESS": "In progress",
+      "OPEN": "Open"
+    }
+  },
+  "REPORTS": {
+    "FILTERED_BY": " Filtered by",
+    "INDICATOR": {
+      "ACTUALS_VS_TARGETS": "Indicator Actuals Vs Target",
+      "CLOSE": "Close",
+      "COLLECTED_DATA": "Collected Data",
+      "FILTERED_BY": " Filtered by",
+      "FILTERED_BY_SECTOR": "Filtered by Sector",
+      "INDICATORS": "Indicator(s)",
+      "INDICATOR_REPORT": "Indicator Reports",
+      "NO_CHART_MESSAGE": "No Indicator(s) found for Your Organization OR with LOP Target/Actuals.",
+      "NO_DATA": "No Data",
+      "PROGRAMS": "Programs",
+      "PROGRAM_FILTER_APPLIED": "A program Filter is Applied",
+      "SUB_TABLE": {
+        "ACHIEVED": "AChieved",
+        "ACTUALS": "Actuals",
+        "COLLECTED_DATE": "Collected Date",
+        "DIS_LABEL": "Disaggregation Label",
+        "DIS_VAL": "Disaggregation Value",
+        "PERIODIC_TARGET": "Periodic Target",
+        "TOTALS": "Totals"
+      },
+      "TABLE_COLUMNS": {
+        "DATA": "Data",
+        "KPI": "KPI",
+        "LOP_TARGET": "Lop Targets",
+        "NAME": "Name"
+      },
+      "VIEW": "View"
+    },
+    "INDICATOR_SECTOR_CHART": "Indicator - Sectors Chart",
+    "NO_CHART": "Ooops, No Chart!",
+    "NO_DATA_FOUND": "No Data Found",
+    "NO_INDICATOR_CHART": "Ooops, No Indicator chart!",
+    "NO_INDICATOR_DATA": "No Indicators, or Sectors associated with various Indicators",
+    "NO_PROJECT_CHART": "Ooops, No {{level_2_label}} chart!",
+    "PROGRAMS": "Programs",
+    "PROGRAM_FILTER_APPLIED": "A {{level_1_label}} Filter is Applied",
+    "PROGRAM_REPORT": "{{level_1_label}} Reports",
+    "PROJECT": {
+      "BUDGET_VS_ACTUALS": "Project(s) Budget & Actuals",
+      "NO_CHART_MESSAGE": "No Data Found, Or, There is no Actual or Budget Values for the available {{level_2_label}}.",
+      "PROJECTS": "Project(s)",
+      "PROJECTS_REPORT": "{{level_2_label}} Reports",
+      "TABLE_COLUMNS": {
+        "ACT_BUDGET": "Est Budget",
+        "ACT_END": "Act End",
+        "ACT_START": "Act Start",
+        "EST_BUDGET": "Est Budget",
+        "EST_END": "Est End",
+        "EST_START": "Est Start",
+        "NAME": "Name",
+        "STATUS": "Status"
+      }
+    },
+    "PROJECT_STATUS_CHART": "{{level_2_label}} Status Chart",
+    "REMOVE_FILTER": "Remove Filter",
+    "REPORTS": "Reports",
+    "SLIDER": {
+      "SLIDE_DIRECTIVE": "Slide to Change the Date Ranges to plot"
+    },
+    "TABLE_COLUMNS": {
+      "CREATE_DATE": "Create Date",
+      "FUNDING_STATUS": "Funding Status",
+      "NAME": "Name",
+      "SECTORS": "Sectors",
+      "START_DATE": "Start Date"
+    }
+  },
+  "REPORTS_NAVIGATIONS": {
+    "0": {
+      "icon": "programs",
+      "name": "Programs",
+      "path": "/activity/reports"
+    },
+    "1": {
+      "icon": "activities",
+      "name": "Projects",
+      "path": "/activity/reports/project/all"
+    },
+    "2": {
+      "icon": "indicators",
+      "name": "Indicators",
+      "path": "/activity/reports/indicator/all"
+    }
+  },
+  "RISK_ISSUES_MODULE_TABLE": {
+    "EXPAND_OR_COLLAPSE_ROW": "Expand/Collapse Row",
+    "IMPACT": "Impact",
+    "LIKELIHOOD": "Likelihood",
+    "NAME": "Name",
+    "RATING": "Rating",
+    "STATUS": "Status",
+    "TYPE": "Type"
+  },
+  "SEARCH": {
+    "NO_RESULTS_HEADER": "We are sorry!",
+    "NO_RESULTS": "We could not find any results for the keyword: ‘{{query}}’",
+    "RESULTS": "results",
+    "RESULTS_FOR": "results for",
+    "RESULTS_GO_BACK": "Return to search results",
+    "SEARCH_KUPFER": "Search Kupfer by",
+    "SEARCH_RESULTS": "Search results for:",
+    "TIPS_HEADER": "Here are some additional tips for a successful search:",
+    "TIPS_SPELLING": "Check your spelling and try again.",
+    "TIPS_DIFFERENT_KEYWORD": "Try a different keyword associated with your item.",
+    "FURTHER_HELP_HEADER": "Still can't find what you need?",
+    "FURTHER_HELP_TEXT": "Please contact our support team and we will help you find what you are looking for.",
+    "SEARCH_RESULTS_CUSTOMERS": "Customers containing",
+    "SEARCH_RESULTS_PROJECTS": "Projects containing",
+    "SEARCH_RESULTS_APPOINTMENTS": "Appointments containing",
+    "SEARCH_RESULTS_DOCUMENTS": "Documents containing"
+  },
+  "SEARCH_BAR": {
+    "CATEGORIES": "Categories",
+    "CATEGORIES_ALL": "All",
+    "CATEGORY": "Category",
+    "PLACEHOLDER": "Type here",
+    "SUBMIT": "Search"
+  },
+  "SHOW_ACTIVITY_COMPONENT": {
+    "ACTIVATED_MODULE_MESSAGE": "Are you sure that you want to remove this module?",
+    "ACTIVATED_MODULE_MESSAGE_APPROVAL": "forms are going to be deleted, are you sure you want to delete this module?",
+    "ALL": "All"
+  },
+  "SIDE_NAV_ITEMS": {
+    "0": {
+      "icon": "programs2",
+      "name": "Programs",
+      "parent": "activity",
+      "path": "/activity/programs"
+    },
+    "1": {
+      "icon": "activities",
+      "name": "Activities",
+      "parent": "activity",
+      "path": "/activity/activities"
+    },
+    "2": {
+      "icon": "indicators-m",
+      "name": "Indicators",
+      "parent": "activity",
+      "path": "/activity/indicators"
+    },
+    "3": {
+      "icon": "forms",
+      "name": "Form Library",
+      "parent": "activity",
+      "path": "/activity/forms"
+    },
+    "4": {
+      "icon": "charts",
+      "name": "Reports",
+      "parent": "activity",
+      "path": "/activity/reports"
+    },
+    "5": {
+      "icon": "brush",
+      "name": "Style Guide",
+      "parent": "documentation",
+      "path": "/activity/documentation"
+    },
+    "6": {
+      "icon": "form-list",
+      "name": "Ndx Data Table",
+      "parent": "documentation",
+      "path": "/activity/documentation"
+    },
+    "7": {
+      "icon": "list",
+      "name": "List",
+      "parent": "documentation",
+      "path": "/activity/documentation"
+    }
+  },
+  "SITES_MODULE_TABLE": {
+    "ATTACH_EXISTING_SITE": "Attach existing Sites",
+    "CANCEL": "Cancel",
+    "CONFIRM": "Confirm",
+    "COUNTRY": "Country",
+    "EDIT_OR_COLLAPSE_SITE": "EDIT/Collapse Site",
+    "OFFICE": "Office",
+    "SITE_NAME": "Site Name",
+    "STATUS": "Status",
+    "TYPE": "Type",
+    "UNLINK_SITE": "Unlink Site"
+  },
+  "STAKEHOLDERS_MODULE_TABLE": {
+    "ATTACH_EXISTING_STAKEHOLDER": "Attach existing Stakeholder",
+    "COUNTRY": "Country",
+    "EDIT_OR_COLLAPSE_STAKEHOLDER": "Edit/Collapse Stakeholder",
+    "ROLE": "Role",
+    "SECTOR": "Sector",
+    "STAKEHOLDER_NAME": "Stakeholder Name",
+    "TYPE": "Type",
+    "UNLINK_STAKEHOLDER": "Unlink Stakeholder"
+  },
+  "TOP_NAV_ITEMS": {
+    "APPOINTMENTS": "Appointments",
+    "CALENDAR": "Calendar",
+    "CUSTOMER DETAILS": "Customer Details",
+    "CUSTOMERS": "Customers",
+    "DOCUMENTS": "Documents",
+    "PROJECTS": "Projects",
+    "PROFILE": "Profile"
+  },
+  "UI_COMPONENTS": {
+    "TABLES": {
+      "NO_DATA": "No matching data"
+    },
+    "ADD_TIME": "Add time",
+    "BACKEND_ERROR": "We are having trouble connecting to your server.",
+    "FORMS": {
+      "ACTIVITY_FORM": {
+        "DESCRIPTION": "Description",
+        "END_DATE": "End date",
+        "ENTER_TEXT": "Enter text",
+        "MILESTONE": "Milestone",
+        "PROGRESS": "Progress",
+        "PROJECT_NAME": "Name",
+        "SECTOR": "Sector",
+        "STAFF_RESPONSIBLE": "Staff Responsible",
+        "START_DATE": "Start date",
+        "STATUS": "Status"
+      },
+      "CANCEL": "Cancel",
+      "CHECKLIST_FORM": {
+        "COUNTRY": "Country",
+        "NAME": "Name",
+        "PROJECT": "Project Initiation"
+      },
+      "PERIODIC_TARGET_FORM": {
+        "PERIOD": "Period",
+        "TARGET_VALS": "Target Values"
+      },
+      "PROGRAM_DIRECT_FORM": {
+        "END_DATE": "End date",
+        "ENTER_NAME": "Enter Name",
+        "NAME": "Name",
+        "START_DATE": "Start date"
+      },
+      "PROGRAM_FORM": {
+        "COUNTRIES": "Countries",
+        "DESCRIPTION": "Description",
+        "END_DATE": "End date",
+        "ENTER_TEXT": "Enter text",
+        "FUNDING_STATUS": "Funding Status",
+        "NAME": "Name",
+        "PROGRAM_STATUS": "Status",
+        "START_DATE": "Start date"
+      },
+      "SEARCH_FORM": {
+        "CLOSE": "Close",
+        "COLLECTED_DATA": "Collected data",
+        "INDICATORS": "Indicators",
+        "PROGRAMS": "Programs",
+        "PROJECTS": "Projects/Activities",
+        "SEARCH": "Search",
+        "SEARCH_IN": "Search in",
+        "SEARCH_ITEMS": "Search for indicators, projects, documents, stakeholder and more..."
+      },
+      "SECTOR_FORM": {
+        "SECTOR": "Sector"
+      },
+      "SITE_FORM": {
+        "ACTIVE": "Active",
+        "CITY": "City",
+        "CONTACT_INFO": "Contact info",
+        "CONTACT_NAME": "Contact Name",
+        "CONTACT_NUMBER": "Contact Number",
+        "COUNTRY": "Country",
+        "DESCRIPTION": "Description",
+        "HOUSE_NUMBER": "House Number",
+        "INACTIVE": "Inactive",
+        "INSTRUCTIONS": "Instructions",
+        "LATITUDE": "Latitude",
+        "LONGITUDE": "Longitude",
+        "MAP_COORDINATES": "Map Coordinates",
+        "OFFICE": "Office",
+        "POSTAL_CODE": "Postal Code",
+        "SITE_NAME": "Site Name",
+        "STATUS": "Status",
+        "STREET": "Street",
+        "TYPE": "Type"
+      },
+      "STAKEHOLDER_FORM": {
+        "COUNTRY": "Country",
+        "NAME": "Stakeholder Name",
+        "ROLE": "Role",
+        "SECTORS": "Sectors",
+        "TYPE": "Type"
+      },
+      "SUBMIT": "Submit",
+      "TEAM_FORM": {
+        "EDIT_ROLES": "Edit User's Program Role",
+        "ENTER_AMOUNT": "Enter amount",
+        "SET_BUDGET_LIMIT": "Set Budget Limit"
+      }
+    },
+    "GANTT_CHART": {
+      "MONTH": "Month",
+      "WEEK": "Week"
+    },
+    "LIST_LINK_ITEM": {
+      "DELETE": "Delete",
+      "EDIT": "Edit"
+    },
+    "NAVIGATION": {
+      "ALL_PROGRAMS": "All Programs",
+      "DETAILS": "Details"
+    },
+    "NETWORK_STATUS": {
+      "ITEMS_IN_QUEUE": "items in the queue",
+      "YOU_ARE_OFFLINE": "You are offline now, you have"
+    },
+    "SUBMIT_GRID": {
+      "CANCEL": "Cancel",
+      "SUBMIT": "Submit"
+    },
+    "DRAWER": {
+      "CLOSE":"Close"
+    }
+
+  },
+  "USER_ADMIN_TABLE": {
+    "EMAIL": "Email",
+    "EXPAND_OR_COLLAPSE_ROW": "Expand/Collapse Row",
+    "MEMBER_NAME": "Member Name"
+  },
+  "MINI_CALENDAR": {
+    "DAY_SHORT": ["Su", "Mo", "Tu", "We", "Tu", "Fr", "Sa"],
+    "DAY_FULL": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "MONTH_SHORT": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "MONTH_FULL": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "DHX_CAL_TODAY_BUTTON": "Today",
+    "DAY_TAB":"Day",
+    "WEEK_TAB":"Week",
+    "MONTH_TAB":"Month",
+    "NEW_EVENT":"New event",
+    "ICON_SAVE":"Save",
+    "ICON_CANCEL":"Cancel",
+    "ICON_DETAILS":"Details",
+    "ICON_EDIT":"Edit",
+    "ICON_DELETE":"Delete",
+    "CONFIRM_CLOSING":"",
+    "CONFIRM_DELETING":"Event will be deleted permanently, are you sure?",
+    "SECTION_DESCRIPTION":"Description",
+    "SECTION_TIME":"Time period"
+  }
+}
