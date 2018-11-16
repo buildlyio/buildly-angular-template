@@ -1,16 +1,23 @@
 {
   "modules": [
     {
-      "name": "contacts",
-      "url": "git@github.com:Humanitec/midgard-contacts.git",
+      "name": "documents",
+      "url": "git@github.com:Humanitec/midgard-documents.git",
       "commitId": "123sad12",
       "config": {
         "parentExitPointComponent": {
-          "name": "",
-          "path": "",
-          "selector": ""
+          "path": "projects/midgard-angular/src/lib/pages/workflow-level2/detail/workflow-level2-detail.component.html",
+          "elementId": "tabs",
+          "componentSelector": "mat-tab",
+          "options" : {
+            "label": "Documents"
+          }
         },
-        "entryPointComponent": ""
+        "entryPointComponent": "",
+        "routingModuleOptions": {
+          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+          "parentComponent": "WorkflowLevel2DetailComponent"
+        }
       }
     },
     {
@@ -18,8 +25,20 @@
       "url": "git@github.com:Humanitec/midgard-products.git",
       "commitId": "234ba5f0",
       "config": {
-        "parentComponentPath": "",
-        "entryComponent": ""
+        "parentExitPointComponent": {
+          "path": "projects/midgard-angular/src/lib/components/nav-bar.component.html",
+          "selector": "mg-navbar-elem",
+          "options" : {
+            "icon": "view_headline",
+            "label": "Products",
+            "route": "workflow-level2"
+          }
+        },
+        "entryPointComponent": "",
+        "routingModuleOptions": {
+          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+          "parentComponent": "WorkflowLevel2DetailComponent"
+        }
       }
     }
   ]
