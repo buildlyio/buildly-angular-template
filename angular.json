@@ -167,46 +167,6 @@
           }
         }
       }
-    },
-    "documents": {
-      "root": "projects/documents",
-      "sourceRoot": "projects/documents/src",
-      "projectType": "library",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/documents/tsconfig.lib.json",
-            "project": "projects/documents/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/documents/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/documents/src/test.ts",
-            "tsConfig": "projects/documents/tsconfig.spec.json",
-            "karmaConfig": "projects/documents/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/documents/tsconfig.lib.json",
-              "projects/documents/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
     }
   },
   "defaultProject": "midgard-app"

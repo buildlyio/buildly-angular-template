@@ -8,7 +8,7 @@
         "parentExitPointComponent": {
           "path": "projects/midgard-angular/src/lib/pages/workflow-level2/detail/workflow-level2-detail.component.html",
           "elementId": "tabs",
-          "componentSelector": "mat-tab",
+          "componentSelector": "mg-tab",
           "options" : {
             "label": "Documents"
           }
@@ -16,7 +16,8 @@
         "entryPointComponent": "",
         "routingModuleOptions": {
           "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
-          "parentComponent": "WorkflowLevel2DetailComponent"
+          "parentComponent": "WorkflowLevel2DetailComponent",
+          "childrenArrayIndex": "1"
         }
       }
     },
@@ -26,18 +27,20 @@
       "commitId": "234ba5f0",
       "config": {
         "parentExitPointComponent": {
-          "path": "projects/midgard-angular/src/lib/components/nav-bar.component.html",
-          "selector": "mg-navbar-elem",
+          "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
+          "elementId": "navbar",
+          "componentSelector": "mg-navbar-elem",
           "options" : {
             "icon": "view_headline",
             "label": "Products",
-            "route": "workflow-level2"
+            "route": "products"
           }
         },
         "entryPointComponent": "",
         "routingModuleOptions": {
           "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
-          "parentComponent": "WorkflowLevel2DetailComponent"
+          "parentComponent": "MidgardComponent",
+          "childrenArrayIndex": "0"
         }
       }
     }

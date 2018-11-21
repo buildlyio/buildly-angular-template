@@ -37,23 +37,11 @@
       "freyja/*": [
         "dist/freyja/*"
       ],
-      "contacts": [
-        "dist/contacts"
-      ],
-      "products": [
-        "dist/products"
-      ],
       "styleguide": [
         "dist/styleguide"
       ],
       "styleguide/*": [
         "dist/styleguide/*"
-      ],
-      "documents": [
-        "dist/documents"
-      ],
-      "documents/*": [
-        "dist/documents/*"
       ]
     }
   }
