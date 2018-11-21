@@ -1,0 +1,1 @@
+var ROUTES_INDEX = {"name":"<root>","kind":"module","className":"AppModule","children":[{"name":"appRoutes","filename":"src/app/app-routing.module.ts","module":"AppRoutingModule","children":[{"path":"","loadChildren":"@libs/midgard-angular/src/lib/midgard.module#MidgardModule","children":[{"kind":"module","children":[],"module":"MidgardModule"}]}],"kind":"module"}]}
