@@ -8,9 +8,10 @@
         "parentExitPointComponent": {
           "path": "projects/midgard-angular/src/lib/pages/workflow-level2/detail/workflow-level2-detail.component.html",
           "elementId": "tabs",
-          "componentSelector": "mg-tab",
+          "componentSelector": "mat-tab",
           "options" : {
-            "label": "Documents"
+            "label": "Documents",
+            "routerOutlet": "documents"
           }
         },
         "entryPointComponent": "",
