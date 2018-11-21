@@ -25,11 +25,11 @@
       "@libs/*": [
         "projects/*"
       ],
-      "walhall-sample-angular-app": [
-        "dist/walhall-sample-angular-app"
+      "midgard-angular": [
+        "dist/midgard-angular"
       ],
-      "walhall-sample-angular-app/*": [
-        "dist/walhall-sample-angular-app/*"
+      "midgard-angular/*": [
+        "dist/midgard-angular/*"
       ],
       "freyja": [
         "dist/freyja"
@@ -42,12 +42,6 @@
       ],
       "styleguide/*": [
         "dist/styleguide/*"
-      ],
-      "documents": [
-        "dist/documents"
-      ],
-      "products": [
-        "dist/products"
       ]
     }
   }
