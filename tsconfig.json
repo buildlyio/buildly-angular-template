@@ -25,11 +25,11 @@
       "@libs/*": [
         "projects/*"
       ],
-      "midgard-angular": [
-        "dist/midgard-angular"
+      "walhall-sample-angular-app": [
+        "dist/walhall-sample-angular-app"
       ],
-      "midgard-angular/*": [
-        "dist/midgard-angular/*"
+      "walhall-sample-angular-app/*": [
+        "dist/walhall-sample-angular-app/*"
       ],
       "freyja": [
         "dist/freyja"
