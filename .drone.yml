@@ -31,7 +31,7 @@ pipeline:
       status: [success]
 
   test:
-    image: node:9.9.0
+    image: registry.tola.io/humanitec/docker-nodejs-and-chrome:0.0.1-${NODE_VERSION}-latest
     commands:
       - npm run test-headless
     when:
