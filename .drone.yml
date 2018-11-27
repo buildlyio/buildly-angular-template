@@ -33,7 +33,6 @@ pipeline:
   test:
     image: registry.tola.io/humanitec/docker-nodejs-and-chrome:0.0.1-${NODE_VERSION}-latest
     commands:
-      - npm rebuild node-sass  # It fails test without rebuild node-sass
       - npm run test-ci
     when:
       event: [push, tag]
