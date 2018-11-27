@@ -25,18 +25,18 @@ pipeline:
   build:
     image: node:9.9.0
     commands:
-      - npm run build -- --prod
+      - npm run build --prod
     when:
       event: [push, tag]
       status: [success]
 
-   test:
-     image: node:9.9.0
-     commands:
-       - npm run test-headless
-     when:
-       event: [push, tag]
-       status: [success]
+  test:
+    image: node:9.9.0
+    commands:
+      - npm run test-headless
+    when:
+      event: [push, tag]
+      status: [success]
 
   build-docker-image:
     image: plugins/docker
