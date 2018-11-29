@@ -34,6 +34,7 @@ pipeline:
     image: registry.tola.io/humanitec/docker-nodejs-and-chrome:0.0.1-8.12.0-latest
     commands:
       - npm run test
+      - npm rebuild node-sass
     when:
       event: [push, tag]
       status: [success]
