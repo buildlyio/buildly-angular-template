@@ -32,7 +32,7 @@
           "elementId": "navbar",
           "componentSelector": "mg-navbar-elem",
           "options" : {
-            "icon": "view_headline",
+            "icon": "local_offer",
             "label": "Products",
             "route": "products"
           }
