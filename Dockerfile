@@ -5,4 +5,4 @@ WORKDIR /app
 
 EXPOSE 9000
 
-RUN npm run build-prod
+RUN ng serve --prod
