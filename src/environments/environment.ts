@@ -3,10 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  API_URL: 'http://35.240.18.84/api',
+  API_URL: 'http://35.244.187.171/api',
   DOCS_API: 'http://35.241.189.47/api',
   OAUTH_CLIENT_ID: 'lBDR6OTSJHi7VwmtMPOObB8GRs9AeEarhXyFciOh',
-  OAUTH_TOKEN_URL:  'http://35.240.18.84/oauth/token/',
+  OAUTH_TOKEN_URL:  'http://35.244.187.171/oauth/token/',
   production: false
 };
 
