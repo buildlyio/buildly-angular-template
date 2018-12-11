@@ -1,3 +1,8 @@
-FROM nginx:1.13.12
+FROM node:latest
 
-COPY dist/walhall-sample-angular-app/ /usr/share/nginx/html
+COPY . /app
+WORKDIR /app
+
+EXPOSE 9000
+
+RUN npm run build-prod
