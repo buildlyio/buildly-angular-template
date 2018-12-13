@@ -1,8 +1,1 @@
-{
-  "app": {
-    "initCommitId": ""
-  },
-  "midgard-angular": {
-    "initCommitId": ""
-  }
-}
+{"app":{"initCommitId":"a9f0715c5ec2dca848a2f5838b37ed53e7c0cabf\n"},"midgard-angular":{"initCommitId":"81505e29e2846704840ac7f78daf05d9b6c4f10c\n"}}
