@@ -11,6 +11,8 @@ pipeline:
       - ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
       - chmod 600 /root/.ssh/id_rsa*
       - ssh-add -k /root/.ssh/id_rsa
+      - git config --global user.email "$${NPM_EMAIL}"
+      - git config --global user.name "$${NPM_USER}"
       - npm install npm-login-cmd -g
       - npm install gulp-cli -g
       - npm config set registry https://npm-proxy.fury.io/$${NPM_TOKEN}/humanitec/
