@@ -1,15 +1,18 @@
 {
   "modules": [
     {
+      "name": "midgard-angular",
+      "url": "git@github.com:Humanitec-Walhall/midgard-angular.git"
+    },
+    {
       "name": "documents",
-      "url": "git@github.com:Humanitec/midgard-documents.git",
-      "commitId": "123sad12",
+      "url": "git@github.com:Humanitec-Walhall/midgard-documents.git",
       "config": {
         "parentExitPointComponent": {
           "path": "projects/midgard-angular/src/lib/pages/workflow-level2/detail/workflow-level2-detail.component.html",
           "elementId": "tabs",
           "componentSelector": "mat-tab",
-          "options" : {
+          "options": {
             "label": "Documents",
             "routerOutlet": "documents"
           }
@@ -24,14 +27,13 @@
     },
     {
       "name": "products",
-      "url": "git@github.com:Humanitec/midgard-products.git",
-      "commitId": "234ba5f0",
+      "url": "git@github.com:Humanitec-Walhall/midgard-products.git",
       "config": {
         "parentExitPointComponent": {
           "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
           "elementId": "navbar",
           "componentSelector": "mg-navbar-elem",
-          "options" : {
+          "options": {
             "icon": "local_offer",
             "label": "Products",
             "route": "products"
