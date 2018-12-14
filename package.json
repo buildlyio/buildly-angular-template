@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-prod": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build --no-progress --no-sourcemap --aot --prod  --output-hashing=all",
+    "build-prod": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build --no-progress --aot --prod  --output-hashing=all",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
