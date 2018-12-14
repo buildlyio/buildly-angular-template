@@ -1,7 +1,7 @@
 export const environment = {
-  API_URL: 'http://35.205.167.234/api',
-  DOCS_API: 'http://35.205.167.234/api',
-  OAUTH_CLIENT_ID: 'lBDR6OTSJHi7VwmtMPOObB8GRs9AeEarhXyFciOh',
-  OAUTH_TOKEN_URL:  'http://35.205.167.234/oauth/token/',
+  API_URL: process.env.API_BASE_URL,
+  DOCS_API: process.env.DOCS_API,
+  OAUTH_CLIENT_ID: process.env.OAUTH_CLIENT_ID,
+  OAUTH_TOKEN_URL:  process.env.OAUTH_TOKEN_URL,
   production: true
 };
