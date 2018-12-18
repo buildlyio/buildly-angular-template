@@ -51,7 +51,7 @@ pipeline:
     branch: environment
     secrets: [DOCKER_USERNAME, DOCKER_PASSWORD]
     when:
-      event: [push, tag]
+      event: [pull_request, push, tag]
       status: [success]
 
   notify:
