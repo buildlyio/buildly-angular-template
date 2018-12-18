@@ -48,6 +48,7 @@ pipeline:
     repo: registry.tola.io/humanitec/walhall-sample-angular-app
     file: Dockerfile
     auto_tag: true
+    branch: environment
     secrets: [DOCKER_USERNAME, DOCKER_PASSWORD]
     when:
       event: [push, tag]
