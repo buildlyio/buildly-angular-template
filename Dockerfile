@@ -1,13 +1,8 @@
-FROM node:latest
+FROM nginx:latest
 
-COPY . /app
-WORKDIR /app
+COPY . /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
 
-EXPOSE 9000
+EXPOSE 80
 
-
-RUN npm install --loglevel=silent --no-summary
-RUN npm rebuild node-sass
-RUN npm run build-prod
-
-CMD ["node", "server.js"]
+CMD ["serialize_environment.sh"]
