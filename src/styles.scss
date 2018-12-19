@@ -35,4 +35,12 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   margin: 1rem 0;
 }
 
+// override material form styles
+.mat-form-field-infix {
+  min-width: 400px !important;
+  width: 100% !important;
+}
 
+.mat-form-field {
+  display: block;
+}
