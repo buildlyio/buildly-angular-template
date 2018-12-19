@@ -50,6 +50,7 @@ pipeline:
     auto_tag: true
     secrets: [DOCKER_USERNAME, DOCKER_PASSWORD]
     when:
+      ref: [ refs/heads/master, refs/heads/feature/*, refs/tags/v.* ]
       event: [push, tag]
       status: [success]
 
