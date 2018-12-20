@@ -1,10 +1,6 @@
 {
   "modules": [
       {
-          "name": "midgard-angular",
-          "url": "git@github.com:Humanitec/midgard-angular.git"
-      },
-      {
           "name": "documents",
           "url": "git@github.com:Humanitec/midgard-documents.git",
           "config": {
