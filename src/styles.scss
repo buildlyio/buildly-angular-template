@@ -26,3 +26,17 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .form-control {
   margin-right: 20px !important;
 }
+
+.mat-tab-header {
+  margin-bottom: 30px;
+}
+
+.card {
+  margin: 1rem 0;
+}
+
+// override material form styles
+.mat-form-field-infix {
+  min-width: 400px !important;
+  width: 100% !important;
+}
