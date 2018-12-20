@@ -1,51 +1,29 @@
 {
   "modules": [
-    {
-      "name": "midgard-angular",
-      "url": "git@github.com:Humanitec/midgard-angular.git"
-    },
-    {
-      "name": "documents",
-      "url": "git@github.com:Humanitec/midgard-documents.git",
-      "config": {
-        "parentExitPointComponent": {
-          "path": "projects/midgard-angular/src/lib/pages/workflow-level2/detail/workflow-level2-detail.component.html",
-          "elementId": "tabs",
-          "componentSelector": "mat-tab",
-          "options": {
-            "label": "Documents",
-            "routerOutlet": "documents"
+      {
+          "name": "midgard-angular",
+          "url": "git@github.com:Humanitec/midgard-angular.git"
+      },
+      {
+          "name": "documents",
+          "url": "git@github.com:Humanitec/midgard-documents.git",
+          "config": {
+              "parentExitPointComponent": {
+                  "path": "projects/midgard-angular/src/lib/pages/workflow-level2/detail/workflow-level2-detail.component.html",
+                  "elementId": "tabs",
+                  "componentSelector": "mat-tab",
+                  "options": {
+                      "label": "Documents",
+                      "routerOutlet": "documents"
+                  }
+              },
+              "entryPointComponent": "",
+              "routingModuleOptions": {
+                  "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+                  "parentComponent": "WorkflowLevel2DetailComponent",
+                  "childrenArrayIndex": "1"
+              }
           }
-        },
-        "entryPointComponent": "",
-        "routingModuleOptions": {
-          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
-          "parentComponent": "WorkflowLevel2DetailComponent",
-          "childrenArrayIndex": "1"
-        }
       }
-    },
-    {
-      "name": "products",
-      "url": "git@github.com:Humanitec/midgard-products.git",
-      "config": {
-        "parentExitPointComponent": {
-          "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
-          "elementId": "navbar",
-          "componentSelector": "mg-navbar-elem",
-          "options": {
-            "icon": "local_offer",
-            "label": "Products",
-            "route": "products"
-          }
-        },
-        "entryPointComponent": "",
-        "routingModuleOptions": {
-          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
-          "parentComponent": "MidgardComponent",
-          "childrenArrayIndex": "0"
-        }
-      }
-    }
   ]
 }
