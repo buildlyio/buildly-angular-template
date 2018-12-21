@@ -38,7 +38,7 @@ pipeline:
       - npm rebuild node-sass
       - npm run test
     when:
-      event: [push, tag]
+      event: [push]
       status: [success]
 
   build-docker-image:
@@ -52,6 +52,7 @@ pipeline:
     secrets: [DOCKER_USERNAME, DOCKER_PASSWORD]
     when:
       event: [pull_request, push, tag]
+      branches: [master, environment]
       status: [success]
 
   notify:
