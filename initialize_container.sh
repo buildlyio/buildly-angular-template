@@ -9,3 +9,6 @@ PATH=`ls dist/`
 OUTPUTPATH="dist/${PATH}/assets/environment.js"
 
 echo $RESULT > $OUTPUTPATH
+
+#Set up NGINX config
+cp nginx.conf /etc/nginx/conf.d/default.conf

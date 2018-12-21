@@ -1,9 +1,9 @@
 FROM nginx:latest
 
-COPY ./dist/walhall-sample-angular-app /usr/share/nginx/html
-WORKDIR /usr/share/nginx/html
+COPY . /app
+WORKDIR /app
 
 EXPOSE 80
 
-CMD ["./serialize_environment.sh"]
+CMD ["./initialize_container.sh"]
 CMD ["nginx", "-g 'daemon off;'"]
