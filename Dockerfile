@@ -5,4 +5,4 @@ WORKDIR /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["serialize_environment.sh"]
+CMD ["./serialize_environment.sh"]
