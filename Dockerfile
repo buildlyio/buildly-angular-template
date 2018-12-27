@@ -6,5 +6,4 @@ WORKDIR /app
 
 EXPOSE 9000
 
-CMD ["./initialize_container.sh"]
-CMD ["sh", "-c", "nginx -g 'daemon off;'"]
+CMD ["sh", "-c", "./initialize_container.sh && nginx -g 'daemon off;'"]
