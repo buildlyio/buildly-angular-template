@@ -1,4 +1,7 @@
 #!/bin/bash
+
+export GIT_FETCH_HEAD=`cat .git/FETCH_HEAD`
+
 RESULT='export default {'
 while read line; do
   RESULT+='"'`echo $line | sed --expression='s/=/\":\"/g'`'"',
