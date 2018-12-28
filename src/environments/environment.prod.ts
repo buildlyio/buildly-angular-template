@@ -1,5 +1,1 @@
-import vars from '../assets/environment';
-
-console.log(vars);
-
-export const environment = vars;
+export const environment = (window as any).environment;
