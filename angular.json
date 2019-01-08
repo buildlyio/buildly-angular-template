@@ -168,6 +168,32 @@
         }
       }
     },
+    "freyja-ui": {
+      "root": "projects/freyja-ui",
+      "sourceRoot": "projects/freyja-ui/src",
+      "projectType": "library",
+      "prefix": "fj",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/freyja-ui/tsconfig.lib.json",
+            "project": "projects/freyja-ui/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/freyja-ui/src/test.ts",
+            "tsConfig": "projects/freyja-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/freyja-ui/karma.conf.js"
+          }
+    },
     "documents": {
       "root": "projects/documents",
       "projectType": "library",

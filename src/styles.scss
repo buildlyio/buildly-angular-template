@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "styles/global";
+@import "styles/theme";
 
 $main-color: #0c5593;
 $danger-color: #DD0000;
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+body { margin: 0; font-family: 'Roboto', sans-serif; background-color: $background-secondary-color;}
 
 .main-button {
   background-color: $main-color !important;
