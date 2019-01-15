@@ -7,6 +7,7 @@ export const environment = {
   DOCS_API: 'http://35.190.36.72',
   OAUTH_CLIENT_ID: 'lBDR6OTSJHi7VwmtMPOObB8GRs9AeEarhXyFciOh',
   OAUTH_TOKEN_URL:  'http://35.190.36.72/oauth/token/',
+  APP_ENTRY_POINT: '/products',
   production: false
 };
 
