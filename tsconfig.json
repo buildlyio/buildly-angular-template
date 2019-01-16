@@ -42,9 +42,6 @@
       ],
       "styleguide/*": [
         "dist/styleguide/*"
-      ],
-      "products": [
-        "dist/products"
       ]
     }
   }
