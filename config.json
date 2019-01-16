@@ -1,16 +1,6 @@
 {
   "modules": [
     {
-        "name": "midgard-angular",
-        "url": "git@github.com:Humanitec/midgard-angular.git"
-    },
-    {
-      "name": "freyja-ui",
-      "url": "git@github.com:Humanitec/freyja-ui.git",
-      "commitId": "123sad12",
-      "config": null
-    },
-    {
       "name": "products",
       "url": "git@github.com:Humanitec/midgard-products.git",
       "commitId": "234ba5f0",
