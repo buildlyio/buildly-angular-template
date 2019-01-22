@@ -27,7 +27,7 @@ pipeline:
   build:
     image: node:9.9.0
     commands:
-      - npm run build -- --prod
+      - npm run build-prod
     when:
       event: [push, tag]
       status: [success]
@@ -38,7 +38,7 @@ pipeline:
       - npm rebuild node-sass
       - npm run test
     when:
-      event: [push, tag]
+      event: [push]
       status: [success]
 
   build-docker-image:
@@ -48,9 +48,11 @@ pipeline:
     repo: registry.tola.io/humanitec-walhall/walhall-sample-angular-app
     file: Dockerfile
     auto_tag: true
+    branch: environment
     secrets: [DOCKER_USERNAME, DOCKER_PASSWORD]
     when:
-      event: [push, tag]
+      event: [pull_request, push, tag]
+      branches: [master, environment]
       status: [success]
 
   notify:
