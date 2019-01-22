@@ -45,7 +45,7 @@ pipeline:
     image: plugins/docker
     insecure: true
     registry: registry.tola.io
-    repo: registry.tola.io/humanitec/walhall-sample-angular-app
+    repo: registry.tola.io/humanitec-walhall/walhall-sample-angular-app
     file: Dockerfile
     auto_tag: true
     branch: environment
