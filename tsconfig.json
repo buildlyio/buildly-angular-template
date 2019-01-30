@@ -45,6 +45,9 @@
       ],
       "products": [
         "dist/products"
+      ],
+      "documents": [
+        "dist/documents"
       ]
     }
   }

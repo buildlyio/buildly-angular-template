@@ -41,6 +41,45 @@ $yellow-darker: #E8B200;
 $yellow-lighter: #FFCD2E;
 $yellow-very-light: #F1EEE8;
 $black-very-light: #2b2826;
+/* grayscale alias */
+
+$color-black: rgba(0, 0, 0, 1) !default;
+$color-white: rgba(255, 255, 255, 1) !default;
+$color-gray: rgba(0, 0, 0, 0.15) !default;
+/* brand palette colors */
+
+$color-blue: rgba(27, 81, 160, 1) !default;
+$color-green: rgba(18, 182, 60, 1) !default;
+$color-red: rgba(219, 0, 0, 1) !default;
+$color-yellow: rgba(249, 148, 0, 1) !default;
+/* brand theme lighter hues */
+
+$color-black-15: rgba(0, 0, 0, 0.15);
+$color-black-20: rgba(0, 0, 0, 0.2);
+$color-black-60: rgba(0, 0, 0, 0.6);
+$color-black-80: rgba(0, 0, 0, 0.8);
+$color-gray-light: #f2f2f2;
+$color-gray-dark: #333;
+/* brand theme colors */
+
+$color-blue-light: #7596c5;
+$color-red-light: #e96565;
+$color-yellow-light: #fff5e6;
+$color-green-light: #edfff2;
+$color-red-lightest: #fff2f2;
+$color-blue-lightest: #dce8f9;
+$color-blue-lightest-alt: #ebf2fc;
+/* opaques */
+
+$color-blue-opaque: rgba(220, 232, 249, 1) !default;
+$color-red-opaque: rgba(219, 0, 0, 0.6) !default;
+/* typography colors */
+
+$color-text: $color-black !default;
+$color-text--body: rgba(51, 51, 51, 1) !default;
+$color-text--caption: rgba(102, 102, 102, 1) !default;
+$color-text--disabled: rgba(178, 178, 178, 1) !default;
+$color-text--link: $color-blue !default;
 
 // Bootstrap Defaults Variables
 $color-primary: $orange;

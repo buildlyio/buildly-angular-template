@@ -322,6 +322,7 @@
     }
   },
   "DOCUMENTS": {
+    "TITLE": "Documents",
     "DELETE_MODAL": {
       "CANCEL": "Cancel",
       "CONFIRM_DELETE": "Confirm Delete",
@@ -362,6 +363,7 @@
       "CHOOSE_A_FILE": "Choose a local file",
       "DATE": "Date",
       "DOCUMENT_NAME": "Document Name",
+      "DOCUMENT_DESCRIPTION": "Document Description",
       "DRAG_AND_DROP": "Drag and Drop",
       "NO_FILE_SELECTED": "No file selected. Select or drag a file to upload",
       "MAX_FILE_SIZE": "Maximum file size 500 megabites",
