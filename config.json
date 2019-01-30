@@ -22,6 +22,29 @@
           "childrenArrayIndex": "0"
         }
       }
+    },
+    {
+      "name": "documents",
+      "url": "git@github.com:Humanitec/midgard-documents.git",
+      "commitId": "123sad12",
+      "config": {
+        "parentExitPointComponent": {
+          "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
+          "elementId": "navbar",
+          "componentSelector": "mg-navbar-elem",
+          "options" : {
+            "icon": "book",
+            "label": "Documents",
+            "route": "documents"
+          }
+        },
+        "entryPointComponent": "",
+        "routingModuleOptions": {
+          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+          "parentComponent": "MidgardComponent",
+          "childrenArrayIndex": "0"
+        }
+      }
     }
   ]
 }
