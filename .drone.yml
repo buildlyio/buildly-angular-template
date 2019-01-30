@@ -27,7 +27,7 @@ pipeline:
   build:
     image: node:9.9.0
     commands:
-      - npm run build -- --prod
+      - npm run build
     when:
       event: [push, tag]
       status: [success]
