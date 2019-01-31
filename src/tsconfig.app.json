@@ -14,5 +14,8 @@
     "../projects/midgard-angular/src/lib/midgard.module.ts",
     "../projects/products/src/lib/products.module.ts",
     "../projects/documents/src/lib/documents.module.ts"
+  ],
+  "files": [
+    "../typings/json.d.ts"
   ]
 }
