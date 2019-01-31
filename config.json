@@ -1,4 +1,5 @@
 {
+  "appEntryPoint": "/products",
   "modules": [
     {
       "name": "products",

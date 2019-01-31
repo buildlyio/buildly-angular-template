@@ -44,5 +44,8 @@
         "dist/styleguide/*"
       ]
     }
-  }
+  },
+  "files": [
+    "json.d.ts"
+  ]
 }
