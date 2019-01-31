@@ -50,5 +50,8 @@
         "dist/documents"
       ]
     }
-  }
+  },
+  "files": [
+    "typings/json.d.ts"
+  ]
 }
