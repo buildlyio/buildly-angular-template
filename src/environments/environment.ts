@@ -14,7 +14,6 @@ export const environment = {
   API_URL: 'https://kupfer-dev-api.walhall.io/',
   OAUTH_CLIENT_ID: 'x3aqs246YzriNk5I_DN_Ff4ojPxIUesHK7ZyG50LB3Y',
   OAUTH_TOKEN_URL:  'https://kupfer-dev-api.walhall.io/oauth/token/',
-  APP_ENTRY_POINT: '/products',
   production: false
 };
 /*
