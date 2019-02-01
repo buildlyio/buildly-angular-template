@@ -12,8 +12,5 @@
   "include": [
     "**/*",
     "../projects/midgard-angular/src/lib/midgard.module.ts"
-  ],
-  "files": [
-    "../typings/json.d.ts"
   ]
 }
