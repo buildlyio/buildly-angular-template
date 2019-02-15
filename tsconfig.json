@@ -48,6 +48,9 @@
       ],
       "documents": [
         "dist/documents"
+      ],
+      "contact": [
+        "dist/contact"
       ]
     }
   },
