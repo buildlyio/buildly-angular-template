@@ -2,9 +2,9 @@
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
-  API_URL: 'https://kupfer-dev-api.walhall.io',
-  OAUTH_CLIENT_ID: 'x3aqs246YzriNk5I_DN_Ff4ojPxIUesHK7ZyG50LB3Y',
-  OAUTH_TOKEN_URL:  'https://kupfer-dev-api.walhall.io/oauth/token/',
+  API_URL: 'http://35.205.155.69',
+  OAUTH_CLIENT_ID: 'Oh4yLly29BGkavCoeed-GX-DcPyvHOCvGUzhpNPntsI',
+  OAUTH_TOKEN_URL:  'http://35.205.155.69/oauth/token/',
   production: false
 };
 /*
