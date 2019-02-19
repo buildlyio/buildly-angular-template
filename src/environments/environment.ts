@@ -2,9 +2,9 @@
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
-  API_URL: 'http://35.195.188.225',
-  OAUTH_CLIENT_ID: 'MUIBsB2U8-bx0Iscd8rogLyrjb4FJhMHjJMVhxXvISM',
-  OAUTH_TOKEN_URL:  'http://35.195.188.225/oauth/token/',
+  API_URL: 'http://34.76.27.57',
+  OAUTH_CLIENT_ID: 'HyRuoD3VJLlKGDCDfXougkh8ShQgupWhmmbO7HSf8nA',
+  OAUTH_TOKEN_URL:  'http://34.76.27.57/oauth/token/',
   production: false
 };
 /*
