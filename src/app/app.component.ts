@@ -7,15 +7,4 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  constructor(
-    private oauthService: OAuthService,
-    private router: Router
-  ) {}
-
-  ngOnInit() {
-    if (!this.oauthService.hasValidAccessToken()) {
-      this.router.navigate(['/login']);
-    }
-  }
-}
+export class AppComponent {}
