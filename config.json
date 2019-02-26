@@ -2,6 +2,29 @@
   "appEntryPoint": "/products",
   "modules": [
     {
+      "name": "dashboards",
+      "url": "git@github.com:Humanitec/dashboards-client.git",
+      "commitId": "234ba5f0",
+      "config": {
+        "parentExitPointComponent": {
+          "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
+          "elementId": "navbar",
+          "componentSelector": "mg-navbar-elem",
+          "options" : {
+            "icon": "dashboard",
+            "label": "Dashboards",
+            "route": "dashboards"
+          }
+        },
+        "entryPointComponent": "",
+        "routingModuleOptions": {
+          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+          "parentComponent": "MidgardComponent",
+          "childrenArrayIndex": "0"
+        }
+      }
+    },
+    {
       "name": "products",
       "url": "git@github.com:Humanitec/midgard-products.git",
       "commitId": "234ba5f0",
@@ -60,6 +83,29 @@
             "icon": "book",
             "label": "Documents",
             "route": "documents"
+          }
+        },
+        "entryPointComponent": "",
+        "routingModuleOptions": {
+          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+          "parentComponent": "MidgardComponent",
+          "childrenArrayIndex": "0"
+        }
+      }
+    },
+    {
+      "name": "forms",
+      "url": "git@github.com:Humanitec/forms-client.git",
+      "commitId": "234ba5f0",
+      "config": {
+        "parentExitPointComponent": {
+          "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
+          "elementId": "navbar",
+          "componentSelector": "mg-navbar-elem",
+          "options" : {
+            "icon": "assignment",
+            "label": "Forms",
+            "route": "forms"
           }
         },
         "entryPointComponent": "",

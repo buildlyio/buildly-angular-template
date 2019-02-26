@@ -1,10 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "styles/global";
-@import "styles/colors";
 @import "../projects/midgard-angular/node_modules/freyja-ui/theming";
-
-$main-color: #1b51a0;
-$danger-color: #DD0000;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: OpenSans, sans-serif; background-color: $background-secondary-color;}

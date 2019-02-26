@@ -51,6 +51,12 @@
       ],
       "contact": [
         "dist/contact"
+      ],
+      "dashboards": [
+        "dist/dashboards"
+      ],
+      "forms": [
+        "dist/forms"
       ]
     }
   },
