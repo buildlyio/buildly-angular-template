@@ -1,5 +1,5 @@
 {
-  "appEntryPoint": "/products",
+  "appEntryPoint": "/dashboards",
   "modules": [
     {
       "name": "dashboards",
