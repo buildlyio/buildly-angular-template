@@ -18,7 +18,7 @@
         },
         "entryPointComponent": "",
         "routingModuleOptions": {
-          "path": "@src/midgard-modules/midgard-routing.module.ts",
+          "path": "src/midgard/midgard-routing.module.ts",
           "parentComponent": "MidgardComponent",
           "childrenArrayIndex": "0"
         }
@@ -41,7 +41,7 @@
         },
         "entryPointComponent": "",
         "routingModuleOptions": {
-          "path": "@src/midgard-modules/midgard-routing.module.ts",
+          "path": "src/midgard/midgard-routing.module.ts",
           "parentComponent": "MidgardComponent",
           "childrenArrayIndex": "0"
         }
@@ -64,7 +64,7 @@
         },
         "entryPointComponent": "",
         "routingModuleOptions": {
-          "path": "@src/midgard-modules/midgard-routing.module.ts",
+          "path": "src/midgard/midgard-routing.module.ts",
           "parentComponent": "MidgardComponent",
           "childrenArrayIndex": "0"
         }
@@ -87,7 +87,7 @@
         },
         "entryPointComponent": "",
         "routingModuleOptions": {
-          "path": "@src/midgard-modules/midgard-routing.module.ts",
+          "path": "src/midgard/midgard-routing.module.ts",
           "parentComponent": "MidgardComponent",
           "childrenArrayIndex": "0"
         }
@@ -110,7 +110,7 @@
         },
         "entryPointComponent": "",
         "routingModuleOptions": {
-          "path": "@src/midgard-modules/midgard-routing.module.ts",
+          "path": "src/midgard/midgard-routing.module.ts",
           "parentComponent": "MidgardComponent",
           "childrenArrayIndex": "0"
         }
