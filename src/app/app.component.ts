@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OAuthService } from '@libs/midgard-angular/src/lib/modules/oauth/oauth.service';
+import { OAuthService } from '@src/midgard/modules/oauth/oauth.service';
 import { Router } from '@angular/router';
 
 @Component({

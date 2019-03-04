@@ -25,11 +25,17 @@
       "@libs/*": [
         "projects/*"
       ],
-      "midgard-angular": [
-        "dist/midgard-angular"
+      "@app/*": [
+        "src/app/*"
       ],
-      "midgard-angular/*": [
-        "dist/midgard-angular/*"
+      "@src/*": [
+        "src/*"
+      ],
+      "midgard-modules": [
+        "dist/midgard-modules"
+      ],
+      "midgard-modules/*": [
+        "dist/midgard-modules/*"
       ],
       "freyja": [
         "dist/freyja"

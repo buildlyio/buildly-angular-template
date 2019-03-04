@@ -1,0 +1,48 @@
+@import "../../../../src/styles";
+
+.list {
+  &__content {
+    display: flex;
+    &--list {
+      flex-direction: column;
+    }
+    &--table {
+      flex-direction: column;
+    }
+    &--tile {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    &__table {
+      width: 100%;
+      display: flex;
+    }
+  }
+}
+
+.accordion {
+  background-color: #F2F2F2;
+  margin-bottom: 30px;
+}
+
+.panel-title {
+  display: flex;
+  align-content: center;
+  &__button {
+    width: 10px;
+  }
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.caption-text {
+  font-size: rem-calc(10);
+}

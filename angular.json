@@ -3,11 +3,10 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "walhall-sample-angular-app": {
+    "midgard-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
       "schematics": {},
       "architect": {
         "build": {
@@ -121,46 +120,6 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "midgard-angular": {
-      "root": "projects/midgard-angular",
-      "sourceRoot": "projects/midgard-angular/src",
-      "projectType": "library",
-      "prefix": "mg",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/midgard-angular/tsconfig.lib.json",
-            "project": "projects/midgard-angular/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/midgard-angular/ng-package.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/midgard-angular/src/test.ts",
-            "tsConfig": "projects/midgard-angular/tsconfig.spec.json",
-            "karmaConfig": "projects/midgard-angular/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/midgard-angular/tsconfig.lib.json",
-              "projects/midgard-angular/tsconfig.spec.json"
-            ],
             "exclude": [
               "**/node_modules/**"
             ]
@@ -354,5 +313,5 @@
       }
     }
   },
-  "defaultProject": "walhall-sample-angular-app"
+  "defaultProject": "midgard-app"
 }

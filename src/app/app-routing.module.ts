@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { LoginComponent } from '@libs/midgard-angular/src/lib/pages/login/login.component';
-import { RegisterComponent } from '@libs/midgard-angular/src/lib/pages/register/register.component';
+import { LoginComponent } from '@src/midgard/pages/login/login.component';
+import { RegisterComponent } from '@src/midgard/pages/register/register.component';
 
 const appRoutes: Routes = [
   // The entry point is the midgard library

@@ -1,5 +1,5 @@
 {
-  "name": "walhall-sample-angular-app",
+  "name": "midgard-app",
   "version": "0.0.6",
   "scripts": {
     "ng": "ng",
@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "init": "gulp init --gulpfile node_modules/midgard-schematics/lib/gulpfile.js --cwd ./",
-    "compodoc": "./node_modules/.bin/compodoc -p ./projects/midgard-angular/tsconfig.lib.json"
+    "compodoc": "./node_modules/.bin/compodoc -p ./@src/midgard-modules/tsconfig.lib.json"
   },
   "private": true,
   "dependencies": {
@@ -27,11 +27,9 @@
     "@angular/platform-browser-dynamic": "^6.1.10",
     "@angular/router": "^6.1.10",
     "@ngx-translate/core": "^11.0.1",
-    "rxjs": "6.3.2",
-    "rxjs-compat": "6.3.2",
     "apollo-angular": "1.5.0",
     "apollo-angular-link-http": "^1.5.0",
-    "apollo-cache-inmemory": "1.3.10",
+    "apollo-cache-inmemory": "^1.3.0",
     "apollo-client": "2.4.13",
     "apollo-link": "^1.2.8",
     "apollo-link-context": "^1.0.10",
@@ -41,6 +39,8 @@
     "graphql-tag": "^2.10.1",
     "midgard-core": "^0.1.2",
     "moment": "^2.22.2",
+    "rxjs": "6.3.2",
+    "rxjs-compat": "6.3.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

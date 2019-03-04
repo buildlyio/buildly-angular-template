@@ -11,7 +11,7 @@
   ],
   "include": [
     "**/*",
-    "../projects/midgard-angular/src/lib/midgard.module.ts",
+    "../@src/midgard-modules/midgard.module.ts",
     "../projects/products/src/lib/products.module.ts",
     "../projects/documents/src/lib/documents.module.ts",
     "../projects/contacts/src/lib/contacts.module.ts",

@@ -7,7 +7,7 @@
       "commitId": "234ba5f0",
       "config": {
         "parentExitPointComponent": {
-          "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
+          "path": "@src/midgard-modules/components/nav-bar/nav-bar.component.html",
           "elementId": "navbar",
           "componentSelector": "mg-navbar-elem",
           "options" : {
@@ -18,7 +18,7 @@
         },
         "entryPointComponent": "",
         "routingModuleOptions": {
-          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+          "path": "@src/midgard-modules/midgard-routing.module.ts",
           "parentComponent": "MidgardComponent",
           "childrenArrayIndex": "0"
         }
@@ -30,7 +30,7 @@
       "commitId": "234ba5f0",
       "config": {
         "parentExitPointComponent": {
-          "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
+          "path": "@src/midgard-modules/components/nav-bar/nav-bar.component.html",
           "elementId": "navbar",
           "componentSelector": "mg-navbar-elem",
           "options" : {
@@ -41,7 +41,7 @@
         },
         "entryPointComponent": "",
         "routingModuleOptions": {
-          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+          "path": "@src/midgard-modules/midgard-routing.module.ts",
           "parentComponent": "MidgardComponent",
           "childrenArrayIndex": "0"
         }
@@ -53,7 +53,7 @@
       "commitId": "234ba5f0",
       "config": {
         "parentExitPointComponent": {
-          "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
+          "path": "@src/midgard-modules/components/nav-bar/nav-bar.component.html",
           "elementId": "navbar",
           "componentSelector": "mg-navbar-elem",
           "options" : {
@@ -64,7 +64,7 @@
         },
         "entryPointComponent": "",
         "routingModuleOptions": {
-          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+          "path": "@src/midgard-modules/midgard-routing.module.ts",
           "parentComponent": "MidgardComponent",
           "childrenArrayIndex": "0"
         }
@@ -76,7 +76,7 @@
       "commitId": "123sad12",
       "config": {
         "parentExitPointComponent": {
-          "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
+          "path": "@src/midgard-modules/components/nav-bar/nav-bar.component.html",
           "elementId": "navbar",
           "componentSelector": "mg-navbar-elem",
           "options" : {
@@ -87,7 +87,7 @@
         },
         "entryPointComponent": "",
         "routingModuleOptions": {
-          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+          "path": "@src/midgard-modules/midgard-routing.module.ts",
           "parentComponent": "MidgardComponent",
           "childrenArrayIndex": "0"
         }
@@ -99,7 +99,7 @@
       "commitId": "234ba5f0",
       "config": {
         "parentExitPointComponent": {
-          "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
+          "path": "@src/midgard-modules/components/nav-bar/nav-bar.component.html",
           "elementId": "navbar",
           "componentSelector": "mg-navbar-elem",
           "options" : {
@@ -110,7 +110,7 @@
         },
         "entryPointComponent": "",
         "routingModuleOptions": {
-          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+          "path": "@src/midgard-modules/midgard-routing.module.ts",
           "parentComponent": "MidgardComponent",
           "childrenArrayIndex": "0"
         }
