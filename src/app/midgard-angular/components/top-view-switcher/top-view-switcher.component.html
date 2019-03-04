@@ -1,0 +1,41 @@
+<div class="top-bar">
+  <h3 class="top-bar__heading" *ngIf="title">
+    {{title}}
+    <fj-button
+      *ngIf="!addButtonText"
+      (click)="onButtonClicked(view)"
+      [shape]="'rounded'"
+      [size]="'small'"
+      [iconMargin]="'0px'"
+      [margin]="'0px 5px'"
+      [iconPosition]="'before'"
+      [icon]="'plus'"
+    ></fj-button>
+    <fj-button
+      *ngIf="addButtonText"
+      (click)="onButtonClicked(view)"
+      [shape]="'rounded'"
+      [size]="'small'"
+      [iconMargin]="'1px 5px'"
+      [margin]="'0px 5px'"
+      [iconPosition]="'before'"
+      [icon]="'plus'"
+    >{{addButtonText}}
+    </fj-button>
+  </h3>
+
+  <div class="top-bar__view-switcher">
+    <div class="top-bar__view-switcher__elem" *ngIf="availableViews.list" (click)="selectView('list')" [ngClass]= "{'top-bar__view-switcher__elem--active': activeView === 'list' }">
+      <mat-icon class="top-bar__view-switcher__elem__icon">list</mat-icon>
+      <span>List</span>
+    </div>
+    <div class="top-bar__view-switcher__elem" *ngIf="availableViews.tile" (click)="selectView('tile')" [ngClass]= "{'top-bar__view-switcher__elem--active': activeView === 'tile' }">
+      <mat-icon class="top-bar__view-switcher__elem__icon" (click)="selectView('tile')">view_module</mat-icon>
+      <span>Tiles</span>
+    </div>
+    <div class="top-bar__view-switcher__elem" *ngIf="availableViews.table" (click)="selectView('table')" [ngClass]= "{'top-bar__view-switcher__elem--active': activeView === 'table' }">
+      <mat-icon class="top-bar__view-switcher__elem__icon">reorder</mat-icon>
+      <span>Table</span>
+    </div>
+  </div>
+</div>

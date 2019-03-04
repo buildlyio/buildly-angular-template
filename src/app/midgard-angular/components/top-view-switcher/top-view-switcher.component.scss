@@ -1,0 +1,30 @@
+@import "../../../../../../src/styles";
+
+.top-bar {
+  display: flex;
+  &__heading {
+    flex: 2;
+  }
+  &__view-switcher {
+    display: flex;
+    align-items: center;
+    &__elem{
+      display: flex;
+      align-items: center;
+      font-size: rem-calc(14);
+      padding: rem-calc(5);
+      margin-right: rem-calc(5);
+      cursor: pointer;
+      color: $text-primary-color;
+      &:hover {
+        background-color: $primary-color-lighter;
+      }
+      &--active {
+        background-color: $primary-color-lighter;
+      }
+      &__icon {
+        margin-right: rem-calc(5);
+      }
+    }
+  }
+}

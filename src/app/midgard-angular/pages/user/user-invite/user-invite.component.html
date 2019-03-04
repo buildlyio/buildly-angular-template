@@ -1,0 +1,9 @@
+<mg-form
+  #crud
+  [backButtonText]="'Back to users'"
+  [addButtonText]="'Invite User'"
+  [formFields]="formFields"
+  [title]="'Invite user'"
+  (formSubmitted)="onFormSubmitted($event)"
+  [listRoute]="'/user/list/'">
+</mg-form>

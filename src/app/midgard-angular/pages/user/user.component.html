@@ -1,0 +1,18 @@
+<ng-container *ngIf="selectedTab === 'user-profile'">
+  <mg-form
+    #crud
+    [selector]="selectorProfile"
+    [loadAction]="'LOAD_AUTHUSER'"
+    [updateAction]="'UPDATE_AUTHUSER'"
+    [editButtonText]="'Edit Profile'"
+    [formFields]="userProfileFormFields"
+    [title]="'User Profile'"
+    (formSubmitted)="onFormSubmitted($event)"
+    [updateMessage]="'your user profile has been updated'">
+  </mg-form>
+  <fj-button (click)="logout()" [margin]="'0px'" [color]="'danger'" [type]="'submit'">Logout</fj-button>
+</ng-container>
+<ng-container *ngIf="selectedTab === 'user-management'">
+  <router-outlet></router-outlet>
+</ng-container>
+

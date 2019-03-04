@@ -1,0 +1,171 @@
+<div class="card-item" [ngClass]="'card-item--'+ layout">
+  <div class="card-item__content" [ngClass]="{
+    'card-item__content--highlight':isHighlight,
+    'card-item__content--tile--expanded': isExpanded && layout === 'tile',
+    'card-item__content--list--expanded': isExpanded && layout === 'list',
+    'card-item__content--table--expanded': isExpanded && layout === 'table',
+    'card-item__content--tile': layout === 'tile',
+    'card-item__content--list': layout === 'list',
+    'card-item__content--table': layout === 'table'
+    }">
+    <div class="card-item__header" (click)="toggleExpanded()" [ngClass]="'card-item__header--' + layout">
+      <ng-content select="[card-item-header]" ></ng-content>
+      <ng-container *ngIf="item">
+        <!-- Image exists-->
+        <div class="card-item__picture"
+             *ngIf="options?.picture && item[options?.picture?.thumbnail]"
+             [ngStyle]="{'background-image': 'url(' + item[options.picture.thumbnail] + ')'}"
+             [ngClass]="'card-item__picture--' + layout"
+             (click)="onPictureClicked($event)"
+        >
+        </div>
+        <!-- No Image available-->
+        <div class="card-item__picture"
+             (click)="file.click()"
+             *ngIf="options?.picture && !item[options?.picture?.thumbnail]"
+             [ngClass]="'card-item__picture--' +layout"
+        >
+          <fj-icon [svgName]="'upload'"></fj-icon>
+        </div>
+        <input type="file" accept="image/*" hidden #file>
+        <div class="card-item__title__container" *ngIf="options?.title || options?.subText || options?.subText2" [ngClass]="'card-item__title__container--' + layout">
+          <div class="card-item__field-wrapper">
+            <fj-inline-text-editor
+              [value]="item[options?.title?.prop]"
+              displayElement="h3"
+              name="title"
+              (elementEdited)="onEditElement($event)">
+            </fj-inline-text-editor>
+          </div>
+          <div class="card-item__title__subtext">
+            <div class="card-item__field-wrapper" *ngIf="options?.subText">
+              <fj-inline-text-editor
+                [value]="item[options?.subText?.prop]"
+                name="subText"
+                (elementEdited)="onEditElement($event)">
+              </fj-inline-text-editor>
+            </div>
+            <div class="card-item__field-wrapper" *ngIf="options?.subText2">
+              <fj-inline-text-editor
+                [value]="item[options?.subText2?.prop]"
+                name="subText2"
+                (elementEdited)="onEditElement($event)">
+              </fj-inline-text-editor>
+            </div>
+          </div>
+        </div>
+        <div class="card-item__right__container" *ngIf="options?.caption || options?.link || options?.dateHeader1 || options?.dateHeader2" [ngClass]="'card-item__right__container--'+ layout">
+          <div class="card-item__field-wrapper" *ngIf="options?.caption">
+            <fj-inline-text-editor
+              [value]="item[options?.caption?.prop]"
+              name="caption"
+              (elementEdited)="onEditElement($event)"
+              [displayElementCustomStyles]="{'cursor': 'pointer', 'margin': '0', 'font-size': '16px', 'color': '#666666'}"
+              [inputCustomStyles]="inputFieldStyles">
+            </fj-inline-text-editor>
+          </div>
+
+          <div class="card-item__field-wrapper" *ngIf="options?.link">
+            <fj-inline-text-editor
+              [value]="item[options?.link?.prop]"
+              name="link"
+              displayElement="a"
+              (elementEdited)="onEditElement($event)"
+              [inputCustomStyles]="inputFieldStyles">
+            </fj-inline-text-editor>
+          </div>
+
+          <div class="card-item__right__date caption-text">
+            <span *ngIf="options?.dateHeader1">{{options?.dateHeader1.label}} {{item[options?.dateHeader1?.prop] | date: 'dd.MM.yyyy' }}</span>
+            <span *ngIf="options?.dateHeader1"> | </span>
+            <span *ngIf="options?.dateHeader2">{{options?.dateHeader2.label}} {{item[options?.dateHeader1?.prop] | date: 'dd.MM.yyyy'}}</span>
+          </div>
+        </div>
+        <div class="card-item__actions__container" [ngClass]="'card-item__actions__container--' + layout"
+             *ngIf="options?.secondaryAction || options?.primaryAction || options?.otherActions"
+        >
+          <fj-button [ngClass]="'card-item__actions__item card-item__actions__item--'+ layout" color="light" size="small" *ngIf="options?.secondaryAction" (click)="onActionClicked($event, options?.secondaryAction.value)">{{options?.secondaryAction.label}}</fj-button>
+          <fj-button class="card-item__actions__item" *ngIf="options?.primaryAction" size="small" (click)="onActionClicked($event, options?.primaryAction.value)">{{options?.primaryAction.label}}</fj-button>
+          <fj-native-dropdown class="card-item__actions__item" *ngIf="options?.otherActions" size="small" [options]="options?.otherActions" [customStyles]="{'borderColor': 'rgba(27, 81, 160, 1)','width' : '40px'}" [showDefaultOnCLick]="true" (optionSelected)="onActionClicked($event)"></fj-native-dropdown>
+        </div>
+      </ng-container>
+
+    </div>
+    <div *ngIf="isExpanded" class="card-item__divider"></div>
+    <div *ngIf="isExpanded" class="card-item__body" [ngClass]="'card-item__body--' + layout ">
+      <ng-container *ngIf="item && (options?.date1 || options?.date2 || options?.details || options?.description || options?.tags)">
+        <div class="card-item__body__date caption-text">
+          <span *ngIf="options?.date1 && isEdit.date1 === false">{{options?.date1.label}} {{item[options?.date1?.prop] | date: 'dd.MM.yyyy' }}</span>
+          <span *ngIf="options?.date1"> | </span>
+          <span *ngIf="options?.date2 && isEdit.date2 === false">{{options?.date2.label}} {{item[options?.date1?.prop] | date: 'dd.MM.yyyy'}}</span>
+        </div>
+        <div class="card-item__body__details" *ngIf="options?.details">
+          <ng-container *ngFor="let detailItem of options?.details; let i = index">
+            <div class="card-item__body__details__item">
+              <div class="caption-text">
+                {{detailItem.label}}
+              </div>
+              <div class="card-item__field-wrapper">
+                <fj-inline-text-editor
+                  [value]="item[detailItem?.prop]"
+                  name="details"
+                  [index]="0"
+                  displayElement="div"
+                  (elementEdited)="onEditElement($event)"
+                  [inputCustomStyles]="inputFieldStyles">
+                </fj-inline-text-editor>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <div class="card-item__body__description">
+          <div class="caption-text">
+            {{options?.description.label}}
+          </div>
+          <div class="card-item__field-wrapper">
+            <fj-inline-text-editor
+              [value]="item[options?.description?.prop]"
+              name="description"
+              displayElement="div"
+              (elementEdited)="onEditElement($event)"
+              [inputCustomStyles]="inputFieldStyles">
+            </fj-inline-text-editor>
+          </div>
+        </div>
+        <div class="card-item__body__tags" *ngIf="options?.tags && isEdit.tags === false" (dblclick)="activateEditMode($event, 'tags')">
+          <div class="caption-text">
+            {{options?.tags.label}}
+          </div>
+          <div class="card-item__field-wrapper">
+            <fj-inline-text-editor
+              [value]="item[options?.tags?.prop]"
+              name="tags"
+              displayElement="div"
+              (elementEdited)="onEditElement($event)"
+              (doubleClick)="onDoubleClick()"
+              [inputCustomStyles]="inputFieldStyles">
+            </fj-inline-text-editor>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- custom card content-->
+      <ng-content select="[card-item-body]"></ng-content>
+    </div>
+  </div>
+  <div class="card-item__below-menu" *ngIf="options?.belowMenuPrimaryAction || options?.belowMenuOtherActions" (click)="toggleExpanded()" [ngClass]="'card-item__below-menu--' + layout" (mouseenter)="showBelowMenu = true" (mouseleave)="showBelowMenu = false">
+    <fj-button
+      (click)="onActionClicked($event, options?.belowMenuPrimaryAction.value)"
+      *ngIf="showBelowMenu && options?.belowMenuPrimaryAction"
+      [margin]="'15px'"
+      [iconPosition]="'before'"
+      [icon]="'plus'"
+      size="small"
+    >
+      {{options?.belowMenuPrimaryAction.label}}
+    </fj-button>
+    <fj-native-dropdown *ngIf="showBelowMenu && options?.belowMenuOtherActions" [options]="options?.belowMenuOtherActions" size="small" [customStyles]="{'borderColor': 'rgba(27, 81, 160, 1)','width' : '40px'}" [showDefaultOnCLick]="true" (optionSelected)="onActionClicked($event)"></fj-native-dropdown>
+  </div>
+</div>
+
+<fj-light-box #lightBox [slides]="lightBoxImages"></fj-light-box>

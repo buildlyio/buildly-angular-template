@@ -1,0 +1,17 @@
+<ng-container *ngIf="!isUserInviteCheck(); else userInvite">
+  <fj-button color="light" (click)="goToUsersPage()" [margin]="'30px 0px 0px 0px'">← Back to users</fj-button>
+  <h3>Permissions</h3>
+  <!-- List of workflow teams-->
+  <fj-table
+    *ngIf= "rows"
+    [rows]= "rows"
+    [columns]="tableOptions?.columns"
+    [fixedRow]="tableOptions?.fixedRow"
+    (fixedRowSelectionChanged)="addWorkflow($event)"
+    (switcherChanged)="changeRole($event)"
+    (delete)="deleteWorkflow($event)"
+  ></fj-table>
+</ng-container>
+<ng-template #userInvite>
+  <mg-user-invite></mg-user-invite>
+</ng-template>

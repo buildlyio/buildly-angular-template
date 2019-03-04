@@ -1,0 +1,13 @@
+<mg-crud
+  [loadAction]="'LOAD_DATA_COREUSER'"
+  [defaultLayout]="'data-table'"
+  [title]="'Users'"
+  [tableOptions]="tableOptions"
+  [selector]="selector"
+  [deleteAction]="'DELETE_COREUSER'"
+  [addButtonText]="'Invite User'"
+  [deleteMessage]="'The user has been deactivated'"
+  [detailsRoute]="'/user/details/'"
+  (tableActionClicked)="toggleUserActivation($event)"
+>
+</mg-crud>

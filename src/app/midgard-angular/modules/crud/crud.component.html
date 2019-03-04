@@ -1,0 +1,38 @@
+<ng-container *ngIf="cardItemOptions || tableOptions">
+  <mg-top-view-switcher
+    [title]="title"
+    [addButtonText]="addButtonText"
+    [defaultView]="view"
+    (viewSelected)="selectView($event)"
+    (addButtonClicked)="addNewElement()"
+  >
+  </mg-top-view-switcher>
+  <div class="spinner">
+    <fj-spinner *ngIf="!(dataLoaded | async)"></fj-spinner>
+  </div>
+  <div class="list__content" [ngClass]= "'list__content--' + view ">
+    <ng-container *ngIf="(dataLoaded | async) && rows">
+      <ng-container *ngIf="cardItemOptions">
+        <mg-card-item *ngFor="let row of rows"
+                      class="list__content__card"
+                      [layout]="view"
+                      [item]="row"
+                      [options]="cardItemOptions"
+                      (elementEdited)="onCardItemEdited($event, row)"
+                      (actionClicked)="onCardItemActionClicked($event, row)"
+        ></mg-card-item>
+      </ng-container>
+      <!-- DEPRECATED: OLD TABLE COMPONENT -->
+      <fj-table
+          class="list__content__table"
+          *ngIf= "view === 'data-table' && tableOptions && !graphQlChildrenModel && (dataLoaded | async)"
+          [rows]= "rows"
+          [columns]="tableOptions?.columns"
+          (selectItem)="goToDetailsPage($event)"
+          (delete)="deleteItem($event?.item)"
+          (activate)="onTableActionClicked('activate', $event)"
+        ></fj-table>
+      </ng-container>
+  </div>
+</ng-container>
+<ng-content></ng-content>

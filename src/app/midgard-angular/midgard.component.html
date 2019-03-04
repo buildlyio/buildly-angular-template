@@ -1,0 +1,10 @@
+<div class="midgard">
+  <mg-top-bar (menuToggled)="toggleMenu($event)"></mg-top-bar>
+  <div class="midgard__container">
+    <mg-nav-bar [hideMenu]="hideMenu"></mg-nav-bar>
+    <div class="midgard__wrapper" [ngClass]="{'midgard__wrapper--full-width': hideMenu}">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

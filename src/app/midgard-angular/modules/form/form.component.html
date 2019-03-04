@@ -1,0 +1,32 @@
+<div class="crud-details">
+  <fj-button color="light" *ngIf="backButtonText" (click)="goToListPage()" [margin]="'30px 0px 0px 0px'">← {{backButtonText}}</fj-button>
+  <h3 *ngIf="currentItem && titleProp">
+    {{currentItem[titleProp]}}
+  </h3>
+  <h3 *ngIf="title">
+    {{title}}
+  </h3>
+  <fj-spinner *ngIf="!(dataLoaded | async)"></fj-spinner>
+  <fj-card *ngIf="(dataLoaded | async)" class="crud-details__card">
+    <div class="crud-details__card__content">
+      <form class="crud-details__form" *ngIf="detailsForm" [formGroup]="detailsForm" (submit)="submitForm()">
+        <div class="crud-details__form__field" *ngFor="let formField of formFields">
+          <fj-text-input *ngIf="formField.controlName"
+                         [placeholder]="formField.label"
+                         [label]="formField.label"
+                         [error]="errors[formField.controlName]"
+                         [formGroup]="detailsForm"
+                         [customStyles]="{'width': '100%'}"
+                         [controlName]="formField.controlName"
+          ></fj-text-input>
+        </div>
+        <div class="crud-details__form__submit">
+          <fj-button (click)="submitForm()" *ngIf="(addButtonText || editButtonText)" [disabled]="!detailsForm.valid" [type]="'submit'">
+            <ng-container *ngIf="isNewItemCheck()">{{addButtonText}}</ng-container>
+            <ng-container *ngIf="!isNewItemCheck()">{{editButtonText}}</ng-container>
+          </fj-button>
+        </div>
+      </form>
+    </div>
+  </fj-card>
+</div>
