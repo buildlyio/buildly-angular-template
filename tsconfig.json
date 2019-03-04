@@ -33,21 +33,6 @@
       ],
       "@src/*": [
         "src/*"
-      ],
-      "products": [
-        "dist/products"
-      ],
-      "documents": [
-        "dist/documents"
-      ],
-      "contact": [
-        "dist/contact"
-      ],
-      "dashboards": [
-        "dist/dashboards"
-      ],
-      "forms": [
-        "dist/forms"
       ]
     }
   },
