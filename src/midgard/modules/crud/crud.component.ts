@@ -5,7 +5,7 @@ import { GraphQlService } from '@src/midgard/modules/graphql/graphql.service';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/internal/operators';
 import { MatSnackBar } from '@angular/material';
-import { CREATE_PRODUCT_COMMIT, LOAD_ALL_PRODUCTS_COMMIT, LOAD_ONE_PRODUCT_COMMIT } from '@libs/products/src/lib/state/products.actions';
+import { CREATE_PRODUCT_COMMIT, LOAD_ALL_PRODUCTS_COMMIT, LOAD_ONE_PRODUCT_COMMIT } from '@clients/products/src/lib/state/products.actions';
 import { addAll, deleteOne, upsertOne } from '@src/midgard/modules/store/reducer.utils';
 
 @Component({

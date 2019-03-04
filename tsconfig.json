@@ -22,7 +22,10 @@
       "@env/*": [
         "src/environments/*"
       ],
-      "@libs/*": [
+      "@clients/*": [
+        "src/clients/*"
+      ],
+      "@projects/*": [
         "projects/*"
       ],
       "@app/*": [
@@ -30,24 +33,6 @@
       ],
       "@src/*": [
         "src/*"
-      ],
-      "midgard-modules": [
-        "dist/midgard-modules"
-      ],
-      "midgard-modules/*": [
-        "dist/midgard-modules/*"
-      ],
-      "freyja": [
-        "dist/freyja"
-      ],
-      "freyja/*": [
-        "dist/freyja/*"
-      ],
-      "styleguide": [
-        "dist/styleguide"
-      ],
-      "styleguide/*": [
-        "dist/styleguide/*"
       ],
       "products": [
         "dist/products"

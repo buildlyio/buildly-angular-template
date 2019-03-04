@@ -22,11 +22,11 @@ const midgardRoutes: Routes = [
           {path: 'list', component: UserListComponent, canActivate: [AuthGuard]},
           {path: 'details/:id', component: UserDetailsComponent, canActivate: [AuthGuard]},
         ]},
-      {path: 'products', loadChildren: '@libs/products/src/lib/products.module#ProductsModule'},
-      {path: 'contacts', loadChildren: '@libs/contacts/src/lib/contacts.module#ContactsModule'},
-      {path: 'documents', loadChildren: '@libs/documents/src/lib/documents.module#DocumentsModule'},
-      {path: 'dashboards', loadChildren: '@libs/dashboards/src/lib/dashboards.module#DashboardsModule'},
-      {path: 'forms', loadChildren: '@libs/forms/src/lib/forms.module#FormsModule'}
+      {path: 'products', loadChildren: '@clients/products/src/lib/products.module#ProductsModule'},
+      {path: 'contacts', loadChildren: '@clients/contacts/src/lib/contacts.module#ContactsModule'},
+      {path: 'documents', loadChildren: '@clients/documents/src/lib/documents.module#DocumentsModule'},
+      {path: 'dashboards', loadChildren: '@clients/dashboards/src/lib/dashboards.module#DashboardsModule'},
+      {path: 'forms', loadChildren: '@clients/forms/src/lib/forms.module#FormsModule'}
       ],
   },
 ];
