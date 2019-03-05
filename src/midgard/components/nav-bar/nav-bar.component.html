@@ -2,11 +2,13 @@
   <div class="nav-bar__container" [ngClass]="{'nav-bar__container--hidden': hideMenu}">
     <div id="navbar" class="nav-bar__elements">
       <mg-navbar-elem label="Dashboards" route="dashboards" icon="dashboard"></mg-navbar-elem>  <mg-navbar-elem label="Products" route="products" icon="view_headline"></mg-navbar-elem>  <mg-navbar-elem label="Contacts" route="contacts" icon="supervisor_account"></mg-navbar-elem>  <mg-navbar-elem label="Documents" route="documents" icon="book"></mg-navbar-elem>  <mg-navbar-elem label="Forms" route="forms" icon="assignment"></mg-navbar-elem></div>
-    <a class="nav-bar__user" (click)="goToAdmin()" routerLinkActive="nav-bar__user--active">
-      <i class="material-icons nav-bar__user__icon">person</i>
-      <span class="nav-bar__user__name">
+    <a class="nav-bar__user" (click)="setTopBarOptions()" routerLink="/user" routerLinkActive="nav-bar__user--active">
+      <div class="nav-bar__user__container p2">
+        <i class="material-icons nav-bar__user__icon">person</i>
+        <span class="nav-bar__user__name">
         {{(currentUser | async)?.data?.first_name}} {{(currentUser | async)?.data?.last_name}}
       </span>
+      </div>
     </a>
   </div>
 </div>
