@@ -3,29 +3,6 @@
   "appTitle": "My App",
   "modules": [
     {
-      "name": "dashboards",
-      "url": "https://github.com/Humanitec/dashboards-client-angular.git",
-      "commitId": "234ba5f0",
-      "config": {
-        "parentExitPointComponent": {
-          "path": "src/midgard/components/nav-bar/nav-bar.component.html",
-          "elementId": "navbar",
-          "componentSelector": "mg-navbar-elem",
-          "options" : {
-            "icon": "dashboard",
-            "label": "Dashboards",
-            "route": "dashboards"
-          }
-        },
-        "entryPointComponent": "",
-        "routingModuleOptions": {
-          "path": "src/midgard/midgard-routing.module.ts",
-          "parentComponent": "MidgardComponent",
-          "childrenArrayIndex": "0"
-        }
-      }
-    },
-    {
       "name": "products",
       "url": "https://github.com/Humanitec/products-client-angular.git",
       "commitId": "234ba5f0",
@@ -49,29 +26,6 @@
       }
     },
     {
-      "name": "contacts",
-      "url": "https://github.com/Humanitec/contacts-client-angular.git",
-      "commitId": "234ba5f0",
-      "config": {
-        "parentExitPointComponent": {
-          "path": "src/midgard/components/nav-bar/nav-bar.component.html",
-          "elementId": "navbar",
-          "componentSelector": "mg-navbar-elem",
-          "options" : {
-            "icon": "supervisor_account",
-            "label": "Contacts",
-            "route": "contacts"
-          }
-        },
-        "entryPointComponent": "",
-        "routingModuleOptions": {
-          "path": "src/midgard/midgard-routing.module.ts",
-          "parentComponent": "MidgardComponent",
-          "childrenArrayIndex": "0"
-        }
-      }
-    },
-    {
       "name": "documents",
       "url": "https://github.com/Humanitec/documents-client-angular.git",
       "commitId": "123sad12",
@@ -84,29 +38,6 @@
             "icon": "book",
             "label": "Documents",
             "route": "documents"
-          }
-        },
-        "entryPointComponent": "",
-        "routingModuleOptions": {
-          "path": "src/midgard/midgard-routing.module.ts",
-          "parentComponent": "MidgardComponent",
-          "childrenArrayIndex": "0"
-        }
-      }
-    },
-    {
-      "name": "forms",
-      "url": "https://github.com/Humanitec/forms-client-angular.git",
-      "commitId": "234ba5f0",
-      "config": {
-        "parentExitPointComponent": {
-          "path": "src/midgard/components/nav-bar/nav-bar.component.html",
-          "elementId": "navbar",
-          "componentSelector": "mg-navbar-elem",
-          "options" : {
-            "icon": "assignment",
-            "label": "Forms",
-            "route": "forms"
           }
         },
         "entryPointComponent": "",
