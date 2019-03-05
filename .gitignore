@@ -9,7 +9,6 @@
 /node_modules
 /documentation
 /projects/
-src/clients/
 
 # IDEs and editors
 /.idea
