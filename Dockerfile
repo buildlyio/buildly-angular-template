@@ -1,13 +1,9 @@
-FROM node:latest
+FROM nginx:latest
 
 COPY . /app
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 WORKDIR /app
 
 EXPOSE 9000
 
-
-RUN npm install --loglevel=silent --no-summary
-RUN npm rebuild node-sass
-RUN npm run build-prod
-
-CMD ["node", "server.js"]
+CMD ["sh", "-c", "./initialize_container.sh && nginx -g 'daemon off;'"]

@@ -1,11 +1,16 @@
 {
+<<<<<<< HEAD
   "name": "midgard-app",
   "version": "0.0.6",
+=======
+  "name": "walhall-sample-angular-app",
+  "version": "0.0.16",
+>>>>>>> 890d9ec328d05de2bdddfbbe7d5d643178d3e938
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-prod": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build --no-progress --prod",
+    "build-prod": "ng build --prod",
     "test": "ng test",
     "test-coverage": "ng test —code-coverage",
     "lint": "ng lint",

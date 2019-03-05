@@ -38,10 +38,19 @@ body { margin: 0; font-family: OpenSans, sans-serif; background-color: $backgrou
   min-width: 300px !important;
   width: 100% !important;
 }
+<<<<<<< HEAD
 $theme-colors: (
   'color-primary': $primary-color,
+=======
+
+$theme-colors: (
+  'color-primary': $main-color,
+>>>>>>> 890d9ec328d05de2bdddfbbe7d5d643178d3e938
 );
 
 $haf: "&:hover, &:active, &:focus";
 @include freyja-theme($theme-colors);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 890d9ec328d05de2bdddfbbe7d5d643178d3e938

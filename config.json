@@ -71,6 +71,29 @@
       }
     },
     {
+      "name": "contacts",
+      "url": "git@github.com:Humanitec/midgard-contacts.git",
+      "commitId": "234ba5f0",
+      "config": {
+        "parentExitPointComponent": {
+          "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
+          "elementId": "navbar",
+          "componentSelector": "mg-navbar-elem",
+          "options" : {
+            "icon": "supervisor_account",
+            "label": "Contacts",
+            "route": "contacts"
+          }
+        },
+        "entryPointComponent": "",
+        "routingModuleOptions": {
+          "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+          "parentComponent": "MidgardComponent",
+          "childrenArrayIndex": "0"
+        }
+      }
+    },
+    {
       "name": "documents",
       "url": "git@github.com:Humanitec/midgard-documents.git",
       "commitId": "123sad12",

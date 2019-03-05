@@ -1,0 +1,3 @@
+window.environment = {
+    production: true
+};
