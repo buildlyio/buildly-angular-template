@@ -3,7 +3,7 @@
   "modules": [
     {
       "name": "dashboards",
-      "url": "git@github.com:Humanitec/dashboards-client-angular.git",
+      "url": "https://github.com/Humanitec/dashboards-client-angular.git",
       "commitId": "234ba5f0",
       "config": {
         "parentExitPointComponent": {
@@ -26,7 +26,7 @@
     },
     {
       "name": "products",
-      "url": "git@github.com:Humanitec/products-client-angular.git",
+      "url": "https://github.com/Humanitec/products-client-angular.git",
       "commitId": "234ba5f0",
       "config": {
         "parentExitPointComponent": {
