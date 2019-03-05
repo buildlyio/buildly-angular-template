@@ -2,8 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { select, Store } from '@src/midgard/modules/store/store';
 import { getAuthUser } from '@src/midgard/state/authuser/authuser.selectors';
 import { Observable } from 'rxjs';
-import {selectTopBarOption, setTopBarOptions} from '../../state/top-bar/top-bar.actions';
-import {Router} from '@angular/router';
+import {selectTopBarOption} from '../../state/top-bar/top-bar.actions';
 
 @Component({
   selector: 'mg-nav-bar',
@@ -27,15 +26,13 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private store: Store<any>,
-    private router: Router
   ) { }
 
   ngOnInit() {
     this.currentUser = this.store.observable.pipe(select(getAuthUser));
   }
 
-  goToAdmin() {
-    this.router.navigate(['/user']);
+  setTopBarOptions() {
     this.store.dispatch(selectTopBarOption({value: 'user-profile', index: 0}));
   }
 }

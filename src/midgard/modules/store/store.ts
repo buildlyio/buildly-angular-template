@@ -15,6 +15,16 @@ import { workflowteamsEpics } from '@src/midgard/state/workflow-team/workflow-te
 import { workflowTeamReducer } from '@src/midgard/state/workflow-team/workflow-team.reducer';
 import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
 import { distinctUntilChanged } from 'rxjs/internal/operators';
+import { dashboardsReducer } from '@clients/dashboards/src/lib/state/dashboards.reducer';
+import { dashboardsEpics } from '@clients/dashboards/src/lib/state/dashboards.epics';
+import { productsReducer } from '@clients/products/src/lib/state/products.reducer';
+import { productsEpics } from '@clients/products/src/lib/state/products.epics';
+import { contactsReducer } from '@clients/contacts/src/lib/state/contacts.reducer';
+import { contactsEpics } from '@clients/contacts/src/lib/state/contacts.epics';
+import { documentsReducer } from '@clients/documents/src/lib/state/documents.reducer';
+import { documentsEpics } from '@clients/documents/src/lib/state/documents.epics';
+import { formsReducer } from '@clients/forms/src/lib/state/forms.reducer';
+import { formsEpics } from '@clients/forms/src/lib/state/forms.epics';
 let storeInstance: Store<any>;
 
 @Injectable()
@@ -36,14 +46,24 @@ export class Store<T> {
         authuserReducer,
         workflowTeamReducer,
         workflowlevel1Reducer,
-        workflowlevel2Reducer
+        workflowlevel2Reducer,
+        dashboardsReducer,
+        productsReducer,
+        contactsReducer,
+        documentsReducer,
+        formsReducer
       };
       const epics = [
         coreUserEpics,
         authUserEpics,
         workflowteamsEpics,
         workflowlevel1Epics,
-        workflowlevel2Epics
+        workflowlevel2Epics,
+        dashboardsEpics,
+        productsEpics,
+        contactsEpics,
+        documentsEpics,
+        formsEpics
       ];
       const combinedReducers = redux.combineReducers(reducers); // combine the reducers to a reducer that can be used when creating the store
       const combinedEpics = redux.combineEpics(...epics); // combine redux-observable epics

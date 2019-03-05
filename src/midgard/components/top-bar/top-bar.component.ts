@@ -18,6 +18,7 @@ export class TopBarComponent implements OnInit, OnDestroy {
   public hideMenu = false;
   public subNavOptions: Observable<any[]>;
   public appEntryPoint = (config as any).appEntryPoint;
+  public appTitle = (config as any).appTitle;
   public selectedOption: string;
   public storeSubscription: Subscription;
 
