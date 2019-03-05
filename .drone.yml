@@ -44,8 +44,8 @@ pipeline:
   build-docker-image:
     image: plugins/docker
     insecure: true
-    registry: registry.walhall.io
-    repo: registry.walhall.io/midgard-angular
+    registry: registry.tola.io
+    repo: registry.tola.io/humanitec-walhall/midgard-angular
     file: Dockerfile
     auto_tag: true
     branch: environment
