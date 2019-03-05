@@ -1,6 +1,6 @@
 {
   "appEntryPoint": "/dashboards",
-  "appTitle": "Aziz App",
+  "appTitle": "My App",
   "modules": [
     {
       "name": "dashboards",
