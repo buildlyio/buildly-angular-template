@@ -3,7 +3,7 @@
   "modules": [
     {
       "name": "dashboards",
-      "url": "git@github.com:Humanitec/dashboards-client-angular.git",
+      "url": "https://github.com/Humanitec/dashboards-client-angular.git",
       "commitId": "234ba5f0",
       "config": {
         "parentExitPointComponent": {
@@ -26,7 +26,7 @@
     },
     {
       "name": "products",
-      "url": "git@github.com:Humanitec/products-client-angular.git",
+      "url": "https://github.com/Humanitec/products-client-angular.git",
       "commitId": "234ba5f0",
       "config": {
         "parentExitPointComponent": {
@@ -49,7 +49,7 @@
     },
     {
       "name": "contacts",
-      "url": "git@github.com:Humanitec/contacts-client-angular.git",
+      "url": "https://github.com/Humanitec/contacts-client-angular.git",
       "commitId": "234ba5f0",
       "config": {
         "parentExitPointComponent": {
@@ -72,7 +72,7 @@
     },
     {
       "name": "documents",
-      "url": "git@github.com:Humanitec/documents-client-angular.git",
+      "url": "https://github.com/Humanitec/documents-client-angular.git",
       "commitId": "123sad12",
       "config": {
         "parentExitPointComponent": {
@@ -95,7 +95,7 @@
     },
     {
       "name": "forms",
-      "url": "git@github.com:Humanitec/forms-client-angular.git",
+      "url": "https://github.com/Humanitec/forms-client-angular.git",
       "commitId": "234ba5f0",
       "config": {
         "parentExitPointComponent": {
