@@ -72,6 +72,6 @@
     "tslib": "^1.9.0",
     "tslint": "~5.9.1",
     "typescript": "~2.8.0",
-    "apollo-utilities": "1.0.25",
+    "apollo-utilities": "1.0.25"
   }
 }
