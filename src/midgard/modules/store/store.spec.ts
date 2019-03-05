@@ -35,10 +35,10 @@ describe( 'Store', () => {
   });
 
   it('select operator should return portion of the state on subscribing to it', (done) => {
-    store.dispatch(loadWorkflowLevel1DataCommit({name: 'test name'}));
+    store.dispatch(loadWorkflowLevel1DataCommit([{id: 0, name: 'test name'}]));
     store.observable.pipe(select(getAllWorkflowLevel1s), map((res: any) => res.data)).subscribe( res => {
       expect(res).toBeDefined();
-      expect(res).toEqual({name: 'test name'});
+      expect(res).toEqual([{id: 0, name: 'test name'}]);
       done();
     });
   });

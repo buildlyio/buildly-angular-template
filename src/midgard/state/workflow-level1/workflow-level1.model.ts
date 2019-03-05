@@ -3,7 +3,7 @@ export interface WorkflowLevel1 {
   name: string;
   url?: string;
   budget?: string;
-  funding_status: string;
+  funding_status?: string;
   cost_center?: string;
   description?: string;
   public_dashboard?: boolean;
@@ -21,7 +21,7 @@ export interface WorkflowLevel1 {
   user_access?: Array<any>;
   start_date?: string;
   end_date?: string;
-  localId: any;
+  localId?: any;
   permissions?: object;
   level1_uuid?: string;
 }
