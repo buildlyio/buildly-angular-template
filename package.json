@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
-  "name": "midgard-app",
-  "version": "0.0.6",
-=======
-  "name": "walhall-sample-angular-app",
-  "version": "0.0.16",
->>>>>>> 890d9ec328d05de2bdddfbbe7d5d643178d3e938
+  "name": "midgard-angular",
+  "version": "0.0.42",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
