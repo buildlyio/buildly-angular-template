@@ -51,7 +51,6 @@ export class HttpService {
    */
   private handleError(error) {
     if (error) {
-      console.error(error)
       return throwError('Server error');
     }
   }
