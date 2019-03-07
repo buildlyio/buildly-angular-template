@@ -37,7 +37,7 @@
               (elementEdited)="onEditElement($event)">
             </fj-inline-text-editor>
           </div>
-          <div class="card-item__title__subtext">
+          <div class="card-item__title__subtext" [ngClass]="'card-item__title__subtext--' + layout">
             <div class="card-item__field-wrapper" *ngIf="options?.subText">
               <fj-inline-text-editor
                 [value]="item[options?.subText?.prop]"
