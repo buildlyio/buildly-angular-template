@@ -14,7 +14,7 @@ import { MidgardCrudModule } from './modules/crud/crud.module';
 import { MidgardTranslationModule } from './modules/translation/translation.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MidgardOAuthModule } from './modules/oauth/oauth.module';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule, MatSnackBarModule } from '@angular/material';
 import { AuthGuard } from './modules/oauth/auth.guard';
 import { WorkflowLevel2DetailComponent } from './pages/workflow-level2/detail/workflow-level2-detail.component';
 import { NavBarElemComponent } from './components/nav-bar/navbar-elem/navbar-elem.component';
@@ -46,6 +46,7 @@ import { MidgardHttpModule } from './modules/http/http.module';
     MidgardCrudModule,
     MidgardFormModule,
     MatIconModule,
+    MatSnackBarModule,
     FjTableModule,
     FjTextInputModule,
     FjButtonModule,

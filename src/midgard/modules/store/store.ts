@@ -7,7 +7,7 @@ import { workflowlevel1Reducer } from '@src/midgard/state/workflow-level1/workfl
 import { workflowlevel2Reducer } from '@src/midgard/state/workflow-level2/workflow-level2.reducer';
 import { workflowlevel1Epics } from '@src/midgard/state/workflow-level1/workflow-level1.epics';
 import { workflowlevel2Epics } from '@src/midgard/state/workflow-level2/workflow-level2.epics';
-import { CoreUserEpics } from '@src/midgard/state/coreuser/coreuser.epics';
+import { CoreUserEpics } from '../../state/coreuser/coreuser.epics';
 import { coreuserReducer } from '@src/midgard/state/coreuser/coreuser.reducer';
 import { authuserReducer } from '@src/midgard/state/authuser/authuser.reducer';
 import { AuthUserEpics } from '@src/midgard/state/authuser/authuser.epics';
@@ -21,7 +21,6 @@ import { productsReducer } from '@clients/products/src/lib/state/products.reduce
 import { documentsReducer } from '@clients/documents/src/lib/state/documents.reducer';
 import { documentsEpics } from '@clients/documents/src/lib/state/documents.epics';
 import { ProductsEpics } from '@clients/products/src/lib/state/products.epics';
-import { CoreUserEpics } from '../../state/coreuser/coreuser.epics';
 let storeInstance: Store<any>;
 
 @Injectable()
