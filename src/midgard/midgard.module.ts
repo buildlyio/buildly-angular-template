@@ -30,6 +30,7 @@ import {
 import { FormValidationHelper } from './modules/form/form.validation.helper';
 import { SearchBarComponent } from './components/top-bar/search-bar/search-bar.component';
 import { MidgardFormModule } from './modules/form/form.module';
+import { MidgardHttpModule } from './modules/http/http.module';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { MidgardFormModule } from './modules/form/form.module';
     MidgardRoutingModule,
     MidgardStoreModule.forRoot(),
     MidgardOAuthModule.forRoot(),
+    MidgardHttpModule.forRoot(),
     MidgardTranslationModule,
     RouterModule,
     HttpClientModule,

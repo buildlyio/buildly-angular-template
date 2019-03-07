@@ -1,7 +1,6 @@
 import { NgModule  } from '@angular/core';
 import { Store } from '@src/midgard/modules/store/store';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
-import { HttpService } from '../http/http.service';
 import { ProductsEpics } from '@clients/products/src/lib/state/products.epics.ts';
 
 
@@ -13,7 +12,6 @@ export class MidgardStoreModule {
       providers: [
         ProductsEpics,
         Store,
-        HttpService
       ]
     };
   }

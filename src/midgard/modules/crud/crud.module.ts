@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrudComponent } from '@src/midgard/modules/crud/crud.component';
 import {MatIconModule } from '@angular/material';
-import { MidgardHttpModule } from '@src/midgard/modules/http/http.module';
 import { MidgardGraphQLModule } from '@src/midgard/modules/graphql/graphql.module';
 import {FjButtonModule, FjCardItemModule, FjSpinnerModule, FjTableModule, FjTextInputModule} from 'freyja-ui';
 import { CrudDirective } from '@src/midgard/modules/crud/crud.directive';
@@ -19,7 +18,6 @@ const components = [
     CommonModule,
     FjTableModule,
     MgCardItemModule,
-    MidgardHttpModule.forRoot(),
     MidgardGraphQLModule,
     MatIconModule,
     FjSpinnerModule,
