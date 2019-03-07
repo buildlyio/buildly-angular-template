@@ -1,6 +1,6 @@
 {
   "name": "midgard-angular",
-  "version": "0.0.42",
+  "version": "0.2.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "init": "gulp init --gulpfile node_modules/midgard-schematics/lib/gulpfile.js --cwd ./",
-    "compodoc": "./node_modules/.bin/compodoc -p ./src/tsconfig.app.json"
+    "compodoc": "./node_modules/.bin/compodoc -p ./src/midgard/tsconfig.lib.json"
   },
   "private": true,
   "dependencies": {
