@@ -11,7 +11,7 @@ import { CoreUserEpics } from '../../state/coreuser/coreuser.epics';
 import { coreuserReducer } from '@src/midgard/state/coreuser/coreuser.reducer';
 import { authuserReducer } from '@src/midgard/state/authuser/authuser.reducer';
 import { AuthUserEpics } from '@src/midgard/state/authuser/authuser.epics';
-import { workflowteamsEpics } from '@src/midgard/state/workflow-team/workflow-team.epics';
+import { WorkflowTeamEpics } from '@src/midgard/state/workflow-team/workflow-team.epics';
 import { workflowTeamReducer } from '@src/midgard/state/workflow-team/workflow-team.reducer';
 import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
 import { distinctUntilChanged } from 'rxjs/internal/operators';
@@ -34,6 +34,7 @@ export class Store<T> {
   constructor(
     private authUserEpics: AuthUserEpics,
     private coreUserEpics: CoreUserEpics,
+    private workflowTeamEpics: WorkflowTeamEpics,
     private productsEpics: ProductsEpics,
     ) {
     if (storeInstance) {
@@ -54,7 +55,7 @@ export class Store<T> {
       const epics = [
         coreUserEpics,
         authUserEpics,
-        workflowteamsEpics,
+        workflowTeamEpics,
         workflowlevel1Epics,
         workflowlevel2Epics,
         dashboardsEpics,
