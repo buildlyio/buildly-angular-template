@@ -18,9 +18,9 @@ import { distinctUntilChanged } from 'rxjs/internal/operators';
 import { dashboardsReducer } from '@clients/dashboards/src/lib/state/dashboards.reducer';
 import { dashboardsEpics } from '@clients/dashboards/src/lib/state/dashboards.epics';
 import { productsReducer } from '@clients/products/src/lib/state/products.reducer';
-import { productsEpics } from '@clients/products/src/lib/state/products.epics';
 import { documentsReducer } from '@clients/documents/src/lib/state/documents.reducer';
 import { documentsEpics } from '@clients/documents/src/lib/state/documents.epics';
+import { ProductsEpics } from '@clients/products/src/lib/state/products.epics';
 let storeInstance: Store<any>;
 
 @Injectable()
@@ -31,7 +31,9 @@ export class Store<T> {
   dispatch: (action: any) => {};
   getState: () => any;
 
-  constructor() {
+  constructor(
+    private productsEpics: ProductsEpics
+  ) {
     if (storeInstance) {
       return storeInstance;
     } else {
