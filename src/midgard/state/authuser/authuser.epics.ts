@@ -10,26 +10,26 @@ import {
   updateAuthUserCommit, updateAuthUserFail
 } from '@src/midgard/state/authuser/authuser.actions';
 import { OAuthService } from '@src/midgard/modules/oauth/oauth.service';
+import { Injectable } from '@angular/core';
 
-const httpService = new HttpService();
-const oauthService = new OAuthService();
-
+@Injectable()
+export class AuthUserEpics {
   /**
    * this is here to handle asynchronous actions and will be triggered when LOAD_ONE_AUTHUSER action is dispatched
    * @param {Observable} action$ - the current action
    */
-  const loadAuthUserEpic = action$ => {
+  loadAuthUserEpic = action$ => {
     return action$.pipe(
       redux.ofType(LOAD_AUTHUSER),
       switchMap((action: Action) => {
-        return httpService.makeRequest('get', `${environment.API_URL}/oauthuser/`).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}/oauthuser/`).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => {
             if (res.data.core_user) { // if not admin user
-              oauthService.setOauthUser(res.data.core_user); // store the user to localstorage
+              this.oauthService.setOauthUser(res.data.core_user); // store the user to localstorage
               return loadAuthUserCommit(res.data.core_user);
             } else {
-              oauthService.setOauthUser(JSON.stringify(res.data)); // store the user to localstorage
+              this.oauthService.setOauthUser(JSON.stringify(res.data)); // store the user to localstorage
               return loadAuthUserCommit(res.data);
             }
           }),
@@ -38,17 +38,17 @@ const oauthService = new OAuthService();
         );
       })
     );
-  };
+  }
 
   /**
    * this is here to handle asynchronous actions and will be triggered when UPDATE_AUTHUSER action is dispatched
    * @param {Observable} action$ - the current action
    */
-  const updateAuthUserEpic = action$ => {
+  updateAuthUserEpic = action$ => {
     return action$.pipe(
       redux.ofType(UPDATE_AUTHUSER),
       switchMap((action: Action) => {
-        return httpService.makeRequest('put', `${environment.API_URL}/coreuser/${action.data.id}/`, action.data).pipe(
+        return this.httpService.makeRequest('put', `${environment.API_URL}/coreuser/${action.data.id}/`, action.data).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => {
             return updateAuthUserCommit(res.data);
@@ -58,10 +58,15 @@ const oauthService = new OAuthService();
         );
       })
     );
-  };
+  }
 
-// combine the modules epics into one
-export const authUserEpics = redux.combineEpics(
-    loadAuthUserEpic,
-    updateAuthUserEpic,
-  );
+  constructor(
+    private httpService: HttpService,
+    private oauthService: OAuthService
+  ) {
+    return redux.combineEpics(
+      this.loadAuthUserEpic,
+      this.updateAuthUserEpic,
+    );
+  }
+}
