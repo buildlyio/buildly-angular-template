@@ -6,9 +6,6 @@ import { CoreUserEpics } from '../../state/coreuser/coreuser.epics';
 import { WorkflowTeamEpics } from '../../state/workflow-team/workflow-team.epics';
 import { WorkflowLevel1Epics } from '../../state/workflow-level1/workflow-level1.epics';
 import { WorkflowLevel2Epics } from '../../state/workflow-level2/workflow-level2.epics';
-import { ProductsEpics } from '@clients/products/src/lib/state/products.epics.ts';
-import { DocumentsEpics } from '@clients/documents/src/lib/state/documents.epics';
-import { DashboardsEpics } from '@clients/dashboards/src/lib/state/dashboards.epics';
 
 @NgModule({})
 export class MidgardStoreModule {
@@ -21,10 +18,7 @@ export class MidgardStoreModule {
         CoreUserEpics,
         WorkflowTeamEpics,
         WorkflowLevel1Epics,
-        WorkflowLevel2Epics,
-        DocumentsEpics,
-        DashboardsEpics,
-        ProductsEpics
+        WorkflowLevel2Epics
       ]
     };
   }

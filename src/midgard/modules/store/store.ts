@@ -16,11 +16,9 @@ import { workflowTeamReducer } from '@src/midgard/state/workflow-team/workflow-t
 import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
 import { distinctUntilChanged } from 'rxjs/internal/operators';
 import { dashboardsReducer } from '@clients/dashboards/src/lib/state/dashboards.reducer';
-import { DashboardsEpics } from '@clients//dashboards/src/lib/state/dashboards.epics';
+import { DashboardsEpics } from '@clients/dashboards/src/lib/state/dashboards.epics';
 import { productsReducer } from '@clients/products/src/lib/state/products.reducer';
 import { ProductsEpics } from '@clients/products/src/lib/state/products.epics';
-import { documentsReducer } from '@clients/documents/src/lib/state/documents.reducer';
-import { DocumentsEpics } from '@clients/documents/src/lib/state/documents.epics';
 let storeInstance: Store<any>;
 
 @Injectable()
@@ -36,10 +34,9 @@ export class Store<T> {
     private coreUserEpics: CoreUserEpics,
     private workflowTeamEpics: WorkflowTeamEpics,
     private workflowLevel1Epics: WorkflowLevel1Epics,
-    private workflowLevel2Epics: WorkflowLevel2Epics,
-    private productsEpics: ProductsEpics,
-    private documentsEpics: DocumentsEpics,
+    private workflowLevel2Epics: WorkflowLevel2Epics,,
     private dashboardsEpics: DashboardsEpics,
+    private productsEpics: ProductsEpics
     ) {
     if (storeInstance) {
       return storeInstance;
@@ -54,7 +51,9 @@ export class Store<T> {
         workflowLevel2Reducer,
         dashboardsReducer,
         productsReducer,
-        documentsReducer
+        documentsReducer,
+        dashboardsReducer,
+        productsReducer
       };
       const epics = [
         coreUserEpics,
@@ -63,8 +62,7 @@ export class Store<T> {
         workflowLevel1Epics,
         workflowLevel2Epics,
         dashboardsEpics,
-        productsEpics,
-        documentsEpics
+        productsEpics
       ];
       const combinedReducers = redux.combineReducers(reducers); // combine the reducers to a reducer that can be used when creating the store
       const combinedEpics = redux.combineEpics(...epics); // combine redux-observable epics

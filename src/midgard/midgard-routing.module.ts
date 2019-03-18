@@ -23,8 +23,7 @@ const midgardRoutes: Routes = [
           {path: 'details/:id', component: UserDetailsComponent, canActivate: [AuthGuard]},
         ]},
       {path: 'dashboards', loadChildren: '@clients/dashboards/src/lib/dashboards.module#DashboardsModule'},
-      {path: 'products', loadChildren: '@clients/products/src/lib/products.module#ProductsModule'},
-      {path: 'documents', loadChildren: '@clients/documents/src/lib/documents.module#DocumentsModule'}
+      {path: 'products', loadChildren: '@clients/products/src/lib/products.module#ProductsModule'}
       ],
   },
 ];
