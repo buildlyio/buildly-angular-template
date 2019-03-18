@@ -3,10 +3,10 @@ import { redux } from 'midgard-core';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Observable } from 'rxjs';
 import { apolloReducer } from '@src/midgard/modules/graphql/apollo-cache-redux';
-import { workflowlevel1Reducer } from '@src/midgard/state/workflow-level1/workflow-level1.reducer';
-import { workflowlevel2Reducer } from '@src/midgard/state/workflow-level2/workflow-level2.reducer';
-import { workflowlevel1Epics } from '@src/midgard/state/workflow-level1/workflow-level1.epics';
-import { workflowlevel2Epics } from '@src/midgard/state/workflow-level2/workflow-level2.epics';
+import { workflowLevel1Reducer } from '@src/midgard/state/workflow-level1/workflow-level1.reducer';
+import { WorkflowLevel1Epics } from '../../state/workflow-level1/workflow-level1.epics';
+import { workflowLevel2Reducer } from '@src/midgard/state/workflow-level2/workflow-level2.reducer';
+import { WorkflowLevel2Epics } from '../../state/workflow-level2/workflow-level2.epics';
 import { CoreUserEpics } from '../../state/coreuser/coreuser.epics';
 import { coreuserReducer } from '@src/midgard/state/coreuser/coreuser.reducer';
 import { authuserReducer } from '@src/midgard/state/authuser/authuser.reducer';
@@ -16,11 +16,11 @@ import { workflowTeamReducer } from '@src/midgard/state/workflow-team/workflow-t
 import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
 import { distinctUntilChanged } from 'rxjs/internal/operators';
 import { dashboardsReducer } from '@clients/dashboards/src/lib/state/dashboards.reducer';
-import { dashboardsEpics } from '@clients/dashboards/src/lib/state/dashboards.epics';
+import { DashboardsEpics } from '@clients//dashboards/src/lib/state/dashboards.epics';
 import { productsReducer } from '@clients/products/src/lib/state/products.reducer';
-import { documentsReducer } from '@clients/documents/src/lib/state/documents.reducer';
-import { documentsEpics } from '@clients/documents/src/lib/state/documents.epics';
 import { ProductsEpics } from '@clients/products/src/lib/state/products.epics';
+import { documentsReducer } from '@clients/documents/src/lib/state/documents.reducer';
+import { DocumentsEpics } from '@clients/documents/src/lib/state/documents.epics';
 let storeInstance: Store<any>;
 
 @Injectable()
@@ -35,7 +35,11 @@ export class Store<T> {
     private authUserEpics: AuthUserEpics,
     private coreUserEpics: CoreUserEpics,
     private workflowTeamEpics: WorkflowTeamEpics,
+    private workflowLevel1Epics: WorkflowLevel1Epics,
+    private workflowLevel2Epics: WorkflowLevel2Epics,
     private productsEpics: ProductsEpics,
+    private documentsEpics: DocumentsEpics,
+    private dashboardsEpics: DashboardsEpics,
     ) {
     if (storeInstance) {
       return storeInstance;
@@ -46,8 +50,8 @@ export class Store<T> {
         coreuserReducer,
         authuserReducer,
         workflowTeamReducer,
-        workflowlevel1Reducer,
-        workflowlevel2Reducer,
+        workflowLevel1Reducer,
+        workflowLevel2Reducer,
         dashboardsReducer,
         productsReducer,
         documentsReducer
@@ -56,8 +60,8 @@ export class Store<T> {
         coreUserEpics,
         authUserEpics,
         workflowTeamEpics,
-        workflowlevel1Epics,
-        workflowlevel2Epics,
+        workflowLevel1Epics,
+        workflowLevel2Epics,
         dashboardsEpics,
         productsEpics,
         documentsEpics

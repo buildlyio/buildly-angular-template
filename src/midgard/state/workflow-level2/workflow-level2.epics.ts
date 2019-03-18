@@ -10,19 +10,20 @@ import {
   UPDATE_WORKFLOWLEVEL2, DELETE_WORKFLOWLEVEL2, CREATE_WORKFLOWLEVEL2, createWorkflowLevel2Commit, createWorkflowLevel2Fail
 } from '@src/midgard/state/workflow-level2/workflow-level2.actions';
 import { Action } from '@src/midgard/state/action.type';
+import { Injectable } from '@angular/core';
 
 
-const httpService = new HttpService();
-
+@Injectable()
+export class WorkflowLevel2Epics {
   /**
    * this is here to handle asynchronous actions and will be triggered when LOAD_ALL_WORKFLOWLEVEL2 action is dispatched
    * @param {Observable} action$ - the current action
    */
-  const loadAllWorkflowLevel2Epic = action$ => {
+  loadAllWorkflowLevel2Epic = action$ => {
     return action$.pipe(
       redux.ofType(LOAD_ALL_WORKFLOWLEVEL2),
       switchMap((action: Action) => {
-        return httpService.makeRequest('get', `${environment.API_URL}/workflowlevel2/`).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}/workflowlevel2/`).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => loadWorkflowLevel2Commit(res.data)),
           // If request fails, dispatch failed action
@@ -30,17 +31,17 @@ const httpService = new HttpService();
         );
       })
     );
-  };
+  }
 
   /**
    * this is here to handle asynchronous actions and will be triggered when LOAD_ONE_WORKFLOWLEVEL2 action is dispatched
    * @param {Observable} action$ - the current action
    */
-  const loadOneWorkflowLevel2Epic = action$ => {
+  loadOneWorkflowLevel2Epic = action$ => {
     return action$.pipe(
       redux.ofType(LOAD_ONE_WORKFLOWLEVEL2),
       switchMap((action: Action) => {
-        return httpService.makeRequest('get', `${environment.API_URL}/workflowlevel2/${action.id}/`).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}/workflowlevel2/${action.id}/`).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => loadOneWorkflowLevel2Commit(res.data)),
           // If request fails, dispatch failed action
@@ -54,11 +55,11 @@ const httpService = new HttpService();
    * this is here to handle asynchronous actions and will be triggered when CREATE_WORKFLOWLEVEL2 action is dispatched
    * @param {Observable} action$ - the current action
    */
-  const createWorkflowLevel2Epic = action$ => {
+  createWorkflowLevel2Epic = action$ => {
     return action$.pipe(
       redux.ofType(CREATE_WORKFLOWLEVEL2),
       switchMap((action: Action) => {
-        return httpService.makeRequest('post', `${environment.API_URL}/workflowlevel2/`, action.data).pipe(
+        return this.httpService.makeRequest('post', `${environment.API_URL}/workflowlevel2/`, action.data).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => {
             return createWorkflowLevel2Commit(res.data, action.nested);
@@ -74,11 +75,11 @@ const httpService = new HttpService();
    * this is here to handle asynchronous actions and will be triggered when UPDATE_WORKFLOWLEVEL2 action is dispatched
    * @param {Observable} action$ - the current action
    */
-  const updateWorkflowLevel2Epic = action$ => {
+  updateWorkflowLevel2Epic = action$ => {
     return action$.pipe(
       redux.ofType(UPDATE_WORKFLOWLEVEL2),
       switchMap((action: Action) => {
-        return httpService.makeRequest('put', `${environment.API_URL}/workflowlevel2/${action.data.id}/`, action.data).pipe(
+        return this.httpService.makeRequest('put', `${environment.API_URL}/workflowlevel2/${action.data.id}/`, action.data).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => {
             return updateWorkflowLevel2Commit(res.data, action.nested);
@@ -88,20 +89,20 @@ const httpService = new HttpService();
         );
       })
     );
-  };
+  }
 
   /**
    * this is here to handle asynchronous actions and will be triggered when DELETE_WORKFLOWLEVEL2 action is dispatched
    * @param {Observable} action$ - the current action
    */
-  const deleteWorkflowLevel2Epic = action$ => {
+  deleteWorkflowLevel2Epic = action$ => {
     return action$.pipe(
       redux.ofType(DELETE_WORKFLOWLEVEL2),
       switchMap((action: Action) => {
-        return httpService.makeRequest('delete', `${environment.API_URL}/workflowlevel2/${action.data.id}`).pipe(
+        return this.httpService.makeRequest('delete', `${environment.API_URL}/workflowlevel2/${action.data.id}`).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => {
-            return deleteWorkflowLevel2Commit(action.data, action.nested)
+            return deleteWorkflowLevel2Commit(action.data, action.nested);
           }),
           // If request fails, dispatch failed action
           catchError((error) => of(deleteWorkflowLevel2Fail(error)))
@@ -110,11 +111,15 @@ const httpService = new HttpService();
     );
   }
 
-// combine the modules epics into one
-export const workflowlevel2Epics = redux.combineEpics(
-    loadAllWorkflowLevel2Epic,
-    loadOneWorkflowLevel2Epic,
-    updateWorkflowLevel2Epic,
-    deleteWorkflowLevel2Epic,
-    createWorkflowLevel2Epic,
-  );
+  constructor(
+    private httpService: HttpService
+  ) {
+    return redux.combineEpics(
+      this.loadAllWorkflowLevel2Epic,
+      this.loadOneWorkflowLevel2Epic,
+      this.createWorkflowLevel2Epic,
+      this.updateWorkflowLevel2Epic,
+      this.deleteWorkflowLevel2Epic
+    );
+  }
+}

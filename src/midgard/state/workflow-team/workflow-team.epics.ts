@@ -17,11 +17,11 @@ export class WorkflowTeamEpics {
    * this is here to handle asynchronous actions and will be triggered when LOAD_ALL_WORKFLOWTEAM action is dispatched
    * @param {Observable} action$ - the current action
    */
-  loadAllWorflowTeamsEpic =  action$ => {
+  loadAllWorflowTeamsEpic = action$ => {
     return action$.pipe(
       reduxObservable.ofType(LOAD_ALL_WORKFLOWTEAMS),
       switchMap((action: Action) => {
-        return httpService.makeRequest('get', `${environment.API_URL}/workflowteam/`, {}, true).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}/workflowteam/`, {}, true).pipe(
           // If successful, dispatch success action with result
           map(res => loadWorflowTeamsCommit(res.data)),
           // If request fails, dispatch failed action
@@ -29,7 +29,7 @@ export class WorkflowTeamEpics {
         );
       })
     );
-  };
+  }
 
   /**
    * this is here to handle asynchronous actions and will be triggered when LOAD_ONE_WORKFLOWTEAM action is dispatched
@@ -47,7 +47,7 @@ export class WorkflowTeamEpics {
         );
       })
     );
-  };
+  }
 
   /**
    * this is here to handle asynchronous actions and will be triggered when CREATE_WORKFLOWTEAM action is dispatched

@@ -22,7 +22,7 @@ const initialState: WorkflowLevel2State = {
   deleted: false
 };
 
-export function workflowlevel2Reducer(state = initialState, action: Action) {
+export function workflowLevel2Reducer(state = initialState, action: Action) {
   switch (action.type) {
     // case APOLLO_OVERWRITE:
     //   return addFromGraphQl(state, action, 'WorkflowLevel2');

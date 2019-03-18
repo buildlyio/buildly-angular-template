@@ -24,7 +24,7 @@ const initialState: WorkflowLevel1State = {
   deleted: false
 };
 
-export function workflowlevel1Reducer(state = initialState, action) {
+export function workflowLevel1Reducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_DATA_WORKFLOWLEVEL1_COMMIT:
       return addAll(state, action);
