@@ -7,7 +7,7 @@
     {{title}}
   </h3>
   <fj-spinner *ngIf="!(dataLoaded | async)"></fj-spinner>
-  <fj-card *ngIf="(dataLoaded | async)" class="form__card">
+  <div *ngIf="(dataLoaded | async)" class="form__card">
     <form class="form__container" *ngIf="detailsForm" [formGroup]="detailsForm" (submit)="submitForm()">
       <div class="form__field" *ngFor="let formField of formFields">
         <fj-text-input *ngIf="formField.controlName"
@@ -26,5 +26,5 @@
         </fj-button>
       </div>
     </form>
-  </fj-card>
+  </div>
 </div>

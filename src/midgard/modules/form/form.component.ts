@@ -52,6 +52,10 @@ export class FormComponent implements OnInit, OnDestroy {
    */
   @Input() selector;
   /**
+   * previous page route
+   */
+  @Input() backRoute: string;
+  /**
    * text of the back button
    */
   @Input() backButtonText: string;
@@ -71,22 +75,6 @@ export class FormComponent implements OnInit, OnDestroy {
    * custom title for the form
    */
   @Input() title: string;
-  /**
-   * if true it uses graphQl to get the data instead http to get the data
-   */
-  @Input() useGraphQl: boolean;
-  /**
-   * graphQl model to be requested
-   */
-  @Input() graphQlQuery: string;
-  /**
-   * graphQl query variables
-   */
-  @Input() graphQlVariables;
-  /**
-   * main route of list page
-   */
-  @Input() listRoute: string;
   /**
    * definition of the form fields
    */
@@ -127,11 +115,7 @@ export class FormComponent implements OnInit, OnDestroy {
       this.parentId = this.activatedRoute.snapshot.paramMap.get('parent');
     }
     if (!this.isNewItemCheck()) {
-      if (this.useGraphQl) {
-        this.getDataUsingGraphQl();
-      } else {
         this.getDataFromStore();
-      }
     } else {
       // build empty reactive form
       this.buildForm();
@@ -155,7 +139,7 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * build the reactive form with the given forFields
+   * build the reactive form with the given form fields
    */
   buildForm() {
     const controlsConfig = this.formFields.reduce((result, currentValue) => {
@@ -181,14 +165,6 @@ export class FormComponent implements OnInit, OnDestroy {
         this.errors = this.formHelper.validateForm(this.detailsForm, this.errorMessages);
       });
     }
-  }
-
-  /**
-   * executes graphQl query to get the data from the server
-   */
-  getDataUsingGraphQl() {
-    this.graphQlService.watchQuery(this.graphQlQuery, this.graphQlVariables).subscribe((res: any) => {
-    });
   }
 
   /**
@@ -260,8 +236,8 @@ export class FormComponent implements OnInit, OnDestroy {
    * navigates to the list page
    */
   goToListPage() {
-    if (this.listRoute) {
-      this.router.navigate([`${this.listRoute}`]);
+    if (this.backRoute) {
+      this.router.navigate([`${this.backRoute}`]);
     }
   }
 

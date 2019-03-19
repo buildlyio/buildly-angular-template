@@ -1,9 +1,9 @@
 <mg-form
-  #crud
+  #form
   [backButtonText]="'Back to users'"
   [addButtonText]="'Invite User'"
   [formFields]="formFields"
   [title]="'Invite user'"
   (formSubmitted)="onFormSubmitted($event)"
-  [listRoute]="'/user/list/'">
+  [backRoute]="'/user/list/'">
 </mg-form>

@@ -3,6 +3,7 @@
 .form {
   &__card {
     display: flex;
+    flex-wrap: wrap;
     margin: rem-calc(30 0);
     &__content{
       width: 100%;
@@ -21,6 +22,10 @@
   &__submit {
     width: 100%
   }
+}
+
+.fj-card {
+  background-color: transparent;
 }
 
 .spinner {
