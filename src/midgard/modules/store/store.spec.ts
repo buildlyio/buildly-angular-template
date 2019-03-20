@@ -7,6 +7,7 @@ import { async, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MidgardStoreModule } from './store.module';
 import { StoreMock } from './store-mock';
+import { map } from 'rxjs/internal/operators';
 
 let store;
 
@@ -51,7 +52,7 @@ describe( 'Store', () => {
 
   it('select operator should return portion of the state on subscribing to it', (done) => {
     store.dispatch(loadWorkflowLevel1DataCommit([{id: 0, name: 'test name'}]));
-    store.observable.pipe(select(getAllWorkflowLevel1s)).subscribe( res => {
+    store.observable.pipe(select(getAllWorkflowLevel1s), map((res: any) => res.data)).subscribe( res => {
       expect(res).toBeDefined();
       expect(res).toEqual([{id: 0, name: 'test name'}]);
       done();
