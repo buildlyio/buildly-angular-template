@@ -12,6 +12,8 @@ import { getAllWorkflowLevel1s } from '@src/midgard/state/workflow-level1/workfl
 import { MidgardStoreModule } from '@src/midgard/modules/store/store.module';
 import { MatSnackBar } from '@angular/material';
 import { MatSnackBarStub } from '@src/midgard/testing-utilities/stubs';
+import { StoreMock } from '../store/store-mock';
+import { Store } from '../store/store';
 
 
 describe('CrudComponent', () => {
@@ -27,6 +29,7 @@ describe('CrudComponent', () => {
       declarations: [ CrudComponent ],
       providers: [
         GraphQlService,
+        {provide: Store, useClass: StoreMock},
         {provide: MatSnackBar, useClass: MatSnackBarStub}
       ],
       schemas: [NO_ERRORS_SCHEMA]

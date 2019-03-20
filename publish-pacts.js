@@ -1,4 +1,4 @@
-var projectFolder = __dirname;
+var projectFolder = '.';
 var pact = require('@pact-foundation/pact-node');
 var project = require('./package.json');
 
