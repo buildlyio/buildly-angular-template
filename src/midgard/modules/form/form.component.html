@@ -10,14 +10,21 @@
   <div *ngIf="(dataLoaded | async)" class="form__card">
     <form class="form__container" *ngIf="detailsForm" [formGroup]="detailsForm" (submit)="submitForm()">
       <div class="form__field" *ngFor="let formField of formFields">
-        <fj-text-input *ngIf="formField.controlName"
-                       [placeholder]="formField.label"
-                       [label]="formField.label"
-                       [error]="errors[formField.controlName]"
-                       [formGroup]="detailsForm"
-                       [customStyles]="{'width': '100%'}"
-                       [controlName]="formField.controlName"
-        ></fj-text-input>
+        <ng-container [ngSwitch]="formField.type">
+          <ng-container *ngSwitchCase="'text'">
+            <fj-text-input *ngIf="formField.controlName"
+                           [placeholder]="formField.label"
+                           [label]="formField.label"
+                           [error]="errors[formField.controlName]"
+                           [formGroup]="detailsForm"
+                           [customStyles]="{'width': '100%'}"
+                           [controlName]="formField.controlName"
+            ></fj-text-input>
+          </ng-container>
+          <ng-container *ngSwitchCase="'checkbox'">
+            <fj-checkbox checked><span *ngIf="formField.label">{{formField.label}}</span></fj-checkbox>
+          </ng-container>
+        </ng-container>
       </div>
       <div class="form__submit">
         <fj-button (click)="submitForm()" *ngIf="(addButtonText || editButtonText)" [disabled]="!detailsForm.valid" [type]="'submit'">
