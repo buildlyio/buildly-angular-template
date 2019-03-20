@@ -1,0 +1,45 @@
+{
+  "consumer": {
+    "name": "midgard"
+  },
+  "provider": {
+    "name": "bifrost"
+  },
+  "interactions": [
+    {
+      "description": "a request to POST a workflow level 2",
+      "providerState": "provider accepts a new workflow level 2",
+      "request": {
+        "method": "POST",
+        "path": "/bifrost/workflowlevel2",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "description": "expected workflow level 2",
+          "level2_uuid": "asdsad-sadsda-assd-mock",
+          "name": "Test"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 42
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

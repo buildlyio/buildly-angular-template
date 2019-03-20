@@ -4,12 +4,13 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['jasmine', '@angular-devkit/build-angular'],
+    frameworks: ['jasmine', 'pact', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
+      require('@pact-foundation/karma-pact'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
@@ -38,6 +39,17 @@ module.exports = function (config) {
         ]
       }
     },
-    singleRun: true
+    singleRun: true,
+    pact: [{
+      cors: true,
+      port: 1234,
+      consumer: "midgard",
+      provider: "bifrost",
+      dir: "pacts",
+      spec: 2
+    }],
+    proxies: {
+      '/bifrost/': 'http://127.0.0.1:1234/bifrost/'
+    }
   });
 };
