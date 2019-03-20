@@ -1,8 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WorkflowLevel2Component } from './workflow-level2.component';
-import { MidgardStoreModule } from '@src/midgard/modules/store/store.module';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { StoreMock } from '../../../modules/store/store-mock';
+import { Store } from '../../../modules/store/store';
+import { MidgardStoreModule } from '../../../modules/store/store.module';
 
 describe('WorkflowLevel2Component', () => {
   let component: WorkflowLevel2Component;
@@ -12,6 +14,9 @@ describe('WorkflowLevel2Component', () => {
     TestBed.configureTestingModule({
       imports: [MidgardStoreModule.forRoot()],
       declarations: [ WorkflowLevel2Component ],
+      providers: [
+        {provide: Store, useClass: StoreMock}
+      ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();

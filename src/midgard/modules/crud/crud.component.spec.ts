@@ -9,9 +9,11 @@ import { GraphQlService } from '@src/midgard/modules/graphql/graphql.service';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { getAllWorkflowLevel1s } from '@src/midgard/state/workflow-level1/workflow-level1.selectors';
-import { MidgardStoreModule } from '@src/midgard/modules/store/store.module';
 import { MatSnackBar } from '@angular/material';
 import { MatSnackBarStub } from '@src/midgard/testing-utilities/stubs';
+import { MidgardStoreModule } from '../store/store.module';
+import { StoreMock } from '../store/store-mock';
+import { Store } from '../store/store';
 
 
 describe('CrudComponent', () => {
@@ -27,7 +29,8 @@ describe('CrudComponent', () => {
       declarations: [ CrudComponent ],
       providers: [
         GraphQlService,
-        {provide: MatSnackBar, useClass: MatSnackBarStub}
+        {provide: MatSnackBar, useClass: MatSnackBarStub},
+        {provide: Store, useClass: StoreMock}
       ],
       schemas: [NO_ERRORS_SCHEMA]
     })
