@@ -22,7 +22,10 @@
             ></fj-text-input>
           </ng-container>
           <ng-container *ngSwitchCase="'checkbox'">
-            <fj-checkbox checked><span *ngIf="formField.label">{{formField.label}}</span></fj-checkbox>
+            <fj-checkbox-group [label]="formField.label" [options]="formField.options" [formGroup]="detailsForm" [controlName]="formField.controlName"></fj-checkbox-group>
+          </ng-container>
+          <ng-container *ngSwitchCase="'radioButton'">
+            <fj-radio-button-group [label]="formField.label" [options]="formField.options" [formGroup]="detailsForm" [controlName]="formField.controlName"></fj-radio-button-group>
           </ng-container>
         </ng-container>
       </div>

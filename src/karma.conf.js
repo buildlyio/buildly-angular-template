@@ -25,6 +25,7 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
+    // Please uncomment for prod
     autoWatch: false,
     browsers: ['ChromeHeadlessNoSandbox'],
     customLaunchers: {
@@ -40,6 +41,10 @@ module.exports = function (config) {
       }
     },
     singleRun: true,
+    // Please uncomment for dev
+    // autoWatch: true,
+    // browsers: ['Chrome'],
+    // singleRun: false,
     pact: [{
       cors: true,
       port: 1234,

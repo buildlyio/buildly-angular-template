@@ -1,7 +1,7 @@
 import { redux } from 'midgard-core';
 import { WorkflowLevel1State } from './workflow-level1.reducer';
 
-const getWorkflowLevel1s = state => state.workflowlevel1Reducer;
+const getWorkflowLevel1s = state => state.workflowLevel1Reducer;
 
 export const getAllWorkflowLevel1s = redux.createSelector(
   getWorkflowLevel1s,
