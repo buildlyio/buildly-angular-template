@@ -41,18 +41,21 @@ pipeline:
       event: [push]
       status: [success]
 
-  build-docker-image:
+  build-docker-image-tag:
     image: plugins/docker
-    insecure: true
-    registry: registry.tola.io
-    repo: registry.tola.io/humanitec-walhall/midgard-angular
-    file: Dockerfile
+    registry:
+      from_secret: DOCKER_REGISTRY
+    repo:
+      from_secret: DOCKER_REPO
+    username:
+      from_secret: DOCKER_USERNAME
+    password:
+      from_secret: DOCKER_PASSWORD
     auto_tag: true
-    branch: environment
-    secrets: [DOCKER_USERNAME, DOCKER_PASSWORD]
+    insecure: true
+    file: Dockerfile
     when:
       event: [tag]
-      branches: [master, environment]
       status: [success]
 
   notify:
