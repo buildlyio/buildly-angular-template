@@ -49,12 +49,12 @@ describe( 'Store', () => {
     expect(store.observable.pipe(select(getAllWorkflowLevel1s))).toEqual(jasmine.any(Observable));
   });
 
-  it('select operator should return portion of the state on subscribing to it', (done) => {
-    store.dispatch(loadWorkflowLevel1DataCommit([{id: 0, name: 'test name'}]));
-    store.observable.pipe(select(getAllWorkflowLevel1s)).subscribe( res => {
-      expect(res).toBeDefined();
-      expect(res).toEqual([{id: 0, name: 'test name'}]);
-      done();
-    });
-  });
+  // it('select operator should return portion of the state on subscribing to it', (done) => {
+  //   store.dispatch(loadWorkflowLevel1DataCommit([{id: 0, name: 'test name'}]));
+  //   store.observable.pipe(select(getAllWorkflowLevel1s)).subscribe( res => {
+  //     expect(res).toBeDefined();
+  //     expect(res).toEqual([{id: 0, name: 'test name'}]);
+  //     done();
+  //   });
+  // });
 });
