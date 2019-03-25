@@ -32,6 +32,7 @@ export class OAuthStubService {
   public getAccessToken(): string {
     return 'fake_token';
   }
+  public setAccessToken(): void {}
 }
 
 @Injectable()
@@ -101,10 +102,12 @@ export class ActivatedRouteStub {
         }
       }
     }
-  }
+  };
+
   private _testParams: {};
 
   get testParams() { return this._testParams; }
+  get queryParams() { return this._testParams; }
   set testParams(params: {}) {
     this._testParams = params;
     this.subject.next(params);
