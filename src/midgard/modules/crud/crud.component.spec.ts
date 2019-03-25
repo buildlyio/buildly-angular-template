@@ -6,6 +6,7 @@ import {
   ApolloTestingModule,
 } from 'apollo-angular/testing';
 import { GraphQlService } from '@src/midgard/modules/graphql/graphql.service';
+import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { getAllWorkflowLevel1s } from '@src/midgard/state/workflow-level1/workflow-level1.selectors';
 import { MidgardStoreModule } from '@src/midgard/modules/store/store.module';
@@ -15,15 +16,13 @@ import { StoreMock } from '../store/store-mock';
 import { Store } from '../store/store';
 
 import { mockAppointmentsForSelectors } from '../../testing-utilities/mock.data';
-import { of } from 'rxjs';
-
 
 describe('CrudComponent', () => {
   let component: CrudComponent;
   let fixture: ComponentFixture<CrudComponent>;
   let graphQlBackend: ApolloTestingController;
   let graphQlService: GraphQlService;
-  let store;
+  let store: Store<any>;
 
   // Test actions
   const loadAction = 'A_TEST_ACTION';
