@@ -38,6 +38,6 @@ export const getCoreUser = (userId: string) => reselect.createSelector(
   getAllCoreUsers,
   (coreUsers) => {
     return coreUsers.data.find( coreUser => {
-      return coreUser.id.toString() === userId;
+      return coreUser.core_user_uuid === userId;
     });
   });
