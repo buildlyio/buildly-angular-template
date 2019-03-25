@@ -21,8 +21,36 @@
                            [controlName]="formField.controlName"
             ></fj-text-input>
           </ng-container>
-          <ng-container *ngSwitchCase="'checkbox'">
-            <fj-checkbox checked><span *ngIf="formField.label">{{formField.label}}</span></fj-checkbox>
+          <ng-container *ngSwitchCase="'checkBox'">
+            <fj-checkbox-group
+              [label]="formField.label"
+              [options]="formField.options"
+              [formGroup]="detailsForm"
+              [controlName]="formField.controlName"
+              [error]="errors[formField.controlName]"
+            >
+            </fj-checkbox-group>
+          </ng-container>
+          <ng-container *ngSwitchCase="'radioButton'">
+            <fj-radio-button-group
+              [label]="formField.label"
+              [options]="formField.options"
+              [formGroup]="detailsForm"
+              [controlName]="formField.controlName"
+              [error]="errors[formField.controlName]"
+            >
+            </fj-radio-button-group>
+          </ng-container>
+          <ng-container *ngSwitchCase="'nativeDropdown'">
+            <fj-native-dropdown
+              [label]="formField.label"
+              [options]="formField.options"
+              [customStyles]="{'width': '100%'}"
+              [formGroup]="detailsForm"
+              [controlName]="formField.controlName"
+              [error]="errors[formField.controlName]"
+            >
+            </fj-native-dropdown>
           </ng-container>
         </ng-container>
       </div>

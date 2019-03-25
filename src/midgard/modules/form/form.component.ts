@@ -85,7 +85,7 @@ export class FormComponent implements OnInit, OnDestroy {
   @Output() formSubmitted: EventEmitter<any> = new EventEmitter();
 
 
-  public errorMessages = {}
+  public errorMessages = {};
 
   public errors = {};
 

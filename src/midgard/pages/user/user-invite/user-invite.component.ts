@@ -25,7 +25,7 @@ export class UserInviteComponent implements OnInit {
    */
   defineFormFields() {
     this.formFields = [
-      {label: 'Email', controlName: 'email', type: 'text', validators: ['required', 'email'], errorMessage: 'please enter an email address' },
+      {label: 'Email', controlName: 'email', type: 'text', validators: ['required', 'email'], errorMessage: 'please enter an email address'}
     ];
   }
 

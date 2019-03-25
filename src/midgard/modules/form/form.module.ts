@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormComponent } from './form.component';
-import { FjButtonModule, FjCardModule, FjCheckboxModule, FjSpinnerModule, FjTextInputModule } from 'freyja-ui';
+import {
+  FjButtonModule, FjCardModule, FjCheckboxModule, FjNativeDropdownModule, FjRadioButtonModule, FjSpinnerModule,
+  FjTextInputModule
+} from 'freyja-ui';
 import { ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
@@ -12,7 +15,9 @@ import { ReactiveFormsModule} from '@angular/forms';
     FjCardModule,
     FjButtonModule,
     FjTextInputModule,
-    FjCheckboxModule
+    FjCheckboxModule,
+    FjNativeDropdownModule,
+    FjRadioButtonModule
   ],
   declarations: [
     FormComponent
