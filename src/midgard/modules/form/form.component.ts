@@ -91,7 +91,6 @@ export class FormComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<any>, // type {any} beacuse the state of the app is not fixed and can be changed depending on the modules
-    private graphQlService: GraphQlService,
     private formHelper: FormValidationHelper,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -162,7 +161,7 @@ export class FormComponent implements OnInit, OnDestroy {
     // add validation for the form
     if (this.errorMessages) {
       this.detailsForm.valueChanges.subscribe(val => {
-        this.errors = this.formHelper.validateForm(this.detailsForm, this.errorMessages);
+        this.errors = this.formHelper.validafteForm(this.detailsForm, this.errorMessages);
       });
     }
   }
@@ -206,7 +205,7 @@ export class FormComponent implements OnInit, OnDestroy {
     if (this.isNewItemCheck()) {
       this.formSubmitted.emit({item: this.detailsForm.value, isNew: true});
     } else {
-      this.formSubmitted.emit({item: this.detailsForm.value, isNew: false});
+      this.formSubmitted.emit({item: {...this.currentItem, ...this.detailsForm.value, isNew: false});
     }
   }
 
