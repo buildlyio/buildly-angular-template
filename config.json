@@ -1,25 +1,26 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "New app",
+    "appTitle": "Parag New App",
     "modules": [
         {
-            "url": "git@github.com:Humanitec-Walhall/midgard-documents.git",
-            "name": "documents",
+            "url": "https://github.com/Humanitec-Walhall/blueprint-client-angular.git",
+            "name": "blueprint",
             "config": {
                 "entryPointComponent": "",
                 "routingModuleOptions": {
                     "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
-                    "parentComponent": "WorkflowLevel2DetailComponent",
-                    "childrenArrayIndex": "1"
+                    "parentComponent": "MidgardComponent",
+                    "childrenArrayIndex": "0"
                 },
                 "parentExitPointComponent": {
-                    "path": "projects/midgard-angular/src/lib/pages/workflow-level2/detail/workflow-level2-detail.component.html",
+                    "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
                     "options": {
-                        "label": "Documents",
-                        "routerOutlet": "documents"
+                        "icon": "",
+                        "label": "Blueprint",
+                        "route": "blueprint"
                     },
-                    "elementId": "tabs",
-                    "componentSelector": "mat-tab"
+                    "elementId": "navbar",
+                    "componentSelector": "mg-navbar-elem"
                 }
             }
         }
