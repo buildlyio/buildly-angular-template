@@ -1,45 +1,27 @@
 {
-  "appEntryPoint": "/user",
-  "appTitle": "My App",
-  "modules": [
-    {
-      "name": "dashboards",
-      "url": "https://github.com/Humanitec/dashboards-client-angular.git",
-      "commitId": "234ba5f0",
-      "config": {
-        "parentExitPointComponent": {
-          "path": "src/midgard/components/nav-bar/nav-bar.component.html",
-          "elementId": "navbar",
-          "componentSelector": "mg-navbar-elem",
-          "options": {
-            "icon": "dashboard",
-            "label": "Dashboards",
-            "route": "dashboards"
-          }
-        }
-      }
-    },
-    {
-        "url": "git@github.com:Humanitec-Walhall/midgard-products.git",
-        "name": "products",
-        "config": {
-            "entryPointComponent": "",
-            "routingModuleOptions": {
-                "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
-                "parentComponent": "MidgardComponent",
-                "childrenArrayIndex": "0"
-            },
-            "parentExitPointComponent": {
-                "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
-                "options": {
-                    "icon": "local_offer",
-                    "label": "Products",
-                    "route": "products"
+    "appEntryPoint": "/user",
+    "appTitle": "New app",
+    "modules": [
+        {
+            "url": "git@github.com:Humanitec-Walhall/midgard-documents.git",
+            "name": "documents",
+            "config": {
+                "entryPointComponent": "",
+                "routingModuleOptions": {
+                    "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+                    "parentComponent": "WorkflowLevel2DetailComponent",
+                    "childrenArrayIndex": "1"
                 },
-                "elementId": "navbar",
-                "componentSelector": "mg-navbar-elem"
+                "parentExitPointComponent": {
+                    "path": "projects/midgard-angular/src/lib/pages/workflow-level2/detail/workflow-level2-detail.component.html",
+                    "options": {
+                        "label": "Documents",
+                        "routerOutlet": "documents"
+                    },
+                    "elementId": "tabs",
+                    "componentSelector": "mat-tab"
+                }
             }
         }
-    }
     ]
 }
