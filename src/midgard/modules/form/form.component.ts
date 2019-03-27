@@ -205,7 +205,7 @@ export class FormComponent implements OnInit, OnDestroy {
     if (this.isNewItemCheck()) {
       this.formSubmitted.emit({item: this.detailsForm.value, isNew: true});
     } else {
-      this.formSubmitted.emit({item: {...this.currentItem, ...this.detailsForm.value, isNew: false});
+      this.formSubmitted.emit({item: {...this.currentItem, ...this.detailsForm.value, isNew: false}});
     }
   }
 

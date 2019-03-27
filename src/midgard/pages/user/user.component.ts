@@ -77,7 +77,6 @@ export class UserComponent implements OnInit, OnDestroy {
    * data - data submitted in the form
    */
   onFormSubmitted(data: {item: any; isNew: boolean}) {
-    console.log(data);
     if (data.isNew) {
       this.crudForm.createItem(data.item);
     } else {
