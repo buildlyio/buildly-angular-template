@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Testtest",
+    "appTitle": "test",
     "modules": [
         {
             "url": "https://github.com/Humanitec/products-client-angular.git",
