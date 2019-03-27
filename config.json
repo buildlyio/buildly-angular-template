@@ -1,9 +1,30 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Testtt App",
+    "appTitle": "Naive App",
     "modules": [
         {
-            "url": "git@github.com:jefmoura/midgard-products.git",
+            "url": "git@github.com:Humanitec-Walhall/midgard-documents.git",
+            "name": "documents",
+            "config": {
+                "entryPointComponent": "",
+                "routingModuleOptions": {
+                    "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+                    "parentComponent": "WorkflowLevel2DetailComponent",
+                    "childrenArrayIndex": "1"
+                },
+                "parentExitPointComponent": {
+                    "path": "projects/midgard-angular/src/lib/pages/workflow-level2/detail/workflow-level2-detail.component.html",
+                    "options": {
+                        "label": "Documents",
+                        "routerOutlet": "documents"
+                    },
+                    "elementId": "tabs",
+                    "componentSelector": "mat-tab"
+                }
+            }
+        },
+        {
+            "url": "git@github.com:Humanitec-Walhall/products-client-angular.git",
             "name": "products",
             "config": {
                 "entryPointComponent": "",
