@@ -11,7 +11,7 @@ pipeline:
       - npx npm-login-cmd
       - npm install
       - npm run init
-    secrets: [NPM_TOKEN]
+    secrets: [NPM_USER, NPM_PASS, NPM_EMAIL, NPM_TOKEN]
     when:
       event: [push, tag]
 
