@@ -1,9 +1,9 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "paragg",
+    "appTitle": "Jeferson App",
     "modules": [
         {
-            "url": "https://github.com/paraghumanitec/products-client-angular.git",
+            "url": "https://github.com/Humanitec/products-client-angular.git",
             "name": "products",
             "config": {
                 "entryPointComponent": "",
@@ -21,6 +21,27 @@
                     },
                     "elementId": "navbar",
                     "componentSelector": "mg-navbar-elem"
+                }
+            }
+        },
+        {
+            "url": "https://github.com/Humanitec/documents-client-angular.git",
+            "name": "documents",
+            "config": {
+                "entryPointComponent": "",
+                "routingModuleOptions": {
+                    "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+                    "parentComponent": "WorkflowLevel2DetailComponent",
+                    "childrenArrayIndex": "1"
+                },
+                "parentExitPointComponent": {
+                    "path": "projects/midgard-angular/src/lib/pages/workflow-level2/detail/workflow-level2-detail.component.html",
+                    "options": {
+                        "label": "Documents",
+                        "routerOutlet": "documents"
+                    },
+                    "elementId": "tabs",
+                    "componentSelector": "mat-tab"
                 }
             }
         }
