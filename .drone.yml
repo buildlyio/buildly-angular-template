@@ -4,9 +4,7 @@ pipeline:
   install:
     image: node:9.9.0
     commands:
-      - npm install npm-login-cmd -g
       - npm install gulp-cli -g
-      - npx npm-login-cmd
       - npm install
       - npm run init
     secrets: []
