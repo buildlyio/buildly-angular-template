@@ -1,53 +1,5 @@
 {
-  "appEntryPoint": "/dashboards",
-  "appTitle": "My App",
-  "modules": [
-    {
-      "name": "dashboards",
-      "url": "https://github.com/Humanitec/dashboards-client-angular.git",
-      "commitId": "234ba5f0",
-      "config": {
-        "parentExitPointComponent": {
-          "path": "src/midgard/components/nav-bar/nav-bar.component.html",
-          "elementId": "navbar",
-          "componentSelector": "mg-navbar-elem",
-          "options" : {
-            "icon": "dashboard",
-            "label": "Dashboards",
-            "route": "dashboards"
-          }
-        },
-        "entryPointComponent": "",
-        "routingModuleOptions": {
-          "path": "src/midgard/midgard-routing.module.ts",
-          "parentComponent": "MidgardComponent",
-          "childrenArrayIndex": "0"
-        }
-      }
-    },
-    {
-      "name": "products",
-      "url": "https://github.com/Humanitec/products-client-angular.git",
-      "commitId": "234ba5f0",
-      "config": {
-        "parentExitPointComponent": {
-          "path": "src/midgard/components/nav-bar/nav-bar.component.html",
-          "elementId": "navbar",
-          "componentSelector": "mg-navbar-elem",
-          "options" : {
-            "icon": "view_headline",
-            "label": "Products",
-            "route": "products"
-          }
-        },
-        "entryPointComponent": "",
-        "routingModuleOptions": {
-          "path": "src/midgard/midgard-routing.module.ts",
-          "parentComponent": "MidgardComponent",
-          "childrenArrayIndex": "0"
-        }
-      }
-    }
-  ]
+    "appEntryPoint": "/user",
+    "appTitle": "Damien",
+    "modules": []
 }
-
