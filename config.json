@@ -1,5 +1,28 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "paragsapp",
-    "modules": []
+    "appTitle": "paragg",
+    "modules": [
+        {
+            "url": "https://github.com/paraghumanitec/products-client-angular.git",
+            "name": "products",
+            "config": {
+                "entryPointComponent": "",
+                "routingModuleOptions": {
+                    "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+                    "parentComponent": "MidgardComponent",
+                    "childrenArrayIndex": "0"
+                },
+                "parentExitPointComponent": {
+                    "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
+                    "options": {
+                        "icon": "local_offer",
+                        "label": "Products",
+                        "route": "products"
+                    },
+                    "elementId": "navbar",
+                    "componentSelector": "mg-navbar-elem"
+                }
+            }
+        }
+    ]
 }
