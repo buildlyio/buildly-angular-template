@@ -4,9 +4,14 @@ pipeline:
   install:
     image: node:9.9.0
     commands:
+      - npm install npm-login-cmd -g
       - npm install gulp-cli -g
+      - npm config set registry https://npm-proxy.fury.io/$${NPM_TOKEN}/humanitec/
+      - npm config set always-auth
+      - npx npm-login-cmd
       - npm install
       - npm run init
+    secrets: [NPM_TOKEN]
     when:
       event: [push, tag]
 
