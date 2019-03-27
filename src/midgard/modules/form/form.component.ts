@@ -161,7 +161,7 @@ export class FormComponent implements OnInit, OnDestroy {
     // add validation for the form
     if (this.errorMessages) {
       this.detailsForm.valueChanges.subscribe(val => {
-        this.errors = this.formHelper.validafteForm(this.detailsForm, this.errorMessages);
+        this.errors = this.formHelper.validateForm(this.detailsForm, this.errorMessages);
       });
     }
   }
