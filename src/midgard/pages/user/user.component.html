@@ -1,15 +1,17 @@
 <ng-container *ngIf="selectedTab === 'user-profile'">
-  <mg-form
-    #crudForm
-    [selector]="selectorProfile"
-    [loadAction]="'LOAD_AUTHUSER'"
-    [updateAction]="'UPDATE_AUTHUSER'"
-    [editButtonText]="'Edit Profile'"
-    [formFields]="userProfileFormFields"
-    [title]="'User Profile'"
-    (formSubmitted)="onFormSubmitted($event)"
-    [updateMessage]="'your user profile has been updated'">
-  </mg-form>
+  <h3>User Profile</h3>
+  <div class="form__container">
+    <mg-form
+      #crudForm
+      [selector]="selectorProfile"
+      [loadAction]="'LOAD_AUTHUSER'"
+      [updateAction]="'UPDATE_AUTHUSER'"
+      [editButtonText]="'Edit Profile'"
+      [formFields]="userProfileFormFields"
+      (formSubmitted)="onFormSubmitted($event)"
+      [updateMessage]="'your user profile has been updated'">
+    </mg-form>
+  </div>
   <fj-button (click)="logout()" [margin]="'0px'" [color]="'danger'" [type]="'submit'">Logout</fj-button>
 </ng-container>
 <ng-container *ngIf="selectedTab === 'user-management'">

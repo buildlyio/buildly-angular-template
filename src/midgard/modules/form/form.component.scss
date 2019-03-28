@@ -2,9 +2,6 @@
 
 .form {
   &__card {
-    display: flex;
-    flex-wrap: wrap;
-    margin: rem-calc(30 0);
     &__content{
       width: 100%;
     }
@@ -16,12 +13,13 @@
     width: 100%;
   }
   &__field {
-    flex: 47%;
+    width: calc(50% - 30px);
     margin-bottom: rem-calc(15);
-    margin-right: rem-calc(15);
+    margin: rem-calc(0 15 15 15);
   }
   &__submit {
-    width: 100%
+    width: 100%;
+    margin-left: rem-calc(15);
   }
 }
 

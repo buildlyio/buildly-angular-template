@@ -12,7 +12,7 @@ import {FormComponent} from '../../modules/form/form.component';
 @Component({
   selector: 'mg-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit, OnDestroy {
   @ViewChild('crudForm') crudForm: FormComponent;

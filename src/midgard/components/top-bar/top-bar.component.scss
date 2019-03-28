@@ -3,7 +3,7 @@
 .top-bar {
   position: fixed;
   display: flex;
-  height: 60px;
+  height: rem-calc(60);
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -18,11 +18,11 @@
     width: 100% ;
     display: flex;
     align-items: center;
-    margin-left: 30px;
+    margin-left: rem-calc(30);
   }
   &__menu {
     position: absolute;
-    top: 15px;
+    top: rem-calc(15);
     padding: 4px;
     font-size: 4px;
     border-radius: 4px;
@@ -36,30 +36,28 @@
   &__home {
     display: flex;
     align-items: center;
-    margin-left: 40px;
-    min-width: 149px;
+    margin-left: rem-calc(40);
+    width: rem-calc(149);
     color: black !important;
     cursor: pointer;
     text-decoration: none;
     &__logo {
       margin-right: 5px;
       fill: red;
-      height: 30px;
-      width: 30px;
+      height: rem-calc(30);
+      width: rem-calc(30);
     }
   }
 
   &__subnav {
-    min-width: 320px;
+    min-width: rem-calc(320);
     flex: 2;
   }
 
   &__search {
     display: flex;
     align-items: center;
-    margin-right: 40px;
-    &__button {
-    }
+    margin-right: rem-calc(40);
   }
 }
 
