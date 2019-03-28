@@ -1,9 +1,9 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Parag New App",
+    "appTitle": "Documentation",
     "modules": [
         {
-            "url": "https://github.com/Humanitec-Walhall/blueprint-client-angular.git",
+            "url": "https://github.com/Humanitec-Walhall/blueprint_client_angular.git",
             "name": "blueprint",
             "config": {
                 "entryPointComponent": "",
