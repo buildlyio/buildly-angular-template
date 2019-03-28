@@ -6,7 +6,7 @@ import {MatSnackBar} from '@angular/material';
 @Component({
   selector: 'mg-user-invite',
   templateUrl: './user-invite.component.html',
-  styleUrls: ['./user-invite.component.css']
+  styleUrls: ['./user-invite.component.scss']
 })
 export class UserInviteComponent implements OnInit {
   public formFields;

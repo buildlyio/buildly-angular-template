@@ -1,0 +1,11 @@
+@import "../../../../styles";
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);
+  padding: rem-calc(30 15);
+  margin-bottom: rem-calc(30);
+  background-color: white;
+  width: 50%;
+}
