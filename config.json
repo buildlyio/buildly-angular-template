@@ -1,28 +1,5 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Documentation",
-    "modules": [
-        {
-            "url": "https://github.com/Humanitec-Walhall/blueprint_client_angular.git",
-            "name": "blueprint",
-            "config": {
-                "entryPointComponent": "",
-                "routingModuleOptions": {
-                    "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
-                    "parentComponent": "MidgardComponent",
-                    "childrenArrayIndex": "0"
-                },
-                "parentExitPointComponent": {
-                    "path": "projects/midgard-angular/src/lib/components/nav-bar/nav-bar.component.html",
-                    "options": {
-                        "icon": "",
-                        "label": "Blueprint",
-                        "route": "blueprint"
-                    },
-                    "elementId": "navbar",
-                    "componentSelector": "mg-navbar-elem"
-                }
-            }
-        }
-    ]
+    "appTitle": "Geraldos Test",
+    "modules": []
 }
