@@ -12,10 +12,10 @@ import {FormComponent} from '../../modules/form/form.component';
 @Component({
   selector: 'mg-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit, OnDestroy {
-  @ViewChild('crud') crud: FormComponent;
+  @ViewChild('crudForm') crudForm: FormComponent;
   public userProfileFormFields;
   public selectorProfile;
   public selectedIndex;
@@ -78,9 +78,9 @@ export class UserComponent implements OnInit, OnDestroy {
    */
   onFormSubmitted(data: {item: any; isNew: boolean}) {
     if (data.isNew) {
-      this.crud.createItem(data.item);
+      this.crudForm.createItem(data.item);
     } else {
-      this.crud.updateItem(data.item);
+      this.crudForm.updateItem(data.item);
     }
   }
 

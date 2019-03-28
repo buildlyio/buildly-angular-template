@@ -48,7 +48,7 @@ export class AuthUserEpics {
     return action$.pipe(
       redux.ofType(UPDATE_AUTHUSER),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('put', `${environment.API_URL}/coreuser/${action.data.id}/`, action.data).pipe(
+        return this.httpService.makeRequest('patch', `${environment.API_URL}/coreuser/${action.data.id}/`, action.data).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => {
             return updateAuthUserCommit(res.data);

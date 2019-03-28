@@ -25,7 +25,7 @@
   </h3>
 
 
-  <div class="top-bar__view-switcher" *ngIf="view !=='data-table'">
+  <div class="top-bar__view-switcher" *ngIf="defaultView !=='data-table'">
     <div class="top-bar__view-switcher__elem" *ngIf="availableViews.list" (click)="selectView('list')" [ngClass]= "{'top-bar__view-switcher__elem--active': activeView === 'list' }">
       <mat-icon class="top-bar__view-switcher__elem__icon">list</mat-icon>
       <span>List</span>

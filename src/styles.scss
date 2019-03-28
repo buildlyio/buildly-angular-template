@@ -33,11 +33,6 @@ body { margin: 0; font-family: OpenSans, sans-serif; background-color: $backgrou
   margin: 1rem 0;
 }
 
-// override material form styles
-.mat-form-field-infix {
-  min-width: 300px !important;
-  width: 100% !important;
-}
 $theme-colors: (
   'color-primary': $primary-color,
 );
