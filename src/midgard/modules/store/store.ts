@@ -21,8 +21,8 @@ import { productsReducer } from '@clients/products/src/lib/state/products.reduce
 import { ProductsEpics } from '@clients/products/src/lib/state/products.epics';
 import { documentsReducer } from '@clients/documents/src/lib/state/documents.reducer';
 import { DocumentsEpics } from '@clients/documents/src/lib/state/documents.epics';
-import { clientReducer } from '@clients/client/src/lib/state/client.reducer';
-import { ClientEpics } from '@clients/client/src/lib/state/client.epics';
+import { clientReducer } from '@clients/blueprint-client/src/lib/state/blueprint-client.reducer';
+import { ClientEpics } from '@clients/blueprint-client/src/lib/state/blueprint-client.epics';
 let storeInstance: Store<any>;
 
 @Injectable()

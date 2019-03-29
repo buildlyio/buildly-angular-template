@@ -92,7 +92,7 @@
         },
         {
           "url": "git@github.com:Humanitec/blueprint_client_angular.git",
-          "name": "client",
+          "name": "blueprint-client",
           "config": {
             "entryPointComponent": "",
             "routingModuleOptions": {
@@ -105,7 +105,7 @@
               "options": {
                 "icon": "rounded_corner",
                 "label": "Blueprint",
-                "route": "clients"
+                "route": "blueprint-client"
               },
               "elementId": "navbar",
               "componentSelector": "mg-navbar-elem"

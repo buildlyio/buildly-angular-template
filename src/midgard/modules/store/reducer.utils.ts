@@ -15,9 +15,10 @@ export const addAll = (state, action: Action) => {
  * @param state - the current state
  * @param action - the returned action
  * @param {string} dataProp - property that stores the data
+ * @param {string} idProp - unique identifier property to check if element exists
  * @returns {any}
  */
-export const upsertOne = (state, action: Action, dataProp?: string) => {
+export const upsertOne = (state, action: Action, idProp: string, dataProp?: string) => {
   const dataObj = {};
   let dataArr = [];
   if (dataProp) {
@@ -27,7 +28,7 @@ export const upsertOne = (state, action: Action, dataProp?: string) => {
   }
   if (Array.isArray(dataArr)) {
     // insert if item does not exist
-    if (!dataArr.find( item => item.id === action.data.id)) {
+    if (!dataArr.find( item => item[idProp] === action.data[idProp])) {
       if (action.index) {
           const stateDataCopy = [...dataArr];
           stateDataCopy.splice(action.index, 0, action.data);
@@ -49,7 +50,7 @@ export const upsertOne = (state, action: Action, dataProp?: string) => {
     } else { // update if item exists
       if (dataProp) {
         dataObj[dataProp] = dataArr.map (item => {
-          if (item.id === action.data.id) {
+          if (item[idProp] === action.data[idProp]) {
             return action.data;
           } else {
             return item;
@@ -58,7 +59,7 @@ export const upsertOne = (state, action: Action, dataProp?: string) => {
         return {...state, data: dataObj, loaded: true, updated: true};
       } else {
         return {...state, data: dataArr.map (item => {
-            if (item.id === action.data.id) {
+            if (item[idProp] === action.data[idProp]) {
               return action.data;
             } else {
               return item;
@@ -79,18 +80,19 @@ export const upsertOne = (state, action: Action, dataProp?: string) => {
  * it deletes an from to the state if it does not exist otherwise it will return the curren state
  * @param state - the current state
  * @param action - the returned action
+ * @param {string} idProp - unique identifier property to check if element exists
  * @param {string} dataProp - property that stores the data
  * @returns {any}
  */
-export const deleteOne = (state, action: Action, dataProp?: string) => {
+export const deleteOne = (state, action: Action, idProp: string, dataProp?: string) => {
   const dataObj = {};
   let dataArr = [];
   if (dataProp) {
-    dataArr = state.data[dataProp].filter (item => item.id !== action.data.id);
+    dataArr = state.data[dataProp].filter (item => item[idProp] !== action.data[idProp]);
     dataObj[dataProp] = dataArr;
     return {...state, data: dataObj , deleted: true};
   } else {
-    dataArr = state.data.filter (item => item.id !== action.data.id);
+    dataArr = state.data.filter (item => item[idProp] !== action.data[idProp]);
     return {...state, data: dataArr, deleted: true};
   }
 };
@@ -174,6 +176,6 @@ export const addFromGraphQl = (state, action: Action, type: string) => {
  * @param action - the returned action
  * @returns {any}
  */
-export const deleteMultiple = (state, action: Action) => {
-  return {...state, data: state.data.filter (item => !action.data.find(element => element.id === item.id)), deleted: true};
+export const deleteMultiple = (state, action: Action, idProp: string) => {
+  return {...state, data: state.data.filter (item => !action.data.find(element => element[idProp] === item[idProp])), deleted: true};
 };

@@ -26,11 +26,11 @@ export function coreuserReducer(state = initialState, action) {
     case LOAD_DATA_COREUSER_COMMIT:
       return addAll(state, action);
     case CREATE_COREUSER_COMMIT:
-      return upsertOne(state, action);
+      return upsertOne(state, action, 'id');
     case UPDATE_COREUSER_COMMIT:
-      return upsertOne(state, action);
+      return upsertOne(state, action, 'id');
     case DELETE_COREUSER_COMMIT:
-      return deleteOne(state, action);
+      return deleteOne(state, action, 'id');
     default:
       return state;
   }

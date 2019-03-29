@@ -29,13 +29,13 @@ export function workflowLevel2Reducer(state = initialState, action: Action) {
     case LOAD_ALL_WORKFLOWLEVEL2_COMMIT:
       return addAll(state, action);
     case LOAD_ONE_WORKFLOWLEVEL2_COMMIT:
-      return upsertOne(state, action);
+      return upsertOne(state, action, 'id');
     case CREATE_WORKFLOWLEVEL2_COMMIT:
-      return upsertOne(state, action);
+      return upsertOne(state, action, 'id');
     case UPDATE_WORKFLOWLEVEL2_COMMIT:
-      return upsertOne(state, action);
+      return upsertOne(state, action, 'id');
     case DELETE_WORKFLOWLEVEL2_COMMIT:
-      return deleteOne(state, action);
+      return deleteOne(state, action, 'id');
     default:
       return state;
   }

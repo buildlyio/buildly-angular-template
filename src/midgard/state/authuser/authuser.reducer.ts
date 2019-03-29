@@ -19,9 +19,9 @@ const initialState: AuthUserState = {
 export function authuserReducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_AUTHUSER_COMMIT:
-      return upsertOne(state, action);
+      return upsertOne(state, action, 'id');
     case UPDATE_AUTHUSER_COMMIT:
-      return upsertOne(state, action);
+      return upsertOne(state, action, 'id');
     default:
       return state;
   }

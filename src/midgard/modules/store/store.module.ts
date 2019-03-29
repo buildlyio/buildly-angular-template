@@ -9,7 +9,7 @@ import { WorkflowLevel2Epics } from '../../state/workflow-level2/workflow-level2
 import { DashboardsEpics } from '@clients/dashboards/src/lib/state/dashboards.epics';
 import { ProductsEpics } from '@clients/products/src/lib/state/products.epics';
 import { DocumentsEpics } from '@clients/documents/src/lib/state/documents.epics';
-import { ClientEpics } from '@clients/client/src/lib/state/client.epics';
+import { ClientEpics } from '@clients/blueprint-client/src/lib/state/blueprint-client.epics';
 
 @NgModule({  providers: [DashboardsEpics, ProductsEpics, DocumentsEpics, ClientEpics]
 })
