@@ -11,7 +11,7 @@ import { ProductsEpics } from '@clients/products/src/lib/state/products.epics';
 import { DocumentsEpics } from '@clients/documents/src/lib/state/documents.epics';
 import { ClientEpics } from '@clients/blueprint-client/src/lib/state/blueprint-client.epics';
 
-@NgModule({  providers: [DashboardsEpics, ProductsEpics, DocumentsEpics, ClientEpics]
+@NgModule({  providers: []
 })
 export class MidgardStoreModule {
   static forRoot(): ModuleWithProviders {
