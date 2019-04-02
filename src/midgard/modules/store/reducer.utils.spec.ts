@@ -37,7 +37,7 @@ describe('upsertOne', () => {
       loaded: true,
       created: true
     };
-    expect(upsertOne(mockState, mockAction)).toEqual(expectedResult);
+    expect(upsertOne(mockState, mockAction, 'id')).toEqual(expectedResult);
   });
 
   it('should update the item, if it exists in the state', () => {
@@ -55,7 +55,7 @@ describe('upsertOne', () => {
       loaded: true,
       updated: true
     };
-    expect(upsertOne(mockState, mockAction)).toEqual(expectedResult);
+    expect(upsertOne(mockState, mockAction, 'id')).toEqual(expectedResult);
   });
 
   it('should add the item under the specified data property if it doesn t exist', () => {
@@ -119,7 +119,7 @@ describe('deleteOne', () => {
       data: [],
       deleted: true
     };
-    expect(deleteOne(mockState, mockAction)).toEqual(expectedResult);
+    expect(deleteOne(mockState, mockAction, 'id')).toEqual(expectedResult);
   });
 
   it('should delete the item returned by the action from the specified state data array if the item exists ', () => {
@@ -147,7 +147,7 @@ describe('deleteOne', () => {
       type: 'DELETE_ACTION',
       data: {id: 1 , name: 'test' }
     };
-    expect(deleteOne(mockState, mockAction)).toEqual(mockState);
+    expect(deleteOne(mockState, mockAction, 'id')).toEqual(mockState);
   });
 });
 
@@ -167,6 +167,6 @@ describe('deleteMultiple', () => {
       data: [],
       deleted: true
     };
-    expect(deleteMultiple(mockState, mockAction)).toEqual(expectedResult);
+    expect(deleteMultiple(mockState, mockAction, 'id')).toEqual(expectedResult);
   });
 });
