@@ -77,7 +77,7 @@ describe('upsertOne', () => {
       loaded: true,
       created: true
     };
-    expect(upsertOne(mockState, mockAction, 'results')).toEqual(expectedResult);
+    expect(upsertOne(mockState, mockAction, 'id', 'results')).toEqual(expectedResult);
   });
 
   it('should update the item under the specified data property if it exists', () => {
@@ -99,7 +99,7 @@ describe('upsertOne', () => {
       loaded: true,
       updated: true
     };
-    expect(upsertOne(mockState, mockAction, 'results')).toEqual(expectedResult);
+    expect(upsertOne(mockState, mockAction, 'id', 'results')).toEqual(expectedResult);
   });
 });
 
@@ -135,7 +135,7 @@ describe('deleteOne', () => {
       data: { results: []},
       deleted: true
     };
-    expect(deleteOne(mockState, mockAction, 'results')).toEqual(expectedResult);
+    expect(deleteOne(mockState, mockAction, 'id', 'results')).toEqual(expectedResult);
   });
 
   it('should return the old state if the item doesnt exist', () => {
