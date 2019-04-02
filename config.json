@@ -1,5 +1,6 @@
 {
     "appEntryPoint": "/user",
+<<<<<<< HEAD
     "appTitle": "Aziz App",
     "modules": [
         {
@@ -114,3 +115,8 @@
         }
     ]
 }
+=======
+    "appTitle": "PyLadies",
+    "modules": []
+}
+>>>>>>> b5d82cfc84b022133555e8e456ecf9a7ef9dd756
