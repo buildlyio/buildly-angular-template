@@ -8,7 +8,6 @@ body { margin: 0; font-family: OpenSans, sans-serif; background-color: $backgrou
 $theme-colors: (
   'color-primary': $primary-color,
   'color-danger' : $danger-color,
-  'color-background': $background-primary-color,
 );
 
 $haf: "&:hover, &:active, &:focus";
