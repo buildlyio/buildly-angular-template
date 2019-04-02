@@ -5,34 +5,6 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: OpenSans, sans-serif; background-color: $background-secondary-color;}
 
-.main-button {
-  background-color: $primary-color !important;
-  color: white;
-  &:disabled {
-    color: white !important;
-  }
-}
-
-.cancel-button {
-  background-color: $primary-color !important;
-  color: white;
-  &:disabled {
-    opacity: 0.5;
-  }
-}
-
-.form-control {
-  margin-right: 20px !important;
-}
-
-.mat-tab-header {
-  margin-bottom: 30px;
-}
-
-.card {
-  margin: 1rem 0;
-}
-
 $theme-colors: (
   'color-primary': $primary-color,
 );
