@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Nils app",
+    "appTitle": "Parag App",
     "modules": [
         {
             "url": "git@github.com:Humanitec/products_client_angular.git",
