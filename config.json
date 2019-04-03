@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Naive App",
+    "appTitle": "Nils app",
     "modules": [
         {
             "url": "git@github.com:Humanitec/products_client_angular.git",
