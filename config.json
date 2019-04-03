@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "ghjsdf",
+    "appTitle": "newapp",
     "modules": [
         {
             "url": "git@github.com:Humanitec/products_client_angular.git",
