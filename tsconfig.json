@@ -25,6 +25,9 @@
       "@clients/*": [
         "src/clients/*"
       ],
+      "@midgard/*": [
+        "src/clients/*"
+      ],
       "@projects/*": [
         "projects/*"
       ],
