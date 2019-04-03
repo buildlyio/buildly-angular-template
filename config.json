@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "what",
+    "appTitle": "www",
     "modules": [
         {
             "url": "https://github.com/glind/documents-client-angular.git",
@@ -20,6 +20,28 @@
                     },
                     "elementId": "tabs",
                     "componentSelector": "mat-tab"
+                }
+            }
+        },
+        {
+            "url": "git@github.com:Humanitec/products_client_angular.git",
+            "name": "products",
+            "config": {
+                "entryPointComponent": "",
+                "routingModuleOptions": {
+                    "path": "src/midgard/midgard-routing.module.ts",
+                    "parentComponent": "MidgardComponent",
+                    "childrenArrayIndex": "0"
+                },
+                "parentExitPointComponent": {
+                    "path": "src/midgard/components/nav-bar/nav-bar.component.html",
+                    "options": {
+                        "icon": "local_offer",
+                        "label": "Products",
+                        "route": "products"
+                    },
+                    "elementId": "navbar",
+                    "componentSelector": "mg-navbar-elem"
                 }
             }
         }
