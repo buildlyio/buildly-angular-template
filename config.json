@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Niko App 1",
+    "appTitle": "Niko App 2",
     "modules": [
         {
             "url": "git@github.com:Humanitec/products_client_angular.git",
