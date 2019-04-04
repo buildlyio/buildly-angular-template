@@ -91,6 +91,28 @@
           }
         },
         {
+          "url": "git@github.com:Humanitec/locations_client_angular.git",
+          "name": "locations",
+          "config": {
+            "entryPointComponent": "",
+            "routingModuleOptions": {
+              "path": "src/midgard/midgard-routing.module.ts",
+              "parentComponent": "MidgardComponent",
+              "childrenArrayIndex": "0"
+            },
+            "parentExitPointComponent": {
+              "path": "src/midgard/components/nav-bar/nav-bar.component.html",
+              "options": {
+                "icon": "map",
+                "label": "Locations",
+                "route": "locations"
+              },
+              "elementId": "navbar",
+              "componentSelector": "mg-navbar-elem"
+            }
+          }
+        },
+        {
           "url": "git@github.com:Humanitec/blueprint_client_angular.git",
           "name": "blueprint-client",
           "config": {
