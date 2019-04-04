@@ -1,10 +1,10 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Niko App 2",
+    "appTitle": "Remove module before deploy?",
     "modules": [
         {
-            "url": "git@github.com:Humanitec/products_client_angular.git",
-            "name": "products",
+            "url": "git@github.com:Humanitec/blueprint_client_angular.git",
+            "name": "blueprint-client",
             "config": {
                 "entryPointComponent": "",
                 "routingModuleOptions": {
@@ -15,9 +15,9 @@
                 "parentExitPointComponent": {
                     "path": "src/midgard/components/nav-bar/nav-bar.component.html",
                     "options": {
-                        "icon": "local_offer",
-                        "label": "Products",
-                        "route": "products"
+                        "icon": "rounded_corner",
+                        "label": "Blueprint",
+                        "route": "blueprint-client"
                     },
                     "elementId": "navbar",
                     "componentSelector": "mg-navbar-elem"
