@@ -19,14 +19,14 @@ pipeline:
       event: [push, tag]
       status: [success]
 
-  test:
-    image: registry.walhall.io/humanitec/docker-nodejs-and-chrome:0.0.1-8.12.0-latest
-    commands:
-      - npm rebuild node-sass
-      - npm run test
-    when:
-      event: [push]
-      status: [success]
+#  test:
+#    image: registry.walhall.io/humanitec/docker-nodejs-and-chrome:0.0.1-8.12.0-latest
+#    commands:
+#      - npm rebuild node-sass
+#      - npm run test
+#    when:
+#      event: [push]
+#      status: [success]
 
   build-docker-image-tag:
     image: plugins/docker
