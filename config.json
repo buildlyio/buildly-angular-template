@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "DemoV3",
+    "appTitle": "GregTest",
     "modules": [
         {
             "url": "git@github.com:Humanitec-Walhall/midgard-documents.git",
