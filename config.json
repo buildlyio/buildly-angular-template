@@ -1,5 +1,27 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Damien",
-    "modules": []
+    "appTitle": "NewApp",
+    "modules": [
+        {
+            "url": "git@github.com:Humanitec-Walhall/midgard-documents.git",
+            "name": "documents",
+            "config": {
+                "entryPointComponent": "",
+                "routingModuleOptions": {
+                    "path": "projects/midgard-angular/src/lib/midgard-routing.module.ts",
+                    "parentComponent": "WorkflowLevel2DetailComponent",
+                    "childrenArrayIndex": "1"
+                },
+                "parentExitPointComponent": {
+                    "path": "projects/midgard-angular/src/lib/pages/workflow-level2/detail/workflow-level2-detail.component.html",
+                    "options": {
+                        "label": "Documents",
+                        "routerOutlet": "documents"
+                    },
+                    "elementId": "tabs",
+                    "componentSelector": "mat-tab"
+                }
+            }
+        }
+    ]
 }
