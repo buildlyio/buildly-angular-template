@@ -13,7 +13,7 @@
               "childrenArrayIndex": "0"
             },
             "parentExitPointComponent": {
-              "path": "midgard/components/nav-bar/nav-bar.component.html",
+              "path": "src/midgard/components/nav-bar/nav-bar.component.html",
               "options": {
                 "icon": "dashboard",
                 "label": "Dashboards",
