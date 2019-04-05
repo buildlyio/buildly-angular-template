@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Parag New app",
+    "appTitle": "my own app",
     "modules": [
         {
             "url": "git@github.com:Humanitec-Walhall/midgard-products.git",
