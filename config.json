@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "AzizBestDemoEver",
+    "appTitle": "DemoV2",
     "modules": [
         {
             "url": "git@github.com:Humanitec-Walhall/midgard-documents.git",
