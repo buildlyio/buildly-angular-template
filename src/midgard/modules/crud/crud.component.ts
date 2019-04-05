@@ -165,8 +165,8 @@ export class CrudComponent implements OnInit, OnDestroy {
     this.storeSubscription = this.store.observable.pipe(
       select(this.selector),
       map(reducer => {
-        if (reducer && reducer.data) {
-          return reducer.data;
+        if (reducer && reducer.data.results) {
+          return reducer.data.results;
         }
       })
     ).subscribe( (data: any[]) => {
