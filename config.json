@@ -3,7 +3,7 @@
     "appTitle": "Midgard",
     "modules": [
         {
-          "url": "https://github.com:Humanitec/dashboards_client_angular.git",
+          "url": "https://github.com/Humanitec/dashboards_client_angular.git",
           "name": "dashboards",
           "config": {
             "entryPointComponent": "",
@@ -25,7 +25,7 @@
           }
         },
         {
-            "url": "https://github.com:Humanitec/products_client_angular.git",
+            "url": "https://github.com/Humanitec/products_client_angular.git",
             "name": "products",
             "config": {
                 "entryPointComponent": "",
@@ -47,7 +47,7 @@
             }
         },
         {
-          "url": "https://github.com:Humanitec/documents_client_angular.git",
+          "url": "https://github.com/Humanitec/documents_client_angular.git",
           "name": "documents",
           "config": {
             "entryPointComponent": "",
