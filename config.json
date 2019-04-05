@@ -94,6 +94,7 @@
           "url": "git@github.com:Humanitec/locations_client_angular.git",
           "name": "locations",
           "config": {
+            "styles": "./src/clients/locations/node_modules/leaflet/dist/leaflet.css",
             "entryPointComponent": "",
             "routingModuleOptions": {
               "path": "src/midgard/midgard-routing.module.ts",
