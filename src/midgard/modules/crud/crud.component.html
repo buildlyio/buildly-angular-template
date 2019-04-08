@@ -22,13 +22,13 @@
                       (actionClicked)="onCardItemActionClicked($event, row)"
         ></mg-card-item>
       </ng-container>
-      <!-- DEPRECATED: OLD TABLE COMPONENT -->
+      <!-- Data Table version-->
       <fj-table
           class="list__content__table"
           *ngIf= "view === 'data-table' && tableOptions && !graphQlChildrenModel && (dataLoaded | async)"
           [rows]= "rows"
           [columns]="tableOptions?.columns"
-          (selectItem)="goToDetailsPage($event)"
+          (selectItem)="onTableItemClicked($event)"
           (delete)="deleteItem($event?.item)"
           (activate)="onTableActionClicked('activate', $event)"
         ></fj-table>

@@ -2,7 +2,6 @@ import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output
 import { select, Store } from '@src/midgard/modules/store/store';
 import { Subscription } from 'rxjs';
 import { GraphQlService } from '@src/midgard/modules/graphql/graphql.service';
-import { Router } from '@angular/router';
 import { map } from 'rxjs/internal/operators';
 import { addAll, deleteOne, upsertOne } from '@src/midgard/modules/store/reducer.utils';
 
@@ -96,10 +95,6 @@ export class CrudComponent implements OnInit, OnDestroy {
    */
   @Input() graphQlVariables;
   /**
-   * main route of details page
-   */
-  @Input() detailsRoute;
-  /**
    * default layout of the cards
    */
   @Input() defaultLayout;
@@ -116,6 +111,14 @@ export class CrudComponent implements OnInit, OnDestroy {
    * event that is triggered when an action from the table component is triggered
    */
   @Output() tableActionClicked: EventEmitter<any> = new EventEmitter();
+  /**
+   * event that is triggered when an item in the table is clicked
+   */
+  @Output() tableItemClicked: EventEmitter<any> = new EventEmitter();
+  /**
+   * event that is triggered when the user clicks on the add button
+   */
+  @Output() addButtonClicked: EventEmitter<any> = new EventEmitter();
   /**
    * event that is triggered when a new item has been created
    */
@@ -134,7 +137,6 @@ export class CrudComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<any>, // type {any} beacuse the state of the app is not fixed and can be changed depending on the modules
     private graphQlService: GraphQlService,
-    private router: Router
   ) { }
 
   ngOnInit() {
@@ -197,30 +199,6 @@ export class CrudComponent implements OnInit, OnDestroy {
     this.store.dispatch({
       type: this.loadAction,
     });
-  }
-
-  /**
-   * navigates to the detail page of the selected item
-   * @param {object} row - the current row
-   * @param {object} event - the click event or the selected item if it is a table
-   */
-  goToDetailsPage(row, event: any) {
-    if (this.detailsRoute) {
-      if (!row) {
-        this.router.navigate([`${this.detailsRoute}/new`]);
-      } else {
-        this.router.navigate([`${this.detailsRoute}${row.id}/`]);
-      }
-    }
-    // else {
-      // Deprecated GraphQl Implementation in the crud module
-      // if (!event.id) { // if is not a table item
-      //   event.stopPropagation();
-      //   this.router.navigate([`${this.detailsRoute}${row.id}/new`]);
-      // } else {
-      //   this.router.navigate([`${this.detailsRoute}${row.id}/${event.id}`]);
-      // }
-    // }
   }
 
   /**
@@ -292,8 +270,16 @@ export class CrudComponent implements OnInit, OnDestroy {
     const emittedObj = {
       actionType,
       item
-    }
+    };
     this.tableActionClicked.emit(emittedObj);
+  }
+
+  /**
+   * function that listens if an item is clicked in the table
+   * @param {string} item - the clicked item data
+   */
+  onTableItemClicked(item) {
+    this.tableItemClicked.emit(item);
   }
 
   /**
@@ -323,7 +309,7 @@ export class CrudComponent implements OnInit, OnDestroy {
    */
   addNewElement(view: string) {
     if (this.defaultLayout === 'data-table') {
-      this.goToDetailsPage(null, null);
+      this.addButtonClicked.emit();
     } else {
       this.onCardItemActionClicked('new', null);
     }

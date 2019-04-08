@@ -8,7 +8,8 @@
   [deleteAction]="'DELETE_COREUSER'"
   [addButtonText]="'Invite User'"
   [deleteMessage]="'The user has been deactivated'"
-  [detailsRoute]="'/user/details/'"
   (tableActionClicked)="toggleUserActivation($event)"
+  (tableItemClicked)="goToDetailsPage($event)"
+  (addButtonClicked)="goToDetailsPage(null)"
 >
 </mg-crud>
