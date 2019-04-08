@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Aurlus Test",
+    "appTitle": "DemoTest",
     "modules": [
         {
             "url": "git@github.com:Humanitec-Walhall/midgard-documents.git",
