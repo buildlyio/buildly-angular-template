@@ -96,7 +96,7 @@ export class FormComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    if (this.loadedSelector) {
+    if (this.selector) {
       this.dataLoaded = this.store.observable.pipe(
         select(this.selector),
         map(reducer => {
