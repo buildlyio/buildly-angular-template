@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { getAllCoreUsers } from '@src/midgard/state/coreuser/coreuser.selectors';
 import {updateCoreUser} from '../../../state/coreuser/coreuser.actions';
 import {Store} from '../../../modules/store/store';
-import {selectTopBarOption, setTopBarOptions} from '../../../state/top-bar/top-bar.actions';
+import { getCoreUsersLoaded } from '../../../state/coreuser/coreuser.selectors';
 
 @Component({
   selector: 'mg-user-list',
@@ -12,7 +12,8 @@ import {selectTopBarOption, setTopBarOptions} from '../../../state/top-bar/top-b
 export class UserListComponent implements OnInit {
 
   public tableOptions;
-  public selector;
+  public dataSelector;
+  public loadedSelector;
   public topBarOptions = [
     {
       label: 'Profile',
@@ -29,7 +30,8 @@ export class UserListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.selector = getAllCoreUsers;
+    this.dataSelector = getAllCoreUsers;
+    this.loadedSelector = getCoreUsersLoaded;
     this.defineTableOptions();
   }
 

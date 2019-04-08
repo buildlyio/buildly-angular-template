@@ -55,9 +55,13 @@ export class CrudComponent implements OnInit, OnDestroy {
    */
   @Input() deleteMessage;
   /**
-   * redux selector function
+   * redux selector function to retrieve data list
    */
-  @Input() selector;
+  @Input() dataSelector;
+  /**
+   * redux selector function to check if the data is loaded
+   */
+  @Input() loadedSelector;
   /**
    *  parent model if children exists
    */
@@ -142,10 +146,10 @@ export class CrudComponent implements OnInit, OnDestroy {
       this.view = 'list';
     }
     this.dataLoaded = this.store.observable.pipe(
-      select(this.selector),
-      map(reducer => {
-        if (reducer) {
-          return reducer.loaded;
+      select(this.loadedSelector),
+      map(loaded => {
+        if (loaded) {
+          return loaded;
         }
       })
     );
@@ -163,10 +167,10 @@ export class CrudComponent implements OnInit, OnDestroy {
    */
   listenToStore() {
     this.storeSubscription = this.store.observable.pipe(
-      select(this.selector),
-      map(reducer => {
-        if (reducer && reducer.data) {
-          return reducer.data;
+      select(this.dataSelector),
+      map(data => {
+        if (data) {
+          return data;
         }
       })
     ).subscribe( (data: any[]) => {

@@ -22,14 +22,13 @@ export class WorkflowLevel2Component implements OnInit {
   public tableOptions;
   public cardItemOptions;
   // public graphQlQuery;
-  public selector;
+  public dataSelector = getAllWorkflowLevel2s;
 
   constructor(
     private store: Store<any>
   ) { }
 
   ngOnInit() {
-    this.selector = getAllWorkflowLevel2s;
     this.store.dispatch(setTopBarOptions(this.topBarOptions));
     this.defineCardItemOptions();
     this.defineTableOptions();
