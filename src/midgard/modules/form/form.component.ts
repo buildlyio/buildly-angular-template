@@ -16,15 +16,17 @@ import {FormValidationHelper} from './form.validation.helper';
 export class FormComponent implements OnInit, OnDestroy {
 
   public dataLoaded;
-  public currentItemId;
   public currentItem;
   public detailsForm: FormGroup;
   private graphQlSubscription: Subscription;
   private storeSubscription: Subscription;
-  private parentId: string;
 
   /**
-   * redux action to load current Item if exists
+   * id of an element to show in the form
+   */
+  @Input() itemId;
+  /**
+   * redux action to load an item
    */
   @Input() loadAction: string;
   /**
@@ -44,11 +46,7 @@ export class FormComponent implements OnInit, OnDestroy {
    */
   @Input() updateMessage: string;
   /**
-   * redux action to add the current item
-   */
-  @Input() addAction: string;
-  /**
-   * redux selector
+   * redux reducer selector
    */
   @Input() selector;
   /**
@@ -98,7 +96,7 @@ export class FormComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    if (this.selector) {
+    if (this.loadedSelector) {
       this.dataLoaded = this.store.observable.pipe(
         select(this.selector),
         map(reducer => {
@@ -110,31 +108,12 @@ export class FormComponent implements OnInit, OnDestroy {
     } else {
       this.dataLoaded = of(true);
     }
-    if (this.activatedRoute.snapshot.paramMap.get('parent')) {
-      this.parentId = this.activatedRoute.snapshot.paramMap.get('parent');
-    }
-    if (!this.isNewItemCheck()) {
+    if (this.itemId && this.selector) {
         this.getDataFromStore();
     } else {
       // build empty reactive form
       this.buildForm();
     }
-  }
-
-  /**
-   * checks if the form is for adding or updating
-   * @returns {boolean}
-   */
-  isNewItemCheck(): boolean {
-    const routeParam = this.activatedRoute.snapshot.paramMap.get('id');
-    let isNew;
-    if (routeParam === 'new') {
-      isNew = true;
-    } else {
-      isNew = false;
-      this.currentItemId = routeParam;
-    }
-    return isNew;
   }
 
   /**
@@ -173,7 +152,7 @@ export class FormComponent implements OnInit, OnDestroy {
     if (this.loadAction) {
       this.store.dispatch({
         type: this.loadAction,
-        id: this.currentItemId
+        id: this.itemId
       });
     }
     this.storeSubscription = this.store.observable.pipe(
@@ -186,7 +165,7 @@ export class FormComponent implements OnInit, OnDestroy {
     ).subscribe( (res: any) => {
       if (Array.isArray(res)) {  // check if the item is an array
         // if true find the current item in the array
-        this.currentItem = res.find(item => Number(item.id) === Number(this.currentItemId));
+        this.currentItem = res.find(item => Number(item.id) === Number(this.itemId));
       } else {
         this.currentItem = res;
       }
@@ -199,10 +178,7 @@ export class FormComponent implements OnInit, OnDestroy {
    * sends an action to add or edit the item if it exists
    */
   submitForm() {
-    if (this.parentId) {
-      this.detailsForm.value.workflowlevel1 = this.parentId;
-    }
-    if (this.isNewItemCheck()) {
+    if (!this.itemId) {
       this.formSubmitted.emit({item: this.detailsForm.value, isNew: true});
     } else {
       this.formSubmitted.emit({item: {...this.currentItem, ...this.detailsForm.value, isNew: false}});
