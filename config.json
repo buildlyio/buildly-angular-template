@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Argentina App",
+    "appTitle": "Chile App",
     "modules": [
         {
             "url": "https://github.com/jefmoura/products_client_angular.git",
