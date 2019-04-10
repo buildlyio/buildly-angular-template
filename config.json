@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Testr",
+    "appTitle": "Kenya Demo",
     "modules": [
         {
             "url": "git@github.com:Humanitec-Walhall/midgard-documents.git",
