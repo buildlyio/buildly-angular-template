@@ -131,6 +131,10 @@ export class CrudComponent implements OnInit, OnDestroy {
    * event that is triggered when a new item has been updated
    */
   @Output() itemUpdated: EventEmitter<any> = new EventEmitter();
+  /**
+   * event that is triggered when the data is loaded
+   */
+  @Output() dataLoadedFromStore: EventEmitter<any> = new EventEmitter();
 
   public view: 'tile' | 'list' | 'table' | 'data-table';
 
@@ -170,13 +174,11 @@ export class CrudComponent implements OnInit, OnDestroy {
   listenToStore() {
     this.storeSubscription = this.store.observable.pipe(
       select(this.dataSelector),
-      map(data => {
-        if (data) {
-          return data;
-        }
-      })
     ).subscribe( (data: any[]) => {
-      this.rows = data;
+      if (data) {
+        this.rows = data;
+        this.dataLoadedFromStore.emit(this.rows);
+      }
     });
   }
 
@@ -210,7 +212,7 @@ export class CrudComponent implements OnInit, OnDestroy {
       type: this.deleteAction,
       data: item,
     });
-    this.itemDeleted.emit();
+    this.itemDeleted.emit(item);
   }
 
   /**
@@ -224,7 +226,7 @@ export class CrudComponent implements OnInit, OnDestroy {
       data: item,
       index
     });
-    this.itemCreated.emit();
+    this.itemCreated.emit(item);
   }
 
   /**
@@ -237,7 +239,7 @@ export class CrudComponent implements OnInit, OnDestroy {
       type: this.updateAction,
       data: item
     });
-    this.itemUpdated.emit();
+    this.itemUpdated.emit(item);
   }
 
   /**
