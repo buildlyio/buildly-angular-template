@@ -14,20 +14,31 @@ export const getAllCoreUsers = redux.createSelector(
   (coreUserState: CoreUserState) => {
     if (coreUserState) {
       const authUser = JSON.parse(localStorage.getItem('oauthUser'));
-      return {
-        data: coreUserState.data.map((coreuser: any) => {
+      return coreUserState.data.map((coreuser: any) => {
           coreuser.fullName = `${coreuser.first_name} ${coreuser.last_name}`;
           coreuser.email = coreuser.email;
           coreuser.is_active = coreuser.is_active;
           return coreuser;
         }).filter( coreuser => {
           return coreuser.email !== authUser.email;
-        }),
-        loaded: true
-      };
+        });
     }
   }
 );
+
+/**
+ * selector to get all core user other than the authenticated user
+ * @returns {MemoizedSelector}
+ */
+export const getCoreUsersLoaded = redux.createSelector(
+  getCoreUsers,
+  (coreUserState: CoreUserState) => {
+    if (coreUserState) {
+      return coreUserState.loaded;
+    }
+  }
+);
+
 
 
 /**

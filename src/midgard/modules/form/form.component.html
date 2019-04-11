@@ -56,8 +56,8 @@
       </div>
       <div class="form__submit">
         <fj-button (click)="submitForm()" *ngIf="(addButtonText || editButtonText)" [disabled]="!detailsForm.valid" [type]="'submit'">
-          <ng-container *ngIf="isNewItemCheck()">{{addButtonText}}</ng-container>
-          <ng-container *ngIf="!isNewItemCheck()">{{editButtonText}}</ng-container>
+          <ng-container *ngIf="!itemId">{{addButtonText}}</ng-container>
+          <ng-container *ngIf="itemId">{{editButtonText}}</ng-container>
         </fj-button>
       </div>
     </form>

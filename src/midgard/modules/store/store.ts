@@ -15,6 +15,7 @@ import { WorkflowTeamEpics } from '@src/midgard/state/workflow-team/workflow-tea
 import { workflowTeamReducer } from '@src/midgard/state/workflow-team/workflow-team.reducer';
 import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
 import { distinctUntilChanged } from 'rxjs/internal/operators';
+
 let storeInstance: Store<any>;
 
 @Injectable()

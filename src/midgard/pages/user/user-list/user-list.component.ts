@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { getAllCoreUsers } from '@src/midgard/state/coreuser/coreuser.selectors';
 import {updateCoreUser} from '../../../state/coreuser/coreuser.actions';
 import {Store} from '../../../modules/store/store';
-import {selectTopBarOption, setTopBarOptions} from '../../../state/top-bar/top-bar.actions';
+import { getCoreUsersLoaded } from '../../../state/coreuser/coreuser.selectors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mg-user-list',
@@ -12,7 +13,8 @@ import {selectTopBarOption, setTopBarOptions} from '../../../state/top-bar/top-b
 export class UserListComponent implements OnInit {
 
   public tableOptions;
-  public selector;
+  public dataSelector;
+  public loadedSelector;
   public topBarOptions = [
     {
       label: 'Profile',
@@ -25,11 +27,14 @@ export class UserListComponent implements OnInit {
   ];
 
   constructor(
-    private store: Store<any>
-  ) { }
+    private store: Store<any>,
+    private router: Router
+  ) {
+  }
 
   ngOnInit() {
-    this.selector = getAllCoreUsers;
+    this.dataSelector = getAllCoreUsers;
+    this.loadedSelector = getCoreUsersLoaded;
     this.defineTableOptions();
   }
 
@@ -55,5 +60,17 @@ export class UserListComponent implements OnInit {
       selectedUser.item.is_active = true;
     }
     this.store.dispatch(updateCoreUser(selectedUser.item));
+  }
+
+  /**
+   * navigates to the detail page of the selected user
+   * @param {object} row - the current row
+   */
+  goToDetailsPage(row) {
+    if (!row) {
+      this.router.navigate([`/user/details/new`]);
+    } else {
+      this.router.navigate([`/user/details/${row.id}/`]);
+    }
   }
 }

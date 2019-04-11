@@ -7,8 +7,7 @@ import { WorkflowTeamEpics } from '../../state/workflow-team/workflow-team.epics
 import { WorkflowLevel1Epics } from '../../state/workflow-level1/workflow-level1.epics';
 import { WorkflowLevel2Epics } from '../../state/workflow-level2/workflow-level2.epics';
 
-@NgModule({  providers: []
-})
+@NgModule({  providers: [] })
 export class MidgardStoreModule {
   static forRoot(): ModuleWithProviders {
     return {
