@@ -1,5 +1,73 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Test",
-    "modules": []
+    "appTitle": "Midgard",
+    "modules": [
+        {
+          "url": "https://github.com/Humanitec/dashboards_client_angular.git",
+          "name": "dashboards",
+          "config": {
+            "entryPointComponent": "",
+            "routingModuleOptions": {
+              "path": "src/midgard/midgard-routing.module.ts",
+              "parentComponent": "MidgardComponent",
+              "childrenArrayIndex": "0"
+            },
+            "parentExitPointComponent": {
+              "path": "src/midgard/components/nav-bar/nav-bar.component.html",
+              "options": {
+                "icon": "dashboard",
+                "label": "Dashboards",
+                "route": "dashboards"
+              },
+              "elementId": "navbar",
+              "componentSelector": "mg-navbar-elem"
+            }
+          }
+        },
+        {
+            "url": "https://github.com/Humanitec/products_client_angular.git",
+            "name": "products",
+            "config": {
+                "entryPointComponent": "",
+                "routingModuleOptions": {
+                    "path": "src/midgard/midgard-routing.module.ts",
+                    "parentComponent": "MidgardComponent",
+                    "childrenArrayIndex": "0"
+                },
+                "parentExitPointComponent": {
+                    "path": "src/midgard/components/nav-bar/nav-bar.component.html",
+                    "options": {
+                        "icon": "local_offer",
+                        "label": "Products",
+                        "route": "products"
+                    },
+                    "elementId": "navbar",
+                    "componentSelector": "mg-navbar-elem"
+                }
+            }
+        },
+        {
+          "url": "https://github.com/kupfer-software/kupfer_document_client_angular.git",
+          "name": "documents",
+          "config": {
+            "entryPointComponent": "",
+            "routingModuleOptions": {
+              "path": "src/midgard/midgard-routing.module.ts",
+              "parentComponent": "MidgardComponent",
+              "childrenArrayIndex": "0"
+            },
+            "parentExitPointComponent": {
+              "path": "src/midgard/components/nav-bar/nav-bar.component.html",
+              "options": {
+                "icon": "class",
+                "label": "Documents",
+                "route": "documents"
+              },
+              "elementId": "navbar",
+              "componentSelector": "mg-navbar-elem"
+            }
+          }
+        }
+    ]
 }
+
