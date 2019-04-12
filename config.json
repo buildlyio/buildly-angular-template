@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Midgard",
+    "appTitle": "Anatolii's App",
     "modules": [
         {
           "url": "https://github.com/Humanitec/dashboards_client_angular.git",
