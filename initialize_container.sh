@@ -6,7 +6,7 @@ export GIT_FETCH_HEAD=`cat .git/FETCH_HEAD`
 #Read all environment variables as output by printenv and put them into an object stored in window.environment
 RESULT='window.environment = {'
 while read line; do
-  if [ $line == "API_URL" ] | [ $line == "OAUTH_CLIENT_ID" ] | [ $line == "OAUTH_TOKEN_URL" ] ; then
+  if [[ $line == *"API_URL"* ]] | [[ $line == *"OAUTH_CLIENT_ID"* ]] | [[ $line == *"OAUTH_TOKEN_URL"* ]] ; then
     #Note that multi-line environment variable values will break this
     RESULT+='"'`echo $line | sed --expression='s/=/\":\"/g'`'"',
   fi
