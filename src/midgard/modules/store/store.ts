@@ -15,18 +15,6 @@ import { WorkflowTeamEpics } from '@src/midgard/state/workflow-team/workflow-tea
 import { workflowTeamReducer } from '@src/midgard/state/workflow-team/workflow-team.reducer';
 import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
 import { distinctUntilChanged } from 'rxjs/internal/operators';
-import { dashboardsReducer } from '@clients/dashboards/src/lib/state/dashboards.reducer';
-import { DashboardsEpics } from '@clients/dashboards/src/lib/state/dashboards.epics';
-import { productsReducer } from '@clients/products/src/lib/state/products.reducer';
-import { ProductsEpics } from '@clients/products/src/lib/state/products.epics';
-import { documentsReducer } from '@clients/documents/src/lib/state/documents.reducer';
-import { DocumentsEpics } from '@clients/documents/src/lib/state/documents.epics';
-import { locationsReducer } from '@clients/locations/src/lib/state/locations.reducer';
-import { LocationsEpics } from '@clients/locations/src/lib/state/locations.epics';
-import { blueprintClientReducer } from '@clients/blueprint-client/src/lib/state/blueprint-client.reducer';
-import { BlueprintClientEpics } from '@clients/blueprint-client/src/lib/state/blueprint-client.epics';
-import { contactsReducer } from '@clients/contacts/src/lib/state/contacts.reducer';
-import { ContactsEpics } from '@clients/contacts/src/lib/state/contacts.epics';
 let storeInstance: Store<any>;
 
 @Injectable()
@@ -42,13 +30,7 @@ export class Store<T> {
     private coreUserEpics: CoreUserEpics,
     private workflowTeamEpics: WorkflowTeamEpics,
     private workflowLevel1Epics: WorkflowLevel1Epics,
-    private workflowLevel2Epics: WorkflowLevel2Epics,
-    private dashboardsEpics: DashboardsEpics,
-    private productsEpics: ProductsEpics,
-    private documentsEpics: DocumentsEpics,
-    private locationsEpics: LocationsEpics,
-    private blueprintClientEpics: BlueprintClientEpics,
-    private contactsEpics: ContactsEpics
+    private workflowLevel2Epics: WorkflowLevel2Epics
     ) {
     if (storeInstance) {
       return storeInstance;
@@ -60,26 +42,14 @@ export class Store<T> {
         authuserReducer,
         workflowTeamReducer,
         workflowLevel1Reducer,
-        workflowLevel2Reducer,
-        dashboardsReducer,
-        productsReducer,
-        documentsReducer,
-        locationsReducer,
-        blueprintClientReducer,
-        contactsReducer
+        workflowLevel2Reducer
       };
       const epics = [
         coreUserEpics,
         authUserEpics,
         workflowTeamEpics,
         workflowLevel1Epics,
-        workflowLevel2Epics,
-        dashboardsEpics,
-        productsEpics,
-        documentsEpics,
-        locationsEpics,
-        blueprintClientEpics,
-        contactsEpics,
+        workflowLevel2Epics
       ];
       const combinedReducers = redux.combineReducers(reducers); // combine the reducers to a reducer that can be used when creating the store
       const combinedEpics = redux.combineEpics(...epics); // combine redux-observable epics
