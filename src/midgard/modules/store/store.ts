@@ -23,7 +23,7 @@ import { documentsReducer } from '@clients/documents/src/lib/state/documents.red
 import { DocumentsEpics } from '@clients/documents/src/lib/state/documents.epics';
 import { locationsReducer } from '@clients/locations/src/lib/state/locations.reducer';
 import { LocationsEpics } from '@clients/locations/src/lib/state/locations.epics';
-import { blueprint-clientReducer } from '@clients/blueprint-client/src/lib/state/blueprint-client.reducer';
+import { blueprintClientReducer } from '@clients/blueprint-client/src/lib/state/blueprint-client.reducer';
 import { BlueprintClientEpics } from '@clients/blueprint-client/src/lib/state/blueprint-client.epics';
 
 let storeInstance: Store<any>;
@@ -46,7 +46,7 @@ export class Store<T> {
     private productsEpics: ProductsEpics,
     private documentsEpics: DocumentsEpics,
     private locationsEpics: LocationsEpics,
-    private blueprint-clientEpics: BlueprintClientEpics
+    private blueprintClientEpics: BlueprintClientEpics
     ) {
     if (storeInstance) {
       return storeInstance;
@@ -63,7 +63,7 @@ export class Store<T> {
         productsReducer,
         documentsReducer,
         locationsReducer,
-        blueprint-clientReducer
+        blueprintClientReducer
       };
       const epics = [
         coreUserEpics,
@@ -75,7 +75,7 @@ export class Store<T> {
         productsEpics,
         documentsEpics,
         locationsEpics,
-        blueprint-clientEpics
+        blueprintClientEpics
       ];
       const combinedReducers = redux.combineReducers(reducers); // combine the reducers to a reducer that can be used when creating the store
       const combinedEpics = redux.combineEpics(...epics); // combine redux-observable epics
