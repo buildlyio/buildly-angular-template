@@ -27,9 +27,6 @@ import { blueprintClientReducer } from '@clients/blueprint-client/src/lib/state/
 import { BlueprintClientEpics } from '@clients/blueprint-client/src/lib/state/blueprint-client.epics';
 import { contactsReducer } from '@clients/contacts/src/lib/state/contacts.reducer';
 import { ContactsEpics } from '@clients/contacts/src/lib/state/contacts.epics';
-import { blueprintClientReducer } from '@clients/blueprintClient/src/lib/state/blueprint-client.reducer';
-import { BlueprintClientEpics } from '@clients/blueprintClient/src/lib/state/blueprint-client.epics';
-
 let storeInstance: Store<any>;
 
 @Injectable()
@@ -69,8 +66,7 @@ export class Store<T> {
         documentsReducer,
         locationsReducer,
         blueprintClientReducer,
-        contactsReducer,
-        blueprintClientReducer
+        contactsReducer
       };
       const epics = [
         coreUserEpics,
@@ -84,7 +80,6 @@ export class Store<T> {
         locationsEpics,
         blueprintClientEpics,
         contactsEpics,
-        blueprintClientEpics
       ];
       const combinedReducers = redux.combineReducers(reducers); // combine the reducers to a reducer that can be used when creating the store
       const combinedEpics = redux.combineEpics(...epics); // combine redux-observable epics

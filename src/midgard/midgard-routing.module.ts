@@ -27,8 +27,7 @@ const midgardRoutes: Routes = [
       {path: 'documents', loadChildren: '@clients/documents/src/lib/documents.module#DocumentsModule'},
       {path: 'locations', loadChildren: '@clients/locations/src/lib/locations.module#LocationsModule'},
       {path: 'blueprint-client', loadChildren: '@clients/blueprint-client/src/lib/blueprint-client.module#BlueprintClientModule'},
-      {path: 'contacts', loadChildren: '@clients/contacts/src/lib/contacts.module#ContactsModule'},
-      {path: 'blueprintClient', loadChildren: '@clients/blueprintClient/src/lib/blueprintClient.module#BlueprintClientModule'}
+      {path: 'contacts', loadChildren: '@clients/contacts/src/lib/contacts.module#ContactsModule'}
       ],
   },
 ];

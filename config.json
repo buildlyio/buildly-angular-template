@@ -115,7 +115,7 @@
         },
         {
           "url": "git@github.com:Humanitec/blueprint_client_angular.git",
-          "name": "blueprintClient",
+          "name": "blueprint-client",
           "config": {
             "entryPointComponent": "",
             "routingModuleOptions": {
