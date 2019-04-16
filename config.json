@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "Test",
+    "appTitle": "India",
     "modules": [
         {
             "url": "git@github.com:Humanitec-Walhall/midgard-documents.git",
