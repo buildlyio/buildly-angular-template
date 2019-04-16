@@ -1,6 +1,6 @@
 {
     "appEntryPoint": "/user",
-    "appTitle": "InnerSource",
+    "appTitle": "Samer",
     "modules": [
         {
             "url": "git@github.com:Humanitec-Walhall/midgard-documents.git",
