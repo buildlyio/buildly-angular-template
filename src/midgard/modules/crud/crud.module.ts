@@ -7,6 +7,7 @@ import {FjButtonModule, FjCardItemModule, FjSpinnerModule, FjTableModule, FjText
 import { CrudDirective } from '@src/midgard/modules/crud/crud.directive';
 import { MgCardItemModule } from '../../components/card-item/card-item.module';
 import { MgTopViewSwitcherModule} from '../../components/top-view-switcher/top-view-switcher.module';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 const components = [
   CrudComponent,
@@ -16,6 +17,7 @@ const components = [
 @NgModule({
   imports: [
     CommonModule,
+    ScrollingModule,
     FjTableModule,
     MgCardItemModule,
     MidgardGraphQLModule,

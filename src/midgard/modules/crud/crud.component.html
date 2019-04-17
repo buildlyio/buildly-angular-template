@@ -13,14 +13,16 @@
   <div class="list__content" [ngClass]= "'list__content--' + view ">
     <ng-container *ngIf="(dataLoaded | async) && rows">
       <ng-container *ngIf="cardItemOptions">
-        <mg-card-item *ngFor="let row of rows"
-                      class="list__content__card"
-                      [layout]="view"
-                      [item]="row"
-                      [options]="cardItemOptions"
-                      (elementEdited)="onCardItemEdited($event, row)"
-                      (actionClicked)="onCardItemActionClicked($event, row)"
-        ></mg-card-item>
+        <cdk-virtual-scroll-viewport  style="height: 500px" itemSize="200" >
+          <mg-card-item *cdkVirtualFor="let row of rows"
+                        class="list__content__card"
+                        [layout]="view"
+                        [item]="row"
+                        [options]="cardItemOptions"
+                        (elementEdited)="onCardItemEdited($event, row)"
+                        (actionClicked)="onCardItemActionClicked($event, row)"
+          ></mg-card-item>
+        </cdk-virtual-scroll-viewport>
       </ng-container>
       <!-- Data Table version-->
       <fj-table

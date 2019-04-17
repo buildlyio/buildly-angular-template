@@ -32,6 +32,7 @@ import { SearchBarComponent } from './components/top-bar/search-bar/search-bar.c
 import { MidgardFormModule } from './modules/form/form.module';
 import { MidgardHttpModule } from './modules/http/http.module';
 
+
 @NgModule({
   imports: [
     CommonModule,
