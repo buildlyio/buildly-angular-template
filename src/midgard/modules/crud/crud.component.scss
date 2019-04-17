@@ -17,6 +17,9 @@
       width: 100%;
       display: flex;
     }
+    &__viewport {
+      height: rem-calc(500);
+    }
   }
 }
 
