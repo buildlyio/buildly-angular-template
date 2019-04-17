@@ -15,7 +15,7 @@
       <ng-container *ngIf="cardItemOptions">
         <!-- differnet virtual scrolls for different views-->
         <ng-container *ngIf="view === 'list'">
-          <cdk-virtual-scroll-viewport  class="list__content__viewport" itemSize="200" >
+          <cdk-virtual-scroll-viewport  class="list__content__viewport" itemSize="70" >
             <mg-card-item *cdkVirtualFor="let row of rows"
                           class="list__content__card"
                           [layout]="view"

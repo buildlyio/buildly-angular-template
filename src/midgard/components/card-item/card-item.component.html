@@ -86,7 +86,7 @@
         >
           <fj-button [ngClass]="'card-item__actions__item card-item__actions__item--'+ layout" color="light" size="small" *ngIf="options?.secondaryAction" (click)="onActionClicked($event, options?.secondaryAction.value)">{{options?.secondaryAction.label}}</fj-button>
           <fj-button class="card-item__actions__item" *ngIf="options?.primaryAction" size="small" (click)="onActionClicked($event, options?.primaryAction.value)">{{options?.primaryAction.label}}</fj-button>
-          <fj-native-dropdown class="card-item__actions__item" *ngIf="options?.otherActions" size="small" [options]="options?.otherActions" [customStyles]="{'borderColor': 'rgba(27, 81, 160, 1)','width' : '40px'}" [showDefaultOnCLick]="true" (optionSelected)="onActionClicked($event)"></fj-native-dropdown>
+          <fj-native-dropdown class="card-item__actions__item" *ngIf="options?.otherActions" size="small" [options]="options?.otherActions" [customStyles]="{'borderColor': 'rgba(27, 81, 160, 1)','backgroundColor': 'white','width' : '40px', 'padding': '0 0px 0 10px'}"  (optionSelected)="onActionClicked($event)"></fj-native-dropdown>
         </div>
       </ng-container>
 
@@ -164,7 +164,7 @@
     >
       {{options?.belowMenuPrimaryAction.label}}
     </fj-button>
-    <fj-native-dropdown *ngIf="showBelowMenu && options?.belowMenuOtherActions" [options]="options?.belowMenuOtherActions" size="small" [customStyles]="{'borderColor': 'rgba(27, 81, 160, 1)','width' : '40px'}" [showDefaultOnCLick]="true" (optionSelected)="onActionClicked($event)"></fj-native-dropdown>
+    <fj-native-dropdown *ngIf="showBelowMenu && options?.belowMenuOtherActions" [options]="options?.belowMenuOtherActions" size="small" [customStyles]="{'borderColor': 'rgba(27, 81, 160, 1)','backgroundColor': 'white','width' : '40px', 'padding': 'padding: 0 0px 0 10px;'}" (optionSelected)="onActionClicked($event)"></fj-native-dropdown>
   </div>
 </div>
 
