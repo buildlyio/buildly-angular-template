@@ -29,7 +29,7 @@
         </ng-container>
         <ng-container *ngIf="view === 'table'">
           <cdk-virtual-scroll-viewport  class="list__content__viewport" itemSize="80" >
-            <mg-card-item *cdkVirtualFor="let row of rows"
+            <mg-card-item *cdkVirtualFor="let row of rows | filterByName : searchValue"
                           class="list__content__card"
                           [layout]="view"
                           [item]="row"
@@ -41,7 +41,7 @@
           </cdk-virtual-scroll-viewport>
         </ng-container>
         <ng-container *ngIf="view === 'tile'">
-            <mg-card-item *ngFor="let row of rows"
+            <mg-card-item *ngFor="let row of rows | filterByName : searchValue"
                           class="list__content__card"
                           [layout]="view"
                           [item]="row"
@@ -56,7 +56,7 @@
       <fj-table
           class="list__content__table"
           *ngIf= "view === 'data-table' && tableOptions && !graphQlChildrenModel && (dataLoaded | async)"
-          [rows]= "rows"
+          [rows]= "rows | filterByName : searchValue"
           [viewPort]="'350px'"
           [columns]="tableOptions?.columns"
           (selectItem)="onTableItemClicked($event)"
