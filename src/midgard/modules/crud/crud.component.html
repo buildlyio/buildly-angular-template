@@ -54,6 +54,7 @@
           class="list__content__table"
           *ngIf= "view === 'data-table' && tableOptions && !graphQlChildrenModel && (dataLoaded | async)"
           [rows]= "rows"
+          [viewPort]="'350px'"
           [columns]="tableOptions?.columns"
           (selectItem)="onTableItemClicked($event)"
           (delete)="deleteItem($event?.item)"
