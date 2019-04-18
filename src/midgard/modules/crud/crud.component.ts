@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { GraphQlService } from '@src/midgard/modules/graphql/graphql.service';
 import { map } from 'rxjs/internal/operators';
 import { addAll, deleteOne, upsertOne } from '@src/midgard/modules/store/reducer.utils';
+import { getSearchValue, getTopBarSearchValue } from '../../state/top-bar/top-bar.selectors';
 
 @Component({
   selector: 'mg-crud',
@@ -16,6 +17,7 @@ export class CrudComponent implements OnInit, OnDestroy {
   public dataLoaded;
   private graphQlSubscription: Subscription;
   private storeSubscription: Subscription;
+  protected searchValue: string;
 
   /**
    * options for the table component
@@ -144,6 +146,12 @@ export class CrudComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    // listen if search value Changes from the top bar
+    this.dataLoaded = this.store.observable.pipe(
+      select(getTopBarSearchValue),
+    ).subscribe(searchValue => {
+      this.searchValue = searchValue;
+    });
     if (this.tableOptions) {
       this.view = this.defaultLayout;
     } else if (this.cardItemOptions && this.defaultLayout) {

@@ -16,7 +16,7 @@
         <!-- differnet virtual scrolls for different views-->
         <ng-container *ngIf="view === 'list'">
           <cdk-virtual-scroll-viewport  class="list__content__viewport" itemSize="70" >
-            <mg-card-item *cdkVirtualFor="let row of rows"
+            <mg-card-item *cdkVirtualFor="let row of rows | filterByName : searchValue"
                           class="list__content__card"
                           [layout]="view"
                           [item]="row"
@@ -24,6 +24,7 @@
                           (elementEdited)="onCardItemEdited($event, row)"
                           (actionClicked)="onCardItemActionClicked($event, row)"
             ></mg-card-item>
+            <p *ngIf="(rows | filterByName : searchValue).length === 0"> No matching results. Please search again with another keyword.</p>
           </cdk-virtual-scroll-viewport>
         </ng-container>
         <ng-container *ngIf="view === 'table'">
@@ -36,6 +37,7 @@
                           (elementEdited)="onCardItemEdited($event, row)"
                           (actionClicked)="onCardItemActionClicked($event, row)"
             ></mg-card-item>
+            <p *ngIf="(rows | filterByName : searchValue).length === 0"> No matching results. Please search again with another keyword.</p>
           </cdk-virtual-scroll-viewport>
         </ng-container>
         <ng-container *ngIf="view === 'tile'">
@@ -47,6 +49,7 @@
                           (elementEdited)="onCardItemEdited($event, row)"
                           (actionClicked)="onCardItemActionClicked($event, row)"
             ></mg-card-item>
+            <p *ngIf="(rows | filterByName : searchValue).length === 0"> No matching results. Please search again with another keyword.</p>
         </ng-container>
       </ng-container>
       <!-- Data Table version-->
