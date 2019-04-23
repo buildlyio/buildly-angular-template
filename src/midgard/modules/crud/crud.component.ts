@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { GraphQlService } from '@src/midgard/modules/graphql/graphql.service';
 import { map } from 'rxjs/internal/operators';
 import { addAll, deleteOne, upsertOne } from '@src/midgard/modules/store/reducer.utils';
-import { getSearchValue, getTopBarSearchValue } from '../../state/top-bar/top-bar.selectors';
+import { getTopBarSearchValue } from '../../state/top-bar/top-bar.selectors';
 
 @Component({
   selector: 'mg-crud',
