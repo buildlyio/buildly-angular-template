@@ -14,7 +14,7 @@ import { AuthUserEpics } from '@src/midgard/state/authuser/authuser.epics';
 import { WorkflowTeamEpics } from '@src/midgard/state/workflow-team/workflow-team.epics';
 import { workflowTeamReducer } from '@src/midgard/state/workflow-team/workflow-team.reducer';
 import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
-import { distinctUntilChanged } from 'rxjs/internal/operators';
+import { distinctUntilChanged } from 'rxjs/operators';
 import { dashboardsReducer } from '@clients/dashboards/src/lib/state/dashboards.reducer';
 import { DashboardsEpics } from '@clients/dashboards/src/lib/state/dashboards.epics';
 import { productsReducer } from '@clients/products/src/lib/state/products.reducer';

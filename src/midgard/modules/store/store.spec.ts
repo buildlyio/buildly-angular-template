@@ -7,7 +7,7 @@ import { async, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MidgardStoreModule } from './store.module';
 import { StoreMock } from './store-mock';
-import { map } from 'rxjs/internal/operators';
+import { map } from 'rxjs/operators';
 
 let store;
 

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@src/midgard/modules/store/store';
 import { getAllWorkflowLevel1s } from '@src/midgard/state/workflow-level1/workflow-level1.selectors';
-import { map } from 'rxjs/internal/operators';
+import { map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { loadWorkflowLevel1Data } from '@src/midgard/state/workflow-level1/workflow-level1.actions';
 import {

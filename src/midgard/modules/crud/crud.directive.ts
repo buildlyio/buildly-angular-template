@@ -1,7 +1,7 @@
 import {Directive, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {GraphQlService} from '@src/midgard/modules/graphql/graphql.service';
-import {map} from 'rxjs/internal/operators';
+import {map} from 'rxjs/operators';
 import {select, Store} from '@src/midgard/modules/store/store';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 

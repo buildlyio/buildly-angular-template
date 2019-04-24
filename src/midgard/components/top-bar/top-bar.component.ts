@@ -5,7 +5,7 @@ import { getTopBarOptions } from '@src/midgard/state/top-bar/top-bar.selectors';
 import {Observable, Subscription} from 'rxjs';
 import * as config from '../../../../config.json';
 import {getTopBarSelectedOption} from '../../state/top-bar/top-bar.selectors';
-import {distinctUntilChanged} from 'rxjs/internal/operators';
+import {distinctUntilChanged} from 'rxjs/operators';
 
 @Component({
   selector: 'mg-top-bar',

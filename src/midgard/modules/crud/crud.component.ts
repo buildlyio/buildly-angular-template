@@ -2,7 +2,7 @@ import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output
 import { select, Store } from '@src/midgard/modules/store/store';
 import { Subscription } from 'rxjs';
 import { GraphQlService } from '@src/midgard/modules/graphql/graphql.service';
-import { map } from 'rxjs/internal/operators';
+import { map } from 'rxjs/operators';
 import { addAll, deleteOne, upsertOne } from '@src/midgard/modules/store/reducer.utils';
 import { getTopBarSearchValue } from '../../state/top-bar/top-bar.selectors';
 
