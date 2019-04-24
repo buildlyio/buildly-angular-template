@@ -1,6 +1,6 @@
 {
   "name": "midgard-angular",
-  "version": "0.2.2",
+  "version": "0.3.13",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -41,8 +41,8 @@
     "graphql-tag": "2.10.1",
     "midgard-core": "0.1.2",
     "moment": "2.22.2",
-    "rxjs": "6.3.2",
-    "rxjs-compat": "6.3.2",
+    "rxjs": "6.4.0",
+    "rxjs-compat": "6.4.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
