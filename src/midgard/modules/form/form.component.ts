@@ -4,7 +4,7 @@ import { of, Subscription } from 'rxjs';
 import { GraphQlService } from '../graphql/graphql.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { map } from 'rxjs/internal/operators';
+import { map } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
 import {FormValidationHelper} from './form.validation.helper';
 

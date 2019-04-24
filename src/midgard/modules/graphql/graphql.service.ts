@@ -3,7 +3,7 @@ import { http } from 'midgard-core';
 import { Observable } from 'rxjs';
 import gql from 'graphql-tag';
 import { Apollo } from 'apollo-angular';
-import { shareReplay } from 'rxjs/internal/operators';
+import { shareReplay } from 'rxjs/operators';
 
 @Injectable()
 export class GraphQlService {

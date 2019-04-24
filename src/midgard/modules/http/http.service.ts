@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { http } from 'midgard-core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { map, retry } from 'rxjs/internal/operators';
+import { map, retry } from 'rxjs/operators';
 import { OAuthService } from '@src/midgard/modules/oauth/oauth.service';
 
 @Injectable()

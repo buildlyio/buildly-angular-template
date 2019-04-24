@@ -11,7 +11,7 @@ import { AuthUserEpics } from '@src/midgard/state/authuser/authuser.epics';
 import { WorkflowTeamEpics } from '@src/midgard/state/workflow-team/workflow-team.epics';
 import { workflowTeamReducer } from '@src/midgard/state/workflow-team/workflow-team.reducer';
 import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
-import { distinctUntilChanged } from 'rxjs/internal/operators';
+import { distinctUntilChanged } from 'rxjs/operators';
 let storeInstance: StoreMock<any>;
 
 @Injectable()
