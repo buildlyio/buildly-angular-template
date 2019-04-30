@@ -10,7 +10,7 @@ Midgard-Angular is an [Angular](https://angularjs.org/) web application that imp
 
 Midgard-Angular is your **application root repository.** When you create a [Walhall application](https://docs.walhall.io/walhall), Walhall forks Midgard-Angular to your GitHub account and gives it the same name as your application. It comes pre-configured to communicate with your application's API via [BiFrost](https://docs.walhall.io/walhall/bifrost). This is where you develop your Walhall application.
 
-Current Angular version: **v6.1.0.**
+Current Angular version: **v7.2.13**
 
 ## Setup
 
@@ -222,13 +222,14 @@ To implement it **headlessly,** do so as follows:
 
 ```html
 <div 
-    [mgCrud] 
+    mgCrud
+    #crud="mgCrud"
     [loadAction]="'LOAD_ALL_PRODUCTS'"
     [deleteAction]="'DELETE_PRODUCT'"
     [updateAction]="'UPDATE_PRODUCT'"
     [createAction]="'CREATE_PRODUCT'"
     [deleteMessage]="'The product has been deleted'"
-    *ngFor="row of mgCrud.rows">
+    *ngFor="row of crud.rows">
         <span> I am an element of the crud module rows </span>
         <!-- delete item using delete function of the the crud module -->
         <button (click)="mgCrud.deleteItem(row)">Delete</button>
