@@ -20,6 +20,7 @@
             [displayElementCustomStyles]="{color: 'black', fontWeight: '700', marginRight: '5px'}"
             [value]="crud.rows.data.first_name"
             name="first_name"
+            (elementEdited)="updateUser($event)"
           >
           </fj-inline-text-editor>
           <fj-inline-text-editor
@@ -27,6 +28,7 @@
             [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
             [value]="crud.rows.data.last_name"
             name="last_name"
+            (elementEdited)="updateUser($event)"
           >
           </fj-inline-text-editor>
         </div>
@@ -39,6 +41,7 @@
           [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
           [value]="crud.rows.data.email"
           name="email"
+          (elementEdited)="updateUser($event)"
         >
         </fj-inline-text-editor>
       </div>
@@ -50,6 +53,7 @@
           [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
           [value]="crud.rows.data.organization.name"
           name="organization"
+          (elementEdited)="updateUser($event)"
         >
         </fj-inline-text-editor>
       </div>
@@ -62,24 +66,12 @@
           [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
           [value]="crud.rows.data.username"
           name="username"
+          (elementEdited)="updateUser($event)"
         >
         </fj-inline-text-editor>
       </div>
     </div>
   </div>
-  <!--<div class="form__container">-->
-    <!--<mg-form-->
-      <!--#crudForm-->
-      <!--[itemId]="'myuser'"-->
-      <!--[selector]="selectorProfile"-->
-      <!--[loadAction]="'LOAD_AUTHUSER'"-->
-      <!--[updateAction]="'UPDATE_AUTHUSER'"-->
-      <!--[editButtonText]="'Edit Profile'"-->
-      <!--[formFields]="userProfileFormFields"-->
-      <!--(formSubmitted)="onFormSubmitted($event)"-->
-      <!--[updateMessage]="'your user profile has been updated'">-->
-    <!--</mg-form>-->
-  <!--</div>-->
   <fj-button (click)="logout()" [margin]="'0px'" [color]="'danger'" [type]="'submit'">Logout</fj-button>
 </ng-container>
 <ng-container *ngIf="selectedTab === 'user-management'">

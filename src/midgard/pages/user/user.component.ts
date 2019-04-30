@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 import {setTopBarOptions} from '../../state/top-bar/top-bar.actions';
 import {getTopBarSelectedOption} from '../../state/top-bar/top-bar.selectors';
 import {select} from '../../modules/store/store';
-import {FormComponent} from '../../modules/form/form.component';
+import { CrudDirective } from '../../modules/crud/crud.directive';
 
 @Component({
   selector: 'mg-user',
@@ -15,7 +15,7 @@ import {FormComponent} from '../../modules/form/form.component';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit, OnDestroy {
-  @ViewChild('crudForm') crudForm: FormComponent;
+  @ViewChild('crud') crud: CrudDirective;
   public userProfileFormFields;
   public selectorProfile;
   public selectedIndex;
@@ -28,10 +28,6 @@ export class UserComponent implements OnInit, OnDestroy {
     {
       label: 'Profile Settings',
       value: 'user-profile'
-    },
-    {
-      label: 'Privacy',
-      value: 'privacy'
     },
     {
       label: 'Users Management',
@@ -61,31 +57,23 @@ export class UserComponent implements OnInit, OnDestroy {
       }
     });
     this.selectorProfile = getAuthUser;
-    this.defineFormFields();
   }
 
   /**
-   * defines form fields of the detail view
+   * a function calls the crud module to update a user when a field is edited
+   * @param editedObj - an object with the edited element and its value
    */
-  defineFormFields() {
-    this.userProfileFormFields = [
-      {label: 'Firstname', controlName: 'first_name', type: 'text', validators: ['required'], errorMessage: 'please fill your first name' },
-      {label: 'Lastname', controlName: 'last_name', type: 'text', validators: ['required'], errorMessage: 'please fill your last name' },
-      {label: 'Username', controlName: 'username', type: 'text', validators: ['required'], errorMessage: 'please your username' },
-      // {label: 'Email', controlName: 'email', type: 'text', validators: ['required'] }
-    ];
-  }
-
-  /**
-   * function that is triggered with the form is submitted
-   * data - data submitted in the form
-   */
-  onFormSubmitted(data: {item: any; isNew: boolean}) {
-    if (data.isNew) {
-      this.crudForm.createItem(data.item);
-    } else {
-      this.crudForm.updateItem(data.item);
+  updateUser(editedObj: {value: string, elementName: string}) {
+    const {value, elementName} = editedObj;
+    let updatedUser;
+    if (this.crud.rows.data) {
+      updatedUser = {
+        id: this.crud.rows.data.id,
+      }
+      updatedUser[elementName] = value;
     }
+    updatedUser =
+    this.crud.updateItem(updatedUser);
   }
 
   /**
