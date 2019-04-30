@@ -49,9 +49,13 @@ export class CrudDirective implements OnInit, OnDestroy {
   @Input() deleteMessage;
 
   /**
-   * redux selector function
+   * redux selector function to retrieve data list
    */
-  @Input() selector;
+  @Input() dataSelector;
+  /**
+   * redux selector function to check if the data is loaded
+   */
+  @Input() loadedSelector;
   /**
    * if true it uses graphQl to get the data instead http to get the data
    */
@@ -72,6 +76,10 @@ export class CrudDirective implements OnInit, OnDestroy {
    * definition of the form fields
    */
   @Input() formFields;
+  /**
+   * event that is triggered when the data is loaded
+   */
+  @Output() dataLoadedFromStore: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private store: Store<any>, // type {any} beacuse the state of the app is not fixed and can be changed depending on the modules
@@ -81,10 +89,10 @@ export class CrudDirective implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.dataLoaded = this.store.observable.pipe(
-      select(this.selector),
-      map(reducer => {
-        if (reducer) {
-          return reducer.loaded;
+      select(this.loadedSelector),
+      map(loaded => {
+        if (loaded) {
+          return loaded;
         }
       })
     );
@@ -102,10 +110,12 @@ export class CrudDirective implements OnInit, OnDestroy {
    */
   listenToStore() {
     this.storeSubscription = this.store.observable.pipe(
-      select(this.selector),
-      map(reducer => reducer.data)
+      select(this.dataSelector),
     ).subscribe( (data: any[]) => {
-      this.rows = data;
+      if (data) {
+        this.rows = data;
+        this.dataLoadedFromStore.emit(this.rows);
+      }
     });
   }
 

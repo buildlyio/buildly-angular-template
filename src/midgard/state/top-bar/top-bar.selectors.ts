@@ -15,3 +15,10 @@ export const getTopBarSelectedOption = redux.createSelector(
     return topBarState.selectedOption;
   }
 );
+
+export const getTopBarSearchValue = redux.createSelector(
+  getTopBarState,
+  (topBarState) => {
+    return topBarState.searchValue;
+  }
+);

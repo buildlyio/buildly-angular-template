@@ -6,7 +6,7 @@ import { TranslationLoader } from './translation-loader/translation-loader.compo
 import { MidgardTranslateService } from '@src/midgard/modules/translation/translation-loader/translate.service';
 
 /**
- * @description loads the translations
+ * loads the translations
  * @param {HttpClient} http - http client to send the request
  * @returns {TranslateHttpLoader}
  */

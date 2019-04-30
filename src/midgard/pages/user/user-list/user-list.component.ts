@@ -35,18 +35,6 @@ export class UserListComponent implements OnInit {
   ngOnInit() {
     this.dataSelector = getAllCoreUsers;
     this.loadedSelector = getCoreUsersLoaded;
-    this.defineTableOptions();
-  }
-
-  private defineTableOptions() {
-    this.tableOptions = {
-      columns: [
-        {name: 'Username', prop: 'username', flex: 2, sortable: true, filtering: true},
-        {name: 'Name', prop: 'fullName', flex: 2, sortable: true, filtering: true},
-        {name: 'Email', prop: 'email', flex: 2, sortable: true, filtering: false},
-        {name: 'Active', cellTemplate: 'activate', prop: 'is_active', flex: 2, sortable: true, filtering: false},
-      ]
-    };
   }
 
   /**

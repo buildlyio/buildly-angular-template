@@ -1,4 +1,4 @@
 <div class="search-bar">
-  <fj-text-input [customStyles]="searchInputStyles" [placeholder]="'Search'"></fj-text-input>
+  <fj-text-input #searchInput [customStyles]="searchInputStyles" [placeholder]="'Search'" (change)="submitSearch($event)"></fj-text-input>
   <fj-button [customStyles]="searchButtonStyles" [icon]="'search'" [iconMargin]="0" [margin]="0"></fj-button>
 </div>
