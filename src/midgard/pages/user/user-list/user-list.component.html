@@ -9,12 +9,17 @@
   [deleteAction]="'DELETE_COREUSER'"
   [deleteMessage]="'The user has been deactivated'"
 >
-  <fj-table-custom-column name="Custom" sortable="true" index="0" prop="first_name" flex="3g">
+  <fj-table-custom-column name="Custom" sortable="true" index="0" prop="first_name" flex="2">
     <ng-template fj-table-header-template>
       <p>Full name</p>
     </ng-template>
     <ng-template let-row="row" fj-table-cell-template>
-      <div class="table__picture"></div>
+      <div class="table__picture"
+           (click)="file.click()"
+      >
+        <fj-icon [svgName]="'upload'" [width]="'25px'"></fj-icon>
+      </div>
+      <input type="file" accept="image/*" hidden #file>
       <fj-inline-text-editor
         [displayElementCustomStyles]="{color: 'black', fontWeight: '700', marginRight: '5px'}"
         [value]="row['first_name']"

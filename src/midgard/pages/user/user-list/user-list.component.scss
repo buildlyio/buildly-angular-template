@@ -2,6 +2,9 @@
 
 .table {
   &__picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: $gray-lighter;
     height: rem-calc(40);
     width: rem-calc(40);

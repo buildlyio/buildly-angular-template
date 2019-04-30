@@ -1,18 +1,85 @@
 <ng-container *ngIf="selectedTab === 'user-profile'">
-  <h3>User Profile</h3>
-  <div class="form__container">
-    <mg-form
-      #crudForm
-      [itemId]="'myuser'"
-      [selector]="selectorProfile"
-      [loadAction]="'LOAD_AUTHUSER'"
-      [updateAction]="'UPDATE_AUTHUSER'"
-      [editButtonText]="'Edit Profile'"
-      [formFields]="userProfileFormFields"
-      (formSubmitted)="onFormSubmitted($event)"
-      [updateMessage]="'your user profile has been updated'">
-    </mg-form>
+  <h3>My Profile</h3>
+  <div class="profile__container"
+       mgCrud
+       #crud="mgCrud"
+       [dataSelector]="selectorProfile"
+       [loadAction]="'LOAD_AUTHUSER'"
+       [updateAction]="'UPDATE_AUTHUSER'"
+  >
+    <div class="profile__picture">
+      <fj-icon [svgName]="'upload'" [width]="'50px'"></fj-icon>
+    </div>
+    <div class="profile__column">
+      <div class="profile__row">
+        <small class="profile__column__caption">Name and Last name: </small>
+        <!-- Full name-->
+        <div class="profile__column__name">
+          <fj-inline-text-editor
+            *ngIf="crud.rows.data"
+            [displayElementCustomStyles]="{color: 'black', fontWeight: '700', marginRight: '5px'}"
+            [value]="crud.rows.data.first_name"
+            name="first_name"
+          >
+          </fj-inline-text-editor>
+          <fj-inline-text-editor
+            *ngIf="crud.rows.data"
+            [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
+            [value]="crud.rows.data.last_name"
+            name="last_name"
+          >
+          </fj-inline-text-editor>
+        </div>
+      </div>
+      <!-- Email -->
+      <div class="profile__row">
+        <small class="profile__column__caption">Email: </small>
+        <fj-inline-text-editor
+          *ngIf="crud.rows.data"
+          [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
+          [value]="crud.rows.data.email"
+          name="email"
+        >
+        </fj-inline-text-editor>
+      </div>
+        <!-- Organization -->
+      <div class="profile__row">
+        <small class="profile__column__caption">Organization: </small>
+        <fj-inline-text-editor
+          *ngIf="crud.rows.data"
+          [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
+          [value]="crud.rows.data.organization.name"
+          name="organization"
+        >
+        </fj-inline-text-editor>
+      </div>
+    </div>
+    <div class="profile__column">
+      <div class="profile__row">
+        <small class="profile__column__caption">Username: </small>
+        <fj-inline-text-editor
+          *ngIf="crud.rows.data"
+          [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
+          [value]="crud.rows.data.username"
+          name="username"
+        >
+        </fj-inline-text-editor>
+      </div>
+    </div>
   </div>
+  <!--<div class="form__container">-->
+    <!--<mg-form-->
+      <!--#crudForm-->
+      <!--[itemId]="'myuser'"-->
+      <!--[selector]="selectorProfile"-->
+      <!--[loadAction]="'LOAD_AUTHUSER'"-->
+      <!--[updateAction]="'UPDATE_AUTHUSER'"-->
+      <!--[editButtonText]="'Edit Profile'"-->
+      <!--[formFields]="userProfileFormFields"-->
+      <!--(formSubmitted)="onFormSubmitted($event)"-->
+      <!--[updateMessage]="'your user profile has been updated'">-->
+    <!--</mg-form>-->
+  <!--</div>-->
   <fj-button (click)="logout()" [margin]="'0px'" [color]="'danger'" [type]="'submit'">Logout</fj-button>
 </ng-container>
 <ng-container *ngIf="selectedTab === 'user-management'">
