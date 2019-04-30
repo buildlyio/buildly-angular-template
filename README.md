@@ -222,13 +222,14 @@ To implement it **headlessly,** do so as follows:
 
 ```html
 <div 
-    [mgCrud] 
+    mgCrud
+    #crud="mgCrud"
     [loadAction]="'LOAD_ALL_PRODUCTS'"
     [deleteAction]="'DELETE_PRODUCT'"
     [updateAction]="'UPDATE_PRODUCT'"
     [createAction]="'CREATE_PRODUCT'"
     [deleteMessage]="'The product has been deleted'"
-    *ngFor="row of mgCrud.rows">
+    *ngFor="row of crud.rows">
         <span> I am an element of the crud module rows </span>
         <!-- delete item using delete function of the the crud module -->
         <button (click)="mgCrud.deleteItem(row)">Delete</button>
