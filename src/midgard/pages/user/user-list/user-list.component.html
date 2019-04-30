@@ -69,6 +69,7 @@
     </ng-template>
     <ng-template let-row="row" fj-table-cell-template>
       <fj-native-dropdown
+        size="small"
         [options]="[{label: '•••', value: '•••'}, {label: 'Change Password', value: 'changePassword'}, {label: 'Deactivate', value: 'deactivate'}, {label: 'Delete', value: 'delete'}]"
         [showDefaultOnClick]="true"
         [customStyles]="{'marginTop': '0px', 'borderColor': 'rgba(27, 81, 160, 1)', 'color': 'rgba(27, 81, 160, 1)','backgroundColor': 'white','width' : '40px', 'padding': '0 0px 0 10px'}"
