@@ -23,14 +23,18 @@ export class UserComponent implements OnInit, OnDestroy {
   /**
    * current tab value from the content switcher
    */
-  public selectedTab = 'user-profile';
+  public selectedTab = 'user-management';
   public topBarOptions = [
     {
-      label: 'Profile',
+      label: 'Profile Settings',
       value: 'user-profile'
     },
     {
-      label: 'User Management',
+      label: 'Privacy',
+      value: 'privacy'
+    },
+    {
+      label: 'Users Management',
       value: 'user-management'
     }
   ];

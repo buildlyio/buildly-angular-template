@@ -164,7 +164,7 @@
     >
       {{options?.belowMenuPrimaryAction.label}}
     </fj-button>
-    <fj-native-dropdown *ngIf="showBelowMenu && options?.belowMenuOtherActions" [options]="options?.belowMenuOtherActions" size="small" [showDefaultOnCLick]="true" [customStyles]="{'marginTop': '0px', 'borderColor': 'rgba(27, 81, 160, 1)','backgroundColor': 'white','width' : '40px', 'padding': '0 0px 0 10px'}" [showDefaultOnCLick]="true" (optionSelected)="onActionClicked($event)"></fj-native-dropdown>
+    <fj-native-dropdown *ngIf="showBelowMenu && options?.belowMenuOtherActions" [options]="options?.belowMenuOtherActions" size="small" [showDefaultOnClick]="true" [customStyles]="{'marginTop': '0px', 'borderColor': 'rgba(27, 81, 160, 1)','backgroundColor': 'white','width' : '40px', 'padding': '0 0px 0 10px'}" [showDefaultOnClick]="true" (optionSelected)="onActionClicked($event)"></fj-native-dropdown>
   </div>
 </div>
 

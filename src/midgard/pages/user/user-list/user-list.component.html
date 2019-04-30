@@ -13,3 +13,25 @@
   (addButtonClicked)="goToDetailsPage(null)"
 >
 </mg-crud>
+
+<fj-table
+  mgCrud
+  [rows]= "rows"
+  [columns]="tableOptions.columns"
+  [fixedRow]="tableOptions.fixedRow"
+  [viewPort]="'350px'"
+  [loadAction]="'LOAD_DATA_COREUSER'"
+  [loadedSelector]="loadedSelector"
+  [dataSelector]="dataSelector"
+  [deleteAction]="'DELETE_COREUSER'"
+  [deleteMessage]="'The user has been deactivated'"
+>
+  <fj-table-custom-column name="Custom" sortable="true" index="4" prop="first_name">
+    <ng-template fj-table-header-template>
+      <b>Custom:</b>
+    </ng-template>
+    <ng-template let-row="row" fj-table-cell-template>
+      <b>{{row['first_name']}}</b>
+    </ng-template>
+  </fj-table-custom-column>
+</fj-table>
