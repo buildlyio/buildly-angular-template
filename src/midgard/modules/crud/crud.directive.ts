@@ -76,6 +76,10 @@ export class CrudDirective implements OnInit, OnDestroy {
    * definition of the form fields
    */
   @Input() formFields;
+  /**
+   * event that is triggered when the data is loaded
+   */
+  @Output() dataLoadedFromStore: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private store: Store<any>, // type {any} beacuse the state of the app is not fixed and can be changed depending on the modules
@@ -110,6 +114,7 @@ export class CrudDirective implements OnInit, OnDestroy {
     ).subscribe( (data: any[]) => {
       if (data) {
         this.rows = data;
+        this.dataLoadedFromStore.emit(this.rows);
       }
     });
   }

@@ -24,7 +24,8 @@ import { UserDetailsComponent } from './pages/user/user-details/user-details.com
 import { UserListComponent } from './pages/user/user-list/user-list.component';
 import { UserInviteComponent } from './pages/user/user-invite/user-invite.component';
 import {
-  FjButtonModule, FjCardItemModule, FjCardModule, FjContentSwitcherModule, FjSvgIconModule, FjTableModule,
+  FjButtonModule, FjCardItemModule, FjCardModule, FjContentSwitcherModule, FjInlineTextEditorModule, FjNativeDropdownModule,
+  FjSvgIconModule, FjTableModule,
   FjTextInputModule
 } from 'freyja-ui';
 import { FormValidationHelper } from './modules/form/form.validation.helper';
@@ -52,7 +53,9 @@ import { MidgardHttpModule } from './modules/http/http.module';
     FjButtonModule,
     FjSvgIconModule,
     FjContentSwitcherModule,
+    FjNativeDropdownModule,
     FjCardModule,
+    FjInlineTextEditorModule,
     FjCardItemModule
   ],
   providers: [

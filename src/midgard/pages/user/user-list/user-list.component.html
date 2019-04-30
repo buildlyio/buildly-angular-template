@@ -1,24 +1,7 @@
-<mg-crud
-  [loadAction]="'LOAD_DATA_COREUSER'"
-  [defaultLayout]="'data-table'"
-  [title]="'Users'"
-  [tableOptions]="tableOptions"
-  [loadedSelector]="loadedSelector"
-  [dataSelector]="dataSelector"
-  [deleteAction]="'DELETE_COREUSER'"
-  [addButtonText]="'Invite User'"
-  [deleteMessage]="'The user has been deactivated'"
-  (tableActionClicked)="toggleUserActivation($event)"
-  (tableItemClicked)="goToDetailsPage($event)"
-  (addButtonClicked)="goToDetailsPage(null)"
->
-</mg-crud>
-
 <fj-table
   mgCrud
-  [rows]= "rows"
-  [columns]="tableOptions.columns"
-  [fixedRow]="tableOptions.fixedRow"
+  #crud="mgCrud"
+  [rows]= "crud.rows"
   [viewPort]="'350px'"
   [loadAction]="'LOAD_DATA_COREUSER'"
   [loadedSelector]="loadedSelector"
@@ -26,12 +9,66 @@
   [deleteAction]="'DELETE_COREUSER'"
   [deleteMessage]="'The user has been deactivated'"
 >
-  <fj-table-custom-column name="Custom" sortable="true" index="4" prop="first_name">
+  <fj-table-custom-column name="Custom" sortable="true" index="0" prop="first_name" flex="3g">
     <ng-template fj-table-header-template>
-      <b>Custom:</b>
+      <p>Full name</p>
     </ng-template>
     <ng-template let-row="row" fj-table-cell-template>
-      <b>{{row['first_name']}}</b>
+      <div class="table__picture"></div>
+      <fj-inline-text-editor
+        [displayElementCustomStyles]="{color: 'black', fontWeight: '700', marginRight: '5px'}"
+        [value]="row['first_name']"
+        name="email"
+      >
+      </fj-inline-text-editor>
+      <fj-inline-text-editor
+        [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
+        [value]="row['last_name']"
+        name="email"
+      >
+      </fj-inline-text-editor>
+    </ng-template>
+  </fj-table-custom-column>
+  <fj-table-custom-column name="Custom" sortable="true" index="1" prop="email" flex="2">
+    <ng-template fj-table-header-template>
+      <p>Email</p>
+    </ng-template>
+    <ng-template let-row="row" fj-table-cell-template>
+      <fj-inline-text-editor
+        [displayElementCustomStyles]="{color: 'black'}"
+        [value]="row['email']"
+        name="email"
+      >
+      </fj-inline-text-editor>
+    </ng-template>
+  </fj-table-custom-column>
+  <fj-table-custom-column name="Custom" sortable="true" index="2" prop="activity" flex="2">
+    <ng-template fj-table-header-template>
+      <p>Last Activity</p>
+    </ng-template>
+    <ng-template let-row="row" fj-table-cell-template>
+      <small>Today</small>
+    </ng-template>
+  </fj-table-custom-column>
+  <fj-table-custom-column name="Custom" index="3" flex="4">
+    <ng-template fj-table-header-template>
+      <p>Permissions</p>
+    </ng-template>
+    <ng-template let-row="row" fj-table-cell-template>
+      <fj-content-switcher [options]="[{label: 'Admin', value: 'admin'}, {label: 'Editor', value: 'editor'}, {label: 'User', value: 'user'}]"></fj-content-switcher>
+    </ng-template>
+  </fj-table-custom-column>
+  <fj-table-custom-column name="Custom" index="4" flex="1">
+    <ng-template fj-table-header-template>
+      <p>Actions</p>
+    </ng-template>
+    <ng-template let-row="row" fj-table-cell-template>
+      <fj-native-dropdown
+        [options]="[{label: '•••', value: '•••'}, {label: 'Change Password', value: 'changePassword'}, {label: 'Deactivate', value: 'deactivate'}, {label: 'Delete', value: 'delete'}]"
+        [showDefaultOnClick]="true"
+        [customStyles]="{'marginTop': '0px', 'borderColor': 'rgba(27, 81, 160, 1)', 'color': 'rgba(27, 81, 160, 1)','backgroundColor': 'white','width' : '40px', 'padding': '0 0px 0 10px'}"
+      >
+      </fj-native-dropdown>
     </ng-template>
   </fj-table-custom-column>
 </fj-table>
