@@ -18,7 +18,7 @@
           <fj-inline-text-editor
             *ngIf="crud.rows.data"
             [displayElementCustomStyles]="{color: 'black', fontWeight: '700', marginRight: '5px'}"
-            [value]="crud.rows.data.first_name"
+            [value]="crud.rows.data.first_name || 'First Name'"
             name="first_name"
             (elementEdited)="updateUser($event)"
           >
@@ -26,7 +26,7 @@
           <fj-inline-text-editor
             *ngIf="crud.rows.data"
             [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
-            [value]="crud.rows.data.last_name"
+            [value]="crud.rows.data.last_name || 'Last Name'"
             name="last_name"
             (elementEdited)="updateUser($event)"
           >
@@ -39,7 +39,7 @@
         <fj-inline-text-editor
           *ngIf="crud.rows.data"
           [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
-          [value]="crud.rows.data.email"
+          [value]="crud.rows.data.email || 'Email'"
           name="email"
           (elementEdited)="updateUser($event)"
         >
@@ -51,7 +51,7 @@
         <fj-inline-text-editor
           *ngIf="crud.rows.data"
           [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
-          [value]="crud.rows.data.organization.name"
+          [value]="crud.rows.data.organization.name || 'Organization'"
           name="organization"
           (elementEdited)="updateUser($event)"
         >
@@ -64,7 +64,7 @@
         <fj-inline-text-editor
           *ngIf="crud.rows.data"
           [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
-          [value]="crud.rows.data.username"
+          [value]="crud.rows.data.username || 'Username'"
           name="username"
           (elementEdited)="updateUser($event)"
         >
