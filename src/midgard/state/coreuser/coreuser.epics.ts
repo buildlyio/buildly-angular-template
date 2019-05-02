@@ -59,7 +59,7 @@ export class CoreUserEpics {
     return action$.pipe(
       redux.ofType(UPDATE_COREUSER),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('put', `${environment.API_URL}/coreuser/${action.data.id}/`, action.data, true).pipe(
+        return this.httpService.makeRequest('patch', `${environment.API_URL}/coreuser/${action.data.id}/`, action.data, true).pipe(
           // If successful, dispatch success action with result
           map(res => updateCoreUserCommit(action.data)),
           // If request fails, dispatch failed action
