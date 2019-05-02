@@ -6,6 +6,7 @@ import { CoreUserEpics } from '../../state/coreuser/coreuser.epics';
 import { WorkflowTeamEpics } from '../../state/workflow-team/workflow-team.epics';
 import { WorkflowLevel1Epics } from '../../state/workflow-level1/workflow-level1.epics';
 import { WorkflowLevel2Epics } from '../../state/workflow-level2/workflow-level2.epics';
+import { CoreGroupEpics } from '../../state/coregroup/coregroup.epics';
 
 @NgModule({  providers: [] })
 export class MidgardStoreModule {
@@ -16,6 +17,7 @@ export class MidgardStoreModule {
         Store,
         AuthUserEpics,
         CoreUserEpics,
+        CoreGroupEpics,
         WorkflowTeamEpics,
         WorkflowLevel1Epics,
         WorkflowLevel2Epics

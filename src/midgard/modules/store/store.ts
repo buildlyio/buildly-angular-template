@@ -15,6 +15,8 @@ import { WorkflowTeamEpics } from '@src/midgard/state/workflow-team/workflow-tea
 import { workflowTeamReducer } from '@src/midgard/state/workflow-team/workflow-team.reducer';
 import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
 import { distinctUntilChanged } from 'rxjs/operators';
+import { CoreGroupEpics } from '../../state/coregroup/coregroup.epics';
+import { coregroupReducer } from '../../state/coregroup/coregroup.reducer';
 let storeInstance: Store<any>;
 
 @Injectable()
@@ -28,6 +30,7 @@ export class Store<T> {
   constructor(
     private authUserEpics: AuthUserEpics,
     private coreUserEpics: CoreUserEpics,
+    private coreGroupEpics: CoreGroupEpics,
     private workflowTeamEpics: WorkflowTeamEpics,
     private workflowLevel1Epics: WorkflowLevel1Epics,
     private workflowLevel2Epics: WorkflowLevel2Epics
@@ -39,6 +42,7 @@ export class Store<T> {
         apolloReducer,
         topBarReducer,
         coreuserReducer,
+        coregroupReducer,
         authuserReducer,
         workflowTeamReducer,
         workflowLevel1Reducer,
@@ -47,6 +51,7 @@ export class Store<T> {
       const epics = [
         coreUserEpics,
         authUserEpics,
+        coreGroupEpics,
         workflowTeamEpics,
         workflowLevel1Epics,
         workflowLevel2Epics

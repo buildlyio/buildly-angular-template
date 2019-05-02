@@ -9,6 +9,7 @@ import { WorkflowLevel2DetailComponent } from './pages/workflow-level2/detail/wo
 import { UserComponent } from './pages/user/user.component';
 import { UserListComponent } from './pages/user/user-list/user-list.component';
 import { UserDetailsComponent } from './pages/user/user-details/user-details.component';
+import { UserInviteComponent } from './pages/user/user-invite/user-invite.component';
 
 const midgardRoutes: Routes = [
   {
@@ -20,6 +21,7 @@ const midgardRoutes: Routes = [
       ]},
       {path: 'user', component: UserComponent, canActivate: [AuthGuard], children: [
           {path: 'list', component: UserListComponent, canActivate: [AuthGuard]},
+          {path: 'invite', component: UserInviteComponent, canActivate: [AuthGuard]},
           {path: 'details/:id', component: UserDetailsComponent, canActivate: [AuthGuard]},
         ]}
       ],

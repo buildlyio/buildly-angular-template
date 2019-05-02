@@ -15,3 +15,15 @@
     color: $text-primary-color
   }
 }
+
+.inactive {
+  p {
+    color: $gray-light;
+  }
+}
+
+.active {
+  p {
+    color: $text-primary-color;
+  }
+}
