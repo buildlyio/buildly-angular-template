@@ -1,3 +1,15 @@
+<h3>
+  Current Users
+  <fj-button
+    [shape]="'rounded'"
+    [size]="'small'"
+    [iconMargin]="'1px 5px 1px 0px'"
+    [iconPosition]="'before'"
+    [icon]="'plus'"
+    (click)="goToInviteUser()"
+  > Invite User
+  </fj-button>
+</h3>
 <fj-table
   mgCrud
   #crud="mgCrud"
@@ -7,7 +19,9 @@
   [loadedSelector]="loadedSelector"
   [dataSelector]="dataSelector"
   [deleteAction]="'DELETE_COREUSER'"
+  [updateAction]="'UPDATE_COREUSER'"
   [deleteMessage]="'The user has been deactivated'"
+  (dataLoadedFromStore)="defineDropdownOptions()"
 >
   <fj-table-custom-column name="Custom" sortable="true" index="0" prop="first_name" flex="2">
     <ng-template fj-table-header-template>
@@ -21,17 +35,31 @@
       </div>
       <input type="file" accept="image/*" hidden #file>
       <fj-inline-text-editor
+        *ngIf="row.is_active"
         [displayElementCustomStyles]="{color: 'black', fontWeight: '700', marginRight: '5px'}"
         [value]="row['first_name']"
-        name="email"
-      >
-      </fj-inline-text-editor>
+        name="first_name"
+      ></fj-inline-text-editor>
       <fj-inline-text-editor
+        *ngIf="!row.is_active"
+        [displayElementCustomStyles]="{fontWeight: '700', marginRight: '5px'}"
+        [disabled]="true"
+        [value]="row['first_name']"
+        name="email"
+      ></fj-inline-text-editor>
+      <fj-inline-text-editor
+        *ngIf="row.is_active"
         [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
         [value]="row['last_name']"
-        name="email"
-      >
-      </fj-inline-text-editor>
+        name="last_name"
+      ></fj-inline-text-editor>
+      <fj-inline-text-editor
+        *ngIf="!row.is_active"
+        [displayElementCustomStyles]="{fontWeight: '700'}"
+        [disabled]="true"
+        [value]="row['last_name']"
+        name="last_name"
+      ></fj-inline-text-editor>
     </ng-template>
   </fj-table-custom-column>
   <fj-table-custom-column name="Custom" sortable="true" index="1" prop="email" flex="2">
@@ -41,6 +69,14 @@
     <ng-template let-row="row" fj-table-cell-template>
       <fj-inline-text-editor
         [displayElementCustomStyles]="{color: 'black'}"
+        *ngIf="row.is_active"
+        [value]="row['email']"
+        name="email"
+      >
+      </fj-inline-text-editor>
+      <fj-inline-text-editor
+        *ngIf="!row.is_active"
+        [disabled] = "true"
         [value]="row['email']"
         name="email"
       >
@@ -52,7 +88,8 @@
       <p>Last Activity</p>
     </ng-template>
     <ng-template let-row="row" fj-table-cell-template>
-      <small>Today</small>
+      <small *ngIf="!row.is_active">Deactivated</small>
+      <small *ngIf="row.is_active">Today</small>
     </ng-template>
   </fj-table-custom-column>
   <fj-table-custom-column name="Custom" index="3" flex="4">
@@ -60,7 +97,10 @@
       <p>Permissions</p>
     </ng-template>
     <ng-template let-row="row" fj-table-cell-template>
-      <fj-content-switcher [options]="[{label: 'Admin', value: 'admin'}, {label: 'Editor', value: 'editor'}, {label: 'User', value: 'user'}]"></fj-content-switcher>
+      <fj-content-switcher
+        [disabled] = "!row.is_active"
+        [options]="[{label: 'Admin', value: 'admin'}, {label: 'Editor', value: 'editor'}, {label: 'User', value: 'user'}]">
+      </fj-content-switcher>
     </ng-template>
   </fj-table-custom-column>
   <fj-table-custom-column name="Custom" index="4" flex="1">
@@ -69,9 +109,11 @@
     </ng-template>
     <ng-template let-row="row" fj-table-cell-template>
       <fj-native-dropdown
-        [options]="[{label: '•••', value: '•••'}, {label: 'Change Password', value: 'changePassword'}, {label: 'Deactivate', value: 'deactivate'}, {label: 'Delete', value: 'delete'}]"
+        [size]="'small'"
+        [options]="row.dropdownOptions"
         [showDefaultOnClick]="true"
         [customStyles]="{'marginTop': '0px', 'borderColor': 'rgba(27, 81, 160, 1)', 'color': 'rgba(27, 81, 160, 1)','backgroundColor': 'white','width' : '40px', 'padding': '0 0px 0 10px'}"
+        (optionSelected)="dropdownActionTriggered(row, $event)"
       >
       </fj-native-dropdown>
     </ng-template>
