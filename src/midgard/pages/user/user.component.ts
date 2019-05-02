@@ -72,7 +72,6 @@ export class UserComponent implements OnInit, OnDestroy {
       }
       updatedUser[elementName] = value;
     }
-    updatedUser =
     this.crud.updateItem(updatedUser);
   }
 

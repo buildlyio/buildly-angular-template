@@ -11,7 +11,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class CrudDirective implements OnInit, OnDestroy {
 
-  public rows = [];
+  public rows: any = [];
   public currentItem;
   public detailsForm: FormGroup;
   public dataLoaded;
