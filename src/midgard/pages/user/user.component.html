@@ -18,16 +18,8 @@
           <fj-inline-text-editor
             *ngIf="crud.rows.data"
             [displayElementCustomStyles]="{color: 'black', fontWeight: '700', marginRight: '5px'}"
-            [value]="crud.rows.data.first_name || 'First Name'"
-            name="first_name"
-            (elementEdited)="updateUser($event)"
-          >
-          </fj-inline-text-editor>
-          <fj-inline-text-editor
-            *ngIf="crud.rows.data"
-            [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
-            [value]="crud.rows.data.last_name || 'Last Name'"
-            name="last_name"
+            [value]="crud.rows.data.first_name + ' ' + crud.rows.data.last_name || 'Full Name'"
+            name="name"
             (elementEdited)="updateUser($event)"
           >
           </fj-inline-text-editor>
@@ -48,14 +40,7 @@
         <!-- Organization -->
       <div class="profile__row">
         <small class="profile__column__caption">Organization: </small>
-        <fj-inline-text-editor
-          *ngIf="crud.rows.data"
-          [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
-          [value]="crud.rows.data.organization.name || 'Organization'"
-          name="organization"
-          (elementEdited)="updateUser($event)"
-        >
-        </fj-inline-text-editor>
+        <p *ngIf="crud.rows.data" class="profile__column__text">{{crud.rows.data.organization.name}}</p>
       </div>
     </div>
     <div class="profile__column">

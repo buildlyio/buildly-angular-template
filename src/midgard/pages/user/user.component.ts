@@ -65,14 +65,37 @@ export class UserComponent implements OnInit, OnDestroy {
    */
   updateUser(editedObj: {value: string, elementName: string}) {
     const {value, elementName} = editedObj;
+    if (elementName === 'name') {
+      this.updateName(value);
+    } else {
+      let updatedUser;
+      if (this.crud.rows.data) {
+        updatedUser = {
+          id: this.crud.rows.data.id,
+        };
+        updatedUser[elementName] = value;
+      }
+      this.crud.updateItem(updatedUser);
+    }
+
+  }
+
+  /**
+   * splits the full name to first_name and last name and updates the user
+   */
+  updateName(fullname: string) {
     let updatedUser;
+    const firstName = fullname.split(' ')[0];
+    const lastName = fullname.split(' ')[1];
     if (this.crud.rows.data) {
       updatedUser = {
         id: this.crud.rows.data.id,
-      }
-      updatedUser[elementName] = value;
+        first_name: firstName,
+        last_name: lastName
+      };
     }
     this.crud.updateItem(updatedUser);
+
   }
 
   /**
