@@ -14,8 +14,9 @@ import { MatSnackBarStub } from '@src/midgard/testing-utilities/stubs';
 import { MidgardStoreModule } from '../store/store.module';
 import { StoreMock } from '../store/store-mock';
 import { Store } from '../store/store';
-
 import { mockAppointmentsForSelectors } from '../../testing-utilities/mock.data';
+import { FilterByNamePipe } from '../../pipes/filter-by-name.pipe';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 
 describe('CrudComponent', () => {
   let component: CrudComponent;
@@ -33,8 +34,8 @@ describe('CrudComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MidgardStoreModule.forRoot(), ApolloTestingModule, RouterTestingModule],
-      declarations: [ CrudComponent ],
+      imports: [MidgardStoreModule.forRoot(), ApolloTestingModule, RouterTestingModule, ScrollDispatchModule],
+      declarations: [ CrudComponent, FilterByNamePipe ],
       providers: [
         GraphQlService,
         {provide: Store, useClass: StoreMock},
@@ -55,7 +56,7 @@ describe('CrudComponent', () => {
     component.deleteAction = deleteAction;
     component.updateAction = updateAction;
     component.loadActionGraphQl = 'LOAD_GRAPHQL';
-    component.selector = getAllWorkflowLevel1s;
+    component.dataSelector = getAllWorkflowLevel1s;
     store = TestBed.get(Store);
     fixture.detectChanges();
   });

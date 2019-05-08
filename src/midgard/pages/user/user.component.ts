@@ -95,7 +95,6 @@ export class UserComponent implements OnInit, OnDestroy {
       };
     }
     this.crud.updateItem(updatedUser);
-
   }
 
   /**

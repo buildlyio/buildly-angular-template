@@ -39,6 +39,7 @@
         [displayElementCustomStyles]="{color: 'black', fontWeight: '700', marginRight: '5px'}"
         [value]="row['first_name'] + ' ' + row['last_name']"
         name="name"
+        (elementEdited)="updateUser($event, row)"
       ></fj-inline-text-editor>
       <fj-inline-text-editor
         *ngIf="!row.is_active"
@@ -59,6 +60,7 @@
         *ngIf="row.is_active"
         [value]="row['email']"
         name="email"
+        (elementEdited)="updateUser($event, row)"
       >
       </fj-inline-text-editor>
       <fj-inline-text-editor

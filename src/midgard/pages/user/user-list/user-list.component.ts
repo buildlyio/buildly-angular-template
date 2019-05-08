@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { getAllCoreUsers } from '@src/midgard/state/coreuser/coreuser.selectors';
-import {updateCoreUser} from '../../../state/coreuser/coreuser.actions';
+import { getAllCoreUsers, getCoreUsersLoaded } from '@src/midgard/state/coreuser/coreuser.selectors';
 import {Store} from '../../../modules/store/store';
-import { getCoreUsersLoaded } from '../../../state/coreuser/coreuser.selectors';
 import { Router } from '@angular/router';
 import { CrudDirective } from '../../../modules/crud/crud.directive';
 
@@ -79,6 +77,46 @@ export class UserListComponent implements OnInit {
       row.is_active = true;
       this.crud.updateItem(row);
     }
+  }
+
+  /**
+   * a function calls the crud module to update a user when a field is edited
+   * @param editedObj - an object with the edited element and its value
+   * @param row - the current user row
+   */
+  updateUser(editedObj: {value: string, elementName: string}, row) {
+    const {value, elementName} = editedObj;
+    if (elementName === 'name') {
+      this.updateName(value, row);
+    } else {
+      let updatedUser;
+      if (row.id) {
+        updatedUser = {
+          id: row.id
+        };
+        updatedUser[elementName] = value;
+      }
+      this.crud.updateItem(updatedUser);
+    }
+
+  }
+
+  /**
+   * splits the full name to first_name and last name and updates the user
+   * @param row - the current user row
+   */
+  updateName(fullname: string, row) {
+    let updatedUser;
+    const firstName = fullname.split(' ')[0];
+    const lastName = fullname.split(' ')[1];
+    if (row.id) {
+      updatedUser = {
+        id: row.id,
+        first_name: firstName,
+        last_name: lastName
+      };
+    }
+    this.crud.updateItem(updatedUser);
   }
 
   /**
