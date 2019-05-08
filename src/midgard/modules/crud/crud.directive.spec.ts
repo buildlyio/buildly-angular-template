@@ -92,7 +92,7 @@ describe('CrudDirective', () => {
     });
   });
 
-  it('should dispatch delete action when create item is called', () => {
+  it('should dispatch delete action when delete item is called', () => {
     const item = mockAppointmentsForSelectors[1];
     spyOn(store, 'dispatch');
     crudDirective.deleteItem(item);

@@ -26,25 +26,25 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     // Please uncomment for prod
-    autoWatch: false,
-    browsers: ['ChromeHeadlessNoSandbox'],
-    customLaunchers: {
-      ChromeHeadlessNoSandbox: {
-        base: 'ChromeHeadless',
-        flags: [
-          '--no-sandbox',
-          '--disable-setuid-sandbox',
-          '--headless',
-          '--disable-gpu',
-          '--remote-debugging-port=9222',
-        ]
-      }
-    },
-    singleRun: true,
+    // autoWatch: false,
+    // browsers: ['ChromeHeadlessNoSandbox'],
+    // customLaunchers: {
+    //   ChromeHeadlessNoSandbox: {
+    //     base: 'ChromeHeadless',
+    //     flags: [
+    //       '--no-sandbox',
+    //       '--disable-setuid-sandbox',
+    //       '--headless',
+    //       '--disable-gpu',
+    //       '--remote-debugging-port=9222',
+    //     ]
+    //   }
+    // },
+    // singleRun: true,
     // Please uncomment for dev
-    // autoWatch: true,
-    // browsers: ['Chrome'],
-    // singleRun: false,
+    autoWatch: true,
+    browsers: ['Chrome'],
+    singleRun: false,
     pact: [{
       cors: true,
       port: 1234,
