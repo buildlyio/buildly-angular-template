@@ -21,10 +21,6 @@
     &--list {
       flex-direction: row;
     }
-    &--table {
-      flex-direction: row;
-      border-bottom: 1px solid #ececec;
-    }
     &--highlight {
       background-color: $gray-light;
     }
@@ -41,12 +37,6 @@
       padding: rem-calc(15);
       display: flex;
       flex-direction: row;
-    }
-    &--table {
-      padding: rem-calc(15);
-      display: flex;
-      flex-direction: row;
-      align-items: center;
     }
   }
   &__body {
@@ -118,12 +108,6 @@
     &--list {
       width: rem-calc(100);
       height: rem-calc(100);
-      margin-right: rem-calc(15);
-      border-radius: 50% 50%;
-    }
-    &--table {
-      width: rem-calc(25);
-      height: rem-calc(25);
       margin-right: rem-calc(15);
       border-radius: 50% 50%;
     }

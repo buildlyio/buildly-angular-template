@@ -57,10 +57,6 @@ export class CrudDirective implements OnInit, OnDestroy {
    */
   @Input() loadedSelector;
   /**
-   * if true it uses graphQl to get the data instead http to get the data
-   */
-  @Input() useGraphQl;
-  /**
    *  model of which value will be returned
    */
   @Input() graphQlModel;
@@ -83,7 +79,6 @@ export class CrudDirective implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<any>, // type {any} beacuse the state of the app is not fixed and can be changed depending on the modules
-    private graphQlService: GraphQlService,
     private fb: FormBuilder,
   ) { }
 
@@ -96,13 +91,8 @@ export class CrudDirective implements OnInit, OnDestroy {
         }
       })
     );
-    if (this.useGraphQl) {
-      this.listenToStore();
-      this.getDataUsingGraphQl();
-    } else {
-      this.listenToStore();
-      this.getDataFromStore();
-    }
+    this.listenToStore();
+    this.getDataFromStore();
   }
 
   /**
@@ -116,18 +106,6 @@ export class CrudDirective implements OnInit, OnDestroy {
         this.rows = data;
         this.dataLoadedFromStore.emit(this.rows);
       }
-    });
-  }
-
-  /**
-   * executes graphQl query to get the data from the server
-   */
-  getDataUsingGraphQl() {
-    this.graphQlSubscription = this.graphQlService.query(this.graphQlQuery, this.graphQlVariables).subscribe((res: any) => {
-      this.store.dispatch({
-        type: this.loadActionGraphQl,
-        data: res.data[this.graphQlModel]
-      });
     });
   }
 
