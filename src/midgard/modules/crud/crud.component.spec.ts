@@ -34,7 +34,7 @@ describe('CrudComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MidgardStoreModule.forRoot(), ApolloTestingModule, RouterTestingModule, ScrollDispatchModule],
+      imports: [ApolloTestingModule, RouterTestingModule, ScrollDispatchModule],
       declarations: [ CrudComponent, FilterByNamePipe ],
       providers: [
         GraphQlService,
