@@ -43,6 +43,13 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.checkTopBarOptions();
+  }
+
+  /**
+   * it checks the selected top bar option and show the corresponding component
+   */
+  checkTopBarOptions() {
     this.store.dispatch(setTopBarOptions(this.topBarOptions));
     this.storeSubscription = this.store.observable.pipe(
       select(getTopBarSelectedOption),
@@ -52,7 +59,7 @@ export class UserComponent implements OnInit, OnDestroy {
         if (this.selectedTab === 'user-management') {
           this.router.navigate(['/user/list']);
         } else if (this.selectedTab === 'user-profile') {
-          this.router.navigate(['/user']);
+          // this.router.navigate(['/user']);
         }
       }
     });

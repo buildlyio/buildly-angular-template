@@ -57,18 +57,6 @@ export class CrudDirective implements OnInit, OnDestroy {
    */
   @Input() loadedSelector;
   /**
-   *  model of which value will be returned
-   */
-  @Input() graphQlModel;
-  /**
-   * graphQl model to be requested
-   */
-  @Input() graphQlQuery;
-  /**
-   * graphQl query variables
-   */
-  @Input() graphQlVariables;
-  /**
    * definition of the form fields
    */
   @Input() formFields;
