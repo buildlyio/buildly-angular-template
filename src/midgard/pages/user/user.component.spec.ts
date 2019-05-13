@@ -4,10 +4,10 @@ import { UserComponent } from './user.component';
 import { OAuthStubService } from '@src/midgard/testing-utilities/stubs';
 import { OAuthService } from '@src/midgard/modules/oauth/oauth.service';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Store } from '../../modules/store/store';
-import { StoreMock } from '../../modules/store/store-mock';
+import { Store } from '@midgard/modules/store/store';
+import { StoreMock } from '@midgard/modules/store/store-mock';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { MidgardCrudModule } from '../../modules/crud/crud.module';
+import { MidgardCrudModule } from '@midgard/modules/crud/crud.module';
 import { Router } from '@angular/router';
 
 describe('UserComponent', () => {
