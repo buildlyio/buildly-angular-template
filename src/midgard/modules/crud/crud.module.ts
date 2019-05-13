@@ -3,7 +3,10 @@ import { CommonModule } from '@angular/common';
 import { CrudComponent } from '@src/midgard/modules/crud/crud.component';
 import {MatIconModule } from '@angular/material';
 import { MidgardGraphQLModule } from '@midgard/modules/graphql/graphql.module';
-import {FjButtonModule, FjCardItemModule, FjSpinnerModule, FjTableModule, FjTextInputModule} from 'freyja-ui';
+import {
+  FjButtonModule, FjCardItemModule, FjInlineTextEditorModule, FjNativeDropdownModule, FjSpinnerModule, FjTableModule,
+  FjTextInputModule, IconModule
+} from 'freyja-ui';
 import { CrudDirective } from '@midgard/modules/crud/crud.directive';
 import { MgCardItemModule } from '../../components/card-item/card-item.module';
 import { MgTopViewSwitcherModule} from '../../components/top-view-switcher/top-view-switcher.module';
@@ -28,6 +31,9 @@ const components = [
     FjCardItemModule,
     FjButtonModule,
     FjTextInputModule,
+    FjInlineTextEditorModule,
+    FjNativeDropdownModule,
+    IconModule,
     MgTopViewSwitcherModule
   ],
   declarations: components,

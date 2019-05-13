@@ -21,21 +21,8 @@
                           [layout]="view"
                           [item]="row"
                           [options]="cardItemOptions"
-                          (elementEdited)="onCardItemEdited($event, row)"
-                          (actionClicked)="onCardItemActionClicked($event, row)"
-            ></mg-card-item>
-            <p *ngIf="(rows | filterByName : searchValue).length === 0"> No matching results. Please search again with another keyword.</p>
-          </cdk-virtual-scroll-viewport>
-        </ng-container>
-        <ng-container *ngIf="view === 'table'">
-          <cdk-virtual-scroll-viewport  class="list__content__viewport" itemSize="80" >
-            <mg-card-item *cdkVirtualFor="let row of rows | filterByName : searchValue"
-                          class="list__content__card"
-                          [layout]="view"
-                          [item]="row"
-                          [options]="cardItemOptions"
-                          (elementEdited)="onCardItemEdited($event, row)"
-                          (actionClicked)="onCardItemActionClicked($event, row)"
+                          (elementEdited)="onItemEdited($event, row)"
+                          (actionClicked)="onItemActionClicked($event, row)"
             ></mg-card-item>
             <p *ngIf="(rows | filterByName : searchValue).length === 0"> No matching results. Please search again with another keyword.</p>
           </cdk-virtual-scroll-viewport>
@@ -46,8 +33,8 @@
                           [layout]="view"
                           [item]="row"
                           [options]="cardItemOptions"
-                          (elementEdited)="onCardItemEdited($event, row)"
-                          (actionClicked)="onCardItemActionClicked($event, row)"
+                          (elementEdited)="onItemEdited($event, row)"
+                          (actionClicked)="onItemActionClicked($event, row)"
             ></mg-card-item>
             <p *ngIf="(rows | filterByName : searchValue).length === 0"> No matching results. Please search again with another keyword.</p>
         </ng-container>
@@ -55,14 +42,62 @@
       <!-- Data Table version-->
       <fj-table
           class="list__content__table"
-          *ngIf= "view === 'data-table' && tableOptions && !graphQlChildrenModel && (dataLoaded | async)"
+          *ngIf= "view === 'table' && tableOptions && (dataLoaded | async)"
           [rows]= "rows | filterByName : searchValue"
           [viewPort]="'350px'"
-          [columns]="tableOptions?.columns"
           (selectItem)="onTableItemClicked($event)"
           (delete)="deleteItem($event?.item)"
           (activate)="onTableActionClicked('activate', $event)"
-        ></fj-table>
+        >
+        <fj-table-custom-column
+          *ngFor="let column of tableOptions?.columns; let i = index"
+          [name]="column.name"
+          [flex]="column.flex"
+          [prop]="column.prop"
+          [index]="i"
+          [sortable]="column.sortable"
+          [filtering]="column.filtering"
+        >
+          <ng-template fj-table-header-template flex>
+            <p>{{column.name}}</p>
+          </ng-template>
+          <ng-template let-row="row" fj-table-cell-template *ngIf="column.cellTemplate === 'picture-edit'">
+            <div class="table__picture"
+                 (click)="file.click()"
+            >
+              <fj-icon [svgName]="'upload'" [width]="'25px'"></fj-icon>
+            </div>
+            <input type="file" accept="image/*" hidden #file>
+            <fj-inline-text-editor
+              [displayElementCustomStyles]="{color: 'black'}"
+              [value]="row[column.prop]"
+              [name]="column.prop"
+              (elementEdited)="onItemEdited($event, row, true)"
+            ></fj-inline-text-editor>
+          </ng-template>
+          <ng-template let-row="row" fj-table-cell-template *ngIf="column.cellTemplate === 'date'">
+            {{row[column.prop] | date: 'dd.MM.yyyy'}}
+          </ng-template>
+          <ng-template let-row="row" fj-table-cell-template *ngIf="column.cellTemplate === 'edit'">
+            <fj-inline-text-editor
+              [displayElementCustomStyles]="{color: 'black'}"
+              [value]="row[column.prop]"
+              [name]="column.prop"
+              (elementEdited)="onItemEdited($event, row, true)"
+            ></fj-inline-text-editor>
+          </ng-template>
+          <ng-template let-row="row" fj-table-cell-template *ngIf="column.cellTemplate === 'actions'">
+            <fj-native-dropdown
+              [size]="'small'"
+              [options]="column.actions"
+              [showDefaultOnClick]="true"
+              [customStyles]="{'marginTop': '0px', 'borderColor': 'rgba(27, 81, 160, 1)', 'color': 'rgba(27, 81, 160, 1)','backgroundColor': 'white','width' : '40px', 'padding': '0 0px 0 10px'}"
+              (optionSelected)="onItemActionClicked($event, row)"
+            >
+            </fj-native-dropdown>
+          </ng-template>
+        </fj-table-custom-column>
+      </fj-table>
       </ng-container>
   </div>
 </ng-container>

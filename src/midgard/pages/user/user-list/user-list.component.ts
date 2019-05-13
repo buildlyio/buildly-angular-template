@@ -48,15 +48,13 @@ export class UserListComponent implements OnInit {
             {label: '•••', value: '•••'},
             {label: 'Change Password', value: 'changePassword'},
             {label: 'Deactivate', value: 'deactivate'},
-            {label: 'Delete', value: 'delete'}]
-          ;
+            {label: 'Delete', value: 'delete'}];
         } else {
           row.dropdownOptions = [
             {label: '•••', value: '•••'},
             {label: 'Change Password', value: 'changePassword'},
             {label: 'Activate', value: 'activate'},
-            {label: 'Delete', value: 'delete'}]
-          ;
+            {label: 'Delete', value: 'delete'}];
         }
       });
     }

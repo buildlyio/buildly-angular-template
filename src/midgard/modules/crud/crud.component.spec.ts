@@ -34,7 +34,7 @@ describe('CrudComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MidgardStoreModule.forRoot(), ApolloTestingModule, RouterTestingModule, ScrollDispatchModule],
+      imports: [ApolloTestingModule, RouterTestingModule, ScrollDispatchModule],
       declarations: [ CrudComponent, FilterByNamePipe ],
       providers: [
         GraphQlService,
@@ -55,7 +55,6 @@ describe('CrudComponent', () => {
     component.createAction = createAction;
     component.deleteAction = deleteAction;
     component.updateAction = updateAction;
-    component.loadActionGraphQl = 'LOAD_GRAPHQL';
     component.dataSelector = getAllWorkflowLevel1s;
     store = TestBed.get(Store);
     fixture.detectChanges();
@@ -63,41 +62,6 @@ describe('CrudComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should get data from graphQl if the useGraphQl flag is set to true', () => {
-    spyOn(component, 'getDataUsingGraphQl').and.callThrough();
-    component.useGraphQl = true;
-    component.graphQlQuery = `
-        {
-          workflowlevel1s {
-            id
-            name
-            workflowlevel2 {
-              id
-              name
-            }
-          }
-        }
-      `;
-    component.ngOnInit();
-    expect(component.getDataUsingGraphQl).toHaveBeenCalled();
-  });
-
-  it('should send a graphQl query', () => {
-    component.useGraphQl = true;
-    component.graphQlVariables = {};
-    component.graphQlQuery = `fake_query`;
-    component.graphQlModel = 'testModel';
-    fixture.detectChanges();
-    const mockResult = {
-      data: {
-          testModel: 'test'
-      }
-    };
-    spyOn(graphQlService, 'query').and.returnValue(of(mockResult));
-    component.getDataUsingGraphQl();
-    expect(graphQlService.query).toHaveBeenCalledWith(component.graphQlQuery, component.graphQlVariables);
   });
 
   it('should dispatch delete action and emit itemDeleted event when delete item is called', () => {
@@ -161,8 +125,6 @@ describe('CrudComponent', () => {
   });
 
   it('should get data from the store', () => {
-    component.graphQlChildrenModel = false;
-    component.useGraphQl = false;
     spyOn(store, 'dispatch');
 
     component.getDataFromStore();

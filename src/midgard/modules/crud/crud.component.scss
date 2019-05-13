@@ -23,6 +23,22 @@
   }
 }
 
+.table {
+  &__picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color-lightest;
+    height: rem-calc(40);
+    width: rem-calc(40);
+    border-radius: 50%;
+    margin-right: rem-calc(10);
+  }
+  &__text {
+    color: $text-primary-color;
+  }
+}
+
 .accordion {
   background-color: #F2F2F2;
   margin-bottom: 30px;
