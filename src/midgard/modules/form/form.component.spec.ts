@@ -11,7 +11,6 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '../store/store';
 import { of } from 'rxjs';
-import { getAllWorkflowLevel1s } from '../../state/workflow-level1/workflow-level1.selectors';
 import { MatSnackBar } from '@angular/material';
 import { FormValidationHelper } from '@src/midgard/modules/form/form.validation.helper';
 import { StoreMock } from '../store/store-mock';
@@ -62,7 +61,6 @@ describe('FormComponent', () => {
 
 
   // it('should build the reactive form from the given input formFields', () => {
-  //   component.selector = null;
   //   component.buildForm();
   //   expect(component.detailsForm).toBeDefined();
   //   expect(component.detailsForm).toEqual(jasmine.any(FormGroup));
