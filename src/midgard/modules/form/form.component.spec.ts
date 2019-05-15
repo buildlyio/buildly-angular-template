@@ -11,9 +11,9 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '../store/store';
 import { of } from 'rxjs';
-import { getAllWorkflowLevel1s } from '../../state/workflow-level1/workflow-level1.selectors';
 import { MatSnackBar } from '@angular/material';
 import { FormValidationHelper } from '@src/midgard/modules/form/form.validation.helper';
+import { StoreMock } from '../store/store-mock';
 
 describe('FormComponent', () => {
   let component: FormComponent;
@@ -30,7 +30,7 @@ describe('FormComponent', () => {
       ],
       declarations: [ FormComponent ],
       providers: [
-        {provide: Store, useClass: StoreStub},
+        {provide: Store, useClass: StoreMock},
         {provide: Router, useValue: routerStubValue},
         {provide: GraphQlService, useClass: StubService},
         {provide: ActivatedRoute, useClass: ActivatedRouteStub},
@@ -51,7 +51,6 @@ describe('FormComponent', () => {
     ];
     component.loadAction = 'AN_ACTION';
     // component.useGraphQl = false;
-    component.selector = getAllWorkflowLevel1s;
     activatedRoute = TestBed.get(ActivatedRoute);
     router = TestBed.get(Router);
     store = TestBed.get(Store);
@@ -61,21 +60,11 @@ describe('FormComponent', () => {
   });
 
 
-  it('should build the reactive form from the given input formFields', () => {
-    // component.buildForm();
-    // expect(component.detailsForm).toBeDefined();
-    // expect(component.detailsForm).toEqual(jasmine.any(FormGroup));
-    // expect(component.detailsForm.controls['name']).toBeDefined();
-    // expect(component.detailsForm.controls['description']).toBeDefined();
-  });
-
-  // it('should go to list page when back button is clicked', () => {
-  //   component.backButtonText = 'Back';
-  //   component.backRoute = '/back-route';
-  //   fixture.detectChanges();
-  //   const backbutton = fixture.debugElement.queryAll(By.css('fj-button'))[0];
-  //   backbutton.nativeElement.click();
-  //   component.goToListPage();
-  //   expect(router.navigate).toHaveBeenCalledWith([component.backRoute]);
+  // it('should build the reactive form from the given input formFields', () => {
+  //   component.buildForm();
+  //   expect(component.detailsForm).toBeDefined();
+  //   expect(component.detailsForm).toEqual(jasmine.any(FormGroup));
+  //   expect(component.detailsForm.controls['name']).toBeDefined();
+  //   expect(component.detailsForm.controls['description']).toBeDefined();
   // });
 });

@@ -14,7 +14,7 @@ describe('MidgardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, MidgardStoreModule.forRoot(), TranslateModule.forRoot()],
+      imports: [RouterTestingModule, TranslateModule.forRoot()],
       declarations: [ MidgardComponent],
       providers: [
         {provide: Store, useClass: StoreMock}

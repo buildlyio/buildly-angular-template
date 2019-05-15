@@ -52,5 +52,4 @@ pipeline:
       from_secret: SLACK_WEBHOOK
     when:
       event: [push, tag]
-      branch: [master]
       status: [failure]

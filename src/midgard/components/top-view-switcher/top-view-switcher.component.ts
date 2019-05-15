@@ -7,7 +7,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class TopViewSwitcherComponent implements OnInit {
 
-  public activeView: 'tile' | 'list' | 'table' | 'data-table';
+  public activeView: 'tile' | 'list' | 'table';
 
   /**
    * page title
@@ -20,7 +20,7 @@ export class TopViewSwitcherComponent implements OnInit {
   /**
    * default selected view
    */
-  @Input() defaultView: 'tile' | 'list' | 'table' | 'data-table';
+  @Input() defaultView: 'tile' | 'list' | 'table';
   /**
    * available views by default all of them
    */
