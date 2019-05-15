@@ -48,7 +48,7 @@ export class UserGroupsComponent implements OnInit {
         delete: false
       }
     };
-    this.crud.createItem(newGroup);
+    this.crud.createItem(newGroup, 0);
   }
   /**
    * updates the name of a group

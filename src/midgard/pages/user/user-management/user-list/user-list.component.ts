@@ -1,28 +1,35 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { getAllCoreUsers, getCoreUsersLoaded } from '../../../../state/coreuser/coreuser.selectors';
-import {Store} from '../../../../modules/store/store';
+import { select, Store } from '../../../../modules/store/store';
 import { Router } from '@angular/router';
 import { CrudDirective } from '../../../../modules/crud/crud.directive';
+import { getAllCoreGroups } from '../../../../state/coregroup/coregroup.selectors';
+import { loadCoregroupData } from '../../../../state/coregroup/coregroup.actions';
+import value from '*.json';
 
 @Component({
   selector: 'mg-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy {
   @ViewChild('crud') crud: CrudDirective;
 
   public dataSelector;
   public loadedSelector;
+  public coreGroups;
+  private coreGroupsSubscription
 
   constructor(
-    private router: Router
+    private router: Router,
+    private store: Store<any>
   ) {
   }
 
   ngOnInit() {
     this.dataSelector = getAllCoreUsers;
     this.loadedSelector = getCoreUsersLoaded;
+    this.getCoreGroups();
   }
 
   /**
@@ -105,9 +112,47 @@ export class UserListComponent implements OnInit {
   }
 
   /**
+   * get the application core groups to show them in the table
+   */
+  getCoreGroups() {
+    this.store.dispatch(loadCoregroupData());
+    this.coreGroupsSubscription = this.store.observable.pipe(
+      select(getAllCoreGroups),
+    ).subscribe( (data: any[]) => {
+      if (data) {
+        this.coreGroups = data.map(coreGroup => {
+          return {label: coreGroup.name, value: coreGroup.id};
+        });
+      }
+    });
+  }
+
+  /**
+   * updates the core group of the user
+   * @param group - the selected group
+   * @param row - the current user row
+   */
+  updateCoreGroup(group, row) {
+    let updatedUser;
+    if (row.id) {
+      updatedUser = {
+        id: row.id,
+        core_groups: [group.value],
+      };
+    }
+    this.crud.updateItem(updatedUser);
+  }
+
+  /**
    * navigates to the invite user page
    */
   goToInviteUser() {
     this.router.navigate([`/user/invite`]);
+  }
+
+  ngOnDestroy() {
+    if (this.coreGroupsSubscription) {
+      this.coreGroupsSubscription.unsubscribe();
+    }
   }
 }

@@ -76,7 +76,10 @@
     <ng-template let-row="row" fj-table-cell-template>
       <fj-content-switcher
         [disabled] = "!row.is_active"
-        [options]="[{label: 'Admin', value: 'admin'}, {label: 'Editor', value: 'editor'}, {label: 'User', value: 'user'}]">
+        [options]="coreGroups"
+        [selectedOption]="row.core_groups[0]"
+        (optionSelected)="updateCoreGroup($event, row)"
+      >
       </fj-content-switcher>
     </ng-template>
   </fj-table-custom-column>
