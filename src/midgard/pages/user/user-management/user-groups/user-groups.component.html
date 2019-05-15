@@ -1,3 +1,6 @@
+<div class="buttons-container">
+  <fj-button size="micro" color="light" (click)="createGroup()">Create a group</fj-button>
+</div>
 <fj-table
   mgCrud
   #crud="mgCrud"
@@ -6,6 +9,7 @@
   [loadAction]="'LOAD_DATA_COREGROUP'"
   [loadedSelector]="loadedSelector"
   [dataSelector]="dataSelector"
+  [createAction]="'CREATE_COREGROUP'"
   [deleteAction]="'DELETE_COREGROUP'"
   [updateAction]="'UPDATE_COREGROUP'"
   [deleteMessage]="'The group has been deleted'"

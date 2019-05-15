@@ -36,6 +36,21 @@ export class UserGroupsComponent implements OnInit {
   }
 
   /**
+   * creates a new group
+   */
+  createGroup() {
+    const newGroup = {
+      name: 'New Group',
+      permissions: {
+        create: false,
+        read: false,
+        update: false,
+        delete: false
+      }
+    };
+    this.crud.createItem(newGroup);
+  }
+  /**
    * updates the name of a group
    * @param editedObj - an object with the edited element and its value
    * @param row - the current group
