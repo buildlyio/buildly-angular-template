@@ -84,7 +84,6 @@ export class UserListComponent implements OnInit {
       }
       this.crud.updateItem(updatedUser);
     }
-
   }
 
   /**

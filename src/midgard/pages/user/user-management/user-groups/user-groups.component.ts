@@ -25,10 +25,25 @@ export class UserGroupsComponent implements OnInit {
   }
 
   /**
-   * updates the data of a group from inline editing
+   * updates the permission of a group
+   * @param value - the current value of the permision
+   * @param permission - the permission to be updated
+   * @param row - the current group
    */
-  updateGroup() {
+  updatePermission(value: boolean, permission: string, row) {
+    row.permissions[permission] = value;
+    this.crud.updateItem(row);
+  }
 
+  /**
+   * updates the name of a group
+   * @param editedObj - an object with the edited element and its value
+   * @param row - the current group
+   */
+  updateName(editedObj: {value: string, elementName: string}, row) {
+    const {value} = editedObj;
+    row.name = value;
+    this.crud.updateItem(row);
   }
   /**
    * function that it is triggered to handle actions of the dropdown

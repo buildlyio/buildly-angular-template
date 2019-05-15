@@ -9,9 +9,8 @@
   [deleteAction]="'DELETE_COREGROUP'"
   [updateAction]="'UPDATE_COREGROUP'"
   [deleteMessage]="'The group has been deleted'"
-  (dataLoadedFromStore)="defineDropdownOptions()"
 >
-  <fj-table-custom-column name="Custom" sortable="true" index="0" prop="name" flex="3">
+  <fj-table-custom-column name="Custom" sortable="true" index="0" prop="name" flex="2">
     <ng-template fj-table-header-template>
       <p>Group Types</p>
     </ng-template>
@@ -20,7 +19,7 @@
         [displayElementCustomStyles]="{color: 'black', fontWeight: '700', marginRight: '5px'}"
         [value]="row['name']"
         name="name"
-        (elementEdited)="updateGroup($event, row)"
+        (elementEdited)="updateName($event, row)"
       ></fj-inline-text-editor>
     </ng-template>
   </fj-table-custom-column>
@@ -29,7 +28,11 @@
       <p>Create</p>
     </ng-template>
     <ng-template let-row="row" fj-table-cell-template>
-      <fj-toggle [size]="'micro'"></fj-toggle>
+      <fj-toggle
+        [size]="'micro'"
+        [checked]="row.permissions.create"
+        (toggleClicked)="updatePermission($event, 'create', row)">
+      </fj-toggle>
     </ng-template>
   </fj-table-custom-column>
   <fj-table-custom-column name="Custom" index="2">
@@ -37,8 +40,11 @@
       <p>Read</p>
     </ng-template>
     <ng-template let-row="row" fj-table-cell-template>
-      <fj-toggle [size]="'micro'"></fj-toggle>
-
+      <fj-toggle
+        [size]="'micro'"
+        [checked]="row.permissions.read"
+        (toggleClicked)="updatePermission($event, 'read', row)">
+      </fj-toggle>
     </ng-template>
   </fj-table-custom-column>
   <fj-table-custom-column name="Custom" index="3">
@@ -46,16 +52,22 @@
       <p>Update</p>
     </ng-template>
     <ng-template let-row="row" fj-table-cell-template>
-      <fj-toggle [size]="'micro'"></fj-toggle>
-    </ng-template>
+      <fj-toggle
+        [size]="'micro'"
+        [checked]="row.permissions.update"
+        (toggleClicked)="updatePermission($event, 'update', row)">
+      </fj-toggle>    </ng-template>
   </fj-table-custom-column>
   <fj-table-custom-column name="Custom" index="4">
     <ng-template fj-table-header-template>
       <p>Delete</p>
     </ng-template>
     <ng-template let-row="row" fj-table-cell-template>
-      <fj-toggle [size]="'micro'"></fj-toggle>
-    </ng-template>
+      <fj-toggle
+        [size]="'micro'"
+        [checked]="row.permissions.delete"
+        (toggleClicked)="updatePermission($event, 'delete', row)">
+      </fj-toggle>    </ng-template>
   </fj-table-custom-column>
   <fj-table-custom-column name="Custom" index="5" flex="1">
     <ng-template fj-table-header-template>
