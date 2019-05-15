@@ -26,10 +26,12 @@ export class UserComponent implements OnInit, OnDestroy {
   public selectedTab = 'user-management';
   public topBarOptions = [
     {
+      index: 0,
       label: 'Profile Settings',
       value: 'user-profile'
     },
     {
+      index: 1,
       label: 'Users Management',
       value: 'user-management'
     }
@@ -50,7 +52,7 @@ export class UserComponent implements OnInit, OnDestroy {
       if (data) {
         this.selectedTab = data.value;
         if (this.selectedTab === 'user-management') {
-          this.router.navigate(['/user/list']);
+          this.router.navigate(['/user/user-management/list']);
         } else if (this.selectedTab === 'user-profile') {
           this.router.navigate(['/user']);
         }

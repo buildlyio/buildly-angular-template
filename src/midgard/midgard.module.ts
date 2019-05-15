@@ -21,7 +21,7 @@ import { NavBarElemComponent } from './components/nav-bar/navbar-elem/navbar-ele
 import { RegisterComponent } from './pages/register/register.component';
 import { RouterModule } from '@angular/router';
 import { UserDetailsComponent } from './pages/user/user-details/user-details.component';
-import { UserListComponent } from './pages/user/user-list/user-list.component';
+import { UserListComponent } from './pages/user/user-management/user-list/user-list.component';
 import { UserInviteComponent } from './pages/user/user-invite/user-invite.component';
 import {
   FjButtonModule, FjCardItemModule, FjCardModule, FjContentSwitcherModule, FjInlineTextEditorModule, FjNativeDropdownModule,
@@ -32,6 +32,8 @@ import { FormValidationHelper } from './modules/form/form.validation.helper';
 import { SearchBarComponent } from './components/top-bar/search-bar/search-bar.component';
 import { MidgardFormModule } from './modules/form/form.module';
 import { MidgardHttpModule } from './modules/http/http.module';
+import { UserManagementComponent } from './pages/user/user-management/user-management.component';
+import { UserGroupsComponent } from './pages/user/user-management/user-groups/user-groups.component';
 
 @NgModule({
   imports: [
@@ -77,7 +79,9 @@ import { MidgardHttpModule } from './modules/http/http.module';
     UserDetailsComponent,
     UserListComponent,
     UserInviteComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    UserManagementComponent,
+    UserGroupsComponent
   ],
   exports: [
     MidgardComponent,

@@ -1,0 +1,15 @@
+<h3>
+  Current Users
+  <fj-button
+    [shape]="'rounded'"
+    [size]="'small'"
+    [iconMargin]="'1px 5px 1px 0px'"
+    [iconPosition]="'before'"
+    [icon]="'plus'"
+  > Invite User
+  </fj-button>
+</h3>
+<div class="users__content-switcher">
+  <fj-content-switcher [options]="contentSwitcherOptions" *ngIf="contentSwitcherOptions" (optionSelected)="subNavChanged($event)" [selectedOption]="0"></fj-content-switcher>
+</div>
+<router-outlet></router-outlet>

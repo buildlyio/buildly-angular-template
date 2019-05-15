@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { getAllCoreUsers, getCoreUsersLoaded } from '@src/midgard/state/coreuser/coreuser.selectors';
-import {Store} from '../../../modules/store/store';
+import { getAllCoreUsers, getCoreUsersLoaded } from '../../../../state/coreuser/coreuser.selectors';
+import {Store} from '../../../../modules/store/store';
 import { Router } from '@angular/router';
-import { CrudDirective } from '../../../modules/crud/crud.directive';
+import { CrudDirective } from '../../../../modules/crud/crud.directive';
 
 @Component({
   selector: 'mg-user-list',
