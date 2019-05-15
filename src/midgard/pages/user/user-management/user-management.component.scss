@@ -1,0 +1,15 @@
+@import "../../../../styles";
+
+.users {
+  &__content-switcher {
+    position: absolute;
+    margin-top: rem-calc(-15);
+    &__container {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      border-bottom: 1px solid #e1e1e1;
+      margin-bottom: rem-calc(15);
+    }
+  }
+}

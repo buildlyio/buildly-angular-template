@@ -26,7 +26,7 @@ import { UserInviteComponent } from './pages/user/user-invite/user-invite.compon
 import {
   FjButtonModule, FjCardItemModule, FjCardModule, FjContentSwitcherModule, FjInlineTextEditorModule, FjNativeDropdownModule,
   FjSvgIconModule, FjTableModule,
-  FjTextInputModule, IconModule
+  FjTextInputModule, FjToggleModule, IconModule
 } from 'freyja-ui';
 import { FormValidationHelper } from './modules/form/form.validation.helper';
 import { SearchBarComponent } from './components/top-bar/search-bar/search-bar.component';
@@ -58,6 +58,7 @@ import { UserGroupsComponent } from './pages/user/user-management/user-groups/us
     FjNativeDropdownModule,
     FjCardModule,
     FjInlineTextEditorModule,
+    FjToggleModule,
     IconModule,
     FjCardItemModule
   ],

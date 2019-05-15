@@ -9,6 +9,8 @@ import { workflowLevel2Reducer } from '@src/midgard/state/workflow-level2/workfl
 import { WorkflowLevel2Epics } from '../../state/workflow-level2/workflow-level2.epics';
 import { CoreUserEpics } from '../../state/coreuser/coreuser.epics';
 import { coreuserReducer } from '@src/midgard/state/coreuser/coreuser.reducer';
+import { CoreGroupEpics } from '@midgard/state/coregroup/coregroup.epics';
+import { coregroupReducer } from '@midgard/state/coregroup/coregroup.reducer';
 import { authuserReducer } from '@src/midgard/state/authuser/authuser.reducer';
 import { AuthUserEpics } from '@src/midgard/state/authuser/authuser.epics';
 import { WorkflowTeamEpics } from '@src/midgard/state/workflow-team/workflow-team.epics';
@@ -27,6 +29,7 @@ import { blueprintClientReducer } from '@clients/blueprint-client/src/lib/state/
 import { BlueprintClientEpics } from '@clients/blueprint-client/src/lib/state/blueprint-client.epics';
 import { contactsReducer } from '@clients/contacts/src/lib/state/contacts.reducer';
 import { ContactsEpics } from '@clients/contacts/src/lib/state/contacts.epics';
+
 let storeInstance: Store<any>;
 
 @Injectable()
@@ -40,6 +43,7 @@ export class Store<T> {
   constructor(
     private authUserEpics: AuthUserEpics,
     private coreUserEpics: CoreUserEpics,
+    private coreGroupEpics: CoreGroupEpics,
     private workflowTeamEpics: WorkflowTeamEpics,
     private workflowLevel1Epics: WorkflowLevel1Epics,
     private workflowLevel2Epics: WorkflowLevel2Epics,
@@ -57,6 +61,7 @@ export class Store<T> {
         apolloReducer,
         topBarReducer,
         coreuserReducer,
+        coregroupReducer,
         authuserReducer,
         workflowTeamReducer,
         workflowLevel1Reducer,
@@ -70,6 +75,7 @@ export class Store<T> {
       };
       const epics = [
         coreUserEpics,
+        coreGroupEpics,
         authUserEpics,
         workflowTeamEpics,
         workflowLevel1Epics,

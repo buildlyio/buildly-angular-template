@@ -12,22 +12,10 @@ import { CrudDirective } from '../../../../modules/crud/crud.directive';
 export class UserListComponent implements OnInit {
   @ViewChild('crud') crud: CrudDirective;
 
-  public tableOptions;
   public dataSelector;
   public loadedSelector;
-  public topBarOptions = [
-    {
-      label: 'Profile',
-      value: 'user-profile'
-    },
-    {
-      label: 'User Management',
-      value: 'user-management'
-    }
-  ];
 
   constructor(
-    private store: Store<any>,
     private router: Router
   ) {
   }
