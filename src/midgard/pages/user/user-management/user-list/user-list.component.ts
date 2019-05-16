@@ -149,13 +149,6 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.crud.updateItem(updatedUser);
   }
 
-  /**
-   * navigates to the invite user page
-   */
-  goToInviteUser() {
-    this.router.navigate([`/user/invite`]);
-  }
-
   ngOnDestroy() {
     if (this.coreGroupsSubscription) {
       this.coreGroupsSubscription.unsubscribe();

@@ -125,10 +125,4 @@ describe('UserListComponent', () => {
     expect(component.crud.updateItem).toHaveBeenCalledWith({id: 5, first_name: 'First', last_name: 'Last'});
   });
 
-  it('should navigate to invite page', () => {
-    router = TestBed.get(Router);
-    spyOn(router, 'navigate');
-    component.goToInviteUser();
-    expect(router.navigate).toHaveBeenCalledWith([`/user/invite`]);
-  });
 });

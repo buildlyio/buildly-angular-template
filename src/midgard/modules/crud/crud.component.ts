@@ -261,7 +261,7 @@ export class CrudComponent implements OnInit, OnDestroy {
     if (table) {
       property = elementName;
     } else {
-      if (editedObj.index !== undefined) {
+      if (index !== undefined) {
         property = this.cardItemOptions[elementName][index].prop;
       } else {
         property = this.cardItemOptions[elementName].prop;
