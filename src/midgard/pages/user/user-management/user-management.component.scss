@@ -13,3 +13,27 @@
     }
   }
 }
+
+.invite-user-overlay {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  position: absolute;
+  padding: rem-calc(20);
+  width: rem-calc(340);
+  z-index: 1;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);
+  border-radius: rem-calc(4);
+  &__header {
+    margin-top: 0;
+    margin-bottom: rem-calc(15);
+  }
+  &__email {
+    width: 100%;
+    margin-bottom: rem-calc(15);
+  }
+  &__button {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}

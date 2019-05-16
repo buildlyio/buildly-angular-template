@@ -8,7 +8,6 @@ import { WorkflowLevel2Component } from './pages/workflow-level2/list/workflow-l
 import { WorkflowLevel2DetailComponent } from './pages/workflow-level2/detail/workflow-level2-detail.component';
 import { UserComponent } from './pages/user/user.component';
 import { UserListComponent } from './pages/user/user-management/user-list/user-list.component';
-import { UserInviteComponent } from './pages/user/user-invite/user-invite.component';
 import { UserManagementComponent } from './pages/user/user-management/user-management.component';
 import { UserGroupsComponent } from './pages/user/user-management/user-groups/user-groups.component';
 
@@ -25,7 +24,6 @@ const midgardRoutes: Routes = [
               {path: 'list', component: UserListComponent, canActivate: [AuthGuard]},
               {path: 'groups', component: UserGroupsComponent, canActivate: [AuthGuard]}
             ]},
-          {path: 'invite', component: UserInviteComponent, canActivate: [AuthGuard]},
         ]},
       {path: 'dashboards', loadChildren: '@clients/dashboards/src/lib/dashboards.module#DashboardsModule'},
       {path: 'products', loadChildren: '@clients/products/src/lib/products.module#ProductsModule'},

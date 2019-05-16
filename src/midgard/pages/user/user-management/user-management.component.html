@@ -6,9 +6,37 @@
     [iconMargin]="'1px 5px 1px 0px'"
     [iconPosition]="'before'"
     [icon]="'plus'"
+    (click)="showUserInvitationOverlay = !showUserInvitationOverlay"
   > Invite User
   </fj-button>
 </h3>
+<div *ngIf="showUserInvitationOverlay">
+  <form class="invite-user-overlay" (clickOutside)="showUserInvitationOverlay = false" [formGroup]="invitationForm" (keyup.enter)="sendInvitation()">
+    <h4 class="invite-user-overlay__header">Invite users to your platform</h4>
+    <fj-text-input
+      [formGroup]="invitationForm"
+      [controlName]="'email'"
+      class="invite-user-overlay__email"
+      [label]="'Emails'"
+      [customStyles]="{ width: '100%' }"
+      [error]="errors.email"
+    >
+    </fj-text-input>
+    <div class="invite-user-overlay__button">
+      <fj-button
+        [disabled]="!invitationForm.valid"
+        [type]="'submit'"
+        (click)="sendInvitation()"
+        [size]="'small'"
+        [iconMargin]="'1px 5px'"
+        [margin]="'0px'"
+        [iconPosition]="'before'"
+      >
+        Send
+      </fj-button>
+    </div>
+  </form>
+</div>
 <div class="users__content-switcher__container">
   <fj-content-switcher class="users__content-switcher" [options]="contentSwitcherOptions" *ngIf="contentSwitcherOptions" (optionSelected)="subNavChanged($event)"></fj-content-switcher>
 </div>
