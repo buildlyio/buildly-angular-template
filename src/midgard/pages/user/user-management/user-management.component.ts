@@ -23,8 +23,7 @@ export class UserManagementComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   /**
    * redirect the user to the selected view from the content switcher

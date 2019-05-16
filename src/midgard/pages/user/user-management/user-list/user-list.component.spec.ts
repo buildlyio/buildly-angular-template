@@ -2,14 +2,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserListComponent } from './user-list.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { MidgardCrudModule } from '../../../modules/crud/crud.module';
-import { Store } from '../../../modules/store/store';
-import { StoreMock } from '../../../modules/store/store-mock';
+import { MidgardCrudModule } from '@midgard/modules/crud/crud.module';
+import { Store } from '@midgard/modules/store/store';
+import { StoreMock } from '@midgard/modules/store/store-mock';
 import { RouterTestingModule } from '@angular/router/testing';
-import { GraphQlService } from '../../../modules/graphql/graphql.service';
-import { StubService } from '../../../testing-utilities/stubs';
-import { CoreUser } from '../../../state/coreuser/coreuser.model';
-import { mockCoreUsers } from '../../../testing-utilities/mock.data';
+import { GraphQlService } from '@midgard/modules/graphql/graphql.service';
+import { StubService } from '@midgard/testing-utilities/stubs';
+import { CoreUser } from '@midgard/state/coreuser/coreuser.model';
+import { mockCoreUsers } from '@midgard/testing-utilities/mock.data';
 import { Router } from '@angular/router';
 
 describe('UserListComponent', () => {

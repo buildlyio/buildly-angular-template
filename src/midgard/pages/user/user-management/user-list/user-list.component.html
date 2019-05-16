@@ -77,7 +77,7 @@
       <fj-content-switcher
         [disabled] = "!row.is_active"
         [options]="coreGroups"
-        [selectedOption]="row.core_groups[0]"
+        [selectedOption]="row?.core_groups[0]?.id"
         (optionSelected)="updateCoreGroup($event, row)"
       >
       </fj-content-switcher>

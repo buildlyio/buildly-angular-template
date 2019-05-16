@@ -30,7 +30,6 @@ afterAll(function (done) {
 });
 
 describe('create workflowlevel2', () => {
-
   const newWorkflowLevel2: WorkflowLevel2 = {
     description: 'expected workflow level 2',
     level2_uuid: 'asdsad-sadsda-assd-mock',
