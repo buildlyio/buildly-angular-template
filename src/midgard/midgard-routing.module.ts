@@ -24,7 +24,7 @@ const midgardRoutes: Routes = [
               {path: 'list', component: UserListComponent, canActivate: [AuthGuard]},
               {path: 'groups', component: UserGroupsComponent, canActivate: [AuthGuard]}
             ]},
-        ]},
+        ]}
       ],
   },
 ];
