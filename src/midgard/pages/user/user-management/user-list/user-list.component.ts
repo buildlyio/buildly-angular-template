@@ -61,15 +61,21 @@ export class UserListComponent implements OnInit, OnDestroy {
    * @param row - the row where the action is triggered
    */
   dropdownActionTriggered(row, action: string) {
+    let updatedUser;
     if (action === 'delete') {
       this.crud.deleteItem(row);
     } else if (action === 'deactivate') {
-      row.is_active = false;
-      this.crud.updateItem(row);
+      updatedUser = {
+        id: row.id,
+        is_active: false
+      };
     } else if (action === 'activate') {
-      row.is_active = true;
-      this.crud.updateItem(row);
+      updatedUser = {
+        id: row.id,
+        is_active: true
+      };
     }
+    this.crud.updateItem(updatedUser);
   }
 
   /**
