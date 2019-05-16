@@ -1,11 +1,9 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import { select, Store } from '../store/store';
+import { select, Store } from '@src/midgard/modules/store/store';
 import { of, Subscription } from 'rxjs';
-import { GraphQlService } from '../graphql/graphql.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
-import { MatSnackBar } from '@angular/material';
 import {FormValidationHelper} from './form.validation.helper';
 
 @Component({
@@ -93,7 +91,7 @@ export class FormComponent implements OnInit, OnDestroy {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit() {
     if (this.selector) {

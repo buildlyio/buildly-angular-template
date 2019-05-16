@@ -20,18 +20,19 @@ import { WorkflowLevel2DetailComponent } from './pages/workflow-level2/detail/wo
 import { NavBarElemComponent } from './components/nav-bar/navbar-elem/navbar-elem.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RouterModule } from '@angular/router';
-import { UserDetailsComponent } from './pages/user/user-details/user-details.component';
-import { UserListComponent } from './pages/user/user-list/user-list.component';
-import { UserInviteComponent } from './pages/user/user-invite/user-invite.component';
+import { UserListComponent } from './pages/user/user-management/user-list/user-list.component';
 import {
   FjButtonModule, FjCardItemModule, FjCardModule, FjContentSwitcherModule, FjInlineTextEditorModule, FjNativeDropdownModule,
   FjSvgIconModule, FjTableModule,
-  FjTextInputModule, IconModule
+  FjTextInputModule, FjToggleModule, IconModule
 } from 'freyja-ui';
+import { ClickOutsideModule } from 'ng-click-outside';
 import { FormValidationHelper } from './modules/form/form.validation.helper';
 import { SearchBarComponent } from './components/top-bar/search-bar/search-bar.component';
 import { MidgardFormModule } from './modules/form/form.module';
 import { MidgardHttpModule } from './modules/http/http.module';
+import { UserManagementComponent } from './pages/user/user-management/user-management.component';
+import { UserGroupsComponent } from './pages/user/user-management/user-groups/user-groups.component';
 
 @NgModule({
   imports: [
@@ -56,8 +57,10 @@ import { MidgardHttpModule } from './modules/http/http.module';
     FjNativeDropdownModule,
     FjCardModule,
     FjInlineTextEditorModule,
+    FjToggleModule,
     IconModule,
-    FjCardItemModule
+    FjCardItemModule,
+    ClickOutsideModule
   ],
   providers: [
     AuthGuard,
@@ -74,10 +77,10 @@ import { MidgardHttpModule } from './modules/http/http.module';
     TopBarComponent,
     WorkflowLevel2DetailComponent,
     RegisterComponent,
-    UserDetailsComponent,
     UserListComponent,
-    UserInviteComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    UserManagementComponent,
+    UserGroupsComponent
   ],
   exports: [
     MidgardComponent,

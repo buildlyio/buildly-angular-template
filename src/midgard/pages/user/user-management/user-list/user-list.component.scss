@@ -1,11 +1,11 @@
-@import "../../../../styles";
+@import "../../../../../styles";
 
 .table {
   &__picture {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $gray-lighter;
+    background-color: $primary-color-lightest;
     height: rem-calc(40);
     width: rem-calc(40);
     border-radius: 50%;

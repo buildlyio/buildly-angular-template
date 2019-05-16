@@ -43,7 +43,7 @@ export class CoreUserEpics {
       switchMap((action: Action) => {
         return this.httpService.makeRequest('post', `${environment.API_URL}/coreuser/`, action.data).pipe(
           // If successful, dispatch success action with result
-          map(res => createCoreUserCommit(action.data)),
+          map(res => createCoreUserCommit(res.data)),
           // If request fails, dispatch failed action
           catchError((error) => of(createCoreUserFail(error)))
         );
@@ -61,7 +61,7 @@ export class CoreUserEpics {
       switchMap((action: Action) => {
         return this.httpService.makeRequest('patch', `${environment.API_URL}/coreuser/${action.data.id}/`, action.data, true).pipe(
           // If successful, dispatch success action with result
-          map(res => updateCoreUserCommit(action.data)),
+          map(res => updateCoreUserCommit(res.data)),
           // If request fails, dispatch failed action
           catchError((error) => of(updateCoreUserFail(error)))
         );

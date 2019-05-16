@@ -1,15 +1,3 @@
-<h3>
-  Current Users
-  <fj-button
-    [shape]="'rounded'"
-    [size]="'small'"
-    [iconMargin]="'1px 5px 1px 0px'"
-    [iconPosition]="'before'"
-    [icon]="'plus'"
-    (click)="goToInviteUser()"
-  > Invite User
-  </fj-button>
-</h3>
 <fj-table
   mgCrud
   #crud="mgCrud"
@@ -23,7 +11,7 @@
   [deleteMessage]="'The user has been deactivated'"
   (dataLoadedFromStore)="defineDropdownOptions()"
 >
-  <fj-table-custom-column name="Custom" sortable="true" index="0" prop="first_name" flex="2">
+  <fj-table-custom-column name="Custom" sortable="true" index="0" prop="first_name" flex="3">
     <ng-template fj-table-header-template>
       <p>Full name</p>
     </ng-template>
@@ -37,32 +25,20 @@
       <fj-inline-text-editor
         *ngIf="row.is_active"
         [displayElementCustomStyles]="{color: 'black', fontWeight: '700', marginRight: '5px'}"
-        [value]="row['first_name']"
-        name="first_name"
+        [value]="row['first_name'] + ' ' + row['last_name']"
+        name="name"
+        (elementEdited)="updateUser($event, row)"
       ></fj-inline-text-editor>
       <fj-inline-text-editor
         *ngIf="!row.is_active"
         [displayElementCustomStyles]="{fontWeight: '700', marginRight: '5px'}"
         [disabled]="true"
-        [value]="row['first_name']"
-        name="email"
-      ></fj-inline-text-editor>
-      <fj-inline-text-editor
-        *ngIf="row.is_active"
-        [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
-        [value]="row['last_name']"
-        name="last_name"
-      ></fj-inline-text-editor>
-      <fj-inline-text-editor
-        *ngIf="!row.is_active"
-        [displayElementCustomStyles]="{fontWeight: '700'}"
-        [disabled]="true"
-        [value]="row['last_name']"
-        name="last_name"
+        [value]="row['first_name'] + ' ' + row['last_name']"
+        name="name"
       ></fj-inline-text-editor>
     </ng-template>
   </fj-table-custom-column>
-  <fj-table-custom-column name="Custom" sortable="true" index="1" prop="email" flex="2">
+  <fj-table-custom-column name="Custom" sortable="true" index="1" prop="email" flex="3">
     <ng-template fj-table-header-template>
       <p>Email</p>
     </ng-template>
@@ -72,6 +48,7 @@
         *ngIf="row.is_active"
         [value]="row['email']"
         name="email"
+        (elementEdited)="updateUser($event, row)"
       >
       </fj-inline-text-editor>
       <fj-inline-text-editor
@@ -83,7 +60,7 @@
       </fj-inline-text-editor>
     </ng-template>
   </fj-table-custom-column>
-  <fj-table-custom-column name="Custom" sortable="true" index="2" prop="activity" flex="2">
+  <fj-table-custom-column name="Custom" sortable="true" index="2" prop="activity" flex="1">
     <ng-template fj-table-header-template>
       <p>Last Activity</p>
     </ng-template>
@@ -99,7 +76,10 @@
     <ng-template let-row="row" fj-table-cell-template>
       <fj-content-switcher
         [disabled] = "!row.is_active"
-        [options]="[{label: 'Admin', value: 'admin'}, {label: 'Editor', value: 'editor'}, {label: 'User', value: 'user'}]">
+        [options]="coreGroups"
+        [selectedOption]="row?.core_groups[0]?.id"
+        (optionSelected)="updateCoreGroup($event, row)"
+      >
       </fj-content-switcher>
     </ng-template>
   </fj-table-custom-column>

@@ -27,6 +27,11 @@
       color: $gray-light;
       margin-bottom: rem-calc(5);
     }
+    &__text {
+      margin: 0;
+      color: $text-primary-color;
+      font-weight: 700;
+    }
     &__name {
       display: flex;
     }

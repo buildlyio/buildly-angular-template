@@ -1,4 +1,4 @@
-import {FormGroup} from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -15,4 +15,15 @@ export class FormValidationHelper {
     });
     return errors;
   }
+}
+
+/**
+ * custom reactive form validator to validate a field with multiple emails separated by commas
+ * @param {AbstractControl} control
+ * @returns {{[p: string]: any} | null}
+ */
+export const commaSepEmailValidator = (control: AbstractControl): { [key: string]: any } | null => {
+  const emails = control.value.split(',').map(e => e.trim());
+  const forbidden = emails.some(email => Validators.email(new FormControl(email)));
+  return forbidden ? { 'email': { value: control.value } } : null;
 }

@@ -1,0 +1,91 @@
+<div class="buttons-container">
+  <fj-button size="micro" color="light" (click)="createGroup()">Create a group</fj-button>
+</div>
+<fj-table
+  mgCrud
+  #crud="mgCrud"
+  [rows]= "crud.rows"
+  [viewPort]="'350px'"
+  [loadAction]="'LOAD_DATA_COREGROUP'"
+  [loadedSelector]="loadedSelector"
+  [dataSelector]="dataSelector"
+  [createAction]="'CREATE_COREGROUP'"
+  [deleteAction]="'DELETE_COREGROUP'"
+  [updateAction]="'UPDATE_COREGROUP'"
+  [deleteMessage]="'The group has been deleted'"
+>
+  <fj-table-custom-column name="Custom" sortable="true" index="0" prop="name" flex="2">
+    <ng-template fj-table-header-template>
+      <p>Group Types</p>
+    </ng-template>
+    <ng-template let-row="row" fj-table-cell-template>
+      <fj-inline-text-editor
+        [displayElementCustomStyles]="{color: 'black', fontWeight: '700', marginRight: '5px'}"
+        [value]="row['name']"
+        name="name"
+        (elementEdited)="updateName($event, row)"
+      ></fj-inline-text-editor>
+    </ng-template>
+  </fj-table-custom-column>
+  <fj-table-custom-column name="Custom" index="1">
+    <ng-template fj-table-header-template>
+      <p>Create</p>
+    </ng-template>
+    <ng-template let-row="row" fj-table-cell-template>
+      <fj-toggle
+        [size]="'micro'"
+        [checked]="row.permissions.create"
+        (toggleClicked)="updatePermission($event, 'create', row)">
+      </fj-toggle>
+    </ng-template>
+  </fj-table-custom-column>
+  <fj-table-custom-column name="Custom" index="2">
+    <ng-template fj-table-header-template>
+      <p>Read</p>
+    </ng-template>
+    <ng-template let-row="row" fj-table-cell-template>
+      <fj-toggle
+        [size]="'micro'"
+        [checked]="row.permissions.read"
+        (toggleClicked)="updatePermission($event, 'read', row)">
+      </fj-toggle>
+    </ng-template>
+  </fj-table-custom-column>
+  <fj-table-custom-column name="Custom" index="3">
+    <ng-template fj-table-header-template>
+      <p>Update</p>
+    </ng-template>
+    <ng-template let-row="row" fj-table-cell-template>
+      <fj-toggle
+        [size]="'micro'"
+        [checked]="row.permissions.update"
+        (toggleClicked)="updatePermission($event, 'update', row)">
+      </fj-toggle>    </ng-template>
+  </fj-table-custom-column>
+  <fj-table-custom-column name="Custom" index="4">
+    <ng-template fj-table-header-template>
+      <p>Delete</p>
+    </ng-template>
+    <ng-template let-row="row" fj-table-cell-template>
+      <fj-toggle
+        [size]="'micro'"
+        [checked]="row.permissions.delete"
+        (toggleClicked)="updatePermission($event, 'delete', row)">
+      </fj-toggle>    </ng-template>
+  </fj-table-custom-column>
+  <fj-table-custom-column name="Custom" index="5" flex="1">
+    <ng-template fj-table-header-template>
+      <p>Actions</p>
+    </ng-template>
+    <ng-template let-row="row" fj-table-cell-template>
+      <fj-native-dropdown
+        [size]="'small'"
+        [options]="dropdownOptions"
+        [showDefaultOnClick]="true"
+        [customStyles]="{'marginTop': '0px', 'borderColor': 'rgba(27, 81, 160, 1)', 'color': 'rgba(27, 81, 160, 1)','backgroundColor': 'white','width' : '40px', 'padding': '0 0px 0 10px'}"
+        (optionSelected)="dropdownActionTriggered(row, $event)"
+      >
+      </fj-native-dropdown>
+    </ng-template>
+  </fj-table-custom-column>
+</fj-table>

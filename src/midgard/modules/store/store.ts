@@ -9,14 +9,15 @@ import { workflowLevel2Reducer } from '@src/midgard/state/workflow-level2/workfl
 import { WorkflowLevel2Epics } from '../../state/workflow-level2/workflow-level2.epics';
 import { CoreUserEpics } from '../../state/coreuser/coreuser.epics';
 import { coreuserReducer } from '@src/midgard/state/coreuser/coreuser.reducer';
+import { CoreGroupEpics } from '@midgard/state/coregroup/coregroup.epics';
+import { coregroupReducer } from '@midgard/state/coregroup/coregroup.reducer';
 import { authuserReducer } from '@src/midgard/state/authuser/authuser.reducer';
 import { AuthUserEpics } from '@src/midgard/state/authuser/authuser.epics';
 import { WorkflowTeamEpics } from '@src/midgard/state/workflow-team/workflow-team.epics';
 import { workflowTeamReducer } from '@src/midgard/state/workflow-team/workflow-team.reducer';
 import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
 import { distinctUntilChanged } from 'rxjs/operators';
-import { CoreGroupEpics } from '../../state/coregroup/coregroup.epics';
-import { coregroupReducer } from '../../state/coregroup/coregroup.reducer';
+
 let storeInstance: Store<any>;
 
 @Injectable()
@@ -50,6 +51,7 @@ export class Store<T> {
       };
       const epics = [
         coreUserEpics,
+        coreGroupEpics,
         authUserEpics,
         coreGroupEpics,
         workflowTeamEpics,
@@ -95,7 +97,7 @@ export class Store<T> {
  * @param {Function} selector - memoized selector
  * @returns {<T>(source: Observable<T>) => Observable<T>}
  */
-export const select = (selector: Function) => <T>(source: Observable<T>) =>
+export const select = (selector: any) => <T>(source: Observable<T>) =>
   new Observable<T>(observer => {
     return source.subscribe({
       next(state: any) {

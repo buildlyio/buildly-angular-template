@@ -3,10 +3,8 @@
     'card-item__content--highlight':isHighlight,
     'card-item__content--tile--expanded': isExpanded && layout === 'tile',
     'card-item__content--list--expanded': isExpanded && layout === 'list',
-    'card-item__content--table--expanded': isExpanded && layout === 'table',
     'card-item__content--tile': layout === 'tile',
-    'card-item__content--list': layout === 'list',
-    'card-item__content--table': layout === 'table'
+    'card-item__content--list': layout === 'list'
     }">
     <div class="card-item__header" (click)="toggleExpanded()" [ngClass]="'card-item__header--' + layout">
       <ng-content select="[card-item-header]" ></ng-content>
@@ -109,7 +107,7 @@
                 <fj-inline-text-editor
                   [value]="item[detailItem?.prop]"
                   name="details"
-                  [index]="0"
+                  [index]="i"
                   displayElement="div"
                   (elementEdited)="onEditElement($event)"
                   [inputCustomStyles]="inputFieldStyles">

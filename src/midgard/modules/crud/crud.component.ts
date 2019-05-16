@@ -36,10 +36,6 @@ export class CrudComponent implements OnInit, OnDestroy {
    */
   @Input() loadAction;
   /**
-   * redux action to load data from Graph QL
-   */
-  @Input() loadActionGraphQl;
-  /**
    * redux action to delete an item
    */
   @Input() deleteAction;
@@ -76,39 +72,18 @@ export class CrudComponent implements OnInit, OnDestroy {
    */
   @Input() addButtonTextChildren;
   /**
-   * if true it uses graphQl to get the data instead http to get the data
-   */
-  @Input() useGraphQl;
-  /**
-   *  model of which value will be returned
-   */
-  @Input() graphQlModel;
-  /**
-   * model of the children elements
-   * !important currently only two levels supported
-   */
-  @Input() graphQlChildrenModel;
-  /**
-   * graphQl model to be requested
-   */
-  @Input() graphQlQuery;
-  /**
-   * graphQl query variables
-   */
-  @Input() graphQlVariables;
-  /**
    * default layout of the cards
    */
   @Input() defaultLayout;
 
   /**
-   * event that is triggered when an action from the card-item component is triggered
+   * event that is triggered when an action from the card-item or the table component is triggered
    */
-  @Output() cardItemActionClicked: EventEmitter<any> = new EventEmitter();
+  @Output() itemActionClicked: EventEmitter<any> = new EventEmitter();
   /**
-   * event that is triggered when a field has been edited in the card
+   * event that is triggered when a field has been edited
    */
-  @Output() cardItemEdited: EventEmitter<any> = new EventEmitter();
+  @Output() itemEdited: EventEmitter<any> = new EventEmitter();
   /**
    * event that is triggered when an action from the table component is triggered
    */
@@ -142,7 +117,6 @@ export class CrudComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<any>, // type {any} beacuse the state of the app is not fixed and can be changed depending on the modules
-    private graphQlService: GraphQlService,
   ) { }
 
   ngOnInit() {
@@ -167,13 +141,8 @@ export class CrudComponent implements OnInit, OnDestroy {
         }
       })
     );
-    if (this.useGraphQl) {
-      this.listenToStore();
-      this.getDataUsingGraphQl();
-    } else {
-      this.listenToStore();
-      this.getDataFromStore();
-    }
+    this.listenToStore();
+    this.getDataFromStore();
   }
 
   /**
@@ -187,18 +156,6 @@ export class CrudComponent implements OnInit, OnDestroy {
         this.rows = data;
         this.dataLoadedFromStore.emit(this.rows);
       }
-    });
-  }
-
-  /**
-   * executes graphQl query to get the data from the server
-   */
-  getDataUsingGraphQl() {
-    this.graphQlSubscription = this.graphQlService.query(this.graphQlQuery, this.graphQlVariables).subscribe((res: any) => {
-      this.store.dispatch({
-        type: this.loadActionGraphQl,
-        data: res.data[this.graphQlModel]
-      });
     });
   }
 
@@ -259,16 +216,16 @@ export class CrudComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * function that listens if an action from the card-item component has been triggered
+   * function that listens if an action from the card-item or table component has been triggered
    * @param {string} actionType - type of the action that has been triggered
    * @param {string} item - the curren item data
    */
-  onCardItemActionClicked(actionType, item) {
+  onItemActionClicked(actionType, item) {
     const emittedObj = {
       actionType,
       item
     };
-    this.cardItemActionClicked.emit(emittedObj);
+    this.itemActionClicked.emit(emittedObj);
   }
 
   /**
@@ -293,24 +250,29 @@ export class CrudComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * function that listens if an element has been edited inline in the card item component
-   * @param {value : string, element: string} editedObj - object that contains the edited value and element
+   * function that listens if an element has been edited inline
+   * @param {value : string, elementName: string} editedObj - object that contains the edited value and element
    * @param {string} itemData - the current item data
+   * @param {boolean} table - if the element is edited from a table
    */
-  onCardItemEdited(editedObj, itemData) {
+  onItemEdited(editedObj, itemData, table) {
     let property;
-    const value = editedObj.value;
-    if (editedObj.index !== undefined) {
-      property = this.cardItemOptions[editedObj.elementName][editedObj.index].prop;
+    const {value, elementName, index} = editedObj;
+    if (table) {
+      property = elementName;
     } else {
-      property = this.cardItemOptions[editedObj.elementName].prop;
+      if (index !== undefined) {
+        property = this.cardItemOptions[elementName][index].prop;
+      } else {
+        property = this.cardItemOptions[elementName].prop;
+      }
     }
     const editedField = {
       value,
       property,
       itemData
     };
-    this.cardItemEdited.emit(editedField);
+    this.itemEdited.emit(editedField);
   }
 
   /**
@@ -318,11 +280,7 @@ export class CrudComponent implements OnInit, OnDestroy {
    * @param {} evt - click event
    */
   addNewElement(view: string) {
-    if (this.defaultLayout === 'data-table') {
-      this.addButtonClicked.emit();
-    } else {
-      this.onCardItemActionClicked('new', null);
-    }
+    this.onItemActionClicked('new', null);
   }
 
 

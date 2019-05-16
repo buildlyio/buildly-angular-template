@@ -26,10 +26,12 @@ export class UserComponent implements OnInit, OnDestroy {
   public selectedTab = 'user-management';
   public topBarOptions = [
     {
+      index: 0,
       label: 'Profile Settings',
       value: 'user-profile'
     },
     {
+      index: 1,
       label: 'Users Management',
       value: 'user-management'
     }
@@ -43,6 +45,13 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.checkTopBarOptions();
+  }
+
+  /**
+   * it checks the selected top bar option and show the corresponding component
+   */
+  checkTopBarOptions() {
     this.store.dispatch(setTopBarOptions(this.topBarOptions));
     this.storeSubscription = this.store.observable.pipe(
       select(getTopBarSelectedOption),
@@ -50,9 +59,9 @@ export class UserComponent implements OnInit, OnDestroy {
       if (data) {
         this.selectedTab = data.value;
         if (this.selectedTab === 'user-management') {
-          this.router.navigate(['/user/list']);
+          this.router.navigate(['/user/user-management/list']);
         } else if (this.selectedTab === 'user-profile') {
-          this.router.navigate(['/user']);
+          // this.router.navigate(['/user']);
         }
       }
     });
@@ -65,12 +74,34 @@ export class UserComponent implements OnInit, OnDestroy {
    */
   updateUser(editedObj: {value: string, elementName: string}) {
     const {value, elementName} = editedObj;
+    if (elementName === 'name') {
+      this.updateName(value);
+    } else {
+      let updatedUser;
+      if (this.crud.rows.data) {
+        updatedUser = {
+          id: this.crud.rows.data.id,
+        };
+        updatedUser[elementName] = value;
+      }
+      this.crud.updateItem(updatedUser);
+    }
+
+  }
+
+  /**
+   * splits the full name to first_name and last name and updates the user
+   */
+  updateName(fullname: string) {
     let updatedUser;
+    const firstName = fullname.split(' ')[0];
+    const lastName = fullname.split(' ')[1];
     if (this.crud.rows.data) {
       updatedUser = {
         id: this.crud.rows.data.id,
-      }
-      updatedUser[elementName] = value;
+        first_name: firstName,
+        last_name: lastName
+      };
     }
     this.crud.updateItem(updatedUser);
   }

@@ -7,9 +7,9 @@ import { AuthGuard } from './modules/oauth/auth.guard';
 import { WorkflowLevel2Component } from './pages/workflow-level2/list/workflow-level2.component';
 import { WorkflowLevel2DetailComponent } from './pages/workflow-level2/detail/workflow-level2-detail.component';
 import { UserComponent } from './pages/user/user.component';
-import { UserListComponent } from './pages/user/user-list/user-list.component';
-import { UserDetailsComponent } from './pages/user/user-details/user-details.component';
-import { UserInviteComponent } from './pages/user/user-invite/user-invite.component';
+import { UserListComponent } from './pages/user/user-management/user-list/user-list.component';
+import { UserManagementComponent } from './pages/user/user-management/user-management.component';
+import { UserGroupsComponent } from './pages/user/user-management/user-groups/user-groups.component';
 
 const midgardRoutes: Routes = [
   {
@@ -20,10 +20,11 @@ const midgardRoutes: Routes = [
           {path: 'main', component: WorkflowLevel2DetailComponent}
       ]},
       {path: 'user', component: UserComponent, canActivate: [AuthGuard], children: [
-          {path: 'list', component: UserListComponent, canActivate: [AuthGuard]},
-          {path: 'invite', component: UserInviteComponent, canActivate: [AuthGuard]},
-          {path: 'details/:id', component: UserDetailsComponent, canActivate: [AuthGuard]},
-        ]}
+          {path: 'user-management', component: UserManagementComponent, canActivate: [AuthGuard], children : [
+              {path: 'list', component: UserListComponent, canActivate: [AuthGuard]},
+              {path: 'groups', component: UserGroupsComponent, canActivate: [AuthGuard]}
+            ]},
+        ]},
       ],
   },
 ];

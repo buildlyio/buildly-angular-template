@@ -36,11 +36,12 @@
     "apollo-link-context": "1.0.14",
     "apollo-utilities": "1.0.25",
     "core-js": "2.6.0",
-    "freyja-ui": "^0.4.10",
+    "freyja-ui": "^0.4.14",
     "graphql": "0.13.2",
     "graphql-tag": "2.10.1",
     "midgard-core": "0.1.2",
     "moment": "2.22.2",
+    "ng-click-outside": "^4.0.0",
     "rxjs": "6.3.2",
     "rxjs-compat": "6.3.2",
     "zone.js": "~0.8.26"

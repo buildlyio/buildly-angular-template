@@ -43,7 +43,7 @@ export class CoreGroupEpics {
       switchMap((action: Action) => {
         return this.httpService.makeRequest('post', `${environment.API_URL}/coregroups/`, action.data).pipe(
           // If successful, dispatch success action with result
-          map(res => createCoreGroupCommit(action.data)),
+          map(res => createCoreGroupCommit(res.data)),
           // If request fails, dispatch failed action
           catchError((error) => of(createCoreGroupFail(error)))
         );
@@ -61,7 +61,7 @@ export class CoreGroupEpics {
       switchMap((action: Action) => {
         return this.httpService.makeRequest('patch', `${environment.API_URL}/coregroups/${action.data.id}/`, action.data, true).pipe(
           // If successful, dispatch success action with result
-          map(res => updateCoreGroupCommit(action.data)),
+          map(res => updateCoreGroupCommit(res.data)),
           // If request fails, dispatch failed action
           catchError((error) => of(updateCoreGroupFail(error)))
         );

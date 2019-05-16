@@ -7,7 +7,6 @@ pipeline:
       - npm install gulp-cli -g
       - npm install
       - npm run init
-    secrets: []
     when:
       event: [push, tag]
 
@@ -49,6 +48,8 @@ pipeline:
     image: plugins/slack
     channel: drone-ci
     username: Drone-CI
-    secrets: [SLACK_WEBHOOK]
+    webhook:
+      from_secret: SLACK_WEBHOOK
     when:
+      event: [push, tag]
       status: [failure]
