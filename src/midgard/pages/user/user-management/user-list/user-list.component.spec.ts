@@ -15,7 +15,6 @@ import { Router } from '@angular/router';
 describe('UserListComponent', () => {
   let component: UserListComponent;
   let fixture: ComponentFixture<UserListComponent>;
-  let router;
   const mockRows = [
     {
       id: 5,
@@ -95,7 +94,7 @@ describe('UserListComponent', () => {
   it('should call crud updateItem function if the user select activate from the dropdown', () => {
     spyOn(component.crud, 'updateItem');
     component.dropdownActionTriggered(mockRows[0], 'activate');
-    expect(component.crud.updateItem).toHaveBeenCalledWith(mockRows[0]);
+    expect(component.crud.updateItem).toHaveBeenCalledWith({id: mockRows[0].id, is_active: true});
   });
 
 
