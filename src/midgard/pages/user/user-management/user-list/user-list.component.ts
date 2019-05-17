@@ -18,7 +18,7 @@ export class UserListComponent implements OnInit, OnDestroy {
   public dataSelector;
   public loadedSelector;
   public coreGroups;
-  private coreGroupsSubscription
+  private coreGroupsSubscription;
 
   constructor(
     private router: Router,

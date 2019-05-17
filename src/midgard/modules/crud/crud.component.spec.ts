@@ -14,9 +14,9 @@ import { MatSnackBarStub } from '@src/midgard/testing-utilities/stubs';
 import { MidgardStoreModule } from '../store/store.module';
 import { StoreMock } from '../store/store-mock';
 import { Store } from '../store/store';
-import { mockAppointmentsForSelectors } from '../../testing-utilities/mock.data';
 import { FilterByNamePipe } from '../../pipes/filter-by-name.pipe';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { mockCoreGroups } from '../../testing-utilities/mock.data';
 
 describe('CrudComponent', () => {
   let component: CrudComponent;
@@ -65,9 +65,9 @@ describe('CrudComponent', () => {
   });
 
   it('should dispatch delete action and emit itemDeleted event when delete item is called', () => {
-    const item = mockAppointmentsForSelectors[0];
+    const item = mockCoreGroups[0];
 
-    component.rows = mockAppointmentsForSelectors;
+    component.rows = mockCoreGroups;
     spyOn(store, 'dispatch');
     spyOn(component.itemDeleted, 'emit');
 
@@ -81,10 +81,10 @@ describe('CrudComponent', () => {
   });
 
   it('should dispatch create action and emit itemCreated when create item is called', () => {
-    const item = mockAppointmentsForSelectors[1];
+    const item = mockCoreGroups[1];
     const index = 3;
 
-    component.rows = mockAppointmentsForSelectors;
+    component.rows = mockCoreGroups;
     spyOn(store, 'dispatch');
     spyOn(component.itemCreated, 'emit');
 
@@ -99,9 +99,9 @@ describe('CrudComponent', () => {
   });
 
   it('should dispatch update action and emit itemUpdated when update is called', () => {
-    const item = mockAppointmentsForSelectors[1];
+    const item = mockCoreGroups[1];
 
-    component.rows = mockAppointmentsForSelectors;
+    component.rows = mockCoreGroups;
     spyOn(store, 'dispatch');
     spyOn(component.itemUpdated, 'emit');
 
