@@ -130,7 +130,9 @@ export const select = (selector: any) => <T>(source: Observable<T>) =>
   new Observable<T>(observer => {
     return source.subscribe({
       next(state: any) {
-        observer.next(selector(state));
+        if (selector) {
+          observer.next(selector(state));
+        }
       },
       error(err) { observer.error(err); },
       complete() { observer.complete(); }
