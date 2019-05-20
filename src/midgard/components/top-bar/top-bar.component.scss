@@ -23,7 +23,7 @@
   &__menu {
     position: absolute;
     top: rem-calc(15);
-    padding: 4px;
+    padding: rem-calc(2);
     font-size: 4px;
     border-radius: 4px;
     color: $text-primary-color;
@@ -43,9 +43,7 @@
     text-decoration: none;
     &__logo {
       margin-right: 5px;
-      fill: red;
-      height: rem-calc(30);
-      width: rem-calc(30);
+      width: rem-calc(100);
     }
   }
 
