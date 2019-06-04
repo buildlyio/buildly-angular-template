@@ -15,7 +15,7 @@ export interface CrudAction {
   /**
    * data returned from the server
    */
-  data?: any[];
+  data?: any;
   /**
    * error returned from the server
    */

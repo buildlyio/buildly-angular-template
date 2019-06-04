@@ -60,7 +60,7 @@ export class CoreUserEpics {
   crudUpdateEpic = action$ => {
     return action$.pipe(
       redux.ofType(CRUD_UPDATE),
-      switchMap((action: Action) => {
+      switchMap((action: CrudAction) => {
         return this.httpService.makeRequest('patch', `${environment.API_URL}${action.endpoint}/${action.data.id}/`, action.data, true).pipe(
           // If successful, dispatch success action with result
           map(res => crudUpdateCommit(res.data, action.endpoint, action.idProp, action.dataProp)),
@@ -78,7 +78,7 @@ export class CoreUserEpics {
   crudDeleteEpic = action$ => {
     return action$.pipe(
       redux.ofType(CRUD_DELETE),
-      switchMap((action: Action) => {
+      switchMap((action: CrudAction) => {
         return this.httpService.makeRequest('delete', `${environment.API_URL}${action.endpoint}/${action.data.id}/`, {}, true).pipe(
           // If successful, dispatch success action with result
           map(res => crudDeleteCommit(res.data, action.endpoint, action.idProp, action.dataProp)),

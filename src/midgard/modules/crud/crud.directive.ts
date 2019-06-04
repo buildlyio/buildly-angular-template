@@ -4,6 +4,7 @@ import {GraphQlService} from '@src/midgard/modules/graphql/graphql.service';
 import {map} from 'rxjs/operators';
 import {select, Store} from '@src/midgard/modules/store/store';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { crudLoadData } from './redux/crud.actions';
 
 @Directive({
   selector: '[mgCrud]',
@@ -18,21 +19,37 @@ export class CrudDirective implements OnInit, OnDestroy {
   private graphQlSubscription: Subscription;
   private storeSubscription: Subscription;
 
+  /**
+   * the endpoint to request
+   */
+  @Input() endpoint;
+  /**
+   * property that stores the data
+   */
+  @Input() dataProp;
+  /**
+   * the id property of the endpoint
+   */
+  @Input() idProp;
+  /**
+   * custom redux action to load data
+   */
   @Input() loadAction;
   /**
    * redux action to load data from Graph QL
+   * @deprecated
    */
   @Input() loadActionGraphQl;
   /**
-   * redux action to create an item
+   * custom redux action to create an item
    */
   @Input() createAction;
   /**
-   * redux action to update an item
+   * custom redux action to update an item
    */
   @Input() updateAction;
   /**
-   * redux action to delete an item
+   * custom redux action to delete an item
    */
   @Input() deleteAction;
   /**
@@ -49,11 +66,11 @@ export class CrudDirective implements OnInit, OnDestroy {
   @Input() deleteMessage;
 
   /**
-   * redux selector function to retrieve data list
+   * custom redux selector function to retrieve data list
    */
   @Input() dataSelector;
   /**
-   * redux selector function to check if the data is loaded
+   * custom redux selector function to check if the data is loaded
    */
   @Input() loadedSelector;
   /**
@@ -101,9 +118,13 @@ export class CrudDirective implements OnInit, OnDestroy {
    * gets data from redux store depending on the given loadAction (input)
    */
   getDataFromStore() {
-    this.store.dispatch({
-      type: this.loadAction,
-    });
+    if (this.loadAction) {
+      this.store.dispatch({
+        type: this.loadAction,
+      });
+    } else if (this.endpoint) {
+      crudLoadData(this.endpoint);
+    }
   }
   /**
    * send a request to create an item from the list

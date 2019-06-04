@@ -1,8 +1,8 @@
 import {
-  CREATE_COMMIT,
-  DELETE_COMMIT,
-  LOAD_DATA_COMMIT,
-  UPDATE_COMMIT,
+  CRUD_CREATE_COMMIT,
+  CRUD_DELETE_COMMIT,
+  CRUD_LOAD_DATA_COMMIT,
+  CRUD_UPDATE_COMMIT,
 } from './crud.actions';
 import {addAll, deleteOne, upsertOne} from '@src/midgard/modules/store/reducer.utils';
 import { CrudAction } from './crud.action.model';
@@ -24,22 +24,23 @@ const initialState: CrudState = {
 };
 
 export function crudDataReducer(state: CrudState = initialState, action: CrudAction) {
+  let newState: CrudState = {...state};
   switch (action.type) {
-    case LOAD_DATA_COMMIT:
-      const newState: CrudState = {...state};
+    case CRUD_CREATE_COMMIT:
+      newState = {...state};
       newState.endpoints[action.endpoint] = addAll(state.endpoints[action.endpoint], action);
       return newState;
-    case CREATE_COMMIT:
-      const newState: CrudState = {...state};
-      newState.endpoints[action.endpoint] = upsertOne(state.endpoints[action.endpoint], action);
+    case CRUD_DELETE_COMMIT:
+      newState = {...state};
+      newState.endpoints[action.endpoint] = upsertOne(state.endpoints[action.endpoint], action, action.idProp, action.dataProp);
       return newState;
-    case UPDATE_COMMIT:
-      const newState: CrudState = {...state};
-      newState.endpoints[action.endpoint] = upsertOne(state.endpoints[action.endpoint], action);
+    case CRUD_LOAD_DATA_COMMIT:
+      newState = {...state};
+      newState.endpoints[action.endpoint] = upsertOne(state.endpoints[action.endpoint], action, action.idProp, action.dataProp);
       return newState;
-    case DELETE_COMMIT:
-      const newState: CrudState = {...state};
-      newState.endpoints[action.endpoint] = deleteOne(state.endpoints[action.endpoint], action);
+    case CRUD_UPDATE_COMMIT:
+      newState = {...state};
+      newState.endpoints[action.endpoint] = deleteOne(state.endpoints[action.endpoint], action, action.idProp, action.dataProp);
       return newState;
     default:
       return state;

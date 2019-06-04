@@ -86,7 +86,6 @@ export function crudUpdateCommit(data, endpoint: string, idProp?: string, dataPr
     endpoint,
     idProp,
     dataProp,
-    data
   };
 }
 
@@ -115,7 +114,6 @@ export function crudDeleteCommit(data, endpoint: string, idProp?: string, dataPr
     endpoint,
     idProp,
     dataProp,
-    data
   };
 }
 

@@ -29,6 +29,7 @@ import { blueprintClientReducer } from '@clients/blueprint-client/src/lib/state/
 import { BlueprintClientEpics } from '@clients/blueprint-client/src/lib/state/blueprint-client.epics';
 import { contactsReducer } from '@clients/contacts/src/lib/state/contacts.reducer';
 import { ContactsEpics } from '@clients/contacts/src/lib/state/contacts.epics';
+import { crudDataReducer } from '../crud/redux/crud.reducer';
 
 let storeInstance: Store<any>;
 
@@ -60,6 +61,7 @@ export class Store<T> {
       const reducers = {
         apolloReducer,
         topBarReducer,
+        crudDataReducer,
         coreuserReducer,
         coregroupReducer,
         authuserReducer,
