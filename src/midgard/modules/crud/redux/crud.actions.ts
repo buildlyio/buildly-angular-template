@@ -1,101 +1,128 @@
-export const LOAD_DATA = 'LOAD_DATA';
-export const LOAD_DATA_COMMIT = 'LOAD_DATA_COMMIT';
-export const LOAD_DATA_FAIL = 'LOAD_DATA_FAIL';
+export const CRUD_LOAD_DATA = 'CRUD_LOAD_DATA';
+export const CRUD_LOAD_DATA_COMMIT = 'CRUD_LOAD_DATA_COMMIT';
+export const CRUD_LOAD_DATA_FAIL = 'CRUD_LOAD_DATA_FAIL';
 
-export const CREATE = 'CREATE';
-export const CREATE_COMMIT = 'CREATE_COMMIT';
-export const CREATE_FAIL = 'CREATE_FAIL';
+export const CRUD_CREATE = 'CRUD_CREATE';
+export const CRUD_CREATE_COMMIT = 'CRUD_CREATE_COMMIT';
+export const CRUD_CREATE_FAIL = 'CRUD_CREATE_FAIL';
 
-export const UPDATE = 'UPDATE';
-export const UPDATE_COMMIT = 'UPDATE_COMMIT';
-export const UPDATE_FAIL = 'UPDATE_FAIL';
+export const CRUD_UPDATE = 'CRUD_UPDATE';
+export const CRUD_UPDATE_COMMIT = 'CRUD_UPDATE_COMMIT';
+export const CRUD_UPDATE_FAIL = 'CRUD_UPDATE_FAIL';
 
-export const DELETE = 'DELETE';
-export const DELETE_COMMIT = 'DELETE_COMMIT';
-export const DELETE_FAIL = 'DELETE_FAIL';
+export const CRUD_DELETE = 'CRUD_DELETE';
+export const CRUD_DELETE_COMMIT = 'CRUD_DELETE_COMMIT';
+export const CRUD_DELETE_FAIL = 'CRUD_DELETE_FAIL';
 
-export function loadData(endpoint: string) {
+export function crudLoadData(endpoint: string, idProp?: string, dataProp?: string) {
   return {
-    type: LOAD_DATA,
-    endpoint
-  };
-}
-
-export function loadDataCommit(endpoint: string, data: any[]) {
-  return {
-    type: LOAD_DATA_COMMIT,
+    type: CRUD_LOAD_DATA,
     endpoint,
+    idProp,
+    dataProp
+  };
+}
+
+export function crudLoadDataCommit(data: any[], endpoint: string, idProp?: string, dataProp?: string) {
+  return {
+    type: CRUD_LOAD_DATA_COMMIT,
+    endpoint,
+    idProp,
+    dataProp,
     data
   };
 }
 
-export function loadDataFail(endpoint, error) {
+export function crudLoadDataFail(error: any, endpoint: string) {
   return {
-    type: LOAD_DATA_FAIL,
+    type: CRUD_LOAD_DATA_FAIL,
     endpoint,
     error
   };
 }
 
-export function createData(data) {
+export function crudCreate(data: any[], endpoint: string, idProp?: string, dataProp?: string) {
   return {
-    type: CREATE,
+    type: CRUD_CREATE,
+    endpoint,
+    idProp,
+    dataProp,
     data
   };
 }
 
-export function createDataCommit(data) {
+export function crudCreateCommit(data, endpoint: string, idProp?: string, dataProp?: string) {
   return {
-    type: CREATE_COMMIT,
+    type: CRUD_CREATE_COMMIT,
+    endpoint,
+    idProp,
+    dataProp,
     data
   };
 }
 
-export function createDataFail(error) {
+export function crudCreateFail(error: any, endpoint: string, ) {
   return {
-    type: CREATE_FAIL,
+    type: CRUD_CREATE_FAIL,
+    endpoint,
     error
   };
 }
 
-export function updateData(data) {
+export function crudUpdate(data: any[], endpoint: string, idProp?: string, dataProp?: string) {
   return {
-    type: UPDATE,
+    type: CRUD_UPDATE,
+    endpoint,
+    idProp,
+    dataProp,
     data
   };
 }
 
-export function updateDataCommit(data) {
+export function crudUpdateCommit(data, endpoint: string, idProp?: string, dataProp?: string) {
   return {
-    type: UPDATE_COMMIT,
+    type: CRUD_UPDATE_COMMIT,
+    data,
+    endpoint,
+    idProp,
+    dataProp,
     data
   };
 }
 
-export function updateDataFail(error) {
+export function crudUpdateFail(error: any, endpoint: string) {
   return {
-    type: UPDATE_FAIL,
+    type: CRUD_UPDATE_FAIL,
+    endpoint,
     error
   };
 }
 
-export function deleteData(data) {
+export function crudDelete(data: any[], endpoint: string, idProp?: string, dataProp?: string) {
   return {
-    type: DELETE,
+    type: CRUD_DELETE,
+    data,
+    endpoint,
+    idProp,
+    dataProp,
+  };
+}
+
+export function crudDeleteCommit(data, endpoint: string, idProp?: string, dataProp?: string) {
+  return {
+    type: CRUD_DELETE_COMMIT,
+    data,
+    endpoint,
+    idProp,
+    dataProp,
     data
   };
 }
 
-export function deleteDataCommit(data) {
+export function crudDeleteFail(error: any, endpoint: string) {
   return {
-    type: DELETE_COMMIT,
-    data
-  };
-}
-
-export function deleteDataFail(error) {
-  return {
-    type: DELETE_FAIL,
+    type: CRUD_DELETE_FAIL,
+    endpoint,
     error
   };
 }
