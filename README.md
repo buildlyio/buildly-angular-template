@@ -19,7 +19,7 @@ Current Angular version: **v7.2.13**
 Install the npm packages and then initialize the application:
 
 ```bash
-npm install --save-dev
+npm install
 npm run init
 ```
 
