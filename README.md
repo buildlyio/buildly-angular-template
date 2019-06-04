@@ -223,7 +223,7 @@ cardItemOptions = {
 ```
 
 
-The crud module comes with its own dynamic crud redux files that can be used to handle crud operations for any endpoint using bifrost, this is perfect if you don't need to create any custom redux files for each endpoint. to make it function that way you need to provide it with the endpoint, the id property(the key value of the primary key) like follows. *Work in Progress*
+The crud module comes with its own dynamic crud redux files that can be used to handle crud operations for any endpoint using bifrost, this is perfect if you don't need to create any custom redux files for each endpoint. to make it function that way you need to provide it with the endpoint, the id property(the key value of the primary key) like follows. **Work in Progress**
 
 ```html
 // crud.component.html
@@ -240,9 +240,9 @@ The crud module comes with its own dynamic crud redux files that can be used to 
     (cardItemEdited)="handleCardItemEdited($event)"
 >
 </mg-crud-list>
-```
-or if you prefer using custom redux files you have to provide the actions that does the crud operations and the selector to get the data from the reducer as follows: *Only this method is currently available*
+or if you prefer using custom redux files you have to provide the actions that does the crud operations and the selector to get the data from the reducer as follows: **Only this method is currently available**
 
+```html
 <mg-crud-list
     [loadAction]="'LOAD_ALL_PRODUCTS'"
     [title]="'Most recent products'"
