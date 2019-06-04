@@ -239,7 +239,8 @@ The crud module comes with its own dynamic crud redux files that can be used to 
     (cardItemActionClicked)="handleCardItemActionClicked($event)"
     (cardItemEdited)="handleCardItemEdited($event)"
 >
-</mg-crud-list>```
+</mg-crud-list>
+```
 
 or if you prefer using custom redux files you have to provide the actions that does the crud operations and the selector to get the data from the reducer as follows: **Only this method is currently available**
 
@@ -259,8 +260,8 @@ or if you prefer using custom redux files you have to provide the actions that d
     (cardItemActionClicked)="handleCardItemActionClicked($event)"
     (cardItemEdited)="handleCardItemEdited($event)"
 >
-</mg-crud-list>```
-
+</mg-crud-list>
+```
 To implement it **headlessly,** do so as follows:
 
 - without custom redux files (only by providing the endpoint) *Work in Progress*
