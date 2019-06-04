@@ -4,7 +4,8 @@ import {GraphQlService} from '@src/midgard/modules/graphql/graphql.service';
 import {map} from 'rxjs/operators';
 import {select, Store} from '@src/midgard/modules/store/store';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { crudLoadData } from './redux/crud.actions';
+import { crudCreate, crudDelete, crudLoadData, crudUpdate } from './redux/crud.actions';
+import { selectAllfromEndpoint, selectEndpointLoaded } from './redux/crud.selectors';
 
 @Directive({
   selector: '[mgCrud]',
@@ -88,14 +89,26 @@ export class CrudDirective implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.dataLoaded = this.store.observable.pipe(
-      select(this.loadedSelector),
-      map(loaded => {
-        if (loaded) {
-          return loaded;
-        }
-      })
-    );
+    if (this.loadedSelector) {
+      this.dataLoaded = this.store.observable.pipe(
+        select(this.loadedSelector),
+        map(loaded => {
+          if (loaded) {
+            return loaded;
+          }
+        })
+      );
+    } else {
+      this.dataLoaded = this.store.observable.pipe(
+        select(selectEndpointLoaded(this.endpoint)),
+        map(loaded => {
+          if (loaded) {
+            return loaded;
+          }
+        })
+      );
+    }
+
     this.listenToStore();
     this.getDataFromStore();
   }
@@ -104,14 +117,25 @@ export class CrudDirective implements OnInit, OnDestroy {
    * listen to redux store changes
    */
   listenToStore() {
-    this.storeSubscription = this.store.observable.pipe(
-      select(this.dataSelector),
-    ).subscribe( (data: any[]) => {
-      if (data) {
-        this.rows = data;
-        this.dataLoadedFromStore.emit(this.rows);
-      }
-    });
+    if (this.dataSelector) {
+      this.storeSubscription = this.store.observable.pipe(
+        select(this.dataSelector),
+      ).subscribe( (data: any[]) => {
+        if (data) {
+          this.rows = data;
+          this.dataLoadedFromStore.emit(this.rows);
+        }
+      });
+    } else if (this.endpoint) {
+      this.storeSubscription = this.store.observable.pipe(
+        select(selectAllfromEndpoint(this.endpoint)),
+      ).subscribe( (data: any[]) => {
+        if (data) {
+          this.rows = data;
+          this.dataLoadedFromStore.emit(this.rows);
+        }
+      });
+    }
   }
 
   /**
@@ -132,11 +156,16 @@ export class CrudDirective implements OnInit, OnDestroy {
    * @param index - index of where to push the item in the state
    */
   createItem(item: any, index?: number) {
-    this.store.dispatch({
-      type: this.createAction,
-      data: item,
-      index
-    });
+    if (this.createAction) {
+      this.store.dispatch({
+        type: this.createAction,
+        data: item,
+        index
+      });
+    } else if (this.endpoint) {
+      crudCreate(item, this.endpoint, this.idProp, this.dataProp );
+    }
+
   }
 
   /**
@@ -144,10 +173,14 @@ export class CrudDirective implements OnInit, OnDestroy {
    * @param item - selected item
    */
   deleteItem(item: any) {
-    this.store.dispatch({
-      type: this.deleteAction,
-      data: item,
-    });
+    if (this.deleteAction) {
+      this.store.dispatch({
+        type: this.deleteAction,
+        data: item,
+      });
+    } else if (this.endpoint) {
+      crudDelete(item, this.endpoint, this.idProp, this.dataProp );
+    }
   }
 
   /**
@@ -155,10 +188,14 @@ export class CrudDirective implements OnInit, OnDestroy {
    * @param item - selected item
    */
   updateItem(item: any) {
-    this.store.dispatch({
-      type: this.updateAction,
-      data: item,
-    });
+    if (this.updateAction) {
+      this.store.dispatch({
+        type: this.updateAction,
+        data: item,
+      });
+    } else if (this.endpoint) {
+      crudUpdate(item, this.endpoint, this.idProp, this.dataProp );
+    }
   }
 
   /**
@@ -191,5 +228,4 @@ export class CrudDirective implements OnInit, OnDestroy {
       this.storeSubscription.unsubscribe();
     }
   }
-
 }
