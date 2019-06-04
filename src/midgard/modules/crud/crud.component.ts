@@ -1,10 +1,12 @@
-import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { select, Store } from '@src/midgard/modules/store/store';
 import { Subscription } from 'rxjs';
 import { GraphQlService } from '@src/midgard/modules/graphql/graphql.service';
 import { map } from 'rxjs/operators';
 import { addAll, deleteOne, upsertOne } from '@src/midgard/modules/store/reducer.utils';
 import { getTopBarSearchValue } from '../../state/top-bar/top-bar.selectors';
+import { selectAllfromEndpoint } from './redux/crud.selectors';
+import { crudCreate, crudDelete, crudLoadData, crudUpdate } from './redux/crud.actions';
 
 @Component({
   selector: 'mg-crud',
@@ -19,6 +21,18 @@ export class CrudComponent implements OnInit, OnDestroy {
   private storeSubscription: Subscription;
   protected searchValue: string;
 
+  /**
+   * the endpoint to request
+   */
+  @Input() endpoint;
+  /**
+   * property that stores the data
+   */
+  @Input() dataProp;
+  /**
+   * the id property of the endpoint
+   */
+  @Input() idProp;
   /**
    * options for the table component
    */
@@ -149,23 +163,38 @@ export class CrudComponent implements OnInit, OnDestroy {
    * listen to redux store changes
    */
   listenToStore() {
-    this.storeSubscription = this.store.observable.pipe(
-      select(this.dataSelector),
-    ).subscribe( (data: any[]) => {
-      if (data) {
-        this.rows = data;
-        this.dataLoadedFromStore.emit(this.rows);
-      }
-    });
+    if (this.dataSelector) {
+      this.storeSubscription = this.store.observable.pipe(
+        select(this.dataSelector),
+      ).subscribe( (data: any[]) => {
+        if (data) {
+          this.rows = data;
+          this.dataLoadedFromStore.emit(this.rows);
+        }
+      });
+    } else if (this.endpoint) {
+      this.storeSubscription = this.store.observable.pipe(
+        select(selectAllfromEndpoint(this.endpoint)),
+      ).subscribe( (data: any[]) => {
+        if (data) {
+          this.rows = data;
+          this.dataLoadedFromStore.emit(this.rows);
+        }
+      });
+    }
   }
 
   /**
    * gets data from redux store depending on the given loadAction (input)
    */
   getDataFromStore() {
-    this.store.dispatch({
-      type: this.loadAction,
-    });
+    if (this.loadAction) {
+      this.store.dispatch({
+        type: this.loadAction,
+      });
+    } else if (this.endpoint) {
+      this.store.dispatch(crudLoadData(this.endpoint, this.idProp || null, this.dataProp || null));
+    }
   }
 
   /**
@@ -173,10 +202,14 @@ export class CrudComponent implements OnInit, OnDestroy {
    * @param item - selected item
    */
   deleteItem(item: any) {
-    this.store.dispatch({
-      type: this.deleteAction,
-      data: item,
-    });
+    if (this.deleteAction) {
+      this.store.dispatch({
+        type: this.deleteAction,
+        data: item,
+      });
+    } else if (this.endpoint) {
+      this.store.dispatch(crudDelete(item, this.endpoint, this.idProp || null, this.dataProp || null));
+    }
     this.itemDeleted.emit(item);
   }
 
@@ -186,11 +219,15 @@ export class CrudComponent implements OnInit, OnDestroy {
    * @param index - index of where to push the item in the state
    */
   createItem(item: any, index?: number) {
-    this.store.dispatch({
-      type: this.createAction,
-      data: item,
-      index
-    });
+    if (this.createAction) {
+      this.store.dispatch({
+        type: this.createAction,
+        data: item,
+        index
+      });
+    } else if (this.endpoint) {
+      this.store.dispatch(crudCreate(item, this.endpoint, this.idProp || null, this.dataProp || null));
+    }
     this.itemCreated.emit(item);
   }
 
@@ -200,10 +237,14 @@ export class CrudComponent implements OnInit, OnDestroy {
    * @param index - index of where to push the item in the state
    */
   updateItem(item: any, index?: number) {
-    this.store.dispatch({
-      type: this.updateAction,
-      data: item
-    });
+    if (this.updateAction) {
+      this.store.dispatch({
+        type: this.updateAction,
+        data: item,
+      });
+    } else if (this.endpoint) {
+      this.store.dispatch(crudUpdate(item, this.endpoint, this.idProp || null, this.dataProp || null));
+    }
     this.itemUpdated.emit(item);
   }
 

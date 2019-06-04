@@ -37,11 +37,6 @@ export class CrudDirective implements OnInit, OnDestroy {
    */
   @Input() loadAction;
   /**
-   * redux action to load data from Graph QL
-   * @deprecated
-   */
-  @Input() loadActionGraphQl;
-  /**
    * custom redux action to create an item
    */
   @Input() createAction;
@@ -164,7 +159,6 @@ export class CrudDirective implements OnInit, OnDestroy {
     } else if (this.endpoint) {
       this.store.dispatch(crudCreate(item, this.endpoint, this.idProp || null, this.dataProp || null));
     }
-
   }
 
   /**
