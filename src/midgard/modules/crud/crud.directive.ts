@@ -108,7 +108,6 @@ export class CrudDirective implements OnInit, OnDestroy {
         })
       );
     }
-
     this.listenToStore();
     this.getDataFromStore();
   }
@@ -147,7 +146,7 @@ export class CrudDirective implements OnInit, OnDestroy {
         type: this.loadAction,
       });
     } else if (this.endpoint) {
-      crudLoadData(this.endpoint);
+      this.store.dispatch(crudLoadData(this.endpoint, this.idProp || null, this.dataProp || null));
     }
   }
   /**
@@ -163,7 +162,7 @@ export class CrudDirective implements OnInit, OnDestroy {
         index
       });
     } else if (this.endpoint) {
-      crudCreate(item, this.endpoint, this.idProp, this.dataProp );
+      this.store.dispatch(crudCreate(item, this.endpoint, this.idProp || null, this.dataProp || null));
     }
 
   }
@@ -179,7 +178,7 @@ export class CrudDirective implements OnInit, OnDestroy {
         data: item,
       });
     } else if (this.endpoint) {
-      crudDelete(item, this.endpoint, this.idProp, this.dataProp );
+      this.store.dispatch(crudDelete(item, this.endpoint, this.idProp || null, this.dataProp || null));
     }
   }
 
@@ -194,7 +193,7 @@ export class CrudDirective implements OnInit, OnDestroy {
         data: item,
       });
     } else if (this.endpoint) {
-      crudUpdate(item, this.endpoint, this.idProp, this.dataProp );
+      this.store.dispatch(crudUpdate(item, this.endpoint, this.idProp || null, this.dataProp || null));
     }
   }
 

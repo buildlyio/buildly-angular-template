@@ -30,6 +30,7 @@ import { BlueprintClientEpics } from '@clients/blueprint-client/src/lib/state/bl
 import { contactsReducer } from '@clients/contacts/src/lib/state/contacts.reducer';
 import { ContactsEpics } from '@clients/contacts/src/lib/state/contacts.epics';
 import { crudDataReducer } from '../crud/redux/crud.reducer';
+import { CrudEpics } from '../crud/redux/crud.epics';
 
 let storeInstance: Store<any>;
 
@@ -42,6 +43,7 @@ export class Store<T> {
   getState: () => any;
 
   constructor(
+    private crudEpics: CrudEpics,
     private authUserEpics: AuthUserEpics,
     private coreUserEpics: CoreUserEpics,
     private coreGroupEpics: CoreGroupEpics,
@@ -76,6 +78,7 @@ export class Store<T> {
         contactsReducer
       };
       const epics = [
+        crudEpics,
         coreUserEpics,
         coreGroupEpics,
         authUserEpics,

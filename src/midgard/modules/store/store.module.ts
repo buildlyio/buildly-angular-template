@@ -13,6 +13,7 @@ import { LocationsEpics } from '@clients/locations/src/lib/state/locations.epics
 import { BlueprintClientEpics } from '@clients/blueprint-client/src/lib/state/blueprint-client.epics';
 import { ContactsEpics } from '@clients/contacts/src/lib/state/contacts.epics';
 import { CoreGroupEpics } from '../../state/coregroup/coregroup.epics';
+import { CrudEpics } from '../crud/redux/crud.epics';
 
 @NgModule({  providers: [DashboardsEpics, ProductsEpics, DocumentsEpics, LocationsEpics, BlueprintClientEpics, ContactsEpics] })
 export class MidgardStoreModule {
@@ -21,6 +22,7 @@ export class MidgardStoreModule {
       ngModule: MidgardStoreModule,
       providers: [
         Store,
+        CrudEpics,
         AuthUserEpics,
         CoreUserEpics,
         CoreGroupEpics,

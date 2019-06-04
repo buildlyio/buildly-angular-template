@@ -16,31 +16,23 @@ export interface EndpointState {
 }
 
 export interface CrudState {
-  endpoints: EndpointState[];
+  [key: string]: EndpointState;
 }
 
-const initialState: CrudState = {
-  endpoints: [],
-};
-
-export function crudDataReducer(state: CrudState = initialState, action: CrudAction) {
-  let newState: CrudState = {...state};
+export function crudDataReducer(state: CrudState = {}, action: CrudAction) {
+  const newState: CrudState = {...state};
   switch (action.type) {
-    case CRUD_CREATE_COMMIT:
-      newState = {...state};
-      newState.endpoints[action.endpoint] = addAll(state.endpoints[action.endpoint], action);
+    case CRUD_LOAD_DATA_COMMIT:
+      newState[action.endpoint] = addAll(state[action.endpoint], action);
       return newState;
     case CRUD_DELETE_COMMIT:
-      newState = {...state};
-      newState.endpoints[action.endpoint] = upsertOne(state.endpoints[action.endpoint], action, action.idProp, action.dataProp);
+      newState[action.endpoint] = upsertOne(state[action.endpoint], action, action.idProp, action.dataProp);
       return newState;
-    case CRUD_LOAD_DATA_COMMIT:
-      newState = {...state};
-      newState.endpoints[action.endpoint] = upsertOne(state.endpoints[action.endpoint], action, action.idProp, action.dataProp);
+    case CRUD_CREATE_COMMIT:
+      newState[action.endpoint] = upsertOne(state[action.endpoint], action, action.idProp, action.dataProp);
       return newState;
     case CRUD_UPDATE_COMMIT:
-      newState = {...state};
-      newState.endpoints[action.endpoint] = deleteOne(state.endpoints[action.endpoint], action, action.idProp, action.dataProp);
+      newState[action.endpoint] = deleteOne(state[action.endpoint], action, action.idProp, action.dataProp);
       return newState;
     default:
       return state;

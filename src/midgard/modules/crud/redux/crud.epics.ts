@@ -16,7 +16,7 @@ import {
 import { CrudAction } from './crud.action.model';
 
 @Injectable()
-export class CoreUserEpics {
+export class CrudEpics {
   /**
    * this is here to handle asynchronous actions and will be triggered when CRUD_LOAD_DATA action is dispatched
    * @param {Observable} action$ - the current action

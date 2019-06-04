@@ -13,7 +13,7 @@ const getCrudState = state => state.crudDataReducer;
 export const selectAllfromEndpoint = (endpoint: string) => redux.createSelector(
   getCrudState,
   (crudState: CrudState) => {
-    if (crudState) {
+    if (crudState && crudState.endpoints[endpoint]) {
       return crudState.endpoints[endpoint].data;
     }
   }
@@ -27,7 +27,7 @@ export const selectAllfromEndpoint = (endpoint: string) => redux.createSelector(
 export const selectEndpointLoaded = (endpoint: string) => redux.createSelector(
   getCrudState,
   (crudState: CrudState) => {
-    if (crudState) {
+    if (crudState && crudState.endpoints[endpoint]) {
       return crudState.endpoints[endpoint].loaded;
     }
   }
