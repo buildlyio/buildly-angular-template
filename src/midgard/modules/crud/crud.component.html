@@ -79,6 +79,9 @@
           <ng-template let-row="row" fj-table-cell-template *ngIf="column.cellTemplate === 'date'">
             {{row[column.prop] | date: 'dd.MM.yyyy'}}
           </ng-template>
+          <ng-template let-row="row" fj-table-cell-template *ngIf="column.cellTemplate === 'text'">
+            <div class="table__text">{{row[column.prop]? row[column.prop] : "-"}}</div>
+          </ng-template>
           <ng-template let-row="row" fj-table-cell-template *ngIf="column.cellTemplate === 'edit'">
             <fj-inline-text-editor
               [displayElementCustomStyles]="{color: 'black'}"
