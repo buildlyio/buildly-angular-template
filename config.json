@@ -1,7 +1,118 @@
 {
   "appEntryPoint": "/user",
   "appTitle": "Midgard",
-  "modules": []
+  "modules": [
+    {
+      "url": "https://github.com/Humanitec/products_client_angular.git",
+      "name": "products",
+      "config": {
+        "entryPointComponent": "",
+        "routingModuleOptions": {
+          "path": "src/midgard/midgard-routing.module.ts",
+          "parentComponent": "MidgardComponent",
+          "childrenArrayIndex": "0"
+        },
+        "parentExitPointComponent": {
+          "path": "src/midgard/components/nav-bar/nav-bar.component.html",
+          "options": {
+            "icon": "local_offer",
+            "label": "Products",
+            "route": "products"
+          },
+          "elementId": "navbar",
+          "componentSelector": "mg-navbar-elem"
+        }
+      }
+    },
+    {
+      "url":"https://github.com/Humanitec/locations_client_angular.git",
+      "name":"locations",
+      "config":{
+        "styles":"./src/clients/locations/node_modules/leaflet/dist/leaflet.css",
+        "entryPointComponent":"",
+        "routingModuleOptions":{
+          "path":"src/midgard/midgard-routing.module.ts",
+          "parentComponent":"MidgardComponent",
+          "childrenArrayIndex":"0"
+        },
+        "parentExitPointComponent":{
+          "path":"src/midgard/components/nav-bar/nav-bar.component.html",
+          "options":{
+            "icon":"map",
+            "label":"Locations",
+            "route":"locations"
+          },
+          "elementId":"navbar",
+          "componentSelector":"mg-navbar-elem"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Humanitec/blueprint_client_angular.git",
+      "name": "blueprint-client",
+      "config": {
+        "entryPointComponent": "",
+        "routingModuleOptions": {
+          "path": "src/midgard/midgard-routing.module.ts",
+          "parentComponent": "MidgardComponent",
+          "childrenArrayIndex": "0"
+        },
+        "parentExitPointComponent": {
+          "path": "src/midgard/components/nav-bar/nav-bar.component.html",
+          "options": {
+            "icon": "rounded_corner",
+            "label": "Blueprint",
+            "route": "blueprint-client"
+          },
+          "elementId": "navbar",
+          "componentSelector": "mg-navbar-elem"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/kupfer-software/kupfer_document_client_angular.git",
+      "name": "documents",
+      "config": {
+        "entryPointComponent": "",
+        "routingModuleOptions": {
+          "path": "src/midgard/midgard-routing.module.ts",
+          "parentComponent": "MidgardComponent",
+          "childrenArrayIndex": "0"
+        },
+        "parentExitPointComponent": {
+          "path": "src/midgard/components/nav-bar/nav-bar.component.html",
+          "options": {
+            "icon": "class",
+            "label": "Documents",
+            "route": "documents"
+          },
+          "elementId": "navbar",
+          "componentSelector": "mg-navbar-elem"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/kupfer-software/kupfer_contact_appointment_client_angular.git",
+      "name": "contacts",
+      "config": {
+        "entryPointComponent": "",
+        "routingModuleOptions": {
+          "path": "src/midgard/midgard-routing.module.ts",
+          "parentComponent": "MidgardComponent",
+          "childrenArrayIndex": "0"
+        },
+        "parentExitPointComponent": {
+          "path": "src/midgard/components/nav-bar/nav-bar.component.html",
+          "options": {
+            "icon": "local_offer",
+            "label": "Contacts",
+            "route": "contacts"
+          },
+          "elementId": "navbar",
+          "componentSelector": "mg-navbar-elem"
+        }
+      }
+    }
+  ]
 }
-
 
