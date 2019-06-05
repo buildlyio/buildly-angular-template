@@ -1,5 +1,6 @@
 <ng-container *ngIf="cardItemOptions || tableOptions">
   <mg-top-view-switcher
+    *ngIf="cardItemOptions && tableOptions"
     [title]="title"
     [addButtonText]="addButtonText"
     [defaultView]="view"
