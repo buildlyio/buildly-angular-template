@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-var projectFolder = '.';
-=======
 var projectFolder = __dirname;
->>>>>>> bc3a7b4... add pact tests and config
 var pact = require('@pact-foundation/pact-node');
 var project = require('./package.json');
 

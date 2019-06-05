@@ -17,6 +17,8 @@ import { WorkflowTeamEpics } from '@src/midgard/state/workflow-team/workflow-tea
 import { workflowTeamReducer } from '@src/midgard/state/workflow-team/workflow-team.reducer';
 import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
 import { distinctUntilChanged } from 'rxjs/operators';
+import { crudDataReducer } from '../crud/redux/crud.reducer';
+import { CrudEpics } from '../crud/redux/crud.epics';
 
 let storeInstance: Store<any>;
 
@@ -29,6 +31,7 @@ export class Store<T> {
   getState: () => any;
 
   constructor(
+    private crudEpics: CrudEpics,
     private authUserEpics: AuthUserEpics,
     private coreUserEpics: CoreUserEpics,
     private coreGroupEpics: CoreGroupEpics,
@@ -42,6 +45,7 @@ export class Store<T> {
       const reducers = {
         apolloReducer,
         topBarReducer,
+        crudDataReducer,
         coreuserReducer,
         coregroupReducer,
         authuserReducer,
@@ -50,6 +54,7 @@ export class Store<T> {
         workflowLevel2Reducer
       };
       const epics = [
+        crudEpics,
         coreUserEpics,
         coreGroupEpics,
         authUserEpics,
@@ -101,7 +106,9 @@ export const select = (selector: any) => <T>(source: Observable<T>) =>
   new Observable<T>(observer => {
     return source.subscribe({
       next(state: any) {
-        observer.next(selector(state));
+        if (selector) {
+          observer.next(selector(state));
+        }
       },
       error(err) { observer.error(err); },
       complete() { observer.complete(); }

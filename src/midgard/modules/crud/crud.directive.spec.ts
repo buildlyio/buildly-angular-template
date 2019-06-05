@@ -12,7 +12,7 @@ import { MatSnackBarStub } from '@src/midgard/testing-utilities/stubs';
 import { FormBuilder } from '@angular/forms';
 import { getAllWorkflowLevel1s } from '@src/midgard/state/workflow-level1/workflow-level1.selectors';
 import { By } from '@angular/platform-browser';
-import { mockAppointmentsForSelectors } from '@src/midgard/testing-utilities/mock.data';
+import { mockCoreUsers } from '../../testing-utilities/mock.data';
 
 describe('CrudDirective', () => {
   let fixture: ComponentFixture<ContainerComponent>;
@@ -20,8 +20,6 @@ describe('CrudDirective', () => {
   let element: DebugElement;
   let crudDirective: CrudDirective;
   let store: Store<any>;
-  let graphQlBackend: ApolloTestingController;
-  let graphQlService: GraphQlService;
 
   // Test actions
   const loadAction = 'A_TEST_ACTION';
@@ -49,9 +47,6 @@ describe('CrudDirective', () => {
 
   beforeEach(() => {
     store = TestBed.get(Store);
-    graphQlBackend = TestBed.get(ApolloTestingController);
-    graphQlService = TestBed.get(GraphQlService);
-
     fixture = TestBed.createComponent(ContainerComponent);
     component = fixture.componentInstance;
     component.loadAction = loadAction;
@@ -80,7 +75,7 @@ describe('CrudDirective', () => {
   });
 
   it('should dispatch create action when create item is called', () => {
-    const item = mockAppointmentsForSelectors[1];
+    const item = mockCoreUsers[1];
     const index = 3;
     spyOn(store, 'dispatch');
     crudDirective.createItem(item, index);
@@ -93,7 +88,7 @@ describe('CrudDirective', () => {
   });
 
   it('should dispatch delete action when delete item is called', () => {
-    const item = mockAppointmentsForSelectors[1];
+    const item = mockCoreUsers[1];
     spyOn(store, 'dispatch');
     crudDirective.deleteItem(item);
 

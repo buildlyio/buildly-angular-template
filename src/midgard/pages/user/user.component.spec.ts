@@ -25,7 +25,9 @@ describe('UserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MidgardCrudModule, RouterTestingModule],
+      imports: [MidgardCrudModule, RouterTestingModule.withRoutes(
+        [{path: 'login', component: UserComponent}]
+      )],
       declarations: [ UserComponent ],
       providers: [
         // {provide: OAuthService , useClass: OAuthStubService},
@@ -71,7 +73,7 @@ describe('UserComponent', () => {
     expect(component.crud.updateItem).toHaveBeenCalledWith({id: 5, first_name: 'First', last_name: 'Last'});
   });
 
-  it('should navigate to the logout page', () => {
+  it('should navigate to the login page', () => {
     spyOn(router, 'navigate');
     component.logout();
     expect(router.navigate).toHaveBeenCalledWith(['/login']);

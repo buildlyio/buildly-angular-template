@@ -2,8 +2,8 @@
   <div class="top-bar__container">
     <div class="top-bar__menu" (click)="toggleMenu()" [ngClass]="{'top-bar__menu--active': hideMenu}"><i class="material-icons">menu</i></div>
     <a class="top-bar__home" [routerLink]="appEntryPoint">
-      <img class="top-bar__home__logo" src="assets/midgard-logo.svg">
-      <div>{{appTitle}}</div>
+      <img class="top-bar__home__logo" src="assets/img/midgard-full-logo.svg">
+      <!--<div>{{appTitle}}</div>-->
     </a>
     <div class="top-bar__subnav">
       <fj-content-switcher [options]="subNavOptions | async" *ngIf="subNavOptions | async" (optionSelected)="subNavChanged($event)" [selectedOption]="selectedOption"></fj-content-switcher>

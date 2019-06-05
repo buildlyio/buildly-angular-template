@@ -66,4 +66,19 @@ describe('UserGroupsComponent', () => {
     component.updatePermission(true, 'create', mockGroup);
     expect(component.crud.updateItem).toHaveBeenCalledWith(expectedGroup);
   });
+
+  it('should update the name of a group', () => {
+    spyOn(component.crud, 'updateItem');
+    const expectedGroup = {
+      name: 'New Name',
+      permissions: {
+        create: true,
+        read: false,
+        update: false,
+        delete: false
+      }
+    };
+    component.updateName({value: 'New Name', elementName: 'name'}, mockGroup);
+    expect(component.crud.updateItem).toHaveBeenCalledWith(expectedGroup);
+  });
 });

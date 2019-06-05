@@ -3,11 +3,8 @@
   #crud="mgCrud"
   [rows]= "crud.rows"
   [viewPort]="'350px'"
-  [loadAction]="'LOAD_DATA_COREUSER'"
-  [loadedSelector]="loadedSelector"
-  [dataSelector]="dataSelector"
-  [deleteAction]="'DELETE_COREUSER'"
-  [updateAction]="'UPDATE_COREUSER'"
+  [endpoint]="'coreuser'"
+  [idProp]="'id'"
   [deleteMessage]="'The user has been deactivated'"
   (dataLoadedFromStore)="defineDropdownOptions()"
 >

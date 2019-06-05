@@ -10,12 +10,14 @@ import { GraphQlService } from '@midgard/modules/graphql/graphql.service';
 import { StubService } from '@midgard/testing-utilities/stubs';
 import { CoreUser } from '@midgard/state/coreuser/coreuser.model';
 import { mockCoreUsers } from '@midgard/testing-utilities/mock.data';
-import { Router } from '@angular/router';
+import { loadCoregroupData } from '../../../../state/coregroup/coregroup.actions';
+import { of } from 'rxjs';
+import { mockCoreGroups } from '../../../../testing-utilities/mock.data';
 
 describe('UserListComponent', () => {
   let component: UserListComponent;
   let fixture: ComponentFixture<UserListComponent>;
-  let router;
+  let store;
   const mockRows = [
     {
       id: 5,
@@ -48,6 +50,7 @@ describe('UserListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UserListComponent);
     component = fixture.componentInstance;
+    store = TestBed.get(Store);
     fixture.detectChanges();
   });
 
@@ -95,7 +98,7 @@ describe('UserListComponent', () => {
   it('should call crud updateItem function if the user select activate from the dropdown', () => {
     spyOn(component.crud, 'updateItem');
     component.dropdownActionTriggered(mockRows[0], 'activate');
-    expect(component.crud.updateItem).toHaveBeenCalledWith(mockRows[0]);
+    expect(component.crud.updateItem).toHaveBeenCalledWith({id: mockRows[0].id, is_active: true});
   });
 
 
@@ -123,6 +126,18 @@ describe('UserListComponent', () => {
     spyOn(component.crud, 'updateItem');
     component.updateName('First Last', mockRows[0]);
     expect(component.crud.updateItem).toHaveBeenCalledWith({id: 5, first_name: 'First', last_name: 'Last'});
+  });
+
+  it('should dispatch core groups', () => {
+    spyOn(store, 'dispatch');
+    component.getCoreGroups();
+    expect(store.dispatch).toHaveBeenCalledWith(loadCoregroupData());
+  });
+
+  it('should define core groups', () => {
+    spyOn(store.observable, 'pipe').and.returnValue(of(mockCoreGroups));
+    component.getCoreGroups();
+    expect(component.coreGroups).toBeDefined();
   });
 
 });

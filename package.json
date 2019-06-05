@@ -59,7 +59,6 @@
     "@pact-foundation/pact-node": "^6.5.0",
     "@pact-foundation/pact-web": "^5.3.0",
     "@types/jasmine": "^2.8.11",
-    "@types/jasminewd2": "^2.0.6",
     "@types/node": "8.9.5",
     "apollo-utilities": "1.0.25",
     "codelyzer": "~4.2.1",

@@ -70,7 +70,7 @@ export class StoreMock<T> {
  * @param {Function} selector - memoized selector
  * @returns {<T>(source: Observable<T>) => Observable<T>}
  */
-export const select = (selector: Function) => <T>(source: Observable<T>) =>
+export const select = (selector: any) => <T>(source: Observable<T>) =>
   new Observable<T>(observer => {
     return source.subscribe({
       next(state: any) {

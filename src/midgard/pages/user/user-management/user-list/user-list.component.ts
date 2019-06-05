@@ -1,11 +1,10 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { getAllCoreUsers, getCoreUsersLoaded } from '../../../../state/coreuser/coreuser.selectors';
-import { select, Store } from '../../../../modules/store/store';
+import { getAllCoreUsers, getCoreUsersLoaded } from '@midgard/state/coreuser/coreuser.selectors';
+import { select, Store } from '@midgard/modules/store/store';
 import { Router } from '@angular/router';
-import { CrudDirective } from '../../../../modules/crud/crud.directive';
-import { getAllCoreGroups } from '../../../../state/coregroup/coregroup.selectors';
-import { loadCoregroupData } from '../../../../state/coregroup/coregroup.actions';
-import value from '*.json';
+import { CrudDirective } from '@midgard/modules/crud/crud.directive';
+import { getAllCoreGroups } from '@midgard/state/coregroup/coregroup.selectors';
+import { loadCoregroupData } from '@midgard/state/coregroup/coregroup.actions';
 
 @Component({
   selector: 'mg-user-list',
@@ -18,7 +17,7 @@ export class UserListComponent implements OnInit, OnDestroy {
   public dataSelector;
   public loadedSelector;
   public coreGroups;
-  private coreGroupsSubscription
+  private coreGroupsSubscription;
 
   constructor(
     private router: Router,
