@@ -16,10 +16,10 @@
           <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Organization*'" [error]="errors.organization" [controlName]="'organization_name'" [formGroup]="registerForm" [placeholder]="'Organization'"> </fj-text-input>
         </div>
         <div class="register__form__field register__form__field--full-width">
-          <fj-text-input [customStyles]="{'width': '100%'}" [label]="'First name'" [error]="errors.firstname" [controlName]="'first_name'" [formGroup]="registerForm" [placeholder]="'First name'"> </fj-text-input>
+          <fj-text-input [customStyles]="{'width': '100%'}" [label]="'First name*'" [error]="errors.firstname" [controlName]="'first_name'" [formGroup]="registerForm" [placeholder]="'First name'"> </fj-text-input>
         </div>
         <div class="register__form__field register__form__field--full-width">
-          <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Last name'" [error]="errors.lastname" [controlName]="'last_name'" [formGroup]="registerForm" [placeholder]="'Last name'"> </fj-text-input>
+          <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Last name*'" [error]="errors.lastname" [controlName]="'last_name'" [formGroup]="registerForm" [placeholder]="'Last name'"> </fj-text-input>
         </div>
         <div class="register__form__field">
           <fj-button [type]="'submit'" [disabled]="!registerForm.valid">Sign Up</fj-button>

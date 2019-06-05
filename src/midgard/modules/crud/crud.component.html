@@ -44,7 +44,7 @@
           class="list__content__table"
           *ngIf= "view === 'table' && tableOptions && (dataLoaded | async)"
           [rows]= "rows | filterByName : searchValue"
-          [viewPort]="'350px'"
+          [viewPort]="'400px'"
           (selectItem)="onTableItemClicked($event)"
           (delete)="deleteItem($event?.item)"
           (activate)="onTableActionClicked('activate', $event)"
