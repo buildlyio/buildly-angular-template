@@ -61,6 +61,14 @@ export class Store<T> {
       return storeInstance;
     } else {
       const reducers = {
+        // entryPointForGulpStart
+        dashboardsReducer,
+        productsReducer,
+        documentsReducer,
+        locationsReducer,
+        blueprintClientReducer,
+        contactsReducer,
+        // entryPointForGulpEnd
         apolloReducer,
         topBarReducer,
         crudDataReducer,
@@ -69,13 +77,7 @@ export class Store<T> {
         authuserReducer,
         workflowTeamReducer,
         workflowLevel1Reducer,
-        workflowLevel2Reducer,
-        dashboardsReducer,
-        productsReducer,
-        documentsReducer,
-        locationsReducer,
-        blueprintClientReducer,
-        contactsReducer
+        workflowLevel2Reducer
       };
       const epics = [
         crudEpics,
