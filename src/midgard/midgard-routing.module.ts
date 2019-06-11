@@ -14,6 +14,12 @@ import { UserGroupsComponent } from './pages/user/user-management/user-groups/us
 const midgardRoutes: Routes = [
   {
     path: '', component: MidgardComponent, children: [
+      {path: 'dashboards', loadChildren: '@clients/dashboards/src/lib/dashboards.module#DashboardsModule'},
+      {path: 'products', loadChildren: '@clients/products/src/lib/products.module#ProductsModule'},
+      {path: 'documents', loadChildren: '@clients/documents/src/lib/documents.module#DocumentsModule'},
+      {path: 'locations', loadChildren: '@clients/locations/src/lib/locations.module#LocationsModule'},
+      {path: 'blueprint-client', loadChildren: '@clients/blueprint-client/src/lib/blueprint-client.module#BlueprintClientModule'},
+      {path: 'contacts', loadChildren: '@clients/contacts/src/lib/contacts.module#ContactsModule'},
       {path: 'workflow-level1', component: WorkflowLevel1Component, canActivate: [AuthGuard]},
       {path: 'workflow-level2', component: WorkflowLevel2Component, canActivate: [AuthGuard]},
       {path: 'workflow-level2/details/:parent/:id', component: WorkflowLevel2DetailComponent, canActivate: [AuthGuard], children: [
@@ -24,13 +30,7 @@ const midgardRoutes: Routes = [
               {path: 'list', component: UserListComponent, canActivate: [AuthGuard]},
               {path: 'groups', component: UserGroupsComponent, canActivate: [AuthGuard]}
             ]},
-        ]},
-      {path: 'dashboards', loadChildren: '@clients/dashboards/src/lib/dashboards.module#DashboardsModule'},
-      {path: 'products', loadChildren: '@clients/products/src/lib/products.module#ProductsModule'},
-      {path: 'documents', loadChildren: '@clients/documents/src/lib/documents.module#DocumentsModule'},
-      {path: 'locations', loadChildren: '@clients/locations/src/lib/locations.module#LocationsModule'},
-      {path: 'blueprint-client', loadChildren: '@clients/blueprint-client/src/lib/blueprint-client.module#BlueprintClientModule'},
-      {path: 'contacts', loadChildren: '@clients/contacts/src/lib/contacts.module#ContactsModule'}
+        ]}
       ],
   },
 ];

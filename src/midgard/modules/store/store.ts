@@ -61,14 +61,12 @@ export class Store<T> {
       return storeInstance;
     } else {
       const reducers = {
-        // entryPointForGulpStart
         dashboardsReducer,
         productsReducer,
         documentsReducer,
         locationsReducer,
         blueprintClientReducer,
         contactsReducer,
-        // entryPointForGulpEnd
         apolloReducer,
         topBarReducer,
         crudDataReducer,

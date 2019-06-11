@@ -15,7 +15,11 @@ import { ContactsEpics } from '@clients/contacts/src/lib/state/contacts.epics';
 import { CoreGroupEpics } from '../../state/coregroup/coregroup.epics';
 import { CrudEpics } from '../crud/redux/crud.epics';
 
-@NgModule({  providers: [DashboardsEpics, ProductsEpics, DocumentsEpics, LocationsEpics, BlueprintClientEpics, ContactsEpics] })
+@NgModule(
+  {  providers: [
+      DashboardsEpics, ProductsEpics, DocumentsEpics, LocationsEpics, BlueprintClientEpics, ContactsEpics
+    ]
+  })
 export class MidgardStoreModule {
   static forRoot(): ModuleWithProviders {
     return {
