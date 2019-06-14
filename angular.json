@@ -21,7 +21,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles":  [
+            "styles": [
               {
                 "input": "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
               },
