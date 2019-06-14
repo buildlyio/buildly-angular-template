@@ -10,7 +10,7 @@
     "test-coverage": "ng test —code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "cleanuo": "gulp cleanup --gulpfile node_modules/midgard-schematics/lib/gulpfile.js --cwd ./",
+    "cleanup": "gulp cleanup --gulpfile node_modules/midgard-schematics/lib/gulpfile.js --cwd ./",
     "init": "npm run cleanup && gulp init --gulpfile node_modules/midgard-schematics/lib/gulpfile.js --cwd ./",
     "compodoc": "./node_modules/.bin/compodoc -p ./src/midgard/tsconfig.lib.json",
     "publish-pacts": "node publish-pacts.js"
