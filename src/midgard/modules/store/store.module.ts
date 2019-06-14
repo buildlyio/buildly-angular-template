@@ -8,11 +8,6 @@ import { WorkflowLevel1Epics } from '../../state/workflow-level1/workflow-level1
 import { WorkflowLevel2Epics } from '../../state/workflow-level2/workflow-level2.epics';
 import { CoreGroupEpics } from '../../state/coregroup/coregroup.epics';
 import { CrudEpics } from '../crud/redux/crud.epics';
-import { ProductsEpics } from '@clients/products/src/lib/state/products.epics';
-import { LocationsEpics } from '@clients/locations/src/lib/state/locations.epics';
-import { BlueprintClientEpics } from '@clients/blueprint-client/src/lib/state/blueprint-client.epics';
-import { DocumentsEpics } from '@clients/documents/src/lib/state/documents.epics';
-import { ContactsEpics } from '@clients/contacts/src/lib/state/contacts.epics';
 
 @NgModule({  providers: [ProductsEpics, LocationsEpics, BlueprintClientEpics, DocumentsEpics, ContactsEpics] })
 export class MidgardStoreModule {
