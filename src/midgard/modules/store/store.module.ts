@@ -9,23 +9,20 @@ import { WorkflowLevel2Epics } from '../../state/workflow-level2/workflow-level2
 import { CoreGroupEpics } from '../../state/coregroup/coregroup.epics';
 import { CrudEpics } from '../crud/redux/crud.epics';
 
-@NgModule({
-  providers: [
-    CrudEpics,
-    AuthUserEpics,
-    CoreUserEpics,
-    CoreGroupEpics,
-    WorkflowTeamEpics,
-    WorkflowLevel1Epics,
-    WorkflowLevel2Epics
-  ]
-})
+@NgModule({  providers: [] })
 export class MidgardStoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: MidgardStoreModule,
       providers: [
-        Store
+        Store,
+        CrudEpics,
+        AuthUserEpics,
+        CoreUserEpics,
+        CoreGroupEpics,
+        WorkflowTeamEpics,
+        WorkflowLevel1Epics,
+        WorkflowLevel2Epics
       ]
     };
   }

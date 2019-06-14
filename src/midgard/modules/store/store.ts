@@ -38,8 +38,7 @@ export class Store<T> {
     private workflowTeamEpics: WorkflowTeamEpics,
     private workflowLevel1Epics: WorkflowLevel1Epics,
     private workflowLevel2Epics: WorkflowLevel2Epics
-
-  ) {
+    ) {
     if (storeInstance) {
       return storeInstance;
     } else {
