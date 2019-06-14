@@ -10,7 +10,8 @@
     "test-coverage": "ng test —code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "init": "gulp init --gulpfile node_modules/midgard-schematics/lib/gulpfile.js --cwd ./",
+    "cleanup": "gulp cleanup --gulpfile node_modules/midgard-schematics/lib/gulpfile.js --cwd ./",
+    "init": "npm run cleanup && gulp init --gulpfile node_modules/midgard-schematics/lib/gulpfile.js --cwd ./",
     "compodoc": "./node_modules/.bin/compodoc -p ./src/midgard/tsconfig.lib.json",
     "publish-pacts": "node publish-pacts.js"
   },
@@ -69,7 +70,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.0",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "midgard-schematics": "^1.1.22",
+    "midgard-schematics": "^1.2.1",
     "ng-packagr": "^3.0.0",
     "protractor": "~5.4.0",
     "redux-devtools-extension": "^2.13.5",
