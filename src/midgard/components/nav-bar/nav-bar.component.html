@@ -1,13 +1,6 @@
 <div class="nav-bar" id="exitPointComponent" [ngClass]="{'hide-menu': hideMenu}">
   <div class="nav-bar__container" [ngClass]="{'nav-bar__container--hidden': hideMenu}">
-    <div id="navbar" class="nav-bar__elements">
-      <mg-navbar-elem label="Dashboards" route="dashboards" icon="dashboard"></mg-navbar-elem>
-      <mg-navbar-elem label="Products" route="products" icon="local_offer"></mg-navbar-elem>
-      <mg-navbar-elem label="Documents" route="documents" icon="class"></mg-navbar-elem>
-      <mg-navbar-elem label="Locations" route="locations" icon="map"></mg-navbar-elem>
-      <mg-navbar-elem label="Blueprint" route="blueprint-client" icon="rounded_corner"></mg-navbar-elem>
-      <mg-navbar-elem label="Contacts" route="contacts" icon="local_offer"></mg-navbar-elem>
-    </div>
+    <div id="navbar" class="nav-bar__elements"></div>
     <a class="nav-bar__user" (click)="setTopBarOptions()" routerLink="/user" routerLinkActive="nav-bar__user--active">
       <div class="nav-bar__user__container p2">
         <i class="material-icons nav-bar__user__icon">person</i>

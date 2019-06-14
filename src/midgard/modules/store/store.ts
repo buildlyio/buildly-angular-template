@@ -19,16 +19,6 @@ import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { dashboardsReducer } from '@clients/dashboards/src/lib/state/dashboards.reducer';
 import { DashboardsEpics } from '@clients/dashboards/src/lib/state/dashboards.epics';
-import { productsReducer } from '@clients/products/src/lib/state/products.reducer';
-import { ProductsEpics } from '@clients/products/src/lib/state/products.epics';
-import { documentsReducer } from '@clients/documents/src/lib/state/documents.reducer';
-import { DocumentsEpics } from '@clients/documents/src/lib/state/documents.epics';
-import { locationsReducer } from '@clients/locations/src/lib/state/locations.reducer';
-import { LocationsEpics } from '@clients/locations/src/lib/state/locations.epics';
-import { blueprintClientReducer } from '@clients/blueprint-client/src/lib/state/blueprint-client.reducer';
-import { BlueprintClientEpics } from '@clients/blueprint-client/src/lib/state/blueprint-client.epics';
-import { contactsReducer } from '@clients/contacts/src/lib/state/contacts.reducer';
-import { ContactsEpics } from '@clients/contacts/src/lib/state/contacts.epics';
 import { crudDataReducer } from '../crud/redux/crud.reducer';
 import { CrudEpics } from '../crud/redux/crud.epics';
 
@@ -50,23 +40,13 @@ export class Store<T> {
     private workflowTeamEpics: WorkflowTeamEpics,
     private workflowLevel1Epics: WorkflowLevel1Epics,
     private workflowLevel2Epics: WorkflowLevel2Epics,
-    private dashboardsEpics: DashboardsEpics,
-    private productsEpics: ProductsEpics,
-    private documentsEpics: DocumentsEpics,
-    private locationsEpics: LocationsEpics,
-    private blueprintClientEpics: BlueprintClientEpics,
-    private contactsEpics: ContactsEpics
+    private dashboardsEpics: DashboardsEpics
     ) {
     if (storeInstance) {
       return storeInstance;
     } else {
       const reducers = {
         dashboardsReducer,
-        productsReducer,
-        documentsReducer,
-        locationsReducer,
-        blueprintClientReducer,
-        contactsReducer,
         apolloReducer,
         topBarReducer,
         crudDataReducer,
@@ -86,11 +66,6 @@ export class Store<T> {
         workflowLevel1Epics,
         workflowLevel2Epics,
         dashboardsEpics,
-        productsEpics,
-        documentsEpics,
-        locationsEpics,
-        blueprintClientEpics,
-        contactsEpics,
       ];
       const combinedReducers = redux.combineReducers(reducers); // combine the reducers to a reducer that can be used when creating the store
       const combinedEpics = redux.combineEpics(...epics); // combine redux-observable epics
