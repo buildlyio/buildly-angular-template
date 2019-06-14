@@ -19,6 +19,10 @@ import { topBarReducer } from '@src/midgard/state/top-bar/top-bar.reducer';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { crudDataReducer } from '../crud/redux/crud.reducer';
 import { CrudEpics } from '../crud/redux/crud.epics';
+import { productsReducer } from '@clients/products/src/lib/state/products.reducer';
+import { ProductsEpics } from '@clients/products/src/lib/state/products.epics';
+import { locationsReducer } from '@clients/locations/src/lib/state/locations.reducer';
+import { LocationsEpics } from '@clients/locations/src/lib/state/locations.epics';
 
 let storeInstance: Store<any>;
 
@@ -37,7 +41,9 @@ export class Store<T> {
     private coreGroupEpics: CoreGroupEpics,
     private workflowTeamEpics: WorkflowTeamEpics,
     private workflowLevel1Epics: WorkflowLevel1Epics,
-    private workflowLevel2Epics: WorkflowLevel2Epics
+    private workflowLevel2Epics: WorkflowLevel2Epics,
+    private productsEpics: ProductsEpics,
+    private locationsEpics: LocationsEpics
 
   ) {
     if (storeInstance) {
@@ -52,7 +58,9 @@ export class Store<T> {
         authuserReducer,
         workflowTeamReducer,
         workflowLevel1Reducer,
-        workflowLevel2Reducer
+        workflowLevel2Reducer,
+        productsReducer,
+        locationsReducer
       };
       const epics = [
         crudEpics,
@@ -62,7 +70,9 @@ export class Store<T> {
         coreGroupEpics,
         workflowTeamEpics,
         workflowLevel1Epics,
-        workflowLevel2Epics
+        workflowLevel2Epics,
+        productsEpics,
+        locationsEpics
       ];
       const combinedReducers = redux.combineReducers(reducers); // combine the reducers to a reducer that can be used when creating the store
       const combinedEpics = redux.combineEpics(...epics); // combine redux-observable epics

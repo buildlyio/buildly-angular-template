@@ -25,7 +25,8 @@
               {
                 "input": "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
               },
-              "src/styles.scss"
+              "src/styles.scss",
+              "./src/clients/locations/node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
           },
