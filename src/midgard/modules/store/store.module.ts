@@ -16,8 +16,21 @@ import { CoreGroupEpics } from '../../state/coregroup/coregroup.epics';
 import { CrudEpics } from '../crud/redux/crud.epics';
 
 @NgModule(
-  {  providers: [
-      DashboardsEpics, ProductsEpics, DocumentsEpics, LocationsEpics, BlueprintClientEpics, ContactsEpics
+  {
+    providers: [
+      CrudEpics,
+      AuthUserEpics,
+      CoreUserEpics,
+      CoreGroupEpics,
+      WorkflowTeamEpics,
+      WorkflowLevel1Epics,
+      WorkflowLevel2Epics,
+      DashboardsEpics,
+      ProductsEpics,
+      DocumentsEpics,
+      LocationsEpics,
+      BlueprintClientEpics,
+      ContactsEpics
     ]
   })
 export class MidgardStoreModule {
@@ -25,14 +38,7 @@ export class MidgardStoreModule {
     return {
       ngModule: MidgardStoreModule,
       providers: [
-        Store,
-        CrudEpics,
-        AuthUserEpics,
-        CoreUserEpics,
-        CoreGroupEpics,
-        WorkflowTeamEpics,
-        WorkflowLevel1Epics,
-        WorkflowLevel2Epics
+        Store
       ]
     };
   }
