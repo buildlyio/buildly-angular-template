@@ -50,7 +50,7 @@
         {
           "url": "https://github.com/Humanitec/blueprint_client_angular.git",
           "name": "blueprint-client",
-          "styles":"./src/clients/blueprint-client/assets",
+          "assets":"./src/clients/blueprint-client/assets",
           "config": {
             "entryPointComponent": "",
             "routingModuleOptions": {
