@@ -11,7 +11,7 @@ export class OAuthService {
    * @param {{usename: string; password: string}} credentials
    * @returns {Observable<any>}
    */
-  public authenticateWithPasswordFlow(credentials: { usename: string, password: string }): Observable<any> {
+  public authenticateWithPasswordFlow(credentials: { username: string, password: string }): Observable<any> {
     const oauthOptions = {
       clientId: environment.OAUTH_CLIENT_ID,
       tokenUrl: environment.OAUTH_TOKEN_URL
