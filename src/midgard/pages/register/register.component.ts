@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
     username: 'please fill your username',
     password: 'please fill your password',
     organization: 'please fill your organization',
+    confirm_password: 'This field must match your enetered password'
   };
   token;
 
@@ -45,6 +46,9 @@ export class RegisterComponent implements OnInit {
       this.checkToken();
     }
     this.registerForm.valueChanges.subscribe(val => {
+      if (this.registerForm.errors && this.registerForm.errors.passwordMismatch) {
+        this.registerForm.get('confirm_password').setErrors({'incorrect': true});
+      }
       this.errors = this.formHelper.validateForm(this.registerForm, this.errorMessages);
     });
   }
@@ -54,7 +58,7 @@ export class RegisterComponent implements OnInit {
    */
   initForm() {
     this.registerForm = this.formBuilder.group({
-      email: ['', Validators.email],
+      email: ['', [Validators.required, Validators.email]],
       username: ['', Validators.required],
       password: ['', Validators.required],
       confirm_password: ['', Validators.required],

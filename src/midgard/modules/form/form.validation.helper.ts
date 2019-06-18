@@ -37,5 +37,5 @@ export const checkPasswordsValidator = (group: FormGroup) => { // here we have t
   const pass = group.controls.password.value;
   const confirmPassword = group.controls.confirm_password.value;
 
-  return pass === confirmPassword ? null : { notSame: true };
+  return pass === confirmPassword ? null : { passwordMismatch: true };
 }
