@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Store} from '@src/midgard/modules/store/store';
 import {createCoreUser} from '@src/midgard/state/coreuser/coreuser.actions';
-import {FormValidationHelper} from '../../modules/form/form.validation.helper';
+import { checkPasswordsValidator, FormValidationHelper } from '../../modules/form/form.validation.helper';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 import {HttpService} from '../../modules/http/http.service';
@@ -57,10 +57,11 @@ export class RegisterComponent implements OnInit {
       email: ['', Validators.email],
       username: ['', Validators.required],
       password: ['', Validators.required],
+      confirm_password: ['', Validators.required],
       organization_name: ['', Validators.required],
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
-    });
+    }, {validator: checkPasswordsValidator});
   }
 
   /**
