@@ -7,7 +7,7 @@ import { RegisterComponent } from '@src/midgard/pages/register/register.componen
 const appRoutes: Routes = [
   // The entry point is the midgard library
   { path: '', component: LoginComponent },
-  { path: 'admin-panel', component: LoginComponent },
+  { path: 'admin-panel', loadChildren: '@midgard-admin/midgard-admin.module#MidgardAdminModule' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 ];

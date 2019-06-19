@@ -29,6 +29,9 @@
       "@midgard/*": [
         "src/midgard/*"
       ],
+      "@midgard-admin/*": [
+        "src/midgard-admin/*"
+      ],
       "@projects/*": [
         "projects/*"
       ],
