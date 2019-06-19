@@ -16,6 +16,7 @@
     }
     &__content {
       width: 100%;
+      min-width: rem-calc(300);
     }
   }
 
@@ -30,6 +31,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    &__error {
+      color: $danger-color;
+      margin: rem-calc(15);
+    }
     &__field {
       margin-bottom: rem-calc(15);
       &--full-width {

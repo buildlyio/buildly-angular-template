@@ -26,13 +26,13 @@ export function crudDataReducer(state: CrudState = {}, action: CrudAction) {
       newState[action.endpoint] = addAll(state[action.endpoint], action);
       return newState;
     case CRUD_DELETE_COMMIT:
-      newState[action.endpoint] = upsertOne(state[action.endpoint], action, action.idProp, action.dataProp);
+      newState[action.endpoint] = deleteOne(state[action.endpoint], action, action.idProp, action.dataProp);
       return newState;
     case CRUD_CREATE_COMMIT:
       newState[action.endpoint] = upsertOne(state[action.endpoint], action, action.idProp, action.dataProp);
       return newState;
     case CRUD_UPDATE_COMMIT:
-      newState[action.endpoint] = deleteOne(state[action.endpoint], action, action.idProp, action.dataProp);
+      newState[action.endpoint] = upsertOne(state[action.endpoint], action, action.idProp, action.dataProp);
       return newState;
     default:
       return state;

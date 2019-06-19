@@ -39,6 +39,19 @@ export const getCoreUsersLoaded = redux.createSelector(
   }
 );
 
+/**
+ * selector to check if the core user is created
+ * @returns {MemoizedSelector}
+ */
+export const selecteCoreUserCreated = redux.createSelector(
+  getCoreUsers,
+  (coreUserState: CoreUserState) => {
+    if (coreUserState) {
+      return coreUserState.created;
+    }
+  }
+);
+
 
 
 /**

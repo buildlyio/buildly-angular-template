@@ -27,8 +27,6 @@ export class UserManagementComponent implements OnInit {
   public errors = {};
   public showUserInvitationOverlay = false;
 
-
-
   constructor(
     private router: Router,
     private httpService: HttpService,
