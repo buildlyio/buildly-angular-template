@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     username: 'please fill your username',
     password: 'please fill your password',
     organization: 'please fill your organization',
-    confirm_password: 'This field must match your enetered password'
+    confirm_password: 'This field must match your entered password'
   };
   token;
 

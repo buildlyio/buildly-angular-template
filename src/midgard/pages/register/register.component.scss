@@ -15,6 +15,7 @@
     }
     &__content {
       width: 100%;
+      min-width: rem-calc(300);
     }
   }
 
