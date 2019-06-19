@@ -3,6 +3,7 @@
     <img class="register__card__logo" src="assets/img/midgard-logo.svg">
     <div class="register__card__content">
       <form class="register__form" [formGroup]="registerForm" novalidate (submit)="register()">
+        <span class="register__form__error" *ngIf="error">{{this.error}}</span>
         <div class="register__form__field register__form__field--full-width">
           <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Email*'" [error]="errors.email" [controlName]="'email'" [formGroup]="registerForm" [placeholder]="'Email'"> </fj-text-input>
         </div>
@@ -28,7 +29,6 @@
           <fj-button [type]="'submit'" [disabled]="!registerForm.valid">Sign Up</fj-button>
         </div>
       </form>
-      <span *ngIf="error">{{this.error}}</span>
     </div>
     <small><a class="register__login-link" routerLink="/login">Back to login</a></small>
   </fj-card>

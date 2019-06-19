@@ -91,7 +91,7 @@ export class RegisterComponent implements OnInit {
             this.router.navigate([this.appEntryPoint]);
           },
           err => {
-            this.error = err;
+            this.error = 'Your user has been created, please ask your organization administrator to activate it';
           });
       }
     });

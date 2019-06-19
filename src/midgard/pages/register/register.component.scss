@@ -30,6 +30,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    &__error {
+      margin: rem-calc(15);
+      width: rem-calc(300);
+    }
     &__field {
       margin-bottom: rem-calc(15);
       &--full-width {
