@@ -1,15 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "styles/global";
-@import "../node_modules/freyja-ui/theming";
+@import "midgard/styles/styles";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: OpenSans, sans-serif; background-color: $background-secondary-color;}
 
-$theme-colors: (
-  'color-primary': $primary-color,
-  'color-danger' : $danger-color,
-);
-
-$haf: "&:hover, &:active, &:focus";
-@include freyja-theme($theme-colors);
 

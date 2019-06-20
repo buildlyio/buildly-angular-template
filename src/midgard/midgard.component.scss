@@ -1,4 +1,7 @@
-@import "../../src/styles";
+@import "./styles/styles";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: OpenSans, sans-serif; background-color: $background-secondary-color;}
 
 .midgard{
   &__container {
