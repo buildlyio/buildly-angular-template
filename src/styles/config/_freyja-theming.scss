@@ -1,0 +1,25 @@
+@import "../../../node_modules/freyja-ui/theming";
+@import "../../midgard-admin/styles/colors";
+@import "../../midgard/styles/colors";
+
+$themes: (
+  'bright-theme': (
+    'color-primary': $primary-color,
+    'color-danger' : $danger-color,
+    'color-background': $white,
+    'color-disable': $gray-lighter,
+    'color-text-input': $text-primary-color,
+    'color-button-text': $white,
+  ),
+  'dark-theme': (
+    'color-primary': $black,
+    'color-danger' : $danger-color,
+    'color-background': $white,
+    'color-disable': $gray-lighter,
+    'color-text-input': $text-primary-color,
+    'color-button-text': $white,
+  )
+);
+
+$haf: "&:hover, &:active, &:focus";
+@include freyja-theme($themes);

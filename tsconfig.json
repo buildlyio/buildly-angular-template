@@ -10,7 +10,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "types": ["jasmine"],
+    "types": [
+      "jasmine"
+    ],
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -40,6 +42,12 @@
       ],
       "@src/*": [
         "src/*"
+      ],
+      "midgard-admin": [
+        "dist/midgard-admin"
+      ],
+      "midgard-admin/*": [
+        "dist/midgard-admin/*"
       ]
     }
   },
