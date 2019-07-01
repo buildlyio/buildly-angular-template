@@ -11,7 +11,7 @@
           <fj-text-input [customStyles]="{'width': '100%'}" [error]="errors.password" [label]="'Password*'" [type]="'password'" [controlName]="'password'" [formGroup]="loginForm" [placeholder]="'Password'"> </fj-text-input>
         </div>
         <div class="login__form__field">
-          <fj-button [type]="'submit'" [disabled]="!loginForm.valid">Login</fj-button>
+          <fj-button [type]="'submit'" [theme]="'dark-theme'" [disabled]="!loginForm.valid">Login</fj-button>
         </div>
       </form>
     </div>
