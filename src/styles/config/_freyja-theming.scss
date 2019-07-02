@@ -22,4 +22,4 @@ $themes: (
 );
 
 $haf: "&:hover, &:active, &:focus";
-@include freyja-theme($themes);
+@include freyja-theme();
