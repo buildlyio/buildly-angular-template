@@ -1,0 +1,18 @@
+@import "../../../../styles";
+
+.navbar-elem {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  padding: 15px;
+  color: $dark-text-color;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: $text-secondary-color;
+  }
+  &--active {
+    background-color: $background-overlay;
+    color: $text-secondary-color;
+  }
+}

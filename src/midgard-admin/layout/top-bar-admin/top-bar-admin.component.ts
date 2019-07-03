@@ -10,7 +10,7 @@ import * as config from '../../../../config.json';
   templateUrl: './top-bar-admin.component.html',
   styleUrls: ['./top-bar-admin.component.scss']
 })
-export class TopBarComponent implements OnInit, OnDestroy {
+export class TopBarAdminComponent implements OnInit, OnDestroy {
   @Output() menuToggled: EventEmitter<any> = new EventEmitter();
 
   public hideMenu = false;
@@ -19,23 +19,13 @@ export class TopBarComponent implements OnInit, OnDestroy {
   public selectedOption: string;
   public storeSubscription: Subscription;
 
-  constructor(
-    private store: Store<any>
-  ) { }
+  constructor() {}
 
   ngOnInit() {}
 
   toggleMenu() {
     this.hideMenu = !this.hideMenu;
     this.menuToggled.emit(this.hideMenu);
-  }
-
-  /**
-   * function that will be triggered when the sab navigation changes value
-   * @param item - the selected item
-   */
-  subNavChanged(item) {
-    this.store.dispatch(selectTopBarOption(item));
   }
 
   ngOnDestroy() {

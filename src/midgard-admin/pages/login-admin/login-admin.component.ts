@@ -6,11 +6,10 @@ import { OAuthService } from '../../../midgard/modules/oauth/oauth.service';
 import { HttpService } from '../../../midgard/modules/http/http.service';
 import { loadAuthUser } from '../../../midgard/state/authuser/authuser.actions';
 import { select, Store } from '../../../midgard/modules/store/store';
-import * as config from '../../../../config.json';
 import {FormValidationHelper} from '../../../midgard/modules/form/form.validation.helper';
 
 @Component({
-  selector: 'mg-login',
+  selector: 'mg-login-admin',
   templateUrl: './login-admin.component.html',
   styleUrls: ['./login-admin.component.scss']
 })
@@ -18,7 +17,6 @@ export class LoginAdminComponent implements OnInit {
 
   loginForm: FormGroup;
   error: string;
-  appEntryPoint = (config as any).appEntryPoint;
   errors = {};
   errorMessages = {
     username: 'please fill your username',

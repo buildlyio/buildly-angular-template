@@ -1,3 +1,4 @@
 <div class="admin-container bg-1--dark">
-  <mg-top-bar-admin></mg-top-bar-admin>
+  <mg-top-bar-admin (menuToggled)="toggleMenu($event)"></mg-top-bar-admin>
+  <mg-nav-bar-admin [hideMenu]="hideMenu"></mg-nav-bar-admin>
 </div>

@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainAdminComponent implements OnInit {
 
+  hideMenu: boolean;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  toggleMenu(menuToggle) {
+    this.hideMenu = menuToggle;
+  }
 }
