@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { oauth } from 'midgard-core';
 import { Router } from '@angular/router';
-import { OAuthService } from '@src/midgard/modules/oauth/oauth.service';
-import { HttpService } from '@src/midgard/modules/http/http.service';
-import { loadAuthUser } from '@src/midgard/state/authuser/authuser.actions';
-import { select, Store } from '@src/midgard/modules/store/store';
-import * as config from '../../../config.json';
-import {FormValidationHelper} from '@midgard/modules/form/form.validation.helper';
+import { OAuthService } from '../../../midgard/modules/oauth/oauth.service';
+import { HttpService } from '../../../midgard/modules/http/http.service';
+import { loadAuthUser } from '../../../midgard/state/authuser/authuser.actions';
+import { select, Store } from '../../../midgard/modules/store/store';
+import * as config from '../../../../config.json';
+import {FormValidationHelper} from '../../../midgard/modules/form/form.validation.helper';
 
 @Component({
   selector: 'mg-login',
@@ -58,13 +58,14 @@ export class LoginAdminComponent implements OnInit {
    * authenticates the user to the app and saves the token and the user data to local storage
    */
   authenticate() {
-    this.oauthService.authenticateWithPasswordFlow(this.loginForm.value).subscribe( token => {
-        this.oauthService.setAccessToken(token.data);
-        this.store.dispatch(loadAuthUser());
-        this.router.navigate([this.appEntryPoint]);
-      },
-      err => {
-        this.error = 'Your username or password is incorrect';
-      });
+    this.router.navigate(['/admin-panel/main']);
+
+    // this.oauthService.authenticateWithPasswordFlow(this.loginForm.value).subscribe( token => {
+    //     this.oauthService.setAccessToken(token.data);
+    //     this.store.dispatch(loadAuthUser());
+    //   },
+    //   err => {
+    //     this.error = 'Your username or password is incorrect';
+    //   });
   }
 }

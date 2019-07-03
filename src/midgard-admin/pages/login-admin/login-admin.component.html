@@ -1,0 +1,20 @@
+<div class="admin-container bg-1--dark">
+  <fj-card theme="dark">
+    <img class="login-admin__card__logo" src="assets/img/midgard-admin-logo.svg">
+    <div class="login-admin__card__content">
+      <form class="login-admin__form" [formGroup]="loginForm" novalidate (submit)="authenticate()">
+        <span class="login-admin__form__error" *ngIf="error">{{this.error}}</span>
+        <div class="login-admin__form__field login-admin__form__field--full-width">
+          <fj-text-input theme="dark" [customStyles]="{'width': '100%'}" [error]="errors.username" [label]="'Username*'" [controlName]="'username'" [formGroup]="loginForm" [placeholder]="'Username'"> </fj-text-input>
+        </div>
+        <div class="login-admin__form__field login-admin__form__field--full-width">
+          <fj-text-input theme="dark" [customStyles]="{'width': '100%'}" [error]="errors.password" [label]="'Password*'" [type]="'password'" [controlName]="'password'" [formGroup]="loginForm" [placeholder]="'Password'"> </fj-text-input>
+        </div>
+        <div class="login-admin__form__field">
+          <fj-button theme="dark" [type]="'submit'" [disabled]="!loginForm.valid">Login</fj-button>
+        </div>
+      </form>
+    </div>
+    <small><a class="login-admin__register-link" routerLink="/register">Register</a></small>
+  </fj-card>
+</div>

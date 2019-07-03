@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: $background-primary-color;
+  background-color: $dark-top-bar-color;
   z-index: 2;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -26,7 +26,7 @@
     padding: rem-calc(2);
     font-size: 4px;
     border-radius: 4px;
-    color: $text-primary-color;
+    color: $dark-text-color;
     cursor: pointer;
     &--active {
       background-color: $primary-color;
@@ -43,7 +43,7 @@
     text-decoration: none;
     &__logo {
       margin-right: 5px;
-      width: rem-calc(120);
+      width: rem-calc(160);
     }
   }
 

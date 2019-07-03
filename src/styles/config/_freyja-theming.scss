@@ -3,23 +3,23 @@
 @import "../../midgard/styles/colors";
 
 $themes: (
-  'bright-theme': (
+  'bright': (
     'color-primary': $primary-color,
     'color-danger' : $danger-color,
-    'color-background': $white,
+    'color-background': $background-primary-color,
     'color-disable': $gray-lighter,
     'color-text-input': $text-primary-color,
     'color-button-text': $white,
   ),
-  'dark-theme': (
-    'color-primary': $black,
+  'dark': (
+    'color-primary': $primary-color,
     'color-danger' : $danger-color,
-    'color-background': $white,
-    'color-disable': $gray-lighter,
-    'color-text-input': $text-primary-color,
+    'color-background': $dark-background,
+    'color-disable': $dark-disable-color,
+    'color-text-input': $dark-text-color,
     'color-button-text': $white,
   )
 );
 
 $haf: "&:hover, &:active, &:focus";
-@include freyja-theme();
+@include freyja-theme($themes);

@@ -1,9 +1,8 @@
-@import "../../styles/styles";
 @import "../../../styles";
 
 .card-item {
   width: 100%;
-  background-color: transparent;
+  background: transparent;
   &--tile {
     display: flex;
     margin-bottom: rem-calc(60);
@@ -11,7 +10,7 @@
   }
   &__content {
     box-shadow: 0 rem-calc(2) rem-calc(3) 0 rgba(0, 0, 0, 0.12);
-    background-color: white;
+    background-color: $background-overlay;
     &--tile {
       flex-direction: column;
       width: rem-calc(250);
