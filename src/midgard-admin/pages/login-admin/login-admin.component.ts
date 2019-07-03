@@ -38,10 +38,6 @@ export class LoginAdminComponent implements OnInit {
     this.loginForm.valueChanges.subscribe(val => {
       this.errors = this.formHelper.validateForm(this.loginForm, this.errorMessages);
     });
-    // navigate to the main root if the user has valid access token
-    if (this.oauthService.hasValidAccessToken()) {
-      this.router.navigate([this.appEntryPoint]);
-    }
   }
 
   /**
@@ -58,14 +54,13 @@ export class LoginAdminComponent implements OnInit {
    * authenticates the user to the app and saves the token and the user data to local storage
    */
   authenticate() {
-    this.router.navigate(['/admin-panel/main']);
-
-    // this.oauthService.authenticateWithPasswordFlow(this.loginForm.value).subscribe( token => {
-    //     this.oauthService.setAccessToken(token.data);
-    //     this.store.dispatch(loadAuthUser());
-    //   },
-    //   err => {
-    //     this.error = 'Your username or password is incorrect';
-    //   });
+    this.oauthService.authenticateWithPasswordFlow(this.loginForm.value).subscribe( token => {
+        this.oauthService.setAccessToken(token.data);
+        this.store.dispatch(loadAuthUser());
+        this.router.navigate(['/admin-panel/main']);
+      },
+      err => {
+        this.error = 'Your username or password is incorrect';
+      });
   }
 }
