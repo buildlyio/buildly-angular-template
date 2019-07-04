@@ -14,7 +14,16 @@
           [margin]="'0px 5px'"
           [iconPosition]="'before'"
           [icon]="'plus'"
-        >New Entry</fj-button>
+        >
+          New Entry
+        </fj-button>
+      </div>
+      <div class="endpoint-detail__entries__table">
+        <fj-table
+          [rows]= "rows"
+          [columns]="tableOptions.columns"
+          [viewPort]="'350px'"
+        ></fj-table>
       </div>
     </div>
     <div class="endpoint-detail__operations" *ngIf="operations?.length > 0">

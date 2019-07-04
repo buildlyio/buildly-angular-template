@@ -10,7 +10,6 @@ $delete-color: #fe5a5a;
   display: flex;
   position: relative;
   height: 100%;
-  width: 100vw;
   background-color: $dark-background;
   padding: 30px 0;
   min-height: 100vh;
@@ -26,6 +25,7 @@ $delete-color: #fe5a5a;
     top: rem-calc(60);
     left: 35px;
     height: 100vh;
+    width: 100%;
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
     -o-transition: all 0.1s ease-in-out;
@@ -33,7 +33,7 @@ $delete-color: #fe5a5a;
     transition: all 0.1s ease-in-out;
   }
   &__entries {
-    width: rem-calc(800);
+    flex: 3;
     &__heading {
       display: flex;
       align-items: center;
@@ -41,9 +41,13 @@ $delete-color: #fe5a5a;
         text-transform: capitalize;
       }
     }
+    &__table {
+    }
   }
   &__operations {
+    flex: 1;
     max-width: rem-calc(250);
+    margin-left: rem-calc(30);
     overflow: auto;
     &__title {
       cursor: default;
@@ -94,7 +98,7 @@ $delete-color: #fe5a5a;
           color: $dark-text-color;
           border: 0;
           padding: 0;
-          width: rem-calc(80);
+          width: rem-calc(120);
           background: transparent;
           &:focus {
             outline:none;
