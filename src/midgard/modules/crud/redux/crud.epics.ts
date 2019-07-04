@@ -25,7 +25,7 @@ export class CrudEpics {
     return action$.pipe(
       redux.ofType(CRUD_LOAD_DATA),
       switchMap((action: CrudAction) => {
-        return this.httpService.makeRequest('get', `${environment.API_URL}${action.endpoint}/`).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}${action.endpoint}`).pipe(
           // If successful, dispatch success action with result
           map(res => crudLoadDataCommit(res.data, action.endpoint, action.idProp, action.dataProp)),
           // If request fails, dispatch failed action
@@ -43,7 +43,7 @@ export class CrudEpics {
     return action$.pipe(
       redux.ofType(CRUD_CREATE),
       switchMap((action: CrudAction) => {
-        return this.httpService.makeRequest('post', `${environment.API_URL}${action.endpoint}/`, action.data).pipe(
+        return this.httpService.makeRequest('post', `${environment.API_URL}${action.endpoint}`, action.data).pipe(
           // If successful, dispatch success action with result
           map(res => crudCreateCommit(res.data, action.endpoint, action.idProp, action.dataProp)),
           // If request fails, dispatch failed action
@@ -61,7 +61,7 @@ export class CrudEpics {
     return action$.pipe(
       redux.ofType(CRUD_UPDATE),
       switchMap((action: CrudAction) => {
-        return this.httpService.makeRequest('patch', `${environment.API_URL}${action.endpoint}/${action.data.id}/`, action.data, true).pipe(
+        return this.httpService.makeRequest('patch', `${environment.API_URL}${action.endpoint}${action.data.id}/`, action.data, true).pipe(
           // If successful, dispatch success action with result
           map(res => crudUpdateCommit(res.data, action.endpoint, action.idProp, action.dataProp)),
           // If request fails, dispatch failed action
@@ -79,7 +79,7 @@ export class CrudEpics {
     return action$.pipe(
       redux.ofType(CRUD_DELETE),
       switchMap((action: CrudAction) => {
-        return this.httpService.makeRequest('delete', `${environment.API_URL}${action.endpoint}/${action.data.id}/`, {}, true).pipe(
+        return this.httpService.makeRequest('delete', `${environment.API_URL}${action.endpoint}${action.data.id}/`, {}, true).pipe(
           // If successful, dispatch success action with result
           map(res => crudDeleteCommit(res.data, action.endpoint, action.idProp, action.dataProp)),
           // If request fails, dispatch failed action

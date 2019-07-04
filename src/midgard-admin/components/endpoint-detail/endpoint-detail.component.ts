@@ -12,18 +12,7 @@ export class EndpointDetailComponent implements OnChanges {
 
   @Input() endpoint: string;
   operations: any;
-
-  rows = [
-    {first_name: 'Michael', last_name: 'Jackson', address: 'Sunset Boulevard 2', phone: '33456321'},
-    {first_name: 'James', last_name: 'Bond', address: 'Bond Street 7', phone: '0070071'},
-    {first_name: 'Sherlock', last_name: 'Holmes', address: 'Bond Street 5', phone: '0070071'},
-    {first_name: 'James', last_name: 'Bond', address: 'Bond Street 7', phone: '0070071'},
-    {first_name: 'Sherlock', last_name: 'Holmes', address: 'Bond Street 5', phone: '0070071'},
-    {first_name: 'Michael', last_name: 'Jackson', address: 'Sunset Boulevard 2', phone: '33456321'},
-    {first_name: 'Sherlock', last_name: 'Holmes', address: 'Bond Street 5', phone: '0070071'},
-    {first_name: 'Michael', last_name: 'Jackson', address: 'Sunset Boulevard 2', phone: '33456321'},
-    {first_name: 'James', last_name: 'Bond', address: 'Bond Street 7', phone: '0070071'}
-  ];
+  crudEndpoint;
   tableOptions: any;
 
   constructor(

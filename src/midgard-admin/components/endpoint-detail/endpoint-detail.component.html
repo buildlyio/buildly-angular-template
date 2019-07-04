@@ -23,9 +23,13 @@
       </div>
       <div class="endpoint-detail__entries__table">
         <fj-table
-          [rows]= "rows"
+          mgCrud
+          #crud="mgCrud"
+          [rows]= "crud.rows"
+          [viewPort]="'350px'"
+          [endpoint]="operations[0][0]"
+          [idProp]="'id'"
           [columns]="tableOptions.columns"
-          [viewPort]="'350px'"r
         ></fj-table>
       </div>
     </div>

@@ -12,6 +12,7 @@ import { NavBarElemAdminComponent } from './components/nav-bar-admin/navbar-elem
 import { EndpointDetailComponent } from './components/endpoint-detail/endpoint-detail.component';
 import { TopViewSwitcherComponent } from '../midgard/components/top-view-switcher/top-view-switcher.component';
 import { TextHelper } from '../midgard/helpers/text.helper';
+import { MidgardCrudModule } from '../midgard/modules/crud/crud.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TextHelper } from '../midgard/helpers/text.helper';
     FjCardModule,
     FjButtonModule,
     FjTextInputModule,
-    FjTableModule
+    FjTableModule,
+    MidgardCrudModule
   ]
 })
 export class MidgardAdminModule { }
