@@ -7,7 +7,7 @@ import { MainAdminComponent } from './pages/main-admin/main-admin.component';
 const midgardAdminRoutes: Routes = [
   { path: '', component: LoginAdminComponent },
   { path: 'login', component: LoginAdminComponent },
-  { path: 'main', component: MainAdminComponent },
+  { path: 'main/:endpoint', component: MainAdminComponent },
 ];
 
 @NgModule({

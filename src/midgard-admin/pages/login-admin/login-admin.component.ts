@@ -55,7 +55,7 @@ export class LoginAdminComponent implements OnInit {
     this.oauthService.authenticateWithPasswordFlow(this.loginForm.value).subscribe( token => {
         this.oauthService.setAccessToken(token.data);
         this.store.dispatch(loadAuthUser());
-        this.router.navigate(['/admin-panel/main']);
+        this.router.navigate(['/admin-panel/main/coregroup']);
       },
       err => {
         this.error = 'Your username or password is incorrect';
