@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { select, Store } from '../../../midgard/modules/store/store';
-import { getAuthUser } from '../../../midgard/state/authuser/authuser.selectors';
 import { HttpService } from '../../../midgard/modules/http/http.service';
 import { environment } from '../../../environments/environment';
 
@@ -22,7 +20,7 @@ export class NavBarAdminComponent implements OnInit {
   }
 
   /**
-   * gets the list of the endpoints from swaggerrr
+   * gets the list of the endpoints from swagger
    */
   getEndpointsFromSwagger() {
     this.httpService.makeRequest('get', `${environment.API_URL}/docs/swagger.json`).subscribe(res => {

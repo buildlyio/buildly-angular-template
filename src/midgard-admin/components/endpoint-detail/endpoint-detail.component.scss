@@ -27,4 +27,24 @@
     -ms-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out;
   }
+  &__operations {
+    &__container {
+      display: flex;
+    }
+    &__item {
+      padding: rem-calc(15);
+      &--get {
+        border: 1px solid blue
+      }
+      &--put {
+        border: 1px solid yellow
+      }
+      &--post {
+        border: 1px solid green
+      }
+      &--delete {
+        border: 1px solid red
+      }
+    }
+  }
 }

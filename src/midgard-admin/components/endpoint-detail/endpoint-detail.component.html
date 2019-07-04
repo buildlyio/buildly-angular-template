@@ -1,5 +1,19 @@
 <div class="endpoint-detail">
   <div class="endpoint-detail__container">
-    ENDPOINT GOES HERE {{endpoint}}
+    <div *ngIf="operations?.length === 0">
+      No available Http operations on this endpoint
+    </div>
+    <div *ngIf="operations?.length > 0">
+      <div class="endpoint-detail__operations">
+        <div class="endpoint-detail__operations__container" *ngFor="let operation of operations">
+
+          <div class="endpoint-detail__operations__item--get" *ngIf="operation[1].get">GET <span>{{operation[0]}}</span></div>
+          <div class="endpoint-detail__operations__item--post" *ngIf="operation[1].post">POST <span>{{operation[0]}}</span></div>
+          <div class="endpoint-detail__operations__item--put" *ngIf="operation[1].put">PUT <span>{{operation[0]}}</span></div>
+          <div class="endpoint-detail__operations__item--put" *ngIf="operation[1].patch">PATCH <span>{{operation[0]}}</span></div>
+          <div class="endpoint-detail__operations__item--delete" *ngIf="operation[1].delete">DELETE <span>{{operation[0]}}</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
