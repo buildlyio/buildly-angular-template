@@ -3,17 +3,31 @@
     <div *ngIf="operations?.length === 0">
       No available Http operations on this endpoint
     </div>
-    <div *ngIf="operations?.length > 0">
-      <div class="endpoint-detail__operations">
-        <div class="endpoint-detail__operations__container" *ngFor="let operation of operations">
-
-          <div class="endpoint-detail__operations__item--get" *ngIf="operation[1].get">GET <span>{{operation[0]}}</span></div>
-          <div class="endpoint-detail__operations__item--post" *ngIf="operation[1].post">POST <span>{{operation[0]}}</span></div>
-          <div class="endpoint-detail__operations__item--put" *ngIf="operation[1].put">PUT <span>{{operation[0]}}</span></div>
-          <div class="endpoint-detail__operations__item--put" *ngIf="operation[1].patch">PATCH <span>{{operation[0]}}</span></div>
-          <div class="endpoint-detail__operations__item--delete" *ngIf="operation[1].delete">DELETE <span>{{operation[0]}}</span></div>
-        </div>
+    <div class="endpoint-detail__entries" *ngIf="operations?.length > 0">
+      <div class="endpoint-detail__entries__heading">
+        <h3>{{endpoint}}</h3>
+        <fj-button
+          (click)="onButtonClicked(view)"
+          [shape]="'rounded'"
+          [size]="'small'"
+          [iconMargin]="'0px 5px 0px 0px'"
+          [margin]="'0px 5px'"
+          [iconPosition]="'before'"
+          [icon]="'plus'"
+        >New Entry</fj-button>
       </div>
+    </div>
+    <div class="endpoint-detail__operations" *ngIf="operations?.length > 0">
+        <h3>Endpoints</h3>
+        <div *ngFor="let operation of operations">
+          <h5 class="endpoint-detail__operations__title" title="{{operation[0]}}">{{operation[0]}}</h5>
+          <div *ngFor="let verb of operation[1]" class="endpoint-detail__operations__item endpoint-detail__operations__item--{{verb}}">
+            <div class="endpoint-detail__operations__item__verb endpoint-detail__operations__item__verb--{{verb}}">{{verb}}</div>
+            <div class="endpoint-detail__operations__item__path">
+              <input class="endpoint-detail__operations__item__path__text"  type="text" value="{{operation[0]}}" readonly>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>

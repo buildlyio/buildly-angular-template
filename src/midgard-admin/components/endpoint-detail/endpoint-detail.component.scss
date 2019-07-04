@@ -1,5 +1,11 @@
 @import "../../../styles";
 
+$get-color: #0673db;
+$post-color: #02a483;
+$post-color-opacity: rgba(2, 164, 131, 0.17);
+$put-color: #cc9211;
+$delete-color: #fe5a5a;
+
 .endpoint-detail {
   display: flex;
   position: relative;
@@ -19,7 +25,6 @@
     color: $dark-text-color;
     top: rem-calc(60);
     left: 35px;
-    flex-flow: column nowrap;
     height: 100vh;
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
@@ -27,23 +32,90 @@
     -ms-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out;
   }
+  &__entries {
+    width: rem-calc(800);
+    &__heading {
+      display: flex;
+      align-items: center;
+      h3 {
+        text-transform: capitalize;
+      }
+    }
+  }
   &__operations {
+    max-width: rem-calc(250);
+    overflow: auto;
+    &__title {
+      cursor: default;
+      width: rem-calc(250);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     &__container {
       display: flex;
+      margin: rem-calc(15 0);
     }
     &__item {
-      padding: rem-calc(15);
+      display: flex;
+      width: rem-calc(200) ;
+      margin-bottom: rem-calc(15);
+      border-radius: rem-calc(4);
+      overflow: hidden;
+      &__verb {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 600;
+        padding: rem-calc(6);
+        width: rem-calc(40);
+        &--get {
+          background-color: $get-color
+        }
+        &--put {
+          background-color: $put-color;
+        }
+        &--patch {
+          background-color: $put-color;
+        }
+        &--post {
+          background-color: $post-color;
+        }
+        &--delete {
+          background-color: $delete-color;
+        }
+      }
+      &__path {
+        font-size: 12px;
+        padding: rem-calc(8);
+        overflow: hidden;
+        &__text {
+          color: $dark-text-color;
+          border: 0;
+          padding: 0;
+          width: rem-calc(80);
+          background: transparent;
+          &:focus {
+            outline:none;
+          }
+        }
+      }
       &--get {
-        border: 1px solid blue
+        border: 1px solid $get-color;
       }
       &--put {
-        border: 1px solid yellow
+        border: 1px solid $put-color;
+      }
+      &--patch {
+        border: 1px solid $put-color;
       }
       &--post {
-        border: 1px solid green
+        border: 1px solid $post-color;
+        background-color: $post-color-opacity;
       }
       &--delete {
-        border: 1px solid red
+        border: 1px solid #fe5a5a
       }
     }
   }

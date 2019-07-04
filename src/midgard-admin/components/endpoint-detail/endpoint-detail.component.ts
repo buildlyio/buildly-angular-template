@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpService } from '../../../midgard/modules/http/http.service';
 
@@ -25,14 +25,18 @@ export class EndpointDetailComponent implements OnChanges {
    * gets the list of Http operations that can be applied to the endpoint from swagger
    */
   getOperationsFromSwagger() {
+    const httpVerbs: any = ['get', 'put', 'post', 'delete', 'patch'];
     this.httpService.makeRequest('get', `${environment.API_URL}/docs/swagger.json`).subscribe(res => {
       if (res.data) {
         // get the available operations for the current endpoint
         this.operations = Object.entries(res.data.paths).filter(path => {
           return path[0].includes(this.endpoint);
+        }).map(path => {
+          path[1] = Object.keys(path[1]).filter(verb => {
+            return httpVerbs.includes(verb);
+          });
+          return path;
         });
-
-        console.log(this.operations);
       }
     });
   }
