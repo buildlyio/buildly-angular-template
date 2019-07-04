@@ -11,6 +11,7 @@ import { NavBarAdminComponent } from './components/nav-bar-admin/nav-bar-admin.c
 import { NavBarElemAdminComponent } from './components/nav-bar-admin/navbar-elem-admin/navbar-elem-admin.component';
 import { EndpointDetailComponent } from './components/endpoint-detail/endpoint-detail.component';
 import { TopViewSwitcherComponent } from '../midgard/components/top-view-switcher/top-view-switcher.component';
+import { TextHelper } from '../midgard/helpers/text.helper';
 
 @NgModule({
   declarations: [

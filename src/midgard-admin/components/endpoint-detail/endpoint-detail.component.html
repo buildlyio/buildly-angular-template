@@ -17,23 +17,29 @@
         >
           New Entry
         </fj-button>
+        <div class="endpoint-detail__search-container">
+          <fj-text-input theme="dark" [customStyles]="{'width': '350px'}" [placeholder]="'Search...'"> </fj-text-input>
+        </div>
       </div>
       <div class="endpoint-detail__entries__table">
         <fj-table
           [rows]= "rows"
           [columns]="tableOptions.columns"
-          [viewPort]="'350px'"
+          [viewPort]="'350px'"r
         ></fj-table>
       </div>
     </div>
     <div class="endpoint-detail__operations" *ngIf="operations?.length > 0">
         <h3>Endpoints</h3>
         <div *ngFor="let operation of operations">
-          <h5 class="endpoint-detail__operations__title" title="{{operation[0]}}">{{operation[0]}}</h5>
-          <div *ngFor="let verb of operation[1]" class="endpoint-detail__operations__item endpoint-detail__operations__item--{{verb}}">
-            <div class="endpoint-detail__operations__item__verb endpoint-detail__operations__item__verb--{{verb}}">{{verb}}</div>
-            <div class="endpoint-detail__operations__item__path">
-              <input class="endpoint-detail__operations__item__path__text"  type="text" value="{{operation[0]}}" readonly>
+          <div class="endpoint-detail__operations__endpoint" >
+            <h5 class="endpoint-detail__operations__endpoint__text" title="{{operation[0]}}">{{operation[0]}}</h5>
+            <input type="text" value="{{operation[0]}}" hidden>
+            <img class="endpoint-detail__operations__endpoint__icon" (click)="copyEndpoint(operation[0])" src="assets/img/copy-icon.svg"/>
+          </div>
+          <div class="endpoint-detail__operations__container">
+            <div *ngFor="let verb of operation[1]" class="endpoint-detail__operations__item endpoint-detail__operations__item--{{verb}}">
+              <div class="endpoint-detail__operations__item__verb endpoint-detail__operations__item__verb--{{verb}}">{{verb}}</div>
             </div>
           </div>
         </div>
