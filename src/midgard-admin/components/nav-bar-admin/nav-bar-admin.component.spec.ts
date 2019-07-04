@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavBarComponent } from './nav-bar-admin.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { MidgardStoreModule } from '@src/midgard/modules/store/store.module';
+import { MidgardStoreModule } from '../../../midgard/modules/store/store.module';
 import { StoreMock } from '../../modules/store/store-mock';
 import { Store } from '../../modules/store/store';
 

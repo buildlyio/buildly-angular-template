@@ -6,9 +6,10 @@ import { MidgardAdminRoutingModule } from './midgard-admin-routing.module';
 import { FjButtonModule, FjCardModule, FjTextInputModule } from 'freyja-ui';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainAdminComponent } from './pages/main-admin/main-admin.component';
-import { TopBarAdminComponent } from './layout/top-bar-admin/top-bar-admin.component';
-import { NavBarAdminComponent } from './layout/nav-bar-admin/nav-bar-admin.component';
-import { NavBarElemAdminComponent } from './layout/nav-bar-admin/navbar-elem-admin/navbar-elem-admin.component';
+import { TopBarAdminComponent } from './components/top-bar-admin/top-bar-admin.component';
+import { NavBarAdminComponent } from './components/nav-bar-admin/nav-bar-admin.component';
+import { NavBarElemAdminComponent } from './components/nav-bar-admin/navbar-elem-admin/navbar-elem-admin.component';
+import { EndpointDetailComponent } from './components/endpoint-detail/endpoint-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavBarElemAdminComponent } from './layout/nav-bar-admin/navbar-elem-adm
     MainAdminComponent,
     TopBarAdminComponent,
     NavBarAdminComponent,
-    NavBarElemAdminComponent
+    NavBarElemAdminComponent,
+    EndpointDetailComponent
   ],
   imports: [
     CommonModule,

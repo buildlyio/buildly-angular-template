@@ -9,10 +9,10 @@
   text-decoration: none;
   cursor: pointer;
   &:hover {
-    color: $text-secondary-color;
+    color: $primary-color;
   }
   &--active {
-    background-color: $background-overlay;
-    color: $text-secondary-color;
+    background-color: $dark-primary-hover;
+    color: $primary-color;
   }
 }

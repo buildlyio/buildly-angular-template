@@ -1,7 +1,4 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { select, Store } from '@src/midgard/modules/store/store';
-import { selectTopBarOption } from '@src/midgard/state/top-bar/top-bar.actions';
-import { getTopBarOptions } from '@src/midgard/state/top-bar/top-bar.selectors';
 import { Subscription} from 'rxjs';
 import * as config from '../../../../config.json';
 

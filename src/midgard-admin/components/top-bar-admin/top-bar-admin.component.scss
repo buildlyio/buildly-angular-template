@@ -28,6 +28,7 @@
     border-radius: 4px;
     color: $dark-text-color;
     cursor: pointer;
+    z-index: 2;
     &--active {
       background-color: $primary-color;
       color: white;
@@ -45,17 +46,6 @@
       margin-right: 5px;
       width: rem-calc(160);
     }
-  }
-
-  &__subnav {
-    min-width: rem-calc(320);
-    flex: 2;
-  }
-
-  &__search {
-    display: flex;
-    align-items: center;
-    margin-right: rem-calc(40);
   }
 }
 
