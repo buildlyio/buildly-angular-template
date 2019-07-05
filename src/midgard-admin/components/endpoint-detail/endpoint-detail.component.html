@@ -51,19 +51,23 @@
       </div>
     </div>
     <div class="endpoint-detail__paths" *ngIf="paths?.length > 0">
-        <h3>Endpoints</h3>
-        <div *ngFor="let path of paths">
-          <div class="endpoint-detail__paths__endpoint" >
-            <h5 class="endpoint-detail__paths__endpoint__text" title="{{path[0]}}">{{path[0]}}</h5>
-            <input type="text" value="{{path[0]}}" hidden>
-            <img class="endpoint-detail__paths__endpoint__icon" (click)="copyEndpoint(path[0])" src="assets/img/copy-icon.svg"/>
-          </div>
-          <div class="endpoint-detail__paths__container">
-            <div *ngFor="let verb of path[1]" class="endpoint-detail__paths__item endpoint-detail__paths__item--{{verb}}">
-              <div class="endpoint-detail__paths__item__verb endpoint-detail__paths__item__verb--{{verb}}">{{verb}}</div>
-            </div>
+      <div class="endpoint-detail__paths__item__overlay" *ngIf="showDefinitions">
+        <img class="endpoint-detail__paths__item__overlay__close" src="assets/img/close-icon.svg" (click)="showDefinitions = false"/>
+        <pre>{{definitions}}</pre>
+      </div>
+      <h3>Paths</h3>
+      <div *ngFor="let path of paths">
+        <div class="endpoint-detail__paths__endpoint" >
+          <h5 class="endpoint-detail__paths__endpoint__text" title="{{path[0]}}">{{path[0]}}</h5>
+          <input type="text" value="{{path[0]}}" hidden>
+          <img class="endpoint-detail__paths__endpoint__icon" (click)="copyEndpoint(path[0])" src="assets/img/copy-icon.svg"/>
+        </div>
+        <div class="endpoint-detail__paths__container">
+          <div *ngFor="let verb of path[1]" class="endpoint-detail__paths__item endpoint-detail__paths__item--{{verb}}">
+            <div class="endpoint-detail__paths__item__verb endpoint-detail__paths__item__verb--{{verb}}" (click)="showDefinitions = !showDefinitions">{{verb}}</div>
           </div>
         </div>
+      </div>
     </div>
   </div>
 </div>

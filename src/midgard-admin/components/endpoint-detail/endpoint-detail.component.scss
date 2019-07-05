@@ -69,6 +69,7 @@ $delete-color: #fe5a5a;
     }
     &__container {
       display: flex;
+      position: relative;
       margin: rem-calc(15 0);
     }
     &__item {
@@ -79,6 +80,21 @@ $delete-color: #fe5a5a;
       &:first-child {
         margin-left: rem-calc(0);
       }
+      &__overlay {
+        position: fixed;
+        right: rem-calc(260);
+        width: rem-calc(240);
+        padding: rem-calc(15);
+        background-color: $dark-background-brighter;
+        &__close {
+          position: absolute;
+          right: rem-calc(15);
+          cursor: pointer;
+        }
+        pre {
+          overflow: auto;
+        }
+      }
       &__verb {
         display: flex;
         justify-content: center;
@@ -87,6 +103,7 @@ $delete-color: #fe5a5a;
         font-weight: 600;
         padding: rem-calc(6);
         width: rem-calc(40);
+        cursor: pointer;
         &--get {
           background-color: $get-color
         }

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, ViewChild } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpService } from '../../../midgard/modules/http/http.service';
-import { camelize, capitalize, classify } from '@angular-devkit/core/src/utils/strings';
+import { capitalize } from '@angular-devkit/core/src/utils/strings';
 import { CrudDirective } from '../../../midgard/modules/crud/crud.directive';
 
 @Component({
@@ -13,8 +13,10 @@ export class EndpointDetailComponent implements OnChanges {
   @ViewChild('crud') crud: CrudDirective;
   @Input() endpoint: string;
   paths: any;
+  definitions: any;
   tableOptions: any;
   filterValue: string;
+  showDefinitions = false;
   dropdownOptions = [
     {label: '•••', value: '•••'},
     {label: 'Delete', value: 'delete'}
@@ -38,6 +40,7 @@ export class EndpointDetailComponent implements OnChanges {
     this.httpService.makeRequest('get', `${environment.API_URL}docs/swagger.json`).subscribe(res => {
       if (res.data) {
         this.defineTableColumns(res.data);
+        this.getDefinitionsFromSwagger(res.data);
         // get the available operations for the current endpoint
         this.paths = Object.entries(res.data.paths).filter(path => {
           return path[0].includes(this.endpoint);
@@ -49,6 +52,15 @@ export class EndpointDetailComponent implements OnChanges {
         });
       }
     });
+  }
+
+  /**
+   * get endpoint definitions from swagger
+   * @param swaggerResponse - the response from swagger
+   */
+  getDefinitionsFromSwagger(swaggerRes) {
+    const definitionKey = Object.keys(swaggerRes.definitions).find(key => key.toLowerCase() === this.endpoint)
+    this.definitions = JSON.stringify(swaggerRes.definitions[definitionKey], null, 2);
   }
 
   /**
