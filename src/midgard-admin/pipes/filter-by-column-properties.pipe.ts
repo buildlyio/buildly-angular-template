@@ -16,7 +16,7 @@ export class FilterByColumnPropertiesPipe implements PipeTransform {
     let foundItems = [];
     items.forEach( item => {
       columns.forEach(column => {
-        if (item[column.prop].toString().toLowerCase().includes(searchText)) {
+        if (item[column.prop] && item[column.prop].toString().toLowerCase().includes(searchText)) {
           if (!foundItems.includes(item)) {
             foundItems = [...foundItems, item];
           }

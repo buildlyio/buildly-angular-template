@@ -37,7 +37,7 @@
     "apollo-link-context": "1.0.14",
     "apollo-utilities": "1.0.25",
     "core-js": "2.6.0",
-    "freyja-ui": "^0.7.8",
+    "freyja-ui": "^0.8.0",
     "graphql": "0.13.2",
     "graphql-tag": "2.10.1",
     "midgard-core": "0.1.2",
