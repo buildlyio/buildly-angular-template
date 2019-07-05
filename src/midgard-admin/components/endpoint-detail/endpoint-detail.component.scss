@@ -46,10 +46,8 @@ $delete-color: #fe5a5a;
         text-transform: capitalize;
       }
     }
-    &__table {
-    }
   }
-  &__operations {
+  &__paths {
     flex: 1;
     max-width: rem-calc(300);
     margin-left: rem-calc(30);
@@ -58,8 +56,8 @@ $delete-color: #fe5a5a;
       display: flex;
       &__text {
         cursor: default;
+        margin: rem-calc(5 0);
         width: rem-calc(200);
-        margin-bottom: 0;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;

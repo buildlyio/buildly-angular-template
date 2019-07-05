@@ -1,9 +1,9 @@
 <div class="endpoint-detail">
   <div class="endpoint-detail__container">
-    <div *ngIf="operations?.length === 0">
-      No available Http operations on this endpoint
+    <div *ngIf="paths?.length === 0">
+      No available Http paths on this endpoint
     </div>
-    <div class="endpoint-detail__entries" *ngIf="operations?.length > 0">
+    <div class="endpoint-detail__entries" *ngIf="paths?.length > 0">
       <div class="endpoint-detail__entries__heading">
         <h3>{{endpoint}}</h3>
         <fj-button
@@ -18,32 +18,49 @@
           New Entry
         </fj-button>
         <div class="endpoint-detail__search-container">
-          <fj-text-input theme="dark" [customStyles]="{'width': '350px'}" [placeholder]="'Search...'"> </fj-text-input>
+          <fj-text-input theme="dark" [customStyles]="{'width': '350px'}" [placeholder]="'Filter...'" (keyup)="setFilterValue($event)"> </fj-text-input>
         </div>
       </div>
       <div class="endpoint-detail__entries__table">
         <fj-table
           mgCrud
           #crud="mgCrud"
-          [rows]= "crud.rows"
-          [viewPort]="'350px'"
-          [endpoint]="operations[0][0]"
+          [rows]= "crud.rows | filterByColumnProperties : filterValue : tableOptions.columns"
+          [viewPort]="'450px'"
+          [endpoint]="paths[0][0]"
           [idProp]="'id'"
           [columns]="tableOptions.columns"
-        ></fj-table>
+          theme="dark"
+        >
+          <fj-table-custom-column name="Custom" index="5" flex="1">
+            <ng-template fj-table-header-template>
+              <p>Actions</p>
+            </ng-template>
+            <ng-template let-row="row" fj-table-cell-template>
+              <fj-native-dropdown
+                [size]="'small'"
+                [options]="dropdownOptions"
+                [showDefaultOnClick]="true"
+                [customStyles]="{'marginTop': '0px', 'borderColor': '#484b4d', 'color': 'white','backgroundColor': '#4e5256','width' : '40px', 'padding': '0 0px 0 10px'}"
+                (optionSelected)="dropdownActionTriggered(row, $event)"
+              >
+              </fj-native-dropdown>
+            </ng-template>
+          </fj-table-custom-column>
+        </fj-table>
       </div>
     </div>
-    <div class="endpoint-detail__operations" *ngIf="operations?.length > 0">
+    <div class="endpoint-detail__paths" *ngIf="paths?.length > 0">
         <h3>Endpoints</h3>
-        <div *ngFor="let operation of operations">
-          <div class="endpoint-detail__operations__endpoint" >
-            <h5 class="endpoint-detail__operations__endpoint__text" title="{{operation[0]}}">{{operation[0]}}</h5>
-            <input type="text" value="{{operation[0]}}" hidden>
-            <img class="endpoint-detail__operations__endpoint__icon" (click)="copyEndpoint(operation[0])" src="assets/img/copy-icon.svg"/>
+        <div *ngFor="let path of paths">
+          <div class="endpoint-detail__paths__endpoint" >
+            <h5 class="endpoint-detail__paths__endpoint__text" title="{{path[0]}}">{{path[0]}}</h5>
+            <input type="text" value="{{path[0]}}" hidden>
+            <img class="endpoint-detail__paths__endpoint__icon" (click)="copyEndpoint(path[0])" src="assets/img/copy-icon.svg"/>
           </div>
-          <div class="endpoint-detail__operations__container">
-            <div *ngFor="let verb of operation[1]" class="endpoint-detail__operations__item endpoint-detail__operations__item--{{verb}}">
-              <div class="endpoint-detail__operations__item__verb endpoint-detail__operations__item__verb--{{verb}}">{{verb}}</div>
+          <div class="endpoint-detail__paths__container">
+            <div *ngFor="let verb of path[1]" class="endpoint-detail__paths__item endpoint-detail__paths__item--{{verb}}">
+              <div class="endpoint-detail__paths__item__verb endpoint-detail__paths__item__verb--{{verb}}">{{verb}}</div>
             </div>
           </div>
         </div>

@@ -25,12 +25,17 @@ export class NavBarAdminComponent implements OnInit {
   getEndpointsFromSwagger() {
     this.httpService.makeRequest('get', `${environment.API_URL}/docs/swagger.json`).subscribe(res => {
       if (res.data.definitions) {
-        this.endpoints = Object.keys(res.data.definitions).map(endpoint => {
+        this.endpoints = Object.keys(res.data.definitions).map((endpoint: any) => {
+          // get the available paths for the current endpoint
+          const paths = Object.entries(res.data.paths).filter(path => {
+            return path[0].includes(endpoint.toLowerCase());
+          });
           return {
             name: endpoint,
-            value: endpoint.toLowerCase()
+            value: endpoint.toLowerCase(),
+            paths: paths
           };
-        });
+        }).filter(endpoint => endpoint.paths.length > 0); // show only endpoints that have paths
       }
     });
   }

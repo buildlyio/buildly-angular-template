@@ -2,7 +2,7 @@
 
 .nav-bar {
   display: flex;
-  width: rem-calc(300);
+  width: rem-calc(250);
   height: 100%;
   background-color: $dark-background;
   padding: rem-calc(30 0);
@@ -15,8 +15,8 @@
   &__container {
     display: flex;
     position: fixed;
-    top: 80px;
-    left: 35px;
+    top: rem-calc(100);
+    left: rem-calc(35);
     flex-flow: column nowrap;
     height: 100vh;
     -webkit-transition: all 0.1s ease-in-out;
@@ -24,6 +24,7 @@
     -o-transition: all 0.1s ease-in-out;
     -ms-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out;
+    overflow: auto;
     &--hidden {
       display: none;
     }
