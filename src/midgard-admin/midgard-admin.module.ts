@@ -12,6 +12,7 @@ import { NavBarElemAdminComponent } from './components/nav-bar-admin/navbar-elem
 import { EndpointDetailComponent } from './components/endpoint-detail/endpoint-detail.component';
 import { MidgardCrudModule } from '../midgard/modules/crud/crud.module';
 import { FilterByColumnPropertiesPipe } from './pipes/filter-by-column-properties.pipe';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FilterByColumnPropertiesPipe } from './pipes/filter-by-column-propertie
     FjTextInputModule,
     FjTableModule,
     FjNativeDropdownModule,
+    ClickOutsideModule,
     MidgardCrudModule
   ]
 })

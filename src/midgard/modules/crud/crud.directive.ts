@@ -1,4 +1,4 @@
-import {Directive, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import { Directive, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
 import {Subscription} from 'rxjs';
 import {GraphQlService} from '@src/midgard/modules/graphql/graphql.service';
 import {map} from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { selectAllfromEndpoint, selectEndpointLoaded } from './redux/crud.select
   selector: '[mgCrud]',
   exportAs: 'mgCrud'
 })
-export class CrudDirective implements OnInit, OnDestroy {
+export class CrudDirective implements OnChanges, OnDestroy {
 
   public rows: any = [];
   public currentItem;
@@ -83,7 +83,7 @@ export class CrudDirective implements OnInit, OnDestroy {
     private fb: FormBuilder,
   ) { }
 
-  ngOnInit() {
+  ngOnChanges() {
     if (this.loadedSelector) {
       this.dataLoaded = this.store.observable.pipe(
         select(this.loadedSelector),

@@ -1,8 +1,8 @@
 <div class="bg-1--dark">
   <mg-top-bar-admin (menuToggled)="toggleMenu($event)"></mg-top-bar-admin>
   <div class="admin-container">
-    <mg-nav-bar-admin [hideMenu]="hideMenu"></mg-nav-bar-admin>
-    <mg-endpoint-detail class="detail-wrapper" [endpoint]="currentEndpoint"></mg-endpoint-detail>
+    <mg-nav-bar-admin [hideMenu]="hideMenu" [swaggerObj]="swaggerObj"></mg-nav-bar-admin>
+    <mg-endpoint-detail class="detail-wrapper" [endpoint]="currentEndpoint" [swaggerObj]="swaggerObj"></mg-endpoint-detail>
   </div>
 </div>
 

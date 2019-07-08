@@ -30,9 +30,10 @@
           [endpoint]="paths[0][0]"
           [idProp]="'id'"
           [columns]="tableOptions.columns"
+          (dataLoadedFromStore)="defineTableColumns()"
           theme="dark"
         >
-          <fj-table-custom-column name="Custom" index="10" flex="1">
+          <fj-table-custom-column name="Custom" index="10" flex="1" prop="actions">
             <ng-template fj-table-header-template>
               <p>Actions</p>
             </ng-template>
