@@ -1,0 +1,22 @@
+@import "../../../styles";
+
+$get-color: #0673db;
+$post-color: #02a483;
+$post-color-opacity: rgba(2, 164, 131, 0.17);
+$put-color: #cc9211;
+$delete-color: #fe5a5a;
+
+.endpoint-entries {
+  &__heading {
+    display: flex;
+    align-items: center;
+    h3 {
+      text-transform: capitalize;
+    }
+  }
+  &__search-container {
+    display: flex;
+    flex: 4;
+    flex-direction: row-reverse;
+  }
+}

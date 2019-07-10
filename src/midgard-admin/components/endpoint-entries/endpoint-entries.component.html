@@ -1,0 +1,51 @@
+<div class="endpoint-entries" *ngIf="paths && !paths[0][2]?.includes('get')">
+  <p>Cannot list entries for this endpoint.</p>
+</div>
+<div class="endpoint-entries" *ngIf="paths && paths[0][2]?.includes('get')">
+  <div class="endpoint-entries__heading">
+    <h3>{{endpoint}}</h3>
+    <fj-button
+      (click)="onButtonClicked(view)"
+      [shape]="'rounded'"
+      [size]="'small'"
+      [iconMargin]="'0px 5px 0px 0px'"
+      [margin]="'0px 5px'"
+      [iconPosition]="'before'"
+      [icon]="'plus'"
+    >
+      New Entry
+    </fj-button>
+    <div class="endpoint-entries__search-container">
+      <fj-text-input theme="dark" [customStyles]="{'width': '350px'}" [placeholder]="'Filter...'" (keyup)="setFilterValue($event)"> </fj-text-input>
+    </div>
+  </div>
+  <div class="endpoint-entries__table">
+    <fj-table
+      mgCrud
+      #crud="mgCrud"
+      [rows]= "crud.rows | filterByColumnProperties : filterValue : tableOptions.columns"
+      [viewPort]="'450px'"
+      [endpoint]="crudInputs?.endpoint"
+      [idProp]="'id'"
+      [dataProp]="crudInputs?.dataProp"
+      [columns]="tableOptions.columns"
+      theme="dark"
+    >
+      <fj-table-custom-column name="Custom" index="10" flex="1" prop="actions">
+        <ng-template fj-table-header-template>
+          <p>Actions</p>
+        </ng-template>
+        <ng-template let-row="row" fj-table-cell-template>
+          <fj-native-dropdown
+            [size]="'small'"
+            [options]="dropdownOptions"
+            [showDefaultOnClick]="true"
+            [customStyles]="{'marginTop': '0px', 'borderColor': '#484b4d', 'color': 'white','backgroundColor': '#4e5256','width' : '40px', 'padding': '0 0px 0 10px'}"
+            (optionSelected)="dropdownActionTriggered(row, $event)"
+          >
+          </fj-native-dropdown>
+        </ng-template>
+      </fj-table-custom-column>
+    </fj-table>
+  </div>
+</div>
