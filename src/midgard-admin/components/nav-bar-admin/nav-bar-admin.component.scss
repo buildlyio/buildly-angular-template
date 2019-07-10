@@ -18,7 +18,7 @@
     top: rem-calc(100);
     left: rem-calc(35);
     flex-flow: column nowrap;
-    height: 100vh;
+    height: calc(100vh - 100px);
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
     -o-transition: all 0.1s ease-in-out;

@@ -30,7 +30,7 @@ export class EndpointDetailComponent implements OnChanges {
     if (this.swaggerObj) {
       this.getPathsFromSwagger();
       this.getDefinitionsFromSwagger();
-      // this.defineTableColumns();
+      this.defineTableColumns();
     }
   }
 
@@ -41,12 +41,21 @@ export class EndpointDetailComponent implements OnChanges {
     this.paths = null;
     const httpVerbs: any = ['get', 'put', 'post', 'delete', 'patch'];
     // get the available operations for the current endpoint
-    this.paths = Object.entries(this.swaggerObj.paths).filter(path => {
-      return path[0].includes(this.endpoint);
+    this.paths = Object.entries(this.swaggerObj.paths).filter((path: any) => {
+      const pathSegments = path[0].split('/'); // split the path url to segments
+      if (!pathSegments[2] || pathSegments[2].length === 0) {
+        return pathSegments[1].includes(this.endpoint); // take the first path segemnt if there is no second segment
+      }
+      if (pathSegments[2] && pathSegments[2].includes('{')) {
+        return pathSegments[1].includes(this.endpoint); // take the first path segemnt if the second segment is a url parameter
+      } else {
+        return pathSegments[2].includes(this.endpoint); // else take the second path segemnt
+      }
     }).map(path => {
-      path[1] = Object.keys(path[1]).filter(verb => {
-        return httpVerbs.includes(verb);
+      const httpMethods = Object.keys(path[1]).filter(verb => {
+          return httpVerbs.includes(verb);
       });
+      path.push(httpMethods)
       return path;
     });
   }
@@ -55,7 +64,7 @@ export class EndpointDetailComponent implements OnChanges {
    * get endpoint definitions from swagger
    */
   getDefinitionsFromSwagger() {
-    const definitionKey = Object.keys(this.swaggerObj.definitions).find(key => key.toLowerCase() === this.endpoint);
+    const definitionKey = Object.keys(this.swaggerObj.definitions).find(key => this.endpoint.toLowerCase().includes(key.substring(0, this.endpoint.length).toLowerCase()));
     this.definitions = JSON.stringify(this.swaggerObj.definitions[definitionKey], null, 2);
   }
 
@@ -83,14 +92,21 @@ export class EndpointDetailComponent implements OnChanges {
   defineTableColumns() {
     let columns;
     let requiredColumns;
-    const definitions: any = Object.entries(this.swaggerObj.definitions).find(definition => definition[0].toLowerCase() === this.endpoint);
+    let definitionKey
+    if (this.paths[0][1].get.responses['200'].schema.items) {
+      definitionKey = this.paths[0][1].get.responses['200'].schema.items.$ref.split('/')[2];
+    } else {
+      definitionKey = this.paths[0][1].get.responses['200'].schema.properties.results.items.$ref.split('/')[2]
+    }
+    console.log(definitionKey)
+    const definitions = this.swaggerObj.definitions[definitionKey];
     // add first 2 properties to the table columns
-    const propertiesColums = Object.keys(definitions[1].properties).slice(0, 2).map(field => {
+    const propertiesColums = Object.keys(definitions.properties).slice(0, 2).map(field => {
       return {name: capitalize(field), prop: field, flex: 2, sortable: true};
     });
     // add required fields to the columns array
-    if (definitions[1].required) {
-      requiredColumns = definitions[1].required.map(field => {
+    if (definitions.required) {
+      requiredColumns = definitions.required.map(field => {
         return {name: capitalize(field), prop: field, flex: 2, sortable: true};
       });
       columns = [...propertiesColums, ...requiredColumns].filter((value, index, self) => {

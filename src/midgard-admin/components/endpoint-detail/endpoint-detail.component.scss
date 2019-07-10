@@ -27,9 +27,7 @@ $delete-color: #fe5a5a;
     display: flex;
     position: relative;
     color: $dark-text-color;
-    top: rem-calc(60);
-    left: 35px;
-    height: 100vh;
+    margin-top: rem-calc(60);
     width: 100%;
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
@@ -82,7 +80,7 @@ $delete-color: #fe5a5a;
       }
       &__overlay {
         position: fixed;
-        right: rem-calc(260);
+        right: rem-calc(295);
         width: rem-calc(240);
         padding: rem-calc(15);
         background-color: $dark-background-brighter;
