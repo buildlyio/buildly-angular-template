@@ -13,6 +13,8 @@ import { EndpointDetailComponent } from './components/endpoint-detail/endpoint-d
 import { MidgardCrudModule } from '../midgard/modules/crud/crud.module';
 import { FilterByColumnPropertiesPipe } from './pipes/filter-by-column-properties.pipe';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { MidgardOAuthModule } from '../midgard/modules/oauth/oauth.module';
+import { AdminAuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,11 @@ import { ClickOutsideModule } from 'ng-click-outside';
     FjTableModule,
     FjNativeDropdownModule,
     ClickOutsideModule,
-    MidgardCrudModule
+    MidgardCrudModule,
+    MidgardOAuthModule
+  ],
+  providers: [
+    AdminAuthGuard
   ]
 })
 export class MidgardAdminModule { }

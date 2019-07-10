@@ -36,6 +36,7 @@
   }
   &__home {
     display: flex;
+    flex: 1;
     align-items: center;
     margin-left: rem-calc(40);
     width: rem-calc(149);
@@ -45,6 +46,13 @@
     &__logo {
       margin-right: 5px;
       width: rem-calc(160);
+    }
+  }
+  &__logout {
+    width: rem-calc(50);
+    &__icon {
+      width: rem-calc(25);
+      cursor: pointer;
     }
   }
 }

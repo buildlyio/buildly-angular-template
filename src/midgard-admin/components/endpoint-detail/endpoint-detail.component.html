@@ -1,9 +1,12 @@
 <div class="endpoint-detail">
   <div class="endpoint-detail__container">
-    <div *ngIf="paths?.length === 0">
-      No available Http paths on this endpoint
+    <div *ngIf="!swaggerObj">
+      <p>Connecting to bifrost...</p>
     </div>
-    <div class="endpoint-detail__entries" *ngIf="paths?.length > 0">
+    <div class="endpoint-detail__entries" *ngIf="paths && !paths[0][2]?.includes('get')">
+      <p>Cannot list entries for this endpoint.</p>
+    </div>
+    <div class="endpoint-detail__entries" *ngIf="paths && paths[0][2]?.includes('get')">
       <div class="endpoint-detail__entries__heading">
         <h3>{{endpoint}}</h3>
         <fj-button
@@ -27,10 +30,10 @@
           #crud="mgCrud"
           [rows]= "crud.rows | filterByColumnProperties : filterValue : tableOptions.columns"
           [viewPort]="'450px'"
-          [endpoint]="paths[0][0]"
+          [endpoint]="crudInputs?.endpoint"
           [idProp]="'id'"
+          [dataProp]="crudInputs?.dataProp"
           [columns]="tableOptions.columns"
-          (dataLoadedFromStore)="defineTableColumns()"
           theme="dark"
         >
           <fj-table-custom-column name="Custom" index="10" flex="1" prop="actions">
@@ -64,7 +67,7 @@
           <img class="endpoint-detail__paths__endpoint__icon" (click)="copyEndpoint(path[0])" src="assets/img/copy-icon.svg"/>
         </div>
         <div class="endpoint-detail__paths__container">
-          <div *ngFor="let verb of path[1]" class="endpoint-detail__paths__item endpoint-detail__paths__item--{{verb}}">
+          <div *ngFor="let verb of path[2]" class="endpoint-detail__paths__item endpoint-detail__paths__item--{{verb}}">
             <div class="endpoint-detail__paths__item__verb endpoint-detail__paths__item__verb--{{verb}}" (click)="showDefinitions = !showDefinitions">{{verb}}</div>
           </div>
         </div>

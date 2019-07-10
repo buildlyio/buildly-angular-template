@@ -32,7 +32,7 @@ export class MainAdminComponent implements OnInit {
    * it sends a request to get swagger json
    */
   getSwaggerJson() {
-    this.httpService.makeRequest('get', `${environment.API_URL}docs/swagger.json`).subscribe(res => {
+    this.httpService.makeRequest('get', `${environment.API_URL}docs/?format=openapi`).subscribe(res => {
       if (res.data) {
         this.swaggerObj = res.data;
       }

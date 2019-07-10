@@ -122,7 +122,7 @@ export class CrudDirective implements OnChanges, OnDestroy {
       });
     } else if (this.endpoint) {
       this.storeSubscription = this.store.observable.pipe(
-        select(selectAllfromEndpoint(this.endpoint)),
+        select(selectAllfromEndpoint(this.endpoint, this.dataProp)),
       ).subscribe( (data: any[]) => {
         if (data) {
           this.rows = data;

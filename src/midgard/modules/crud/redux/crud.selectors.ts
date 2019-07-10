@@ -8,13 +8,18 @@ const getCrudState = state => state.crudDataReducer;
 /**
  * selector all data from a specific endpoint
  * @param endpoint - the endpoint the data is loaded from
+ * @param dataProp - the data property in the result object that the data is loaded from
  * @returns {MemoizedSelector}
  */
-export const selectAllfromEndpoint = (endpoint: string) => redux.createSelector(
+export const selectAllfromEndpoint = (endpoint: string, dataProp?: string) => redux.createSelector(
   getCrudState,
   (crudState: CrudState) => {
     if (crudState && crudState[endpoint]) {
-      return crudState[endpoint].data;
+      if (!dataProp || dataProp === 'data') {
+        return crudState[endpoint].data;
+      } else {
+        return crudState[endpoint].data[dataProp];
+      }
     }
   }
 );
