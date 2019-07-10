@@ -18,7 +18,7 @@ export class HttpService {
    * @param {string} responseType - the expected response type from the server
    * @returns {Observable} - response of the request or error
    */
-  makeRequest(method: string, url: string, body = null, useJwt?: boolean, contentType?: string, responseType?: string): Observable<any> {
+  makeRequest(method: string, url: string, body = null, useJwt = true, contentType?: string, responseType?: string): Observable<any> {
     let token;
     let tokenType;
     if (useJwt) {

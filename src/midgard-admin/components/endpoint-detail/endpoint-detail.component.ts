@@ -19,6 +19,11 @@ export class EndpointDetailComponent implements OnChanges {
   tableOptions: any = {columns: []};
   filterValue: string;
   showDefinitions = false;
+  crudInputs: {
+    idProp?: string;
+    dataProp?: string;
+    endpoint?: string;
+  }
   dropdownOptions = [
     {label: '•••', value: '•••'},
     {label: 'Delete', value: 'delete'}
@@ -39,6 +44,7 @@ export class EndpointDetailComponent implements OnChanges {
    */
   getPathsFromSwagger() {
     this.paths = null;
+    this.crudInputs = {};
     const httpVerbs: any = ['get', 'put', 'post', 'delete', 'patch'];
     // get the available operations for the current endpoint
     this.paths = Object.entries(this.swaggerObj.paths).filter((path: any) => {
@@ -55,9 +61,10 @@ export class EndpointDetailComponent implements OnChanges {
       const httpMethods = Object.keys(path[1]).filter(verb => {
           return httpVerbs.includes(verb);
       });
-      path.push(httpMethods)
+      path.push(httpMethods);
       return path;
     });
+    this.crudInputs.endpoint = this.paths[0][0];
   }
 
   /**
@@ -92,13 +99,15 @@ export class EndpointDetailComponent implements OnChanges {
   defineTableColumns() {
     let columns;
     let requiredColumns;
-    let definitionKey
-    if (this.paths[0][1].get.responses['200'].schema.items) {
+    let definitionKey;
+    // find the definition schema from the swagger paths object
+    if (this.paths[0][1].get.responses['200'].schema.items) { // without pagination
       definitionKey = this.paths[0][1].get.responses['200'].schema.items.$ref.split('/')[2];
-    } else {
-      definitionKey = this.paths[0][1].get.responses['200'].schema.properties.results.items.$ref.split('/')[2]
+      this.crudInputs.dataProp = 'data'; // push the data property to use in the crud module
+    } else { // with pagination
+      definitionKey = this.paths[0][1].get.responses['200'].schema.properties.results.items.$ref.split('/')[2];
+      this.crudInputs.dataProp = 'results'; // push the data property to use in the crud module
     }
-    console.log(definitionKey)
     const definitions = this.swaggerObj.definitions[definitionKey];
     // add first 2 properties to the table columns
     const propertiesColums = Object.keys(definitions.properties).slice(0, 2).map(field => {

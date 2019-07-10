@@ -30,8 +30,9 @@
           #crud="mgCrud"
           [rows]= "crud.rows | filterByColumnProperties : filterValue : tableOptions.columns"
           [viewPort]="'450px'"
-          [endpoint]="paths[0][0]"
+          [endpoint]="crudInputs?.endpoint"
           [idProp]="'id'"
+          [dataProp]="crudInputs?.dataProp"
           [columns]="tableOptions.columns"
           theme="dark"
         >
