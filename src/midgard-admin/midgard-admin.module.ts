@@ -18,6 +18,7 @@ import { AdminAuthGuard } from './guards/auth.guard';
 import { EndpointEntriesComponent } from './components/endpoint-entries/endpoint-entries.component';
 import { EndpointFormComponent } from './components/endpoint-form/endpoint-form.component';
 import { EndpointPathsComponent } from './components/endpoint-paths/endpoint-paths.component';
+import { MidgardFormModule } from '../midgard/modules/form/form.module';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { EndpointPathsComponent } from './components/endpoint-paths/endpoint-pat
     FjNativeDropdownModule,
     ClickOutsideModule,
     MidgardCrudModule,
-    MidgardOAuthModule
+    MidgardOAuthModule,
+    MidgardFormModule
   ],
   providers: [
     AdminAuthGuard

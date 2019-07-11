@@ -12,8 +12,11 @@ export class EndpointMainComponent implements OnChanges {
   @Input() swaggerObj: any;
   paths: any;
   definitions: any;
-  definitionsString: string;
-
+  crudInputs: {
+    idProp?: string;
+    dataProp?: string;
+    endpoint?: string;
+  };
   constructor() { }
 
   ngOnChanges() {
@@ -28,6 +31,7 @@ export class EndpointMainComponent implements OnChanges {
    */
   getPathsFromSwagger() {
     this.paths = null;
+    this.crudInputs = {};
     const httpVerbs: any = ['get', 'put', 'post', 'delete', 'patch'];
     // get the available operations for the current endpoint
     this.paths = Object.entries(this.swaggerObj.paths).filter((path: any) => {
@@ -47,6 +51,7 @@ export class EndpointMainComponent implements OnChanges {
       path.push(httpMethods);
       return path;
     });
+    this.crudInputs.endpoint = this.paths[0][0];
   }
 
   /**
@@ -57,10 +62,11 @@ export class EndpointMainComponent implements OnChanges {
     // find the definition schema from the swagger paths object
     if (this.paths[0][1].get && this.paths[0][1].get.responses['200'].schema.items) { // without pagination
       definitionKey = this.paths[0][1].get.responses['200'].schema.items.$ref.split('/')[2];
+      this.crudInputs.dataProp = 'data'; // push the data property to use in the crud module
     } else { // with pagination
       definitionKey = this.paths[0][1].get.responses['200'].schema.properties.results.items.$ref.split('/')[2];
+      this.crudInputs.dataProp = 'results'; // push the data property to use in the crud module
     }
     this.definitions = this.swaggerObj.definitions[definitionKey];
-    this.definitionsString = JSON.stringify(this.swaggerObj.definitions[definitionKey], null, 2);
   }
 }

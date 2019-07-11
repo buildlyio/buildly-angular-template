@@ -3,7 +3,7 @@
     <div *ngIf="!swaggerObj">
       <p>Connecting to bifrost...</p>
     </div>
-    <mg-endpoint-entries class="endpoint-main__entries" [definitions]="definitions" [paths]="paths" ></mg-endpoint-entries>
+    <mg-endpoint-entries class="endpoint-main__entries" [definitions]="definitions" [paths]="paths" [crudInputs]="crudInputs" ></mg-endpoint-entries>
     <mg-endpoint-paths class="endpoint-main__paths" [definitions]="definitions" [paths]="paths" ></mg-endpoint-paths>
   </div>
 </div>

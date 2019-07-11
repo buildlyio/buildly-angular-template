@@ -18,7 +18,9 @@ export class EndpointPathsComponent  {
   definitionsString: string;
   showDefinitions = false;
 
-  constructor() { }
+  constructor() {
+    this.definitionsString = JSON.stringify(this.definitions, null, 2);
+  }
   /**
    * copies selected endpoint to clipboard
    * @param val - value to be copied

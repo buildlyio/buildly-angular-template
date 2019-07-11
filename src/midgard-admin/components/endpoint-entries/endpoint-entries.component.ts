@@ -21,14 +21,14 @@ export class EndpointEntriesComponent implements OnChanges {
    * current endpoint swagger paths
    */
   @Input() paths: any;
+  /**
+   * Inputs for the crud module
+   */
+  @Input() crudInputs: any;
 
   tableOptions: any = {columns: []};
   filterValue: string;
-  crudInputs: {
-    idProp?: string;
-    dataProp?: string;
-    endpoint?: string;
-  };
+
   dropdownOptions = [
     {label: '•••', value: '•••'},
     {label: 'Delete', value: 'delete'}
@@ -39,7 +39,6 @@ export class EndpointEntriesComponent implements OnChanges {
   ngOnChanges() {
     if (this.definitions) {
       this.defineTableColumns();
-      this.defineCrudInputs();
     }
   }
 
@@ -67,18 +66,6 @@ export class EndpointEntriesComponent implements OnChanges {
     this.tableOptions = {
       columns: columns
     };
-  }
-
-  defineCrudInputs() {
-    this.crudInputs = {};
-    if (this.paths[0][0]) {
-      this.crudInputs.endpoint = this.paths[0][0];
-    }
-    if (this.paths[0][1].get && this.paths[0][1].get.responses['200'].schema.items) { // without pagination
-      this.crudInputs.dataProp = 'data'; // push the data property to use in the crud module
-    } else { // with pagination
-      this.crudInputs.dataProp = 'results'; // push the data property to use in the crud module
-    }
   }
 
   /**
