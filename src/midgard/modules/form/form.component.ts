@@ -86,10 +86,7 @@ export class FormComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    if (this.currentItemData) {
-      // build empty reactive form
-      this.buildForm();
-    }
+    this.buildForm();
   }
 
   /**
@@ -125,7 +122,7 @@ export class FormComponent implements OnInit, OnDestroy {
    * sends an action to add or edit the item if it exists
    */
   submitForm() {
-    if (!this.itemId) {
+    if (!this.currentItemData) {
       this.formSubmitted.emit({item: this.detailsForm.value, isNew: true});
     } else {
       this.formSubmitted.emit({item: {...this.currentItemData, ...this.detailsForm.value, isNew: false}});
