@@ -321,10 +321,15 @@ The OAuth module connects to the OAuth implementation in midgard-core and provid
 
 ### Midgard-admin (The devtools)
 
-Midgard admin offers devtools like checking API paths and manage entries for different endpoints. that is only accessible by a super user under this url `{midagard_url}/admin-panel`.
+Midgard admin offers devtools to check bifrost API paths and to manage entries for different endpoints. that is only accessible by a super user under this url `{midagard_url}/admin-panel`.
 
 #### Interface
 
+#### Main Interface
+
+After a user is logged in, he will be directed to the interface. In the right section is the list of all the endpointsthat are available via bifrost as navigation elements . 
+The middle section is reserved for CRUD operations on a specific endpoint.
+The right section is where the user can find the possible paths and the http operations that they accept. If a user clicks on one of the Http verbs an overlay opens with details information about the endpoint API definition.
 ![Screenshot: Main midgard admin screen](./screenshots/admin-dev.png)
 
 
