@@ -64,7 +64,7 @@ ng e2e
 ## Features
 Midgard is divided to two main section, the first is the application itself, which containes the interface and the core migard modules and tools. The second part is the admin section, which kind of developer tools where a super user can manage entries, check the paths and possible http operations of each endpoint. 
 
-Both Midgard and Midgard-admin are using [Freyja]() components. For further information about freyja please read its [documentation]() 
+Both Midgard and Midgard-admin are using [Freyja](https://github.com/Humanitec/docs-site/blob/master/hugo/content/midgard/freyja/_index.md) components. For further information about freyja please read its [documentation](https://github.com/Humanitec/docs-site/blob/master/hugo/content/midgard/freyja/_index.md) 
 
 ### Midgard - The Frontend application
 
