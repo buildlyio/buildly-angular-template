@@ -62,29 +62,35 @@ ng e2e
 ```
 
 ## Features
+Midgard is divided to two main section, the first is the application itself, which containes the interface and the core migard modules and tools. The second part is the admin section, which kind of developer tools where a super user can manage entries, check the paths and possible http operations of each endpoint. 
 
-### File tree
+Both Midgard and Midgard-admin are using [Freyja]() components. For further information about freyja please read its [documentation]() 
 
-The Midgard-Angular source has six main sub-directories: 
+### Midgard - The Frontend application
+
+#### File tree
+
+The Midgard-Angular source `/midgard` has six main sub-directories: 
 
 - `/components`: Components shared throughout the application.
 - `/helpers`: The application's helpers.
 - `/modules`: The core modules of Midgard-angular, such as the store, CRUD, http, etc.
 - `/pages`: Where you find the user interfaces of the "smart components" of Midgard.
 - `/state`: Everything related to the state of the application, such as models, reducers, and epics.
+- `/styles`: Global styles for your frontend application
 - `/testing`: Helpful classes, mocks, and stubs for testing.
 
-### Core interfaces
+#### Core interfaces
 
 Midgard-Angular provides the following core user interfaces:
 
-#### Login screen 
+##### Login screen 
 
 Uses the OAuth library from midgard-core for the OAuth password-flow authentication process with BiFrost.
 
 - **Register screen:** A form where the user can register an account with the application. They will also be redirected to this screen after accepting an invitation from a super user.
 
-#### User management
+##### User management
 
 A screen where an administrator can manage users, update their own profile, and handle permissions in the application.
 
@@ -109,7 +115,7 @@ A screen where an administrator can manage users, update their own profile, and 
 
 These can be found under `/src/lib/pages`, and they have routes that are specified in `/src/libmidgard-routing.module.ts`.
 
-### Store module
+#### Store module
 
 The store module is a class that initializes the [Redux store](https://redux.js.org/basics/store#store) with the Walhall application's reducers using methods exposed by `redux` from `midgard-core`.
 
@@ -136,7 +142,7 @@ export const select = (selector: Function) => <T>(source: Observable<T>) => Obse
 
 The store module contains a file called `reducer.utilities.ts`, which offers common CRUD functions to use in reducers.
 
-#### Reducers & Epics
+##### Reducers & Epics
 
 The store module also enables you to combine reducers and provide epics. The reducers and epics will be injected into your application after the [midgard-schematics command](/walhall/midgard/midgard-schematics) (`npm run init`) is executed in the build process. 
 
@@ -165,7 +171,7 @@ const epics = [
     ]
 ```
 
-### HttpService
+#### HttpService
 
 Midgard-Angular implements the Midgard HTTP client as the `HttpService`. The main function of the `HttpService` is the `makeRequest` function:
 
@@ -183,7 +189,7 @@ Midgard-Angular implements the Midgard HTTP client as the `HttpService`. The mai
   makeRequest(method: string, url: string, body = null, useJwt?: boolean, contentType?: string, responseType?: string): Observable<any>
 ```
 
-### CRUD Module
+#### CRUD Module
 
 The CRUD module provides basic CRUD operations. It can be implemented either using a UI component or an Angular directive (i.e., in headless mode). You must import `MidgardCrudModule` into your Angular module in order to use this module.
 
@@ -299,7 +305,7 @@ To implement it **headlessly,** do so as follows:
 </div>
 ```
 
-### Translation module
+#### Translation module
 
 The translation module lets you internationalize your Walhall application. It uses the Angular package `ngx-translate` with a custom loader that connects to the BiFrost API using the [HttpService](#httpservice). It pulls the translation values from a JSON file found under `/assets/translations`.
 
@@ -309,9 +315,18 @@ In order to use it in your HTML template, you must import `MidgardTranslationMod
 <span>{{'HELLO' | translate}}</span>
 ```
 
-### OAuth module
+#### OAuth module
 
 The OAuth module connects to the OAuth implementation in midgard-core and provides functionalities related to authentication, e.g., logging in using the password flow, logging out, retrieving and saving the access token.
+
+### Midgard-admin (The devtools)
+
+Midgard admin offers devtools like checking API paths and manage entries for different endpoints. that is only accessible by a super user under this url `{midagard_url}/admin-panel`.
+
+#### Interface
+
+![Screenshot: Main midgard admin screen](./screenshots/admin-dev.png)
+
 
 ## License
 
