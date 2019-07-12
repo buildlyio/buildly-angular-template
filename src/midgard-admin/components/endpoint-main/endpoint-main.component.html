@@ -1,9 +1,31 @@
 <div class="endpoint-main">
   <div class="endpoint-main__container">
-    <div *ngIf="!swaggerObj">
-      <p>Connecting to bifrost...</p>
+    <div class="endpoint-main__spinner" *ngIf="!swaggerObj">
+      <fj-spinner></fj-spinner>
     </div>
-    <mg-endpoint-entries class="endpoint-main__entries" [definitions]="definitions" [paths]="paths" [crudInputs]="crudInputs" ></mg-endpoint-entries>
-    <mg-endpoint-paths class="endpoint-main__paths" [definitions]="definitions" [paths]="paths" ></mg-endpoint-paths>
+    <mg-endpoint-entries
+      *ngIf="listView && swaggerObj"
+      class="endpoint-main__entries"
+      [definitions]="definitions"
+      [paths]="paths"
+      [crudInputs]="crudInputs"
+      [endpointTitle]="endpoint"
+    >
+    </mg-endpoint-entries>
+    <mg-endpoint-form
+      *ngIf="!listView && swaggerObj"
+      class="endpoint-main__form"
+      [definitions]="definitions"
+      [crudInputs]="crudInputs"
+      [currentItemId]="currentItemId"
+      [endpointTitle]="endpoint"
+    >
+    </mg-endpoint-form>
+    <mg-endpoint-paths
+      class="endpoint-main__paths"
+      [definitions]="definitions"
+      [paths]="paths"
+    >
+    </mg-endpoint-paths>
   </div>
 </div>

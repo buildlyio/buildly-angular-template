@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'mg-endpoint-paths',
   templateUrl: './endpoint-paths.component.html',
   styleUrls: ['./endpoint-paths.component.scss']
 })
-export class EndpointPathsComponent  {
+export class EndpointPathsComponent implements OnChanges {
   /**
    * current endpoint swagger Definitions
    */
@@ -18,7 +18,9 @@ export class EndpointPathsComponent  {
   definitionsString: string;
   showDefinitions = false;
 
-  constructor() {
+  constructor() {}
+
+  ngOnChanges() {
     this.definitionsString = JSON.stringify(this.definitions, null, 2);
   }
   /**
