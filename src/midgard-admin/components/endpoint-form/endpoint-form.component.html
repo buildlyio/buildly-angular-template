@@ -1,3 +1,20 @@
-<p>
-  endpoint-form works!
-</p>
+<div
+  mgCrud
+  #crud="mgCrud"
+  [endpoint]="crudInputs?.endpoint"
+  (dataLoadedFromStore)="getCurrentItemData()"
+>
+  <mg-form
+    [currentItemData]="currentItem"
+    [addButtonText]="'Submit'"
+    [editButtonText]="'Submit'"
+    [backButtonText]="'Back to all entries'"
+    [formFields]="formFields"
+    [freyjaTheme]="'dark'"
+    [titleProp]="'name'"
+    [title]="'New Entry'"
+  >
+  </mg-form>
+</div>
+
+

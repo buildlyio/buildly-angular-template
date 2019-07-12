@@ -9,6 +9,8 @@ const midgardAdminRoutes: Routes = [
   { path: '', component: LoginAdminComponent },
   { path: 'login', component: LoginAdminComponent },
   { path: 'main/:endpoint', component: MainAdminComponent, canActivate: [AdminAuthGuard] },
+  { path: 'main/:endpoint/:id', component: MainAdminComponent, canActivate: [AdminAuthGuard] },
+
 ];
 
 @NgModule({

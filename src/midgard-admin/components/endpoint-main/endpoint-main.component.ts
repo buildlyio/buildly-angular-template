@@ -1,15 +1,20 @@
 import {
-  Component, Input, OnChanges,
+  Component, Input, OnChanges, OnDestroy, OnInit,
 } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'mg-endpoint-main',
   templateUrl: './endpoint-main.component.html',
   styleUrls: ['./endpoint-main.component.scss']
 })
-export class EndpointMainComponent implements OnChanges {
+export class EndpointMainComponent implements OnChanges, OnInit, OnDestroy {
   @Input() endpoint: string;
   @Input() swaggerObj: any;
+  activatedRouteSubscription: Subscription;
+  currentItemId: string;
+  listView = true;
   paths: any;
   definitions: any;
   crudInputs: {
@@ -17,8 +22,18 @@ export class EndpointMainComponent implements OnChanges {
     dataProp?: string;
     endpoint?: string;
   };
-  constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+  ) { }
 
+  ngOnInit() {
+    this.activatedRouteSubscription = this.activatedRoute.paramMap.subscribe((paramMap: any) => {
+      if (paramMap.params.id) { // deactivate list view if there is id in the route
+        this.listView = false;
+        this.currentItemId = paramMap.params.id.toString();
+      }
+    });
+  }
   ngOnChanges() {
     if (this.swaggerObj) {
       this.getPathsFromSwagger();
@@ -68,5 +83,10 @@ export class EndpointMainComponent implements OnChanges {
       this.crudInputs.dataProp = 'results'; // push the data property to use in the crud module
     }
     this.definitions = this.swaggerObj.definitions[definitionKey];
+  }
+
+
+  ngOnDestroy() {
+    this.activatedRouteSubscription.unsubscribe();
   }
 }

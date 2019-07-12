@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MidgardAdminComponent } from './midgard-admin.component';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 import { MidgardAdminRoutingModule } from './midgard-admin-routing.module';
-import { FjButtonModule, FjCardModule, FjNativeDropdownModule, FjTableModule, FjTextInputModule } from 'freyja-ui';
+import { FjButtonModule, FjCardModule, FjNativeDropdownModule, FjSpinnerModule, FjTableModule, FjTextInputModule } from 'freyja-ui';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainAdminComponent } from './pages/main-admin/main-admin.component';
 import { TopBarAdminComponent } from './components/top-bar-admin/top-bar-admin.component';
@@ -46,7 +46,8 @@ import { MidgardFormModule } from '../midgard/modules/form/form.module';
     ClickOutsideModule,
     MidgardCrudModule,
     MidgardOAuthModule,
-    MidgardFormModule
+    MidgardFormModule,
+    FjSpinnerModule
   ],
   providers: [
     AdminAuthGuard

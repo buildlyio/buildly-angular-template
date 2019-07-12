@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {FormValidationHelper} from './form.validation.helper';
 import { Store } from '../store/store';
@@ -10,7 +10,7 @@ import { Store } from '../store/store';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit, OnDestroy {
+export class FormComponent implements OnChanges, OnDestroy {
 
   public dataLoaded;
   public detailsForm: FormGroup;
@@ -28,10 +28,6 @@ export class FormComponent implements OnInit, OnDestroy {
    * redux action to update current Item if exists
    */
   @Input() updateMessage: string;
-  /**
-   * previous page route
-   */
-  @Input() backRoute: string;
   /**
    * text of the back button
    */
@@ -82,11 +78,14 @@ export class FormComponent implements OnInit, OnDestroy {
     private formHelper: FormValidationHelper,
     private router: Router,
     private fb: FormBuilder,
-    private store: Store<any>
+    private store: Store<any>,
+    private activatedRoute: ActivatedRoute
   ) {}
 
-  ngOnInit() {
-    this.buildForm();
+  ngOnChanges() {
+    if (this.formFields) {
+      this.buildForm();
+    }
   }
 
   /**
@@ -103,7 +102,13 @@ export class FormComponent implements OnInit, OnDestroy {
         }, []);
       }
       if (this.currentItemData) {
-        result[currentValue.controlName] = [this.currentItemData[currentValue.controlName], validatorsArr];
+        let value;
+        if (typeof this.currentItemData[currentValue.controlName] === 'object') {
+          value = JSON.stringify(this.currentItemData[currentValue.controlName]);
+        } else {
+          value = this.currentItemData[currentValue.controlName];
+        }
+        result[currentValue.controlName] = [value, validatorsArr];
       } else {
         result[currentValue.controlName] = ['', validatorsArr];
       }
@@ -131,10 +136,8 @@ export class FormComponent implements OnInit, OnDestroy {
   /**
    * navigates to the list page
    */
-  goToListPage() {
-    if (this.backRoute) {
-      this.router.navigate([`${this.backRoute}`]);
-    }
+  goToPreviousPage() {
+    this.router.navigate(['./..'], {relativeTo: this.activatedRoute});
   }
 
   /**

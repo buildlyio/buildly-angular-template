@@ -1,9 +1,10 @@
 import {
-  Component, Input, OnChanges,
+  Component, EventEmitter, Input, OnChanges, Output,
   ViewChild
 } from '@angular/core';
 import { capitalize } from '@angular-devkit/core/src/utils/strings';
 import { CrudDirective } from '@midgard/modules/crud/crud.directive';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'mg-endpoint-entries',
@@ -13,6 +14,10 @@ import { CrudDirective } from '@midgard/modules/crud/crud.directive';
 export class EndpointEntriesComponent implements OnChanges {
 
   @ViewChild('crud') crud: CrudDirective;
+  /**
+   * the title of the endpoint
+   */
+  @Input() endpointTitle: any;
   /**
    * current endpoint swagger Definitions
    */
@@ -25,6 +30,11 @@ export class EndpointEntriesComponent implements OnChanges {
    * Inputs for the crud module
    */
   @Input() crudInputs: any;
+  /**
+   * event that is triggered when the data is loaded from the crud module
+   * @type {EventEmitter<any>}
+   */
+  @Output() dataLoaded = new EventEmitter();
 
   tableOptions: any = {columns: []};
   filterValue: string;
@@ -34,7 +44,10 @@ export class EndpointEntriesComponent implements OnChanges {
     {label: 'Delete', value: 'delete'}
   ];
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnChanges() {
     if (this.definitions) {
@@ -84,6 +97,26 @@ export class EndpointEntriesComponent implements OnChanges {
     if (action === 'delete') {
       this.crud.deleteItem(row);
     }
+  }
+
+  /**
+   * navigates to the form view of the selected item
+   * @param item - the selected item from the table
+   */
+  navigateToForm(item?: any) {
+    if (item) {
+      this.router.navigate([item.id], {relativeTo: this.activatedRoute});
+    } else {
+      this.router.navigate(['new'], {relativeTo: this.activatedRoute});
+    }
+  }
+
+  /**
+   * it emits an outputevent that the data is loaded from the crud module
+   * @param {any[]} rows
+   */
+  onDataLoaded(rows: any[]) {
+    this.dataLoaded.emit(rows);
   }
 
 }

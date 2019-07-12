@@ -24,6 +24,9 @@
     -ms-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out;
   }
+  &__spinner {
+    flex: 3;
+  }
   &__form {
     flex: 3;
   }
