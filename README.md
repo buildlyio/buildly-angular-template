@@ -91,13 +91,15 @@ The Midgard-Angular source (`/midgard`) has six main sub-directories:
 
 Midgard-Angular provides the following core user interfaces:
 
-**Login screen**
+#### Login screen
 
 Uses the OAuth library from midgard-core for the OAuth password-flow authentication process with BiFrost.
 
-- **Register screen:** A form where the user can register an account with the application. They will also be redirected to this screen after accepting an invitation from a super user.
+#### Registration screen 
 
-**User management**
+A form where the user can register an account with the application. They will also be redirected to this screen after accepting an invitation from a super user.
+
+#### User management screen
 
 A screen where an administrator can manage users, update their own profile, and handle permissions in the application.
 
@@ -115,7 +117,7 @@ List of actions:
 -  Create user groups
 -  Manage permissions per user group
 
-**Settings** 
+#### Settings screen
 
 A screen for configuring application settings.
 
