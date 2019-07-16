@@ -103,8 +103,8 @@ Uses the OAuth library from midgard-core for the OAuth password-flow authenticat
 
 A screen where an administrator can manage users, update their own profile, and handle permissions in the application.
 
-![Screenshot: User management screen](./screenshots/users.png)
-![Screenshot: User management screen](./screenshots/permissions.png)
+![Screenshot: User management screen](./_assets/users.png)
+![Screenshot: User management screen](./_assets/permissions.png)
 
 List of actions:
 
@@ -347,7 +347,7 @@ The **middle section** displays CRUD operations on a specific endpoint.
 
 When you click on one of the HTTP verbs, an overlay opens with detailed information about the endpoint API definition.
 
-![Screenshot: Main midgard admin screen](./screenshots/admin-dev.png)
+![Screenshot: Main midgard admin screen](./_assets/admin-dev.png)
 
 ## License
 
