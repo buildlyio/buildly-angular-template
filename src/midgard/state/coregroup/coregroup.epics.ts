@@ -23,7 +23,7 @@ export class CoreGroupEpics {
     return action$.pipe(
       redux.ofType(LOAD_DATA_COREGROUP),
       switchMap((action: any) => {
-        return this.httpService.makeRequest('get', `${environment.API_URL}/coregroups/`).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}coregroups/`).pipe(
           // If successful, dispatch success action with result
           map((res: any) => loadCoregroupDataCommit(res.data)),
           // If request fails, dispatch failed action
@@ -41,7 +41,7 @@ export class CoreGroupEpics {
     return action$.pipe(
       redux.ofType(CREATE_COREGROUP),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('post', `${environment.API_URL}/coregroups/`, action.data).pipe(
+        return this.httpService.makeRequest('post', `${environment.API_URL}coregroups/`, action.data).pipe(
           // If successful, dispatch success action with result
           map(res => createCoreGroupCommit(res.data)),
           // If request fails, dispatch failed action
@@ -59,7 +59,7 @@ export class CoreGroupEpics {
     return action$.pipe(
       redux.ofType(UPDATE_COREGROUP),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('patch', `${environment.API_URL}/coregroups/${action.data.id}/`, action.data, true).pipe(
+        return this.httpService.makeRequest('patch', `${environment.API_URL}coregroups/${action.data.id}/`, action.data, true).pipe(
           // If successful, dispatch success action with result
           map(res => updateCoreGroupCommit(res.data)),
           // If request fails, dispatch failed action
@@ -77,7 +77,7 @@ export class CoreGroupEpics {
     return action$.pipe(
       redux.ofType(DELETE_COREGROUP),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('delete', `${environment.API_URL}/coregroups/${action.data.id}/`, {}, true).pipe(
+        return this.httpService.makeRequest('delete', `${environment.API_URL}coregroups/${action.data.id}/`, {}, true).pipe(
           // If successful, dispatch success action with result
           map(res => deleteCoreGroupCommit(action.data)),
           // If request fails, dispatch failed action

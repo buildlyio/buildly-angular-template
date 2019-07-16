@@ -56,7 +56,7 @@ export class UserManagementComponent implements OnInit {
   sendInvitation() {
     if (this.invitationForm) {
       const emails = {emails: this.invitationForm.value.email.split(',')};
-      this.httpService.makeRequest('post', `${environment.API_URL}/coreuser/invite/`, emails).subscribe( res => {
+      this.httpService.makeRequest('post', `${environment.API_URL}coreuser/invite/`, emails).subscribe( res => {
         this.showUserInvitationOverlay = false;
       });
     }

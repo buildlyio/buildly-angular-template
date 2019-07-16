@@ -23,7 +23,7 @@ export class WorkflowLevel2Epics {
     return action$.pipe(
       redux.ofType(LOAD_ALL_WORKFLOWLEVEL2),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('get', `${environment.API_URL}/workflowlevel2/`).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}workflowlevel2/`).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => loadWorkflowLevel2Commit(res.data)),
           // If request fails, dispatch failed action
@@ -41,7 +41,7 @@ export class WorkflowLevel2Epics {
     return action$.pipe(
       redux.ofType(LOAD_ONE_WORKFLOWLEVEL2),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('get', `${environment.API_URL}/workflowlevel2/${action.id}/`).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}workflowlevel2/${action.id}/`).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => loadOneWorkflowLevel2Commit(res.data)),
           // If request fails, dispatch failed action
@@ -59,7 +59,7 @@ export class WorkflowLevel2Epics {
     return action$.pipe(
       redux.ofType(CREATE_WORKFLOWLEVEL2),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('post', `${environment.API_URL}/workflowlevel2/`, action.data).pipe(
+        return this.httpService.makeRequest('post', `${environment.API_URL}workflowlevel2/`, action.data).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => {
             return createWorkflowLevel2Commit(res.data, action.nested);
@@ -79,7 +79,7 @@ export class WorkflowLevel2Epics {
     return action$.pipe(
       redux.ofType(UPDATE_WORKFLOWLEVEL2),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('put', `${environment.API_URL}/workflowlevel2/${action.data.id}/`, action.data).pipe(
+        return this.httpService.makeRequest('put', `${environment.API_URL}workflowlevel2/${action.data.id}/`, action.data).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => {
             return updateWorkflowLevel2Commit(res.data, action.nested);
@@ -99,7 +99,7 @@ export class WorkflowLevel2Epics {
     return action$.pipe(
       redux.ofType(DELETE_WORKFLOWLEVEL2),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('delete', `${environment.API_URL}/workflowlevel2/${action.data.id}`).pipe(
+        return this.httpService.makeRequest('delete', `${environment.API_URL}workflowlevel2/${action.data.id}`).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => {
             return deleteWorkflowLevel2Commit(action.data, action.nested);
