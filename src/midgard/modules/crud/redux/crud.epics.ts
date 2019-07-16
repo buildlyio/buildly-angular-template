@@ -25,7 +25,6 @@ export class CrudEpics {
     return action$.pipe(
       redux.ofType(CRUD_LOAD_DATA),
       switchMap((action: CrudAction) => {
-        console.log(action.endpoint);
         return this.httpService.makeRequest('get', `${environment.API_URL}${action.endpoint}`, null, false).pipe(
           // If successful, dispatch success action with result
           map(res => crudLoadDataCommit(res.data, action.endpoint, action.idProp, action.dataProp)),
