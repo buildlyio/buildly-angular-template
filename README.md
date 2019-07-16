@@ -15,6 +15,13 @@ When you add Midgard to your Walhall application and set the frontend stack to A
 
 When you deploy your application in Walhall, you can access the application by clicking the **frontend URL** on the application page.
 
+Midgard-Angular consists of two main sections: 
+
+1.  the [application itself](#frontend-application-features), which contains the interface and the core migard modules and tools, and
+2.  the [admin section](#midgard-admin-the-dev-tools), where a super user can manage entries, check the paths and possible HTTP operations of each endpoint. 
+
+Both of these use [Freyja](https://docs.walhall.io/midgard/freyja) UI components.
+
 Current Angular version: **v7.2.13**
 
 ## Setup
@@ -24,11 +31,11 @@ Current Angular version: **v7.2.13**
 Install the npm packages and then initialize the application:
 
 ```bash
-npm install
+npm install --save-dev
 npm run init
 ```
 
-The second command will initialize the [Midgard-schematics](https://docs.walhall.io/midgard/midgard-schematics) Gulp task. Midgard-schematics injects the [clients](https://docs.walhall.io/marketplace#what-are-logic-modules) into the application as dependencies and puts together the UI based on their features and the core Midgard features.
+The second command will initialize the [Midgard-schematics](https://docs.walhall.io/midgard/midgard-schematics) Gulp task. Midgard-schematics injects the [clients](https://docs.walhall.io/library#about-logic-modules) into the application as dependencies and puts together the UI based on their features and the core Midgard features.
 
 ### Build application
 
@@ -66,18 +73,9 @@ To execute end-to-end tests via [Protractor](http://www.protractortest.org/):
 ng e2e
 ```
 
-## Features
+## Frontend application features
 
-Midgard consists of two main sections: 
-
-1.  the application itself, which contains the interface and the core migard modules and tools, and
-2.  the admin section, where a super user can manage entries, check the paths and possible HTTP operations of each endpoint. 
-
-Both of these use [Freyja](https://docs.walhall.io/midgard/freyja) UI components.
-
-### Midgard, the frontend application
-
-#### File tree
+### File tree
 
 The Midgard-Angular source (`/midgard`) has six main sub-directories: 
 
@@ -89,7 +87,7 @@ The Midgard-Angular source (`/midgard`) has six main sub-directories:
 - `/styles`: Global styles for your frontend application
 - `/testing`: Helpful classes, mocks, and stubs for testing.
 
-#### Core interfaces
+### Core interfaces
 
 Midgard-Angular provides the following core user interfaces:
 
@@ -123,7 +121,7 @@ A screen for configuring application settings.
 
 These can be found under `/src/lib/pages`, and they have routes that are specified in `/src/libmidgard-routing.module.ts`.
 
-#### Store module
+### Store module
 
 The store module is a class that initializes the [Redux store](https://redux.js.org/basics/store#store) with the Walhall application's reducers using methods exposed by `redux` from `midgard-core`.
 
@@ -179,7 +177,7 @@ const epics = [
     ]
 ```
 
-#### HttpService
+### HttpService
 
 Midgard-Angular implements the Midgard HTTP client as the `HttpService`. The main function of the `HttpService` is the `makeRequest` function:
 
@@ -197,7 +195,7 @@ Midgard-Angular implements the Midgard HTTP client as the `HttpService`. The mai
   makeRequest(method: string, url: string, body = null, useJwt?: boolean, contentType?: string, responseType?: string): Observable<any>
 ```
 
-#### CRUD Module
+### CRUD Module
 
 The CRUD module provides basic CRUD operations. It can be implemented either using a UI component or an Angular directive (i.e., in headless mode). You must import `MidgardCrudModule` into your Angular module in order to use this module.
 
@@ -319,7 +317,7 @@ To implement it **headlessly,** do so as follows:
 </div>
 ```
 
-#### Translation module
+### Translation module
 
 The translation module lets you internationalize your Walhall application. It uses the Angular package `ngx-translate` with a custom loader that connects to the BiFrost API using the [HttpService](#httpservice). It pulls the translation values from a JSON file found under `/assets/translations`.
 
@@ -329,15 +327,15 @@ In order to use it in your HTML template, you must import `MidgardTranslationMod
 <span>{{'HELLO' | translate}}</span>
 ```
 
-#### OAuth module
+### OAuth module
 
 The OAuth module connects to the OAuth implementation in midgard-core and provides functionalities related to authentication, e.g., logging in using the password flow, logging out, retrieving and saving the access token.
 
-### Midgard-Admin (The dev tools)
+## Midgard-Admin (The dev tools)
 
 Midgard-Admin offers dev tools to check BiFrost API paths and to manage entries for different endpoints. 
 
-#### Main interface
+### Main interface
 
 Only super users can access this section. The URL is `https://{your-midgard-URL}/admin-panel`.
 
