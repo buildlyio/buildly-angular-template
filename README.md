@@ -1,14 +1,19 @@
 +++
 title = "Midgard-Angular"
+aliases = [
+  "/walhall/midgard/midgard-angular"
+]
 +++
 
 # Midgard-Angular
 
-## Summary
+## Overview
 
-Midgard-Angular is an [Angular](https://angularjs.org/) web application that implements the core features of [Midgard](https://docs.walhall.io/walhall/midgard).
+Midgard-Angular is a customizable web application that provides an interface for the [logic modules](https://docs.walhall.io/library#about-logic-modules) in your [Walhall](https://docs.walhall.io/walhall) application.
 
-Midgard-Angular is your **application root repository.** When you create a [Walhall application](https://docs.walhall.io/walhall), Walhall forks Midgard-Angular to your GitHub account and gives it the same name as your application. It comes pre-configured to communicate with your application's API via [BiFrost](https://docs.walhall.io/walhall/bifrost). This is where you develop your Walhall application.
+When you add Midgard to your Walhall application and set the frontend stack to Angular, Walhall will fork Midgard-Angular to your GitHub account and give it the same name as your application. If your application includes [BiFrost](https://docs.walhall.io/bifrost), then Midgard-Angular will be pre-configured to communicate with the API gateway.
+
+When you deploy your application in Walhall, you can access the application by clicking the **frontend URL** on the application page.
 
 Current Angular version: **v7.2.13**
 
@@ -62,15 +67,19 @@ ng e2e
 ```
 
 ## Features
-Midgard is divided to two main section, the first is the application itself, which containes the interface and the core migard modules and tools. The second part is the admin section, which kind of developer tools where a super user can manage entries, check the paths and possible http operations of each endpoint. 
 
-Both Midgard and Midgard-admin are using [Freyja](https://github.com/Humanitec/docs-site/blob/master/hugo/content/midgard/freyja/_index.md) components. For further information about freyja please read its [documentation](https://github.com/Humanitec/docs-site/blob/master/hugo/content/midgard/freyja/_index.md) 
+Midgard consists of two main sections: 
 
-### Midgard - The Frontend application
+1.  the application itself, which contains the interface and the core migard modules and tools, and
+2.  the admin section, where a super user can manage entries, check the paths and possible HTTP operations of each endpoint. 
+
+Both of these use [Freyja](https://docs.walhall.io/midgard/freyja) UI components.
+
+### Midgard, the frontend application
 
 #### File tree
 
-The Midgard-Angular source `/midgard` has six main sub-directories: 
+The Midgard-Angular source (`/midgard`) has six main sub-directories: 
 
 - `/components`: Components shared throughout the application.
 - `/helpers`: The application's helpers.
@@ -84,34 +93,33 @@ The Midgard-Angular source `/midgard` has six main sub-directories:
 
 Midgard-Angular provides the following core user interfaces:
 
-##### Login screen 
+**Login screen**
 
 Uses the OAuth library from midgard-core for the OAuth password-flow authentication process with BiFrost.
 
 - **Register screen:** A form where the user can register an account with the application. They will also be redirected to this screen after accepting an invitation from a super user.
 
-##### User management
+**User management**
 
 A screen where an administrator can manage users, update their own profile, and handle permissions in the application.
 
 ![Screenshot: User management screen](./screenshots/users.png)
 ![Screenshot: User management screen](./screenshots/permissions.png)
 
+List of actions:
 
-**List of actions:**
-
--  Edit User Profile
--  Invite a new user by clicking;
+-  Edit user profile
+-  Invite a new user
 -  List users in the application
 -  Delete a user
 -  Edit user data
--  Affect a user to a user group to handle permissions
--  Deactivate/ Activate User
--  Create User groups
+-  Activate/deactivate user
+-  Create user groups
 -  Manage permissions per user group
 
+**Settings** 
 
-- **Settings:** A screen for configuring application settings.
+A screen for configuring application settings.
 
 These can be found under `/src/lib/pages`, and they have routes that are specified in `/src/libmidgard-routing.module.ts`.
 
@@ -142,7 +150,7 @@ export const select = (selector: Function) => <T>(source: Observable<T>) => Obse
 
 The store module contains a file called `reducer.utilities.ts`, which offers common CRUD functions to use in reducers.
 
-##### Reducers & Epics
+#### Reducers & Epics
 
 The store module also enables you to combine reducers and provide epics. The reducers and epics will be injected into your application after the [midgard-schematics command](/walhall/midgard/midgard-schematics) (`npm run init`) is executed in the build process. 
 
@@ -228,8 +236,11 @@ cardItemOptions = {
 };
 ```
 
+The CRUD module has its own dynamic CRUD redux files that can handle CRUD operations for any endpoint in your app's [BiFrost](https://docs.walhall.io/bifrost) API. 
 
-The crud module comes with its own dynamic crud redux files that can be used to handle crud operations for any endpoint using bifrost, this is perfect if you don't need to create any custom redux files for each endpoint. to make it function that way you need to provide it with the endpoint, the id property(the key value of the primary key) like follows. **Work in Progress**
+In order to enable this functionality, you must provide each endpoint and its `id` property (i.e., the key value of the primary key) in the `crud.component.html` file.
+
+Example:
 
 ```html
 // crud.component.html
@@ -248,7 +259,9 @@ The crud module comes with its own dynamic crud redux files that can be used to 
 </mg-crud-list>
 ```
 
-or if you prefer using custom redux files you have to provide the actions that does the crud operations and the selector to get the data from the reducer as follows: **Only this method is currently available**
+If you prefer to use your own custom redux files, you must provide the actions that perform the CRUD operations and the selector to get the data from the reducer. 
+
+**NOTE: This is currently the only method available.**
 
 ```html
 <mg-crud-list
@@ -268,9 +281,10 @@ or if you prefer using custom redux files you have to provide the actions that d
 >
 </mg-crud-list>
 ```
+
 To implement it **headlessly,** do so as follows:
 
-- without custom redux files (only by providing the endpoint) *Work in Progress*
+-  (Work in progress) Without custom redux files (i.e., by providing only the endpoint):
 
 ```html
 <div 
@@ -286,7 +300,7 @@ To implement it **headlessly,** do so as follows:
 </div>
 ```
 
-- custom redux files *Only this method is currently available*
+-  With custom redux files:
 
 ```html
 <div 
@@ -319,19 +333,21 @@ In order to use it in your HTML template, you must import `MidgardTranslationMod
 
 The OAuth module connects to the OAuth implementation in midgard-core and provides functionalities related to authentication, e.g., logging in using the password flow, logging out, retrieving and saving the access token.
 
-### Midgard-admin (The devtools)
+### Midgard-Admin (The dev tools)
 
-Midgard admin offers devtools to check bifrost API paths and to manage entries for different endpoints. that is only accessible by a super user under this url `{midagard_url}/admin-panel`.
+Midgard-Admin offers dev tools to check BiFrost API paths and to manage entries for different endpoints. 
 
-#### Interface
+#### Main interface
 
-#### Main Interface
+Only super users can access this section. The URL is `https://{your-midgard-URL}/admin-panel`.
 
-After a user is logged in, he will be directed to the interface. In the right section is the list of all the endpointsthat are available via bifrost as navigation elements . 
-The middle section is reserved for CRUD operations on a specific endpoint.
-The right section is where the user can find the possible paths and the http operations that they accept. If a user clicks on one of the Http verbs an overlay opens with details information about the endpoint API definition.
+The **right section** contains a list of all the endpoints available via BiFrost that can be used as navigation elements, as well as the possible paths and HTTP operations that they accept.
+
+The **middle section** displays CRUD operations on a specific endpoint.
+
+When you click on one of the HTTP verbs, an overlay opens with detailed information about the endpoint API definition.
+
 ![Screenshot: Main midgard admin screen](./screenshots/admin-dev.png)
-
 
 ## License
 
