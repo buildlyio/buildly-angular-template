@@ -23,7 +23,7 @@ export class CoreGroupEpics {
     return action$.pipe(
       redux.ofType(LOAD_DATA_COREGROUP),
       switchMap((action: any) => {
-        return this.httpService.makeRequest('get', `${environment.API_URL}coregroups/`).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}coregroups/`, null, false).pipe(
           // If successful, dispatch success action with result
           map((res: any) => loadCoregroupDataCommit(res.data)),
           // If request fails, dispatch failed action
