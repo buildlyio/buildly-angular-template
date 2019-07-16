@@ -17,7 +17,7 @@ When you deploy your application in Walhall, you can access the application by c
 
 Midgard-Angular consists of two main sections: 
 
-1.  the [application itself](#frontend-application-features), which contains the interface and the core migard modules and tools, and
+1.  the [application itself](#frontend-application-features), which contains the interface and the core Midgard modules and tools, and
 2.  the [admin section](#midgard-admin-the-dev-tools), where a super user can manage entries, check the paths and possible HTTP operations of each endpoint. 
 
 Both of these use [Freyja](https://docs.walhall.io/midgard/freyja) UI components.
