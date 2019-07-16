@@ -10,7 +10,7 @@ import { OAuthService } from '@src/midgard/modules/oauth/oauth.service';
 import { GraphQlService } from '@src/midgard/modules/graphql/graphql.service';
 import { environment } from '@env/environment';
 
-const uri = `${environment.API_URL}/graphql/`; // <-- add the URL of the GraphQL server here
+const uri = `${environment.API_URL}graphql/`; // <-- add the URL of the GraphQL server here
 
 /**
  * a function that will intialiase apollo graphQl client

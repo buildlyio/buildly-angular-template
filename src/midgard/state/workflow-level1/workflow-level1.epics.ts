@@ -19,7 +19,7 @@ export class WorkflowLevel1Epics {
     return action$.pipe(
       redux.ofType(LOAD_DATA_WORKFLOWLEVEL1),
       switchMap((action: any) => {
-        return this.httpService.makeRequest('get', `${environment.API_URL}/workflowlevel1/`).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}workflowlevel1/`).pipe(
           // If successful, dispatch success action with result
           map(res => loadWorkflowLevel1DataCommit(res.data)),
           // If request fails, dispatch failed action

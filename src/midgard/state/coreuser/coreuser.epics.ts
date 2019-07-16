@@ -23,7 +23,7 @@ export class CoreUserEpics {
     return action$.pipe(
       redux.ofType(LOAD_DATA_COREUSER),
       switchMap((action: any) => {
-        return this.httpService.makeRequest('get', `${environment.API_URL}/coreuser/`).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}coreuser/`).pipe(
           // If successful, dispatch success action with result
           map(res => loadCoreuserDataCommit(res.data)),
           // If request fails, dispatch failed action
@@ -41,7 +41,7 @@ export class CoreUserEpics {
     return action$.pipe(
       redux.ofType(CREATE_COREUSER),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('post', `${environment.API_URL}/coreuser/`, action.data).pipe(
+        return this.httpService.makeRequest('post', `${environment.API_URL}coreuser/`, action.data).pipe(
           // If successful, dispatch success action with result
           map(res => createCoreUserCommit(res.data)),
           // If request fails, dispatch failed action
@@ -59,7 +59,7 @@ export class CoreUserEpics {
     return action$.pipe(
       redux.ofType(UPDATE_COREUSER),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('patch', `${environment.API_URL}/coreuser/${action.data.id}/`, action.data, true).pipe(
+        return this.httpService.makeRequest('patch', `${environment.API_URL}coreuser/${action.data.id}/`, action.data, true).pipe(
           // If successful, dispatch success action with result
           map(res => updateCoreUserCommit(res.data)),
           // If request fails, dispatch failed action
@@ -77,7 +77,7 @@ export class CoreUserEpics {
     return action$.pipe(
       redux.ofType(DELETE_COREUSER),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('delete', `${environment.API_URL}/coreuser/${action.data.id}/`, {}, true).pipe(
+        return this.httpService.makeRequest('delete', `${environment.API_URL}coreuser/${action.data.id}/`, {}, true).pipe(
           // If successful, dispatch success action with result
           map(res => deleteCoreUserCommit(action.data)),
           // If request fails, dispatch failed action

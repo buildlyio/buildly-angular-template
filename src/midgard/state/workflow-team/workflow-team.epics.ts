@@ -21,7 +21,7 @@ export class WorkflowTeamEpics {
     return action$.pipe(
       reduxObservable.ofType(LOAD_ALL_WORKFLOWTEAMS),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('get', `${environment.API_URL}/workflowteam/`, {}, true).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}workflowteam/`, {}, true).pipe(
           // If successful, dispatch success action with result
           map(res => loadWorflowTeamsCommit(res.data)),
           // If request fails, dispatch failed action
@@ -39,7 +39,7 @@ export class WorkflowTeamEpics {
     return action$.pipe(
       reduxObservable.ofType(LOAD_ONE_WORKFLOWTEAM),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('get', `${environment.API_URL}/workflowteam/${action.id}/`, true).pipe(
+        return this.httpService.makeRequest('get', `${environment.API_URL}workflowteam/${action.id}/`, true).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => loadOneWorflowTeamCommit(res.data)),
           // If request fails, dispatch failed action
@@ -57,7 +57,7 @@ export class WorkflowTeamEpics {
     return action$.pipe(
       reduxObservable.ofType(CREATE_WORKFLOWTEAM),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('post', `${environment.API_URL}/workflowteam/`, action.data, true).pipe(
+        return this.httpService.makeRequest('post', `${environment.API_URL}workflowteam/`, action.data, true).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => createWorflowTeamCommit(res.data)),
           // If request fails, dispatch failed action
@@ -75,7 +75,7 @@ export class WorkflowTeamEpics {
     return action$.pipe(
       reduxObservable.ofType(UPDATE_WORKFLOWTEAM),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('put', `${environment.API_URL}/workflowteam/${action.data.id}/`, action.data, true).pipe(
+        return this.httpService.makeRequest('put', `${environment.API_URL}workflowteam/${action.data.id}/`, action.data, true).pipe(
           // If successful, dispatch success action with result
           map((res: Action) => updateWorflowTeamCommit(res.data)),
           // If request fails, dispatch failed action
@@ -93,7 +93,7 @@ export class WorkflowTeamEpics {
     return action$.pipe(
       reduxObservable.ofType(DELETE_WORKFLOWTEAM),
       switchMap((action: Action) => {
-        return this.httpService.makeRequest('delete', `${environment.API_URL}/workflowteam/${action.data.id}/`, true).pipe(
+        return this.httpService.makeRequest('delete', `${environment.API_URL}workflowteam/${action.data.id}/`, true).pipe(
           // If successful, dispatch success action with result
           map(res => deleteWorflowTeamCommit(action.data, action.nested)),
           // If request fails, dispatch failed action

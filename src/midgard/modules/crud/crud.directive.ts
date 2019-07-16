@@ -84,6 +84,9 @@ export class CrudDirective implements OnChanges, OnDestroy {
   ) { }
 
   ngOnChanges() {
+    if (this.endpoint) {
+      this.endpoint = this.endpoint[0] === '/' ? this.endpoint.slice(1) : this.endpoint;
+    }
     if (this.loadedSelector) {
       this.dataLoaded = this.store.observable.pipe(
         select(this.loadedSelector),

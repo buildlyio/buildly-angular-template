@@ -101,7 +101,7 @@ export class RegisterComponent implements OnInit {
    * checks the invitation token of the user and fills the email address and the organization in the form if it is valid
    */
   checkToken() {
-    this.httpService.makeRequest('get', `${environment.API_URL}/coreuser/invite_check/?token=${this.token}`).subscribe(res => {
+    this.httpService.makeRequest('get', `${environment.API_URL}coreuser/invite_check/?token=${this.token}`).subscribe(res => {
       if (res.data) {
         this.registerForm.get('email').patchValue(res.data.email);
         this.registerForm.get('organization_name').patchValue(res.data.organization.name);
