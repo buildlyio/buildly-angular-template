@@ -20,7 +20,11 @@ Midgard-Angular consists of two main sections:
 1.  the [application itself](#frontend-application-features), which contains the interface and the core Midgard modules and tools, and
 2.  the [admin section](#midgard-admin-the-dev-tools), where a super user can manage entries, check the paths and possible HTTP operations of each endpoint. 
 
-Both of these use [Freyja](https://docs.walhall.io/midgard/freyja) UI components.
+See the following related documentation pages:
+
+-  [Freyja](https://docs.walhall.io/midgard/freyja): The UI component library used by Midgard.
+-  [Midgard-schematics](https://docs.walhall.io/midgard/midgard-schematics): The process that builds the Midgard application.
+-  [Client blueprint (Angular)](https://github.com/Humanitec/blueprint_client_angular): A boilerplate frontend client that can be incorporated into the Midgard application.
 
 Current Angular version: **v7.2.13**
 
@@ -152,7 +156,7 @@ The store module contains a file called `reducer.utilities.ts`, which offers com
 
 #### Reducers & Epics
 
-The store module also enables you to combine reducers and provide epics. The reducers and epics will be injected into your application after the [midgard-schematics command](/walhall/midgard/midgard-schematics) (`npm run init`) is executed in the build process. 
+The store module also enables you to combine reducers and provide epics. The reducers and epics will be injected into your application after the [Midgard-schematics command](/walhall/midgard/midgard-schematics) (`npm run init`) is executed in the build process. 
 
 Custom reducers can be added to the reducers object under `src/lib/modules/store/store.ts`. Custom epics can be added to the array in this file.
 
