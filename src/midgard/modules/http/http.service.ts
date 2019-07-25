@@ -39,7 +39,6 @@ export class HttpService {
       responseType: responseType ? responseType : null
     };
     return http.request(url, options).pipe(
-      retry(3),
       catchError((error) => this.handleError(error))
     );
   }

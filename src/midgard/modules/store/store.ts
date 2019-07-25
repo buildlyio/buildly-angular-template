@@ -79,7 +79,6 @@ export class Store<T> {
         coreUserEpics,
         coreGroupEpics,
         authUserEpics,
-        coreGroupEpics,
         workflowTeamEpics,
         workflowLevel1Epics,
         workflowLevel2Epics,
