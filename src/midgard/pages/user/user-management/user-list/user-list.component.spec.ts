@@ -64,8 +64,6 @@ describe('UserListComponent', () => {
         is_active: false,
         dropdownOptions: [
           {label: '•••', value: '•••'},
-          {label: 'Change Password', value: 'changePassword'},
-          {label: 'Activate', value: 'activate'},
           {label: 'Delete', value: 'delete'}
         ]
       },
