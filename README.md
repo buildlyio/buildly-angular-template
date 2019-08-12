@@ -1,10 +1,3 @@
-+++
-title = "Midgard-Angular"
-aliases = [
-  "/walhall/midgard/midgard-angular"
-]
-+++
-
 # Midgard-Angular
 
 ## Overview
@@ -354,7 +347,4 @@ When you click on one of the HTTP verbs, an overlay opens with detailed informat
 ![Screenshot: Main midgard admin screen](./_assets/admin-dev.png)
 
 ## License
-
-Copyright &#169;2019 Humanitec GmbH.
-
-This code is released under the Humanitec Affero GPL. See the **LICENSE** file for details.
+GPLv2
