@@ -1,14 +1,14 @@
-# Midgard-Angular
+# Buildy-UI-Angular
 
 ## Overview
 
-Midgard-Angular is a customizable web application that provides an interface for the [logic modules](https://docs.walhall.io/library#about-logic-modules) in your [Walhall](https://docs.walhall.io/walhall) application.
+Buildy-UI-Angular is a customizable web application that provides an interface for the [logic modules](https://docs.walhall.io/library#about-logic-modules) in your [Walhall](https://docs.walhall.io/walhall) application.
 
-When you add Midgard to your Walhall application and set the frontend stack to Angular, Walhall will fork Midgard-Angular to your GitHub account and give it the same name as your application. If your application includes [BiFrost](https://docs.walhall.io/bifrost), then Midgard-Angular will be pre-configured to communicate with the API gateway.
+When you add Buildly-UI to your Buildly application and set the frontend stack to Angular, Walhall will fork Midgard-Angular to your GitHub account and give it the same name as your application. If your application includes [BiFrost](https://docs.walhall.io/bifrost), then Midgard-Angular will be pre-configured to communicate with the API gateway.
 
 When you deploy your application in Walhall, you can access the application by clicking the **frontend URL** on the application page.
 
-Midgard-Angular consists of two main sections: 
+Buildly-UI-Angular consists of two main sections: 
 
 1.  the [application itself](#frontend-application-features), which contains the interface and the core Midgard modules and tools, and
 2.  the [admin section](#midgard-admin-the-dev-tools), where a super user can manage entries, check the paths and possible HTTP operations of each endpoint. 
