@@ -1,0 +1,10 @@
+language: node_js
+cache: npm
+node_js:
+  - "9.9.0"
+install:
+  - npm install gulp-cli -g
+  - npm install
+script:
+  - npm run init
+  - npm run build-prod
