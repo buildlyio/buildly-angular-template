@@ -1,10 +1,22 @@
 language: node_js
 cache: npm
+services:
+  - docker
 node_js:
   - "9.9.0"
+env:
+  global:
+  - DOCKER_REPO=buildly/buildly-ui-angular
 install:
   - npm install gulp-cli -g
   - npm install
 script:
   - npm run init
   - npm run build-prod
+  - docker build -t $DOCKER_REPO .
+deploy:
+  provider: script
+  script: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push "$DOCKER_REPO:$TRAVIS_TAG"
+  on:
+    branch: master
+    tags: true
