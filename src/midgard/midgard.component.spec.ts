@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MidgardComponent } from './midgard.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { MidgardComponent } from './midgard.component';
 import { MidgardStoreModule } from './modules/store/store.module';
 import { StoreMock } from './modules/store/store-mock';
 import { Store } from './modules/store/store';
@@ -15,13 +15,13 @@ describe('MidgardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, TranslateModule.forRoot()],
-      declarations: [ MidgardComponent],
+      declarations: [MidgardComponent],
       providers: [
-        {provide: Store, useClass: StoreMock}
+        { provide: Store, useClass: StoreMock },
       ],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -4,8 +4,8 @@
 export const environment = {
   API_URL: 'http://0.0.0.0:8080/',
   OAUTH_CLIENT_ID: 'wkXLlC9h3k0jxIx7oLllxpFVU89Dxgi7O8FYZyfX',
-  OAUTH_TOKEN_URL:  'http://0.0.0.0:8080/oauth/token/',
-  production: false
+  OAUTH_TOKEN_URL: 'http://0.0.0.0:8080/oauth/token/',
+  production: false,
 };
 /*
  * In development mode, for easier debugging, you can ignore zone related error

@@ -1,14 +1,14 @@
 import {
   CREATE_WORKFLOWLEVEL2_COMMIT,
   DELETE_WORKFLOWLEVEL2_COMMIT,
-  LOAD_ALL_WORKFLOWLEVEL2_COMMIT, LOAD_ONE_WORKFLOWLEVEL2_COMMIT, UPDATE_WORKFLOWLEVEL2_COMMIT
+  LOAD_ALL_WORKFLOWLEVEL2_COMMIT, LOAD_ONE_WORKFLOWLEVEL2_COMMIT, UPDATE_WORKFLOWLEVEL2_COMMIT,
 } from '@src/midgard/state/workflow-level2/workflow-level2.actions';
 import { addAll, deleteOne, upsertOne } from '@src/midgard/modules/store/reducer.utils';
 import { Action } from '@src/midgard/state/action.type';
-import {WorkflowLevel2} from './workflow-level2.model';
+import { WorkflowLevel2 } from './workflow-level2.model';
 
 export interface WorkflowLevel2State {
-  data: WorkflowLevel2[];
+  data: WorkflowLevel2[] | null;
   loaded: false;
   created: false;
   updated: false;
@@ -19,7 +19,7 @@ const initialState: WorkflowLevel2State = {
   loaded: false,
   created: false,
   updated: false,
-  deleted: false
+  deleted: false,
 };
 
 export function workflowLevel2Reducer(state = initialState, action: Action) {

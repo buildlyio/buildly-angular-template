@@ -1,13 +1,13 @@
+import { addAll, deleteOne, upsertOne } from '@midgard/modules/store/reducer.utils';
 import {
   CREATE_COREGROUP_COMMIT,
   DELETE_COREGROUP_COMMIT,
-  LOAD_DATA_COREGROUP_COMMIT, UPDATE_COREGROUP_COMMIT
+  LOAD_DATA_COREGROUP_COMMIT, UPDATE_COREGROUP_COMMIT,
 } from './coregroup.actions';
-import {addAll, deleteOne, upsertOne} from '@midgard/modules/store/reducer.utils';
-import {CoreGroup} from './coregroup.model';
+import { CoreGroup } from './coregroup.model';
 
 export interface CoreGroupState {
-  data: CoreGroup[];
+  data: CoreGroup[] | null;
   loaded: false;
   created: false;
   updated: false;
@@ -18,10 +18,10 @@ const initialState: CoreGroupState = {
   loaded: false,
   created: false,
   updated: false,
-  deleted: false
+  deleted: false,
 };
 
-export function coregroupReducer(state = initialState, action) {
+export function coregroupReducer(state = initialState, action: any) {
   switch (action.type) {
     case LOAD_DATA_COREGROUP_COMMIT:
       return addAll(state, action);

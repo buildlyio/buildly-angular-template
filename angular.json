@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "midgard-angular": {
+    "buildly-angular-template": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -12,11 +12,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/midgard-angular",
+            "outputPath": "dist/buildly-angular-template",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -27,6 +27,13 @@
               },
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles/config/functions/__functions.scss",
+                "src/styles/config/mixins/__mixins.scss",
+                "src/styles/_colors.scss"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -52,18 +59,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "midgard-angular:build"
+            "browserTarget": "buildly-angular-template:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "midgard-angular:build:production"
+              "browserTarget": "buildly-angular-template:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "midgard-angular:build"
+            "browserTarget": "buildly-angular-template:build"
           }
         },
         "test": {
@@ -71,7 +78,7 @@
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
+            "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               {
@@ -90,8 +97,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "tsconfig.app.json",
+              "tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -100,7 +107,7 @@
         }
       }
     },
-    "midgard-angular-e2e": {
+    "buildly-angular-template-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -108,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "midgard-angular:serve"
+            "devServerTarget": "buildly-angular-template:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "midgard-angular:serve:production"
+              "devServerTarget": "buildly-angular-template:serve:production"
             }
           }
         },
@@ -128,5 +135,5 @@
       }
     }
   },
-  "defaultProject": "midgard-angular"
+  "defaultProject": "buildly-angular-template"
 }

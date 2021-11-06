@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'mg-workflow-level1',
   templateUrl: './workflow-level1.component.html',
-  styleUrls: ['./workflow-level1.component.scss']
+  styleUrls: ['./workflow-level1.component.scss'],
 })
 export class WorkflowLevel1Component implements OnInit {
+  public tableOptions: any;
 
-  public tableOptions;
-  public graphQlQuery;
-
-  constructor() { }
+  public graphQlQuery: any;
 
   ngOnInit() {
     this.defineTableOptions();
@@ -20,10 +17,16 @@ export class WorkflowLevel1Component implements OnInit {
   private defineTableOptions() {
     this.tableOptions = {
       columns: [
-        {name: 'Name', prop: 'name', flex: 2, sortable: true, filtering: true},
-        {name: 'Type', prop: 'type', flex: 2, sortable: true},
-        {name: 'Date Created', prop: 'create_date', index: 1, flex: 1, cellTemplate: 'date', sortable: true}
-      ]
+        {
+          name: 'Name', prop: 'name', flex: 2, sortable: true, filtering: true,
+        },
+        {
+          name: 'Type', prop: 'type', flex: 2, sortable: true,
+        },
+        {
+          name: 'Date Created', prop: 'create_date', index: 1, flex: 1, cellTemplate: 'date', sortable: true,
+        },
+      ],
     };
 
     this.graphQlQuery = `

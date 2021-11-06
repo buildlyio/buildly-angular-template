@@ -1,16 +1,16 @@
 import {
   LOAD_ALL_WORKFLOWLEVEL1_FROM_GRAPHQL,
-  LOAD_DATA_WORKFLOWLEVEL1_COMMIT
+  LOAD_DATA_WORKFLOWLEVEL1_COMMIT,
 } from '@src/midgard/state/workflow-level1/workflow-level1.actions';
-import { addAll, addNested, deleteNested, updateNested, upsertOne } from '@src/midgard/modules/store/reducer.utils';
+import { addAll, addNested, deleteNested, updateNested } from '@src/midgard/modules/store/reducer.utils';
 import {
   CREATE_WORKFLOWLEVEL2_COMMIT, DELETE_WORKFLOWLEVEL2_COMMIT,
-  UPDATE_WORKFLOWLEVEL2_COMMIT
+  UPDATE_WORKFLOWLEVEL2_COMMIT,
 } from '@src/midgard/state/workflow-level2/workflow-level2.actions';
 import { WorkflowLevel1 } from './workflow-level1.model';
 
 export interface WorkflowLevel1State {
-  data: WorkflowLevel1[];
+  data: WorkflowLevel1[] | null;
   loaded: false;
   created: false;
   updated: false;
@@ -21,10 +21,10 @@ const initialState: WorkflowLevel1State = {
   loaded: false,
   created: false,
   updated: false,
-  deleted: false
+  deleted: false,
 };
 
-export function workflowLevel1Reducer(state = initialState, action) {
+export function workflowLevel1Reducer(state = initialState, action: any) {
   switch (action.type) {
     case LOAD_DATA_WORKFLOWLEVEL1_COMMIT:
       return addAll(state, action);

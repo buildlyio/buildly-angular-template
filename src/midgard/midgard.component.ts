@@ -5,12 +5,11 @@ import { loadAuthUser } from './state/authuser/authuser.actions';
 @Component({
   selector: 'mg-midgard',
   templateUrl: './midgard.component.html',
-  styleUrls: ['./midgard.component.scss']
+  styleUrls: ['./midgard.component.scss'],
 })
 export class MidgardComponent implements OnInit {
-
   constructor(
-    private store: Store<any>
+    private store: Store<any>,
   ) {}
 
   public hideMenu = false;
@@ -22,5 +21,4 @@ export class MidgardComponent implements OnInit {
   toggleMenu(menuToggle) {
     this.hideMenu = menuToggle;
   }
-
 }

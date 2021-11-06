@@ -1,40 +1,44 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {
+  Component, EventEmitter, Input, OnInit, Output,
+} from '@angular/core';
 
 @Component({
   selector: 'mg-top-view-switcher',
   templateUrl: './top-view-switcher.component.html',
-  styleUrls: ['./top-view-switcher.component.scss']
+  styleUrls: ['./top-view-switcher.component.scss'],
 })
 export class TopViewSwitcherComponent implements OnInit {
-
   public activeView: 'tile' | 'list' | 'table';
 
   /**
    * page title
    */
   @Input() title;
+
   /**
    * text of the add button
    */
-  @Input() addButtonText;
+  @Input() addButtonText = '';
+
   /**
    * default selected view
    */
   @Input() defaultView: 'tile' | 'list' | 'table';
+
   /**
    * available views by default all of them
    */
-  @Input() availableViews = {tile: true, list: true, table: true};
+  @Input() availableViews = { tile: true, list: true, table: true };
+
   /**
    * event that is triggered when a view is selected
    */
   @Output() viewSelected: EventEmitter<any> = new EventEmitter();
+
   /**
    * event that is triggered when the add button is triggered
    */
   @Output() addButtonClicked: EventEmitter<any> = new EventEmitter();
-
-  constructor() { }
 
   ngOnInit() {
     this.activeView = this.defaultView;
@@ -44,7 +48,7 @@ export class TopViewSwitcherComponent implements OnInit {
    * emits an event to change the view
    * {'tile' | 'list' | 'table'} view - the selected view
    */
-  selectView(view) {
+  selectView(view: any) {
     this.activeView = view;
     this.viewSelected.emit(view);
   }
@@ -53,8 +57,7 @@ export class TopViewSwitcherComponent implements OnInit {
    * emits an event that the add button is clicked
    * @param view - the current view
    */
-  onButtonClicked(view) {
+  onButtonClicked(view: any) {
     this.addButtonClicked.emit(view);
   }
-
 }

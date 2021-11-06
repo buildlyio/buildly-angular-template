@@ -1,4 +1,4 @@
-import {CoreGroup} from './coregroup.model';
+import { CoreGroup } from './coregroup.model';
 
 export const LOAD_DATA_COREGROUP = 'LOAD_DATA_COREGROUP';
 export const LOAD_DATA_COREGROUP_COMMIT = 'LOAD_DATA_COREGROUP_COMMIT';
@@ -25,76 +25,76 @@ export function loadCoregroupData() {
 export function loadCoregroupDataCommit(data: CoreGroup[]) {
   return {
     type: LOAD_DATA_COREGROUP_COMMIT,
-    data
+    data,
   };
 }
 
-export function loadCoregroupDataFail(error) {
+export function loadCoregroupDataFail(error: any) {
   return {
     type: LOAD_DATA_COREGROUP_FAIL,
-    error
+    error,
   };
 }
 
 export function createCoreGroup(data: CoreGroup) {
   return {
     type: CREATE_COREGROUP,
-    data
+    data,
   };
 }
 
 export function createCoreGroupCommit(data: CoreGroup) {
   return {
     type: CREATE_COREGROUP_COMMIT,
-    data
+    data,
   };
 }
 
-export function createCoreGroupFail(error) {
+export function createCoreGroupFail(error: any) {
   return {
     type: CREATE_COREGROUP_FAIL,
-    error
+    error,
   };
 }
 
 export function updateCoreGroup(data: CoreGroup) {
   return {
     type: UPDATE_COREGROUP,
-    data
+    data,
   };
 }
 
 export function updateCoreGroupCommit(data: CoreGroup) {
   return {
     type: UPDATE_COREGROUP_COMMIT,
-    data
+    data,
   };
 }
 
-export function updateCoreGroupFail(error) {
+export function updateCoreGroupFail(error: any) {
   return {
     type: UPDATE_COREGROUP_FAIL,
-    error
+    error,
   };
 }
 
 export function deleteCoreGroup(data: CoreGroup) {
   return {
     type: DELETE_COREGROUP,
-    data
+    data,
   };
 }
 
 export function deleteCoreGroupCommit(data: CoreGroup) {
   return {
     type: DELETE_COREGROUP_COMMIT,
-    data
+    data,
   };
 }
 
-export function deleteCoreGroupFail(error) {
+export function deleteCoreGroupFail(error: any) {
   return {
     type: DELETE_COREGROUP_FAIL,
-    error
+    error,
   };
 }

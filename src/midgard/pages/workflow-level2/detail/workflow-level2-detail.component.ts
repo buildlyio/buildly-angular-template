@@ -5,17 +5,18 @@ import { getAllWorkflowLevel2s } from '@src/midgard/state/workflow-level2/workfl
 @Component({
   selector: 'mg-workflow-level2-detail',
   templateUrl: './workflow-level2-detail.component.html',
-  styleUrls: ['./workflow-level2-detail.component.scss']
+  styleUrls: ['./workflow-level2-detail.component.scss'],
 })
 export class WorkflowLevel2DetailComponent implements OnInit {
+  public formFields: any;
 
-  public formFields;
-  public graphQlQuery;
-  public selector;
+  public graphQlQuery: any;
+
+  public selector: any;
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -40,14 +41,14 @@ export class WorkflowLevel2DetailComponent implements OnInit {
    * navigate and lazy load the module depending on the select tab
    * @param event - click event on the tab
    */
-  navigateToModule(event) {
+  navigateToModule(event: any) {
     const moduleName = event.tab.textLabel.toLowerCase();
-    const outletsObject = {};
+    const outletsObject: any = {};
     outletsObject[moduleName] = moduleName;
     if (moduleName !== 'details') {
-      this.router.navigate([{outlets: outletsObject }], {relativeTo: this.route});
+      this.router.navigate([{ outlets: outletsObject }], { relativeTo: this.route });
     } else {
-      this.router.navigate(['.'], {relativeTo: this.route});
+      this.router.navigate(['.'], { relativeTo: this.route });
     }
   }
 
@@ -56,8 +57,12 @@ export class WorkflowLevel2DetailComponent implements OnInit {
    */
   defineFormFields() {
     this.formFields = [
-      {label: 'Name', controlName: 'name', type: 'text', validators: ['required'] },
-      {label: 'Description', controlName: 'description', type: 'text', validators: ['required'] }
+      {
+        label: 'Name', controlName: 'name', type: 'text', validators: ['required'],
+      },
+      {
+        label: 'Description', controlName: 'description', type: 'text', validators: ['required'],
+      },
     ];
   }
 }

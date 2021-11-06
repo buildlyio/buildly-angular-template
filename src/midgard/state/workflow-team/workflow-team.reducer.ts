@@ -1,14 +1,14 @@
+import { addAll, deleteOne, upsertOne } from '@src/midgard/modules/store/reducer.utils';
+import { Action } from '@src/midgard/state/action.type';
 import {
   CREATE_WORKFLOWTEAM_COMMIT,
   DELETE_WORKFLOWTEAM_COMMIT,
-  LOAD_ALL_WORKFLOWTEAMS_COMMIT, LOAD_ONE_WORKFLOWTEAM_COMMIT, UPDATE_WORKFLOWTEAM_COMMIT
+  LOAD_ALL_WORKFLOWTEAMS_COMMIT, LOAD_ONE_WORKFLOWTEAM_COMMIT, UPDATE_WORKFLOWTEAM_COMMIT,
 } from './workflow-team.actions';
-import { addAll, deleteOne, upsertOne } from '@src/midgard/modules/store/reducer.utils';
-import { Action } from '@src/midgard/state/action.type';
 import { WorkflowTeam } from './workflow-team.model';
 
 export interface WorkflowTeamState {
-  data: WorkflowTeam[];
+  data: WorkflowTeam[] | null;
   loaded: false;
   created: false;
   updated: false;
@@ -19,7 +19,7 @@ const initialState: WorkflowTeamState = {
   loaded: false,
   created: false,
   updated: false,
-  deleted: false
+  deleted: false,
 };
 
 export function workflowTeamReducer(state = initialState, action: Action) {

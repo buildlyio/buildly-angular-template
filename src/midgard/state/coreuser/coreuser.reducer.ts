@@ -1,13 +1,13 @@
+import { addAll, deleteOne, upsertOne } from '@src/midgard/modules/store/reducer.utils';
 import {
   CREATE_COREUSER_COMMIT,
   DELETE_COREUSER_COMMIT,
-  LOAD_DATA_COREUSER_COMMIT, UPDATE_COREUSER_COMMIT
+  LOAD_DATA_COREUSER_COMMIT, UPDATE_COREUSER_COMMIT,
 } from './coreuser.actions';
-import {addAll, deleteOne, upsertOne} from '@src/midgard/modules/store/reducer.utils';
-import {CoreUser} from './coreuser.model';
+import { CoreUser } from './coreuser.model';
 
 export interface CoreUserState {
-  data: CoreUser[];
+  data: CoreUser[] | null;
   loaded: false;
   created: false;
   updated: false;
@@ -18,10 +18,10 @@ const initialState: CoreUserState = {
   loaded: false,
   created: false,
   updated: false,
-  deleted: false
+  deleted: false,
 };
 
-export function coreuserReducer(state = initialState, action) {
+export function coreuserReducer(state = initialState, action: any) {
   switch (action.type) {
     case LOAD_DATA_COREUSER_COMMIT:
       return addAll(state, action);

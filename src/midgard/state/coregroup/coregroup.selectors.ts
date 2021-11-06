@@ -1,9 +1,7 @@
 import { redux } from 'midgard-core';
-import { reselect } from '@src/midgard/modules/store';
-import {CoreGroupState} from './coregroup.reducer';
+import { CoreGroupState } from './coregroup.reducer';
 
-
-const getCoreGroups = state => state.coregroupReducer;
+const getCoreGroups = (state: any) => state.coregroupReducer;
 
 /**
  * selector to get all core groups other than the authenticated user
@@ -15,7 +13,8 @@ export const getAllCoreGroups = redux.createSelector(
     if (coreGroupState) {
       return coreGroupState.data;
     }
-  }
+    return null;
+  },
 );
 
 /**
@@ -28,7 +27,6 @@ export const getCoreGroupsLoaded = redux.createSelector(
     if (coreUserState) {
       return coreUserState.loaded;
     }
-  }
+    return null;
+  },
 );
-
-

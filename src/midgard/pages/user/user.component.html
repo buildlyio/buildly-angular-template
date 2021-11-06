@@ -8,34 +8,34 @@
        [updateAction]="'UPDATE_AUTHUSER'"
   >
     <div class="profile__picture">
-      <fj-icon [svgName]="'upload'" [width]="'50px'"></fj-icon>
+      <!-- <fj-icon [svgName]="'upload'" [width]="'50px'"></fj-icon> -->
     </div>
     <div class="profile__column">
       <div class="profile__row">
         <small class="profile__column__caption">Name and Last name: </small>
         <!-- Full name-->
         <div class="profile__column__name">
-          <fj-inline-text-editor
+          <!-- <fj-inline-text-editor
             *ngIf="crud.rows.data"
             [displayElementCustomStyles]="{color: 'black', fontWeight: '700', marginRight: '5px'}"
             [value]="crud.rows.data.first_name + ' ' + crud.rows.data.last_name || 'Full Name'"
             name="name"
             (elementEdited)="updateUser($event)"
           >
-          </fj-inline-text-editor>
+          </fj-inline-text-editor> -->
         </div>
       </div>
       <!-- Email -->
       <div class="profile__row">
         <small class="profile__column__caption">Email: </small>
-        <fj-inline-text-editor
+        <!-- <fj-inline-text-editor
           *ngIf="crud.rows.data"
           [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
           [value]="crud.rows.data.email || 'Email'"
           name="email"
           (elementEdited)="updateUser($event)"
         >
-        </fj-inline-text-editor>
+        </fj-inline-text-editor> -->
       </div>
         <!-- Organization -->
       <div class="profile__row">
@@ -46,18 +46,18 @@
     <div class="profile__column">
       <div class="profile__row">
         <small class="profile__column__caption">Username: </small>
-        <fj-inline-text-editor
+        <!-- <fj-inline-text-editor
           *ngIf="crud.rows.data"
           [displayElementCustomStyles]="{color: 'black', fontWeight: '700'}"
           [value]="crud.rows.data.username || 'Username'"
           name="username"
           (elementEdited)="updateUser($event)"
         >
-        </fj-inline-text-editor>
+        </fj-inline-text-editor> -->
       </div>
     </div>
   </div>
-  <fj-button (click)="logout()" [margin]="'0px'" [color]="'danger'" [type]="'submit'">Logout</fj-button>
+  <!-- <fj-button (click)="logout()" [margin]="'0px'" [color]="'danger'" [type]="'submit'">Logout</fj-button> -->
 </ng-container>
 <ng-container *ngIf="selectedTab === 'user-management'">
   <router-outlet></router-outlet>

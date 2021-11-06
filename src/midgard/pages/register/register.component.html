@@ -1,32 +1,32 @@
 <div class="container" *ngIf="registerForm">
-  <fj-card>
-    <img class="register__card__logo" src="assets/img/midgard-logo.svg">
+  <!-- <fj-card> -->
+    <img class="register__card__logo" src="assets/img/buildly-logo.svg">
     <div class="register__card__content">
       <form class="register__form" [formGroup]="registerForm" novalidate (submit)="register()">
         <div class="register__form__field register__form__field--full-width">
-          <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Email*'" [error]="errors.email" [controlName]="'email'" [formGroup]="registerForm" [placeholder]="'Email'"> </fj-text-input>
+          <!-- <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Email*'" [error]="errors.email" [controlName]="'email'" [formGroup]="registerForm" [placeholder]="'Email'"> </fj-text-input> -->
         </div>
         <div class="register__form__field register__form__field--full-width">
-          <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Username*'" [error]="errors.username" [controlName]="'username'" [formGroup]="registerForm" [placeholder]="'Username'"> </fj-text-input>
+          <!-- <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Username*'" [error]="errors.username" [controlName]="'username'" [formGroup]="registerForm" [placeholder]="'Username'"> </fj-text-input> -->
         </div>
         <div class="register__form__field register__form__field--full-width">
-          <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Password*'" [error]="errors.password" [type]="'password'" [controlName]="'password'" [formGroup]="registerForm" [placeholder]="'Password'"> </fj-text-input>
+          <!-- <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Password*'" [error]="errors.password" [type]="'password'" [controlName]="'password'" [formGroup]="registerForm" [placeholder]="'Password'"> </fj-text-input> -->
         </div>
         <div class="register__form__field register__form__field--full-width">
-          <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Organization*'" [error]="errors.organization" [controlName]="'organization_name'" [formGroup]="registerForm" [placeholder]="'Organization'"> </fj-text-input>
+          <!-- <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Organization*'" [error]="errors.organization" [controlName]="'organization_name'" [formGroup]="registerForm" [placeholder]="'Organization'"> </fj-text-input> -->
         </div>
         <div class="register__form__field register__form__field--full-width">
-          <fj-text-input [customStyles]="{'width': '100%'}" [label]="'First name*'" [error]="errors.firstname" [controlName]="'first_name'" [formGroup]="registerForm" [placeholder]="'First name'"> </fj-text-input>
+          <!-- <fj-text-input [customStyles]="{'width': '100%'}" [label]="'First name*'" [error]="errors.firstname" [controlName]="'first_name'" [formGroup]="registerForm" [placeholder]="'First name'"> </fj-text-input> -->
         </div>
         <div class="register__form__field register__form__field--full-width">
-          <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Last name*'" [error]="errors.lastname" [controlName]="'last_name'" [formGroup]="registerForm" [placeholder]="'Last name'"> </fj-text-input>
+          <!-- <fj-text-input [customStyles]="{'width': '100%'}" [label]="'Last name*'" [error]="errors.lastname" [controlName]="'last_name'" [formGroup]="registerForm" [placeholder]="'Last name'"> </fj-text-input> -->
         </div>
         <div class="register__form__field">
-          <fj-button [type]="'submit'" [disabled]="!registerForm.valid">Sign Up</fj-button>
+          <!-- <fj-button [type]="'submit'" [disabled]="!registerForm.valid">Sign Up</fj-button> -->
         </div>
       </form>
       <span *ngIf="error">{{this.error}}</span>
     </div>
     <small><a class="register__login-link" routerLink="/login">Back to login</a></small>
-  </fj-card>
+  <!-- </fj-card> -->
 </div>

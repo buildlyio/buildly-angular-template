@@ -1,46 +1,54 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {
+  Component, OnDestroy, OnInit, ViewChild,
+} from '@angular/core';
 import { Store } from '@src/midgard/modules/store/store';
 import { OAuthService } from '@src/midgard/modules/oauth/oauth.service';
 import { Router } from '@angular/router';
 import { getAuthUser } from '@src/midgard/state/authuser/authuser.selectors';
 import { Subscription } from 'rxjs';
-import {setTopBarOptions} from '../../state/top-bar/top-bar.actions';
-import {getTopBarSelectedOption} from '../../state/top-bar/top-bar.selectors';
-import {select} from '../../modules/store/store';
+import { setTopBarOptions } from '../../state/top-bar/top-bar.actions';
+import { getTopBarSelectedOption } from '../../state/top-bar/top-bar.selectors';
+import { select } from '../../modules/store/store';
 import { CrudDirective } from '../../modules/crud/crud.directive';
 
 @Component({
   selector: 'mg-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit, OnDestroy {
-  @ViewChild('crud') crud: CrudDirective;
-  public userProfileFormFields;
-  public selectorProfile;
-  public selectedIndex;
-  public storeSubscription: Subscription;
+  @ViewChild('crud') crud!: CrudDirective;
+
+  public userProfileFormFields: any;
+
+  public selectorProfile: any;
+
+  public selectedIndex: any;
+
+  public storeSubscription?: Subscription;
+
   /**
    * current tab value from the content switcher
    */
   public selectedTab = 'user-management';
+
   public topBarOptions = [
     {
       index: 0,
       label: 'Profile Settings',
-      value: 'user-profile'
+      value: 'user-profile',
     },
     {
       index: 1,
       label: 'Users Management',
-      value: 'user-management'
-    }
+      value: 'user-management',
+    },
   ];
 
   constructor(
     private store: Store<any>,
     private oauthService: OAuthService,
-    private router: Router
+    private router: Router,
   ) {
   }
 
@@ -55,7 +63,7 @@ export class UserComponent implements OnInit, OnDestroy {
     this.store.dispatch(setTopBarOptions(this.topBarOptions));
     this.storeSubscription = this.store.observable.pipe(
       select(getTopBarSelectedOption),
-    ).subscribe(data => {
+    ).subscribe((data) => {
       if (data) {
         this.selectedTab = data.value;
         if (this.selectedTab === 'user-management') {
@@ -72,12 +80,12 @@ export class UserComponent implements OnInit, OnDestroy {
    * a function calls the crud module to update a user when a field is edited
    * @param editedObj - an object with the edited element and its value
    */
-  updateUser(editedObj: {value: string, elementName: string}) {
-    const {value, elementName} = editedObj;
+  updateUser(editedObj: { value: string, elementName: string }) {
+    const { value, elementName } = editedObj;
     if (elementName === 'name') {
       this.updateName(value);
     } else {
-      let updatedUser;
+      let updatedUser: any;
       if (this.crud.rows.data) {
         updatedUser = {
           id: this.crud.rows.data.id,
@@ -86,7 +94,6 @@ export class UserComponent implements OnInit, OnDestroy {
       }
       this.crud.updateItem(updatedUser);
     }
-
   }
 
   /**
@@ -100,7 +107,7 @@ export class UserComponent implements OnInit, OnDestroy {
       updatedUser = {
         id: this.crud.rows.data.id,
         first_name: firstName,
-        last_name: lastName
+        last_name: lastName,
       };
     }
     this.crud.updateItem(updatedUser);
@@ -119,5 +126,4 @@ export class UserComponent implements OnInit, OnDestroy {
       this.storeSubscription.unsubscribe();
     }
   }
-
 }

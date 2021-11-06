@@ -9,7 +9,7 @@
   >
   </mg-top-view-switcher>
   <div class="spinner">
-    <fj-spinner *ngIf="!(dataLoaded | async)"></fj-spinner>
+    <!-- <fj-spinner *ngIf="!(dataLoaded | async)"></fj-spinner> -->
   </div>
   <div class="list__content" [ngClass]= "'list__content--' + view ">
     <ng-container *ngIf="(dataLoaded | async) && rows">
@@ -41,7 +41,7 @@
         </ng-container>
       </ng-container>
       <!-- Data Table version-->
-      <fj-table
+      <!-- <fj-table
           class="list__content__table"
           *ngIf= "view === 'table' && tableOptions && (dataLoaded | async)"
           [rows]= "rows | filterByName : searchValue"
@@ -101,7 +101,7 @@
             </fj-native-dropdown>
           </ng-template>
         </fj-table-custom-column>
-      </fj-table>
+      </fj-table> -->
       </ng-container>
   </div>
 </ng-container>

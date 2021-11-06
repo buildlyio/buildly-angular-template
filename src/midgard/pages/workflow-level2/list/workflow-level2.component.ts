@@ -6,26 +6,29 @@ import { Store } from '@src/midgard/modules/store/store';
 @Component({
   selector: 'mg-workflow-level2',
   templateUrl: './workflow-level2.component.html',
-  styleUrls: ['./workflow-level2.component.scss']
+  styleUrls: ['./workflow-level2.component.scss'],
 })
 export class WorkflowLevel2Component implements OnInit {
   public topBarOptions = [
     {
       label: 'All',
-      value: 'all'
+      value: 'all',
     },
     {
       label: 'Active',
-      value: 'active'
-    }
+      value: 'active',
+    },
   ];
-  public tableOptions;
-  public cardItemOptions;
+
+  public tableOptions: any;
+
+  public cardItemOptions: any;
+
   // public graphQlQuery;
   public dataSelector = getAllWorkflowLevel2s;
 
   constructor(
-    private store: Store<any>
+    private store: Store<any>,
   ) { }
 
   ngOnInit() {
@@ -63,11 +66,17 @@ export class WorkflowLevel2Component implements OnInit {
   private defineTableOptions() {
     this.tableOptions = {
       columns: [
-        {name: 'Name', prop: 'name', flex: 2, sortable: true, filtering: true},
-        {name: 'Description', prop: 'description', flex: 2, sortable: true, filtering: true},
-        {name: 'Date Created', prop: 'create_date', index: 1, flex: 1, cellTemplate: 'date', sortable: true},
-        {name: '', cellTemplate: 'actions', actions: ['delete']},
-      ]
+        {
+          name: 'Name', prop: 'name', flex: 2, sortable: true, filtering: true,
+        },
+        {
+          name: 'Description', prop: 'description', flex: 2, sortable: true, filtering: true,
+        },
+        {
+          name: 'Date Created', prop: 'create_date', index: 1, flex: 1, cellTemplate: 'date', sortable: true,
+        },
+        { name: '', cellTemplate: 'actions', actions: ['delete'] },
+      ],
     };
   }
 }

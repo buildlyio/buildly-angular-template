@@ -1,22 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrudComponent } from '@src/midgard/modules/crud/crud.component';
-import {MatIconModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 import { MidgardGraphQLModule } from '@midgard/modules/graphql/graphql.module';
-import {
-  FjButtonModule, FjCardItemModule, FjInlineTextEditorModule, FjNativeDropdownModule, FjSpinnerModule, FjTableModule,
-  FjTextInputModule, IconModule
-} from 'freyja-ui';
 import { CrudDirective } from '@midgard/modules/crud/crud.directive';
-import { MgCardItemModule } from '../../components/card-item/card-item.module';
-import { MgTopViewSwitcherModule} from '../../components/top-view-switcher/top-view-switcher.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MgCardItemModule } from '../../components/card-item/card-item.module';
+import { MgTopViewSwitcherModule } from '../../components/top-view-switcher/top-view-switcher.module';
 import { FilterByNamePipe } from '../../pipes/filter-by-name.pipe';
 
 const components = [
   CrudComponent,
   CrudDirective,
-  FilterByNamePipe
+  FilterByNamePipe,
 ];
 
 @NgModule({
@@ -27,16 +23,9 @@ const components = [
     MgCardItemModule,
     MidgardGraphQLModule,
     MatIconModule,
-    FjSpinnerModule,
-    FjCardItemModule,
-    FjButtonModule,
-    FjTextInputModule,
-    FjInlineTextEditorModule,
-    FjNativeDropdownModule,
-    IconModule,
-    MgTopViewSwitcherModule
+    MgTopViewSwitcherModule,
   ],
   declarations: components,
-  exports: components
+  exports: components,
 })
 export class MidgardCrudModule { }

@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Store} from '@src/midgard/modules/store/store';
-import {createCoreUser} from '@src/midgard/state/coreuser/coreuser.actions';
-import {FormValidationHelper} from '../../modules/form/form.validation.helper';
-import {ActivatedRoute, Router} from '@angular/router';
-import {MatSnackBar} from '@angular/material';
-import {HttpService} from '../../modules/http/http.service';
+import { Store } from '@src/midgard/modules/store/store';
+import { createCoreUser } from '@src/midgard/state/coreuser/coreuser.actions';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '@env/environment';
+import { HttpService } from '../../modules/http/http.service';
+import { FormValidationHelper } from '../../modules/form/form.validation.helper';
 
 @Component({
   selector: 'mg-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+  registerForm!: FormGroup;
 
+  errors: any = {};
 
-  registerForm: FormGroup;
-  errors = {};
   errorMessages = {
     email: 'please fill your email',
     username: 'please fill your username',
     password: 'please fill your password',
     organization: 'please fill your organization',
   };
-  token;
+
+  token: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,19 +32,19 @@ export class RegisterComponent implements OnInit {
     private store: Store<any>,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private httpService: HttpService
+    private httpService: HttpService,
   ) { }
 
   ngOnInit() {
     // get the token from the url if there is any
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.token = params['token'];
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.token = params.token;
     });
     this.initForm();
     if (this.token) {
       this.checkToken();
     }
-    this.registerForm.valueChanges.subscribe(val => {
+    this.registerForm.valueChanges.subscribe((val: any) => {
       this.errors = this.formHelper.validateForm(this.registerForm, this.errorMessages);
     });
   }
@@ -78,10 +78,10 @@ export class RegisterComponent implements OnInit {
    * checks the invitation token of the user and fills the email address and the organization in the form if it is valid
    */
   checkToken() {
-    this.httpService.makeRequest('get', `${environment.API_URL}/coreuser/invite_check/?token=${this.token}`).subscribe(res => {
+    this.httpService.makeRequest('get', `${environment.API_URL}/coreuser/invite_check/?token=${this.token}`).subscribe((res) => {
       if (res.data) {
-        this.registerForm.get('email').patchValue(res.data.email);
-        this.registerForm.get('organization_name').patchValue(res.data.organization.name);
+        this.registerForm.get('email')?.patchValue(res.data.email);
+        this.registerForm.get('organization_name')?.patchValue(res.data.organization.name);
       }
     });
   }

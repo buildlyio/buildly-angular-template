@@ -1,7 +1,7 @@
 import { redux } from 'midgard-core';
 import { AuthUserState } from './authuser.reducer';
 
-const getAuthUserState = state => state.authuserReducer;
+const getAuthUserState = (state: any) => state.authuserReducer;
 
 export const getAuthUser = redux.createSelector(
   getAuthUserState,
@@ -16,14 +16,14 @@ export const getAuthUser = redux.createSelector(
             last_name: authUserState.data.user.last_name,
             email: authUserState.data.user.email,
           },
-          loaded: true
-        };
-      } else {
-        return {
-          data: authUserState.data,
-          loaded: true
+          loaded: true,
         };
       }
+      return {
+        data: authUserState.data,
+        loaded: true,
+      };
     }
-  }
+    return null;
+  },
 );

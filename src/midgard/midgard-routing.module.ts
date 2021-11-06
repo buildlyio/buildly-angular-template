@@ -1,5 +1,4 @@
-import { Routes } from '@angular/router';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { WorkflowLevel1Component } from './pages/workflow-level1/workflow-level1.component';
 import { MidgardComponent } from './midgard.component';
@@ -13,24 +12,41 @@ import { UserGroupsComponent } from './pages/user/user-management/user-groups/us
 
 const midgardRoutes: Routes = [
   {
-    path: '', component: MidgardComponent, children: [
-      {path: 'workflow-level1', component: WorkflowLevel1Component, canActivate: [AuthGuard]},
-      {path: 'workflow-level2', component: WorkflowLevel2Component, canActivate: [AuthGuard]},
-      {path: 'workflow-level2/details/:parent/:id', component: WorkflowLevel2DetailComponent, canActivate: [AuthGuard], children: [
-          {path: 'main', component: WorkflowLevel2DetailComponent}
-      ]},
-      {path: 'user', component: UserComponent, canActivate: [AuthGuard], children: [
-          {path: 'user-management', component: UserManagementComponent, canActivate: [AuthGuard], children : [
-              {path: 'list', component: UserListComponent, canActivate: [AuthGuard]},
-              {path: 'groups', component: UserGroupsComponent, canActivate: [AuthGuard]}
-            ]},
-        ]}
-      ],
+    path: '',
+    component: MidgardComponent,
+    children: [
+      { path: 'workflow-level1', component: WorkflowLevel1Component, canActivate: [AuthGuard] },
+      { path: 'workflow-level2', component: WorkflowLevel2Component, canActivate: [AuthGuard] },
+      {
+        path: 'workflow-level2/details/:parent/:id',
+        component: WorkflowLevel2DetailComponent,
+        canActivate: [AuthGuard],
+        children: [
+          { path: 'main', component: WorkflowLevel2DetailComponent },
+        ],
+      },
+      {
+        path: 'user',
+        component: UserComponent,
+        canActivate: [AuthGuard],
+        children: [
+          {
+            path: 'user-management',
+            component: UserManagementComponent,
+            canActivate: [AuthGuard],
+            children: [
+              { path: 'list', component: UserListComponent, canActivate: [AuthGuard] },
+              { path: 'groups', component: UserGroupsComponent, canActivate: [AuthGuard] },
+            ],
+          },
+        ],
+      },
+    ],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(midgardRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class MidgardRoutingModule {}

@@ -1,78 +1,97 @@
-import {Directive, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {GraphQlService} from '@src/midgard/modules/graphql/graphql.service';
-import {map} from 'rxjs/operators';
-import {select, Store} from '@src/midgard/modules/store/store';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { crudCreate, crudDelete, crudLoadData, crudUpdate } from './redux/crud.actions';
+import {
+  Directive, EventEmitter, Input, OnDestroy, OnInit, Output,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { select, Store } from '@src/midgard/modules/store/store';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  crudCreate, crudDelete, crudLoadData, crudUpdate,
+} from './redux/crud.actions';
 import { selectAllfromEndpoint, selectEndpointLoaded } from './redux/crud.selectors';
 
 @Directive({
   selector: '[mgCrud]',
-  exportAs: 'mgCrud'
+  exportAs: 'mgCrud',
 })
 export class CrudDirective implements OnInit, OnDestroy {
-
   public rows: any = [];
+
   public currentItem;
+
   public detailsForm: FormGroup;
+
   public dataLoaded;
+
   private graphQlSubscription: Subscription;
+
   private storeSubscription: Subscription;
 
   /**
    * the endpoint to request
    */
-  @Input() endpoint;
+  @Input() endpoint: any;
+
   /**
    * property that stores the data
    */
-  @Input() dataProp;
+  @Input() dataProp: any;
+
   /**
    * the id property of the endpoint
    */
-  @Input() idProp;
+  @Input() idProp: any;
+
   /**
    * custom redux action to load data
    */
-  @Input() loadAction;
+  @Input() loadAction: any;
+
   /**
    * custom redux action to create an item
    */
-  @Input() createAction;
+  @Input() createAction: any;
+
   /**
    * custom redux action to update an item
    */
-  @Input() updateAction;
+  @Input() updateAction: any;
+
   /**
    * custom redux action to delete an item
    */
-  @Input() deleteAction;
+  @Input() deleteAction: any;
+
   /**
    * notification message when the item is created
    */
-  @Input() createMessage;
+  @Input() createMessage: any;
+
   /**
    * notification message when the item is update
    */
-  @Input() updateMessage;
+  @Input() updateMessage: any;
+
   /**
    * notification message when the item is deleted
    */
-  @Input() deleteMessage;
+  @Input() deleteMessage: any;
 
   /**
    * custom redux selector function to retrieve data list
    */
-  @Input() dataSelector;
+  @Input() dataSelector: any;
+
   /**
    * custom redux selector function to check if the data is loaded
    */
-  @Input() loadedSelector;
+  @Input() loadedSelector: any;
+
   /**
    * definition of the form fields
    */
-  @Input() formFields;
+  @Input() formFields: any;
+
   /**
    * event that is triggered when the data is loaded
    */
@@ -87,20 +106,20 @@ export class CrudDirective implements OnInit, OnDestroy {
     if (this.loadedSelector) {
       this.dataLoaded = this.store.observable.pipe(
         select(this.loadedSelector),
-        map(loaded => {
+        map((loaded) => {
           if (loaded) {
             return loaded;
           }
-        })
+        }),
       );
     } else {
       this.dataLoaded = this.store.observable.pipe(
         select(selectEndpointLoaded(this.endpoint)),
-        map(loaded => {
+        map((loaded) => {
           if (loaded) {
             return loaded;
           }
-        })
+        }),
       );
     }
     this.listenToStore();
@@ -114,7 +133,7 @@ export class CrudDirective implements OnInit, OnDestroy {
     if (this.dataSelector) {
       this.storeSubscription = this.store.observable.pipe(
         select(this.dataSelector),
-      ).subscribe( (data: any[]) => {
+      ).subscribe((data: any[]) => {
         if (data) {
           this.rows = data;
           this.dataLoadedFromStore.emit(this.rows);
@@ -123,7 +142,7 @@ export class CrudDirective implements OnInit, OnDestroy {
     } else if (this.endpoint) {
       this.storeSubscription = this.store.observable.pipe(
         select(selectAllfromEndpoint(this.endpoint)),
-      ).subscribe( (data: any[]) => {
+      ).subscribe((data: any[]) => {
         if (data) {
           this.rows = data;
           this.dataLoadedFromStore.emit(this.rows);
@@ -144,6 +163,7 @@ export class CrudDirective implements OnInit, OnDestroy {
       this.store.dispatch(crudLoadData(this.endpoint, this.idProp || null, this.dataProp || null));
     }
   }
+
   /**
    * send a request to create an item from the list
    * @param item - item to be created
@@ -154,7 +174,7 @@ export class CrudDirective implements OnInit, OnDestroy {
       this.store.dispatch({
         type: this.createAction,
         data: item,
-        index
+        index,
       });
     } else if (this.endpoint) {
       this.store.dispatch(crudCreate(item, this.endpoint, this.idProp || null, this.dataProp || null));

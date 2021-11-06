@@ -5,19 +5,19 @@ import { getAllCoreGroups, getCoreGroupsLoaded } from '@midgard/state/coregroup/
 @Component({
   selector: 'user-groups',
   templateUrl: './user-groups.component.html',
-  styleUrls: ['./user-groups.component.scss']
+  styleUrls: ['./user-groups.component.scss'],
 })
 export class UserGroupsComponent implements OnInit {
-  @ViewChild('crud') crud: CrudDirective;
+  @ViewChild('crud') crud!: CrudDirective;
 
-  public dataSelector;
-  public loadedSelector;
+  public dataSelector: any;
+
+  public loadedSelector: any;
+
   public dropdownOptions = [
-    {label: '•••', value: '•••'},
-    {label: 'Delete', value: 'delete'}
+    { label: '•••', value: '•••' },
+    { label: 'Delete', value: 'delete' },
   ];
-
-  constructor() { }
 
   ngOnInit() {
     this.dataSelector = getAllCoreGroups;
@@ -30,7 +30,7 @@ export class UserGroupsComponent implements OnInit {
    * @param permission - the permission to be updated
    * @param row - the current group
    */
-  updatePermission(value: boolean, permission: string, row) {
+  updatePermission(value: boolean, permission: string, row: any) {
     row.permissions[permission] = value;
     this.crud.updateItem(row);
   }
@@ -45,30 +45,31 @@ export class UserGroupsComponent implements OnInit {
         create: false,
         read: false,
         update: false,
-        delete: false
-      }
+        delete: false,
+      },
     };
     this.crud.createItem(newGroup, 0);
   }
+
   /**
    * updates the name of a group
    * @param editedObj - an object with the edited element and its value
    * @param row - the current group
    */
-  updateName(editedObj: {value: string, elementName: string}, row) {
-    const {value} = editedObj;
+  updateName(editedObj: { value: string, elementName: string }, row: any) {
+    const { value } = editedObj;
     row.name = value;
     this.crud.updateItem(row);
   }
+
   /**
    * function that it is triggered to handle actions of the dropdown
    * @param action - the action that has been chosen
    * @param row - the row where the action is triggered
    */
-  dropdownActionTriggered(row, action: string) {
+  dropdownActionTriggered(row: any, action: string) {
     if (action === 'delete') {
       this.crud.deleteItem(row);
     }
   }
-
 }

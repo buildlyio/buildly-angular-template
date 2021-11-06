@@ -1,4 +1,6 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component, OnDestroy, OnInit, ViewChild,
+} from '@angular/core';
 import { getAllCoreUsers, getCoreUsersLoaded } from '@midgard/state/coreuser/coreuser.selectors';
 import { select, Store } from '@midgard/modules/store/store';
 import { Router } from '@angular/router';
@@ -9,19 +11,22 @@ import { loadCoregroupData } from '@midgard/state/coregroup/coregroup.actions';
 @Component({
   selector: 'mg-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+  styleUrls: ['./user-list.component.scss'],
 })
 export class UserListComponent implements OnInit, OnDestroy {
   @ViewChild('crud') crud: CrudDirective;
 
   public dataSelector;
+
   public loadedSelector;
+
   public coreGroups;
+
   private coreGroupsSubscription;
 
   constructor(
     private router: Router,
-    private store: Store<any>
+    private store: Store<any>,
   ) {
   }
 
@@ -36,19 +41,19 @@ export class UserListComponent implements OnInit, OnDestroy {
    */
   defineDropdownOptions() {
     if (this.crud.rows) {
-      this.crud.rows.forEach( row => {
+      this.crud.rows.forEach((row: any) => {
         if (row.is_active) {
           row.dropdownOptions = [
-            {label: '•••', value: '•••'},
-            {label: 'Change Password', value: 'changePassword'},
-            {label: 'Deactivate', value: 'deactivate'},
-            {label: 'Delete', value: 'delete'}];
+            { label: '•••', value: '•••' },
+            { label: 'Change Password', value: 'changePassword' },
+            { label: 'Deactivate', value: 'deactivate' },
+            { label: 'Delete', value: 'delete' }];
         } else {
           row.dropdownOptions = [
-            {label: '•••', value: '•••'},
-            {label: 'Change Password', value: 'changePassword'},
-            {label: 'Activate', value: 'activate'},
-            {label: 'Delete', value: 'delete'}];
+            { label: '•••', value: '•••' },
+            { label: 'Change Password', value: 'changePassword' },
+            { label: 'Activate', value: 'activate' },
+            { label: 'Delete', value: 'delete' }];
         }
       });
     }
@@ -66,12 +71,12 @@ export class UserListComponent implements OnInit, OnDestroy {
     } else if (action === 'deactivate') {
       updatedUser = {
         id: row.id,
-        is_active: false
+        is_active: false,
       };
     } else if (action === 'activate') {
       updatedUser = {
         id: row.id,
-        is_active: true
+        is_active: true,
       };
     }
     this.crud.updateItem(updatedUser);
@@ -82,15 +87,15 @@ export class UserListComponent implements OnInit, OnDestroy {
    * @param editedObj - an object with the edited element and its value
    * @param row - the current user row
    */
-  updateUser(editedObj: {value: string, elementName: string}, row) {
-    const {value, elementName} = editedObj;
+  updateUser(editedObj: { value: string, elementName: string }, row) {
+    const { value, elementName } = editedObj;
     if (elementName === 'name') {
       this.updateName(value, row);
     } else {
       let updatedUser;
       if (row.id) {
         updatedUser = {
-          id: row.id
+          id: row.id,
         };
         updatedUser[elementName] = value;
       }
@@ -110,7 +115,7 @@ export class UserListComponent implements OnInit, OnDestroy {
       updatedUser = {
         id: row.id,
         first_name: firstName,
-        last_name: lastName
+        last_name: lastName,
       };
     }
     this.crud.updateItem(updatedUser);
@@ -123,11 +128,9 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.store.dispatch(loadCoregroupData());
     this.coreGroupsSubscription = this.store.observable.pipe(
       select(getAllCoreGroups),
-    ).subscribe( (data: any[]) => {
+    ).subscribe((data: any[]) => {
       if (data) {
-        this.coreGroups = data.map(coreGroup => {
-          return {label: coreGroup.name, value: coreGroup.id};
-        });
+        this.coreGroups = data.map((coreGroup) => ({ label: coreGroup.name, value: coreGroup.id }));
       }
     });
   }

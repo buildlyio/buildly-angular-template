@@ -1,15 +1,12 @@
-
 import { reselect } from '@src/midgard/modules/store';
 import { WorkflowTeamState } from './workflow-team.reducer';
-import {WorkflowTeam} from './workflow-team.model';
+import { WorkflowTeam } from './workflow-team.model';
 
-const getWorkflowTeams = state => state.workflowTeamReducer;
+const getWorkflowTeams = (state: any) => state.workflowTeamReducer;
 
 export const getAllWorkflowTeams = reselect.createSelector(
   getWorkflowTeams,
-  (workflowTeamState: WorkflowTeamState) => {
-    return workflowTeamState;
-  }
+  (workflowTeamState: WorkflowTeamState) => workflowTeamState,
 );
 
 /**
@@ -18,8 +15,7 @@ export const getAllWorkflowTeams = reselect.createSelector(
  */
 export const getWorkflowTeamsByUser = (userId: string) => reselect.createSelector(
   getAllWorkflowTeams,
-  (workflowTeamState: WorkflowTeamState) => {
-    return workflowTeamState.data.filter( (workflowTeam: WorkflowTeam) => {
-      return workflowTeam.workflow_user.toString() === userId;
-    });
-  });
+  (workflowTeamState: WorkflowTeamState) => workflowTeamState.data?.filter(
+    (workflowTeam: WorkflowTeam) => workflowTeam.workflow_user?.toString() === userId,
+  ),
+);

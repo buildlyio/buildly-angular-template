@@ -3,16 +3,26 @@ import { ChangeDetectionStrategy, Component, DebugElement, NO_ERRORS_SCHEMA } fr
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StoreMock } from '@src/midgard/modules/store/store-mock';
 import { Store } from '@src/midgard/modules/store/store';
-import { ApolloTestingController, ApolloTestingModule } from 'apollo-angular/testing';
+import { ApolloTestingModule } from 'apollo-angular/testing';
 import { GraphQlService } from '@src/midgard/modules/graphql/graphql.service';
 import { MidgardStoreModule } from '@src/midgard/modules/store/store.module';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSnackBarStub } from '@src/midgard/testing-utilities/stubs';
 import { FormBuilder } from '@angular/forms';
 import { getAllWorkflowLevel1s } from '@src/midgard/state/workflow-level1/workflow-level1.selectors';
 import { By } from '@angular/platform-browser';
 import { mockCoreUsers } from '../../testing-utilities/mock.data';
+
+class ContainerComponent {
+  // Actions
+  public loadAction;
+  public createAction;
+  public deleteAction;
+  public updateAction;
+  public loadActionGraphQl;
+  public selector;
+}
 
 describe('CrudDirective', () => {
   let fixture: ComponentFixture<ContainerComponent>;
@@ -113,12 +123,3 @@ describe('CrudDirective', () => {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-class ContainerComponent {
-  // Actions
-  public loadAction;
-  public createAction;
-  public deleteAction;
-  public updateAction;
-  public loadActionGraphQl;
-  public selector;
-}

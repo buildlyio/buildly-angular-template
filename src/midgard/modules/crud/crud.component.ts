@@ -1,4 +1,7 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  Component, EventEmitter, Input, OnDestroy, OnInit, Output,
+} from '@angular/core';
 import { select, Store } from '@src/midgard/modules/store/store';
 import { Subscription } from 'rxjs';
 import { GraphQlService } from '@src/midgard/modules/graphql/graphql.service';
@@ -6,122 +9,151 @@ import { map } from 'rxjs/operators';
 import { addAll, deleteOne, upsertOne } from '@src/midgard/modules/store/reducer.utils';
 import { getTopBarSearchValue } from '../../state/top-bar/top-bar.selectors';
 import { selectAllfromEndpoint } from './redux/crud.selectors';
-import { crudCreate, crudDelete, crudLoadData, crudUpdate } from './redux/crud.actions';
+import {
+  crudCreate, crudDelete, crudLoadData, crudUpdate,
+} from './redux/crud.actions';
 
 @Component({
   selector: 'mg-crud',
   templateUrl: './crud.component.html',
-  styleUrls: ['./crud.component.scss']
+  styleUrls: ['./crud.component.scss'],
 })
 export class CrudComponent implements OnInit, OnDestroy {
-
   public rows = [];
+
   public dataLoaded;
+
   private graphQlSubscription: Subscription;
+
   private storeSubscription: Subscription;
+
   protected searchValue: string;
 
   /**
    * the endpoint to request
    */
-  @Input() endpoint;
+  @Input() endpoint: any;
+
   /**
    * property that stores the data
    */
-  @Input() dataProp;
+  @Input() dataProp: any;
+
   /**
    * the id property of the endpoint
    */
-  @Input() idProp;
+  @Input() idProp: any;
+
   /**
    * options for the table component
    */
-  @Input() tableOptions;
+  @Input() tableOptions: any;
+
   /**
    * options for the card item components
    */
-  @Input() cardItemOptions;
+  @Input() cardItemOptions: any;
+
   /**
    * page title
    */
-  @Input() title;
+  @Input() title: any;
+
   /**
    * redux action to load data
    */
-  @Input() loadAction;
+  @Input() loadAction: any;
+
   /**
    * redux action to delete an item
    */
-  @Input() deleteAction;
+  @Input() deleteAction: any;
+
   /**
    * redux action to update an item
    */
-  @Input() updateAction;
+  @Input() updateAction: any;
+
   /**
    * redux action to create an item
    */
-  @Input() createAction;
+  @Input() createAction: any;
+
   /**
    * notification message when the item is deleted
    */
-  @Input() deleteMessage;
+  @Input() deleteMessage: any;
+
   /**
    * redux selector function to retrieve data list
    */
-  @Input() dataSelector;
+  @Input() dataSelector: any;
+
   /**
    * redux selector function to check if the data is loaded
    */
-  @Input() loadedSelector;
+  @Input() loadedSelector: any;
+
   /**
    *  parent model if children exists
    */
-  @Input() parentModel;
+  @Input() parentModel: any;
+
   /**
    * text of the add button
    */
-  @Input() addButtonText;
+  @Input() addButtonText?: string;
+
   /**
    * text of the add button
    */
-  @Input() addButtonTextChildren;
+  @Input() addButtonTextChildren: any;
+
   /**
    * default layout of the cards
    */
-  @Input() defaultLayout;
+  @Input() defaultLayout: any;
 
   /**
    * event that is triggered when an action from the card-item or the table component is triggered
    */
   @Output() itemActionClicked: EventEmitter<any> = new EventEmitter();
+
   /**
    * event that is triggered when a field has been edited
    */
   @Output() itemEdited: EventEmitter<any> = new EventEmitter();
+
   /**
    * event that is triggered when an action from the table component is triggered
    */
   @Output() tableActionClicked: EventEmitter<any> = new EventEmitter();
+
   /**
    * event that is triggered when an item in the table is clicked
    */
   @Output() tableItemClicked: EventEmitter<any> = new EventEmitter();
+
   /**
    * event that is triggered when the user clicks on the add button
    */
   @Output() addButtonClicked: EventEmitter<any> = new EventEmitter();
+
   /**
    * event that is triggered when a new item has been created
    */
   @Output() itemCreated: EventEmitter<any> = new EventEmitter();
+
   /**
    * event that is triggered when a new item has been deleted
    */
   @Output() itemDeleted: EventEmitter<any> = new EventEmitter();
+
   /**
    * event that is triggered when a new item has been updated
    */
   @Output() itemUpdated: EventEmitter<any> = new EventEmitter();
+
   /**
    * event that is triggered when the data is loaded
    */
@@ -137,7 +169,7 @@ export class CrudComponent implements OnInit, OnDestroy {
     // listen if search value Changes from the top bar
     this.dataLoaded = this.store.observable.pipe(
       select(getTopBarSearchValue),
-    ).subscribe(searchValue => {
+    ).subscribe((searchValue) => {
       this.searchValue = searchValue;
     });
     if (this.tableOptions) {
@@ -149,11 +181,11 @@ export class CrudComponent implements OnInit, OnDestroy {
     }
     this.dataLoaded = this.store.observable.pipe(
       select(this.loadedSelector),
-      map(loaded => {
+      map((loaded) => {
         if (loaded) {
           return loaded;
         }
-      })
+      }),
     );
     this.listenToStore();
     this.getDataFromStore();
@@ -166,7 +198,7 @@ export class CrudComponent implements OnInit, OnDestroy {
     if (this.dataSelector) {
       this.storeSubscription = this.store.observable.pipe(
         select(this.dataSelector),
-      ).subscribe( (data: any[]) => {
+      ).subscribe((data: any[]) => {
         if (data) {
           this.rows = data;
           this.dataLoadedFromStore.emit(this.rows);
@@ -175,7 +207,7 @@ export class CrudComponent implements OnInit, OnDestroy {
     } else if (this.endpoint) {
       this.storeSubscription = this.store.observable.pipe(
         select(selectAllfromEndpoint(this.endpoint)),
-      ).subscribe( (data: any[]) => {
+      ).subscribe((data: any[]) => {
         if (data) {
           this.rows = data;
           this.dataLoadedFromStore.emit(this.rows);
@@ -223,7 +255,7 @@ export class CrudComponent implements OnInit, OnDestroy {
       this.store.dispatch({
         type: this.createAction,
         data: item,
-        index
+        index,
       });
     } else if (this.endpoint) {
       this.store.dispatch(crudCreate(item, this.endpoint, this.idProp || null, this.dataProp || null));
@@ -252,7 +284,7 @@ export class CrudComponent implements OnInit, OnDestroy {
    * changes the view to list view
    * {'tile' | 'list'} view - the selected view
    */
-  selectView(view) {
+  selectView(view: any) {
     this.view = view;
   }
 
@@ -261,10 +293,10 @@ export class CrudComponent implements OnInit, OnDestroy {
    * @param {string} actionType - type of the action that has been triggered
    * @param {string} item - the curren item data
    */
-  onItemActionClicked(actionType, item) {
+  onItemActionClicked(actionType: any, item: any) {
     const emittedObj = {
       actionType,
-      item
+      item,
     };
     this.itemActionClicked.emit(emittedObj);
   }
@@ -274,10 +306,10 @@ export class CrudComponent implements OnInit, OnDestroy {
    * @param {string} actionType - type of the action that has been triggered
    * @param {string} item - the curren item data
    */
-  onTableActionClicked(actionType, item) {
+  onTableActionClicked(actionType: any, item: any) {
     const emittedObj = {
       actionType,
-      item
+      item,
     };
     this.tableActionClicked.emit(emittedObj);
   }
@@ -286,7 +318,7 @@ export class CrudComponent implements OnInit, OnDestroy {
    * function that listens if an item is clicked in the table
    * @param {string} item - the clicked item data
    */
-  onTableItemClicked(item) {
+  onTableItemClicked(item: any) {
     this.tableItemClicked.emit(item);
   }
 
@@ -296,22 +328,20 @@ export class CrudComponent implements OnInit, OnDestroy {
    * @param {string} itemData - the current item data
    * @param {boolean} table - if the element is edited from a table
    */
-  onItemEdited(editedObj, itemData, table) {
+  onItemEdited(editedObj: any, itemData: any, table: any) {
     let property;
-    const {value, elementName, index} = editedObj;
+    const { value, elementName, index } = editedObj;
     if (table) {
       property = elementName;
+    } else if (index !== undefined) {
+      property = this.cardItemOptions[elementName][index].prop;
     } else {
-      if (index !== undefined) {
-        property = this.cardItemOptions[elementName][index].prop;
-      } else {
-        property = this.cardItemOptions[elementName].prop;
-      }
+      property = this.cardItemOptions[elementName].prop;
     }
     const editedField = {
       value,
       property,
-      itemData
+      itemData,
     };
     this.itemEdited.emit(editedField);
   }
@@ -324,7 +354,6 @@ export class CrudComponent implements OnInit, OnDestroy {
     this.onItemActionClicked('new', null);
   }
 
-
   ngOnDestroy() {
     if (this.graphQlSubscription) {
       this.graphQlSubscription.unsubscribe();
@@ -333,5 +362,4 @@ export class CrudComponent implements OnInit, OnDestroy {
       this.storeSubscription.unsubscribe();
     }
   }
-
 }

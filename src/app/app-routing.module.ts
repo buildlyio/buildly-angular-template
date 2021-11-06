@@ -1,5 +1,4 @@
-import { Routes } from '@angular/router';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { LoginComponent } from '@src/midgard/pages/login/login.component';
 import { RegisterComponent } from '@src/midgard/pages/register/register.component';
@@ -13,7 +12,6 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
-

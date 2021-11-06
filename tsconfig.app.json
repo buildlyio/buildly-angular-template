@@ -1,0 +1,36 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": [],
+    "experimentalDecorators": true,
+    "paths": {
+      "@env/*": [
+        "src/environments/*"
+      ],
+      "@clients/*": [
+        "src/clients/*"
+      ],
+      "@midgard/*": [
+        "src/midgard/*"
+      ],
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@src/*": [
+        "src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "stories"
+  ],
+  "include": [
+    "**/*"
+  ],
+  "files": [
+    "./typings/json.d.ts"
+  ]
+}

@@ -8,10 +8,10 @@ import { MidgardTranslateService } from '@src/midgard/modules/translation/transl
   ],
   providers: [
     TranslateService,
-    MidgardTranslateService
+    MidgardTranslateService,
   ],
   exports: [
-    TranslateModule
-  ]
+    TranslateModule,
+  ],
 })
 export class MidgardTranslationTestModule {}

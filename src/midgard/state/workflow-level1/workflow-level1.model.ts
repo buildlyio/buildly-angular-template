@@ -14,14 +14,14 @@ export interface WorkflowLevel1 {
   sort?: number;
   organization?: string;
   portfolio?: string;
-  fund_code?:  Array<any>;
-  award?:  Array<any>;
-  sub_sector?:  Array<any>;
-  milestone?:  Array<any>;
+  fund_code?: Array<any>;
+  award?: Array<any>;
+  sub_sector?: Array<any>;
+  milestone?: Array<any>;
   user_access?: Array<any>;
   start_date?: string;
   end_date?: string;
   localId?: any;
-  permissions?: object;
+  permissions?: any;
   level1_uuid?: string;
 }

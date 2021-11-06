@@ -1,5 +1,5 @@
 // Load All
-import {WorkflowTeam} from './workflow-team.model';
+import { WorkflowTeam } from './workflow-team.model';
 
 export const LOAD_ALL_WORKFLOWTEAMS = 'LOAD_ALL_WORKFLOWTEAMS';
 export const LOAD_ALL_WORKFLOWTEAMS_COMMIT = 'LOAD_ALL_WORKFLOWTEAMS_COMMIT';
@@ -37,35 +37,35 @@ export function loadWorflowTeams() {
 export function loadWorflowTeamsCommit(data: WorkflowTeam[]) {
   return {
     type: LOAD_ALL_WORKFLOWTEAMS_COMMIT,
-    data
+    data,
   };
 }
 
-export function loadWorflowTeamsFail(error) {
+export function loadWorflowTeamsFail(error: any) {
   return {
     type: LOAD_ALL_WORKFLOWTEAMS_FAIL,
-    error
+    error,
   };
 }
 
 export function loadOneWorflowTeam(id: string) {
   return {
     type: LOAD_ONE_WORKFLOWTEAM,
-    id
+    id,
   };
 }
 
 export function loadOneWorflowTeamCommit(data: WorkflowTeam) {
   return {
     type: LOAD_ONE_WORKFLOWTEAM_COMMIT,
-    data
+    data,
   };
 }
 
-export function loadOneWorflowTeamFail(error) {
+export function loadOneWorflowTeamFail(error: any) {
   return {
     type: LOAD_ONE_WORKFLOWTEAM_FAIL,
-    error
+    error,
   };
 }
 
@@ -79,55 +79,55 @@ export function createWorflowTeam(data: WorkflowTeam) {
 export function createWorflowTeamCommit(data: WorkflowTeam) {
   return {
     type: CREATE_WORKFLOWTEAM_COMMIT,
-    data
+    data,
   };
 }
 
-export function createWorflowTeamFail(error) {
+export function createWorflowTeamFail(error: any) {
   return {
     type: CREATE_WORKFLOWTEAM_FAIL,
-    error
+    error,
   };
 }
 
 export function updateWorflowTeam(data: WorkflowTeam) {
   return {
     type: UPDATE_WORKFLOWTEAM,
-    data
+    data,
   };
 }
 
 export function updateWorflowTeamCommit(data: WorkflowTeam) {
   return {
     type: UPDATE_WORKFLOWTEAM_COMMIT,
-    data
+    data,
   };
 }
 
-export function updateWorflowTeamFail(error) {
+export function updateWorflowTeamFail(error: any) {
   return {
     type: UPDATE_WORKFLOWTEAM_FAIL,
-    error
+    error,
   };
 }
 
 export function deleteWorflowTeam(data: WorkflowTeam) {
   return {
     type: DELETE_WORKFLOWTEAM,
-    data
+    data,
   };
 }
 
-export function deleteWorflowTeamCommit(data: WorkflowTeam, nested) {
+export function deleteWorflowTeamCommit(data: WorkflowTeam, nested: any) {
   return {
     type: DELETE_WORKFLOWTEAM_COMMIT,
-    data
+    data,
   };
 }
 
-export function deleteWorflowTeamFail(error) {
+export function deleteWorflowTeamFail(error: any) {
   return {
     type: DELETE_WORKFLOWTEAM_FAIL,
-    error
+    error,
   };
 }

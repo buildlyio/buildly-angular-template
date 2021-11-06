@@ -1,5 +1,5 @@
-import {Workflow} from '@angular-devkit/schematics/src/workflow';
-import {WorkflowLevel1} from './workflow-level1.model';
+import { Workflow } from '@angular-devkit/schematics/src/workflow';
+import { WorkflowLevel1 } from './workflow-level1.model';
 
 export const LOAD_DATA_WORKFLOWLEVEL1 = 'LOAD_DATA_WORKFLOWLEVEL1';
 export const LOAD_DATA_WORKFLOWLEVEL1_COMMIT = 'LOAD_DATA_WORKFLOWLEVEL1_COMMIT';
@@ -16,20 +16,20 @@ export function loadWorkflowLevel1Data() {
 export function loadWorkflowLevel1DataCommit(data: WorkflowLevel1[]) {
   return {
     type: LOAD_DATA_WORKFLOWLEVEL1_COMMIT,
-    data
+    data,
   };
 }
 
-export function loadWorkflowLevel1DataFail(error) {
+export function loadWorkflowLevel1DataFail(error: any) {
   return {
     type: LOAD_DATA_WORKFLOWLEVEL1_FAIL,
-    error
+    error,
   };
 }
 
-export function loadAllWorkflowlevel1FromGraphQl(data) {
+export function loadAllWorkflowlevel1FromGraphQl(data: any) {
   return {
     type: LOAD_ALL_WORKFLOWLEVEL1_FROM_GRAPHQL,
-    data
+    data,
   };
 }

@@ -1,21 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { CrudComponent } from './crud.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import {
   ApolloTestingController,
   ApolloTestingModule,
 } from 'apollo-angular/testing';
 import { GraphQlService } from '@src/midgard/modules/graphql/graphql.service';
-import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { getAllWorkflowLevel1s } from '@src/midgard/state/workflow-level1/workflow-level1.selectors';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/icon';
 import { MatSnackBarStub } from '@src/midgard/testing-utilities/stubs';
-import { MidgardStoreModule } from '../store/store.module';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { StoreMock } from '../store/store-mock';
 import { Store } from '../store/store';
 import { FilterByNamePipe } from '../../pipes/filter-by-name.pipe';
-import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { CrudComponent } from './crud.component';
 import { mockCoreGroups } from '../../testing-utilities/mock.data';
 
 describe('CrudComponent', () => {
@@ -31,19 +29,18 @@ describe('CrudComponent', () => {
   const deleteAction = 'DELETE_ITEM_ACTION';
   const updateAction = 'UPDATE_ITEM_ACTION';
 
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ApolloTestingModule, RouterTestingModule, ScrollDispatchModule],
-      declarations: [ CrudComponent, FilterByNamePipe ],
+      declarations: [CrudComponent, FilterByNamePipe],
       providers: [
         GraphQlService,
-        {provide: Store, useClass: StoreMock},
-        {provide: MatSnackBar, useClass: MatSnackBarStub}
+        { provide: Store, useClass: StoreMock },
+        { provide: MatSnackBar, useClass: MatSnackBarStub },
       ],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
     })
-    .compileComponents();
+      .compileComponents();
     graphQlBackend = TestBed.get(ApolloTestingController);
     graphQlService = TestBed.get(GraphQlService);
   }));
@@ -75,7 +72,7 @@ describe('CrudComponent', () => {
 
     expect(store.dispatch).toHaveBeenCalledWith({
       type: deleteAction,
-      data: item
+      data: item,
     });
     expect(component.itemDeleted.emit).toHaveBeenCalled();
   });
@@ -93,7 +90,7 @@ describe('CrudComponent', () => {
     expect(store.dispatch).toHaveBeenCalledWith({
       type: createAction,
       data: item,
-      index: index
+      index,
     });
     expect(component.itemCreated.emit).toHaveBeenCalled();
   });
@@ -116,7 +113,7 @@ describe('CrudComponent', () => {
 
   it('should change view to selected view', () => {
     component.tableOptions = {
-      columns: ['column_1', 'column_2']
+      columns: ['column_1', 'column_2'],
     };
     component.ngOnInit();
     component.selectView('list');
@@ -130,8 +127,7 @@ describe('CrudComponent', () => {
     component.getDataFromStore();
 
     expect(store.dispatch).toHaveBeenCalledWith({
-      type: loadAction
+      type: loadAction,
     });
-
   });
 });

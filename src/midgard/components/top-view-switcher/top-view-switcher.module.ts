@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {TopViewSwitcherComponent} from './top-view-switcher.component';
-import {MatIconModule} from '@angular/material';
-import {FjButtonModule} from 'freyja-ui';
+import { MatIconModule } from '@angular/material/icon';
+import { TopViewSwitcherComponent } from './top-view-switcher.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MatIconModule,
-    FjButtonModule
   ],
   declarations: [
-    TopViewSwitcherComponent
+    TopViewSwitcherComponent,
   ],
   exports: [
-    TopViewSwitcherComponent
-  ]
+    TopViewSwitcherComponent,
+  ],
 })
 export class MgTopViewSwitcherModule { }

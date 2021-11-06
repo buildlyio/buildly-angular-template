@@ -1,9 +1,8 @@
 import { redux } from 'midgard-core';
 import { reselect } from '@src/midgard/modules/store';
-import {CoreUserState} from './coreuser.reducer';
+import { CoreUserState } from './coreuser.reducer';
 
-
-const getCoreUsers = state => state.coreuserReducer;
+const getCoreUsers = (state: any) => state.coreuserReducer;
 
 /**
  * selector to get all core user other than the authenticated user
@@ -13,17 +12,14 @@ export const getAllCoreUsers = redux.createSelector(
   getCoreUsers,
   (coreUserState: CoreUserState) => {
     if (coreUserState) {
-      const authUser = JSON.parse(localStorage.getItem('oauthUser'));
-      return coreUserState.data.map((coreuser: any) => {
-          coreuser.fullName = `${coreuser.first_name} ${coreuser.last_name}`;
-          coreuser.email = coreuser.email;
-          coreuser.is_active = coreuser.is_active;
-          return coreuser;
-        }).filter( coreuser => {
-          return coreuser.email !== authUser.email;
-        });
+      const authUser = JSON.parse(localStorage.getItem('oauthUser')!);
+      return coreUserState.data?.map((coreuser: any) => {
+        coreuser.fullName = `${coreuser.first_name} ${coreuser.last_name}`;
+        return coreuser;
+      }).filter((coreuser) => coreuser.email !== authUser.email);
     }
-  }
+    return null;
+  },
 );
 
 /**
@@ -36,10 +32,9 @@ export const getCoreUsersLoaded = redux.createSelector(
     if (coreUserState) {
       return coreUserState.loaded;
     }
-  }
+    return null;
+  },
 );
-
-
 
 /**
  * @returns {MemoizedSelector} returning the workflow team of a specific user and add the workflow label
@@ -47,8 +42,5 @@ export const getCoreUsersLoaded = redux.createSelector(
  */
 export const getCoreUser = (userId: string) => reselect.createSelector(
   getAllCoreUsers,
-  (coreUsers) => {
-    return coreUsers.data.find( coreUser => {
-      return coreUser.core_user_uuid === userId;
-    });
-  });
+  (coreUsers: any) => coreUsers.data.find((coreUser: any) => coreUser.core_user_uuid === userId),
+);

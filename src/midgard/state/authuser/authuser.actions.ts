@@ -1,4 +1,5 @@
-import {CoreUser} from '../coreuser/coreuser.model';
+import { CoreUser } from '../coreuser/coreuser.model';
+
 export const LOAD_AUTHUSER = 'LOAD_AUTHUSER';
 export const LOAD_AUTHUSER_COMMIT = 'LOAD_AUTHUSER_COMMIT';
 export const LOAD_AUTHUSER_FAIL = 'LOAD_AUTHUSER_FAIL';
@@ -15,34 +16,34 @@ export function loadAuthUser() {
 export function loadAuthUserCommit(data: CoreUser) {
   return {
     type: LOAD_AUTHUSER_COMMIT,
-    data
+    data,
   };
 }
 
-export function loadAuthUserFail(data) {
+export function loadAuthUserFail(data: any) {
   return {
     type: LOAD_AUTHUSER_FAIL,
-    data
+    data,
   };
 }
 
 export function updateAuthUser(data: CoreUser) {
   return {
     type: UPDATE_AUTHUSER,
-    data
+    data,
   };
 }
 
 export function updateAuthUserCommit(data: CoreUser) {
   return {
     type: UPDATE_AUTHUSER_COMMIT,
-    data
+    data,
   };
 }
 
-export function updateAuthUserFail(data) {
+export function updateAuthUserFail(data: any) {
   return {
     type: UPDATE_AUTHUSER_FAIL,
-    data
+    data,
   };
 }
